@@ -1,0 +1,116 @@
+Alpha 15.3 (10/9/2009)
+	Fix a crash caused by the server status monitor.
+	Snow Leopard only release.
+	
+Alpha 15.1 (31/8/2009)
+	Fix the skill queue (bug introduced in 
+		release 15)
+	Overview now updates when the character  is refreshed
+	Known Issues: Toolbar customization 
+		fails under leopard (10.5)
+Alpha 15 (30/8/2009)
+	Character overview page.
+	New colour scheme for the training queue.
+	Fix a database verification bug under OSX 10.6.
+	Server status monitor.
+	Window now opens where it was closed last.
+	Customisable toolbar.
+	CMD-R refresh button shortcut.
+	Batch character updates.
+		(See prefrence menu to enable)
+	Other bug fixes.
+
+Alpha 14.5 (9/8/2009)
+	Tweaks to the skill cell to clip overlapping text
+	Skill planner properly refreshes on character update
+
+Alpha 14.4 (3/8/2009)
+	Fixed a crash on character update during XML parsing.
+
+Alpha 14.3 (2/8/2009)
+	New XML update procedure.
+	Fixes for the skill queue (Queue would error when the queue was
+		completed)
+
+Alpha 14.2 (28/7/2009)
+	New Skill queue.
+	
+Alpha 14.1 (20/7/2009)
+	Fixed a crash on startup for new users or accounts.
+	Tweaks to the skill cell on the character sheet.
+
+Alpha 14 (18/7/2009)
+	New cell for the skill sheet which replicates the in game cell.
+	Revamp of the skill planner frontend.
+
+Alpha 13.1 (13/7/2009)
+	Fixed a bug that would cause the skill planner to fail to create new plans
+		for new accounts.
+
+Alpha 13 (13/7/2009)
+	Ship planning. (requires database. MacEveApi->download database in menu bar)
+	Shows percent complete of currently training skill in the skill planner.
+	Fix a random crash on character update.
+	In the skill prerequisite, display skills that are trained but
+		not to the requried level as orange
+	Fixed a problem caused by closing the skill plan database too soon
+	
+Alpha 12 (5/7/2009)
+	Memory leak fixes.
+	Fixed a few stupid bugs.
+	Fixed a bug in the skill plan where some skills would 
+		not be deleted properly, if a prerequisite was deleted.
+	Fixed a bug where the program would freeze up or crash 
+		if there were zero skills in the skill plan. 
+	
+Alpha 10 (27/6/2009)
+	Fixed a crash caused by double clicking on empty rows.
+	Skill planner now correctly calculates sp/hr adjusted for learning skills.
+
+Alpha 9
+	Added automatic update support using the Sparkle Updater (http://sparkle.andymatuschak.org/)
+	The skill planner now correctly accounts for learning skills that are added to the queue.
+	Fixed a spelling error in the skill details window.
+	Minor cosmetic changes to the skill details window.
+	BUG: the skill planner does not correctly calculate SP/hr when a learning skill is added to a plan
+	
+Alpha 8
+	Added tooltips to the character skill list and the planner skill list.
+	Added support for the training queue.
+	Added a skill info window. accesable by right click->info in the skill planner,
+		or double click on a skill in the character sheet or skill planner. 
+		(Window idea copied from EveHQ)
+	Single clicking on a row will expand that row (instead of having to click on the triangle)
+
+Alpha 7 (18/6/2009)
+	Fix memory leaks in the skill planner.
+	Add start, finish, and percent completed columns in the skill plan.
+	Added automatic column resizing to the skill plan.
+	Replace the toolbar drop down list with buttons.
+	Display clone skill points, set clone SP to red if the clone needs updating.
+	Fixed a startup crash related to parsing character XML sheets.
+
+Alpha 6 (17/6/2009)
+	Add the ability to search for a skill in the skill plan.
+	Fix a bug that would cause 32 bit versions not to display the skill completion countdown properly
+
+Alpha 5
+	Remove a skill plan by right click -> remove
+	Fix a bug where the skill plan didn't always save 
+	Add experimental support for reordering skills in a skill plan
+
+Alpha 4
+	Fix bug in the skill planner where the plan did not account for skills that are partially trained.
+		(Note: there is no percentage complete column yet)
+	Add drag and drop support for the skill planner. (can only add to the end of the queue)
+	Double clicking on a skill adds the skill to the plan
+
+Alpha 3
+	Fix bugs where if the user had >1 account then only characters from the last account would show in the list.
+	Implement character selection in the account screen (to enable / disable characters you don't want to look at)
+
+Alpha 2
+	There is no Alpha 2.
+
+Alpha 1
+	First public release.

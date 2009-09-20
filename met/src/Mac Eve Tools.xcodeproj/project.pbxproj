@@ -1,0 +1,1009 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		C9F51595105682AB00654F6D /* Package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C9F51598105682C900654F6D /* Build configuration list for PBXAggregateTarget "Package" */;
+			buildPhases = (
+				C9F51594105682AB00654F6D /* ShellScript */,
+			);
+			dependencies = (
+				C9F515A11056831F00654F6D /* PBXTargetDependency */,
+			);
+			name = Package;
+			productName = Package;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C9AC24281056886F0031D591 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AC24271056886F0031D591 /* Loading.xib */; };
+		C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4EC8105A0883009192BC /* CharacterTemplate.m */; };
+		C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */; };
+		C9F5143E10566CA200654F6D /* CharacterSheetPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F5143D10566CA200654F6D /* CharacterSheetPlugin.m */; };
+		C9F514951056721300654F6D /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F5148E1056721300654F6D /* MainController.m */; };
+		C9F514961056721300654F6D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F5148F1056721300654F6D /* MainMenu.xib */; };
+		C9F514971056721300654F6D /* MTSegmentedCellCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514911056721300654F6D /* MTSegmentedCellCategory.m */; };
+		C9F514981056721300654F6D /* MTTableViewCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514931056721300654F6D /* MTTableViewCategory.m */; };
+		C9F514A11056725600654F6D /* CharacterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514A01056725600654F6D /* CharacterManager.m */; };
+		C9FF4566105508950044BBAC /* charsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455B105508950044BBAC /* charsheet.png */; };
+		C9FF4567105508950044BBAC /* darkgray.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455C105508950044BBAC /* darkgray.tiff */; };
+		C9FF4568105508950044BBAC /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455D105508950044BBAC /* green.tiff */; };
+		C9FF4569105508950044BBAC /* icon12_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455E105508950044BBAC /* icon12_02.png */; };
+		C9FF456A105508950044BBAC /* icon22_41.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455F105508950044BBAC /* icon22_41.png */; };
+		C9FF456B105508950044BBAC /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4560105508950044BBAC /* info.png */; };
+		C9FF456C105508950044BBAC /* lightgray.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4561105508950044BBAC /* lightgray.tiff */; };
+		C9FF456D105508950044BBAC /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4562105508950044BBAC /* red.tiff */; };
+		C9FF456E105508950044BBAC /* skill.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4563105508950044BBAC /* skill.png */; };
+		C9FF456F105508950044BBAC /* skillv.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4564105508950044BBAC /* skillv.png */; };
+		C9FF4570105508950044BBAC /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4565105508950044BBAC /* yellow.tiff */; };
+		C9FF478310550BA60044BBAC /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46EE10550BA50044BBAC /* Account.m */; };
+		C9FF478410550BA60044BBAC /* bsd-base64.c in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46EF10550BA50044BBAC /* bsd-base64.c */; };
+		C9FF478510550BA60044BBAC /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46F310550BA50044BBAC /* Character.m */; };
+		C9FF478610550BA60044BBAC /* CharacterDatasoure.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46F510550BA50044BBAC /* CharacterDatasoure.m */; };
+		C9FF478710550BA60044BBAC /* CharacterPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46F710550BA50044BBAC /* CharacterPrivate.m */; };
+		C9FF478810550BA60044BBAC /* XMLCharacterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46F910550BA50044BBAC /* XMLCharacterOperation.m */; };
+		C9FF478910550BA60044BBAC /* XMLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46FB10550BA50044BBAC /* XMLDownloadOperation.m */; };
+		C9FF478A10550BA60044BBAC /* XMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46FD10550BA50044BBAC /* XMLParseOperation.m */; };
+		C9FF478B10550BA60044BBAC /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF46FF10550BA50044BBAC /* Config.m */; };
+		C9FF478C10550BA60044BBAC /* MTCharacterOverviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470210550BA50044BBAC /* MTCharacterOverviewCell.m */; };
+		C9FF478D10550BA60044BBAC /* MTCountdown.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470410550BA50044BBAC /* MTCountdown.m */; };
+		C9FF478E10550BA60044BBAC /* MTEveSkillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470610550BA50044BBAC /* MTEveSkillCell.m */; };
+		C9FF478F10550BA60044BBAC /* MTEveSkillQueueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470810550BA50044BBAC /* MTEveSkillQueueCell.m */; };
+		C9FF479010550BA60044BBAC /* MTEveSkillQueueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470A10550BA50044BBAC /* MTEveSkillQueueHeader.m */; };
+		C9FF479110550BA60044BBAC /* MTSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF470C10550BA50044BBAC /* MTSegmentedCell.m */; };
+		C9FF479410550BA60044BBAC /* MTSkillProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471210550BA50044BBAC /* MTSkillProgressCell.m */; };
+		C9FF479510550BA60044BBAC /* MTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471410550BA50044BBAC /* MTTableView.m */; };
+		C9FF479610550BA60044BBAC /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471610550BA50044BBAC /* DBManager.m */; };
+		C9FF479710550BA60044BBAC /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471810550BA50044BBAC /* Helpers.m */; };
+		C9FF479A10550BA60044BBAC /* read_query.c in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471E10550BA50044BBAC /* read_query.c */; };
+		C9FF479B10550BA60044BBAC /* ServerMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472110550BA50044BBAC /* ServerMonitor.m */; };
+		C9FF479C10550BA60044BBAC /* EvemonXmlPlanIO.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */; };
+		C9FF479D10550BA60044BBAC /* PlanIO.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472610550BA50044BBAC /* PlanIO.m */; };
+		C9FF479E10550BA60044BBAC /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472810550BA50044BBAC /* Skill.m */; };
+		C9FF479F10550BA60044BBAC /* SkillGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472A10550BA50044BBAC /* SkillGroup.m */; };
+		C9FF47A010550BA60044BBAC /* SkillPair.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472C10550BA50044BBAC /* SkillPair.m */; };
+		C9FF47A110550BA60044BBAC /* SkillPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472E10550BA50044BBAC /* SkillPlan.m */; };
+		C9FF47A210550BA60044BBAC /* SkillTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473010550BA60044BBAC /* SkillTree.m */; };
+		C9FF47A310550BA60044BBAC /* CCPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473410550BA60044BBAC /* CCPCategory.m */; };
+		C9FF47A410550BA60044BBAC /* CCPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473610550BA60044BBAC /* CCPDatabase.m */; };
+		C9FF47A510550BA60044BBAC /* CCPDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473810550BA60044BBAC /* CCPDBObject.m */; };
+		C9FF47A610550BA60044BBAC /* CCPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473A10550BA60044BBAC /* CCPGroup.m */; };
+		C9FF47A710550BA60044BBAC /* CCPMarketGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */; };
+		C9FF47A810550BA60044BBAC /* CCPMarketSubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */; };
+		C9FF47A910550BA60044BBAC /* CCPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474010550BA60044BBAC /* CCPShip.m */; };
+		C9FF47AA10550BA60044BBAC /* CCPType.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474210550BA60044BBAC /* CCPType.m */; };
+		C9FF47AB10550BA60044BBAC /* METSubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474410550BA60044BBAC /* METSubGroup.m */; };
+		C9FF47AC10550BA60044BBAC /* CharacterDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474710550BA60044BBAC /* CharacterDatabase.m */; };
+		C9FF47AD10550BA60044BBAC /* CharacterDatabasePrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474910550BA60044BBAC /* CharacterDatabasePrivate.m */; };
+		C9FF47AE10550BA60044BBAC /* SqliteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474B10550BA60044BBAC /* SqliteDatabase.m */; };
+		C9FF47AF10550BA60044BBAC /* XmlFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474D10550BA60044BBAC /* XmlFetcher.m */; };
+		C9FF47B010550BA60044BBAC /* XmlHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474F10550BA60044BBAC /* XmlHelpers.m */; };
+		C9FF47B110550BA60044BBAC /* AccountOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475210550BA60044BBAC /* AccountOverviewController.m */; };
+		C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475410550BA60044BBAC /* AccountViewController.m */; };
+		C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475610550BA60044BBAC /* GeneralSettingsController.m */; };
+		C9FF47B410550BA60044BBAC /* PreferenceAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475710550BA60044BBAC /* PreferenceAccount.xib */; };
+		C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475910550BA60044BBAC /* PreferenceController.m */; };
+		C9FF47B610550BA60044BBAC /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475A10550BA60044BBAC /* Preferences.xib */; };
+		C9FF47B710550BA60044BBAC /* PreferencesAccountMaster.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */; };
+		C9FF47B810550BA60044BBAC /* PreferencesGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */; };
+		C9FF47B910550BA60044BBAC /* SkillPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */; };
+		C9FF47BD10550BA60044BBAC /* CharacterSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF476710550BA60044BBAC /* CharacterSheet.xib */; };
+		C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF476910550BA60044BBAC /* CharacterSheetController.m */; };
+		C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477010550BA60044BBAC /* PlanView2.m */; };
+		C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477310550BA60044BBAC /* PlanView2Datasource.m */; };
+		C9FF47C310550BA60044BBAC /* SkillSearchCharacterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477510550BA60044BBAC /* SkillSearchCharacterDatasource.m */; };
+		C9FF47C410550BA60044BBAC /* SkillSearchShipDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477710550BA60044BBAC /* SkillSearchShipDatasource.m */; };
+		C9FF47C510550BA60044BBAC /* SkillPlan.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF477810550BA60044BBAC /* SkillPlan.xib */; };
+		C9FF47C610550BA60044BBAC /* SkillPlanController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477A10550BA60044BBAC /* SkillPlanController.m */; };
+		C9FF47C710550BA60044BBAC /* SkillSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477C10550BA60044BBAC /* SkillSearchView.m */; };
+		C9FF47C810550BA60044BBAC /* ShipDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */; };
+		C9FF47C910550BA60044BBAC /* SkillDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF478010550BA60044BBAC /* SkillDetails.xib */; };
+		C9FF47CA10550BA60044BBAC /* SkillDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */; };
+		C9FF47CF10550BE90044BBAC /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */; };
+		C9FF482610550F190044BBAC /* LoaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF482510550F190044BBAC /* LoaderController.m */; };
+		C9FF48D91055151F0044BBAC /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF48D81055151F0044BBAC /* GlobalData.m */; };
+		C9FF4A3A10552A180044BBAC /* ReleaseNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4A3910552A180044BBAC /* ReleaseNotes.txt */; };
+		C9FF4A7A105532B60044BBAC /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4A79105532B60044BBAC /* Credits.html */; };
+		C9FF4A80105536C00044BBAC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4A7F105536C00044BBAC /* dsa_pub.pem */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9F515A01056831F00654F6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = "Mac Eve Tools";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9FF48B9105512AE0044BBAC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		256AC3F00F4B6AF500CF3369 /* Mac_Eve_Tools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mac_Eve_Tools_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90FB55910644F4300292067 /* METMenuPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMenuPlugin.h; sourceTree = "<group>"; };
+		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
+		C9AC24271056886F0031D591 /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Loading.xib; path = Core/Loading.xib; sourceTree = SOURCE_ROOT; };
+		C9EB4EC7105A0883009192BC /* CharacterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTemplate.h; sourceTree = "<group>"; };
+		C9EB4EC8105A0883009192BC /* CharacterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTemplate.m; sourceTree = "<group>"; };
+		C9EB4F4E105A16BD009192BC /* GenericDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDownloadOperation.h; sourceTree = "<group>"; };
+		C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDownloadOperation.m; sourceTree = "<group>"; };
+		C9F5143C10566CA200654F6D /* CharacterSheetPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSheetPlugin.h; sourceTree = "<group>"; };
+		C9F5143D10566CA200654F6D /* CharacterSheetPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSheetPlugin.m; sourceTree = "<group>"; };
+		C9F5148D1056721300654F6D /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		C9F5148E1056721300654F6D /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		C9F5148F1056721300654F6D /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		C9F514901056721300654F6D /* MTSegmentedCellCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSegmentedCellCategory.h; sourceTree = "<group>"; };
+		C9F514911056721300654F6D /* MTSegmentedCellCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSegmentedCellCategory.m; sourceTree = "<group>"; };
+		C9F514921056721300654F6D /* MTTableViewCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTableViewCategory.h; sourceTree = "<group>"; };
+		C9F514931056721300654F6D /* MTTableViewCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTableViewCategory.m; sourceTree = "<group>"; };
+		C9F5149F1056725600654F6D /* CharacterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterManager.h; sourceTree = "<group>"; };
+		C9F514A01056725600654F6D /* CharacterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterManager.m; sourceTree = "<group>"; };
+		C9FF455B105508950044BBAC /* charsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charsheet.png; sourceTree = "<group>"; };
+		C9FF455C105508950044BBAC /* darkgray.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = darkgray.tiff; sourceTree = "<group>"; };
+		C9FF455D105508950044BBAC /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
+		C9FF455E105508950044BBAC /* icon12_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon12_02.png; sourceTree = "<group>"; };
+		C9FF455F105508950044BBAC /* icon22_41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon22_41.png; sourceTree = "<group>"; };
+		C9FF4560105508950044BBAC /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		C9FF4561105508950044BBAC /* lightgray.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = lightgray.tiff; sourceTree = "<group>"; };
+		C9FF4562105508950044BBAC /* red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = red.tiff; sourceTree = "<group>"; };
+		C9FF4563105508950044BBAC /* skill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill.png; sourceTree = "<group>"; };
+		C9FF4564105508950044BBAC /* skillv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skillv.png; sourceTree = "<group>"; };
+		C9FF4565105508950044BBAC /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = yellow.tiff; sourceTree = "<group>"; };
+		C9FF46ED10550BA50044BBAC /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		C9FF46EE10550BA50044BBAC /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		C9FF46EF10550BA50044BBAC /* bsd-base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "bsd-base64.c"; sourceTree = "<group>"; };
+		C9FF46F010550BA50044BBAC /* bsd-base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bsd-base64.h"; sourceTree = "<group>"; };
+		C9FF46F210550BA50044BBAC /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		C9FF46F310550BA50044BBAC /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		C9FF46F410550BA50044BBAC /* CharacterDatasoure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDatasoure.h; sourceTree = "<group>"; };
+		C9FF46F510550BA50044BBAC /* CharacterDatasoure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterDatasoure.m; sourceTree = "<group>"; };
+		C9FF46F610550BA50044BBAC /* CharacterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterPrivate.h; sourceTree = "<group>"; };
+		C9FF46F710550BA50044BBAC /* CharacterPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterPrivate.m; sourceTree = "<group>"; };
+		C9FF46F810550BA50044BBAC /* XMLCharacterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLCharacterOperation.h; sourceTree = "<group>"; };
+		C9FF46F910550BA50044BBAC /* XMLCharacterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLCharacterOperation.m; sourceTree = "<group>"; };
+		C9FF46FA10550BA50044BBAC /* XMLDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDownloadOperation.h; sourceTree = "<group>"; };
+		C9FF46FB10550BA50044BBAC /* XMLDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDownloadOperation.m; sourceTree = "<group>"; };
+		C9FF46FC10550BA50044BBAC /* XMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParseOperation.h; sourceTree = "<group>"; };
+		C9FF46FD10550BA50044BBAC /* XMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParseOperation.m; sourceTree = "<group>"; };
+		C9FF46FE10550BA50044BBAC /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		C9FF46FF10550BA50044BBAC /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		C9FF470110550BA50044BBAC /* MTCharacterOverviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCharacterOverviewCell.h; sourceTree = "<group>"; };
+		C9FF470210550BA50044BBAC /* MTCharacterOverviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCharacterOverviewCell.m; sourceTree = "<group>"; };
+		C9FF470310550BA50044BBAC /* MTCountdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCountdown.h; sourceTree = "<group>"; };
+		C9FF470410550BA50044BBAC /* MTCountdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCountdown.m; sourceTree = "<group>"; };
+		C9FF470510550BA50044BBAC /* MTEveSkillCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTEveSkillCell.h; sourceTree = "<group>"; };
+		C9FF470610550BA50044BBAC /* MTEveSkillCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTEveSkillCell.m; sourceTree = "<group>"; };
+		C9FF470710550BA50044BBAC /* MTEveSkillQueueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTEveSkillQueueCell.h; sourceTree = "<group>"; };
+		C9FF470810550BA50044BBAC /* MTEveSkillQueueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTEveSkillQueueCell.m; sourceTree = "<group>"; };
+		C9FF470910550BA50044BBAC /* MTEveSkillQueueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTEveSkillQueueHeader.h; sourceTree = "<group>"; };
+		C9FF470A10550BA50044BBAC /* MTEveSkillQueueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTEveSkillQueueHeader.m; sourceTree = "<group>"; };
+		C9FF470B10550BA50044BBAC /* MTSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSegmentedCell.h; sourceTree = "<group>"; };
+		C9FF470C10550BA50044BBAC /* MTSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSegmentedCell.m; sourceTree = "<group>"; };
+		C9FF471110550BA50044BBAC /* MTSkillProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillProgressCell.h; sourceTree = "<group>"; };
+		C9FF471210550BA50044BBAC /* MTSkillProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSkillProgressCell.m; sourceTree = "<group>"; };
+		C9FF471310550BA50044BBAC /* MTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTableView.h; sourceTree = "<group>"; };
+		C9FF471410550BA50044BBAC /* MTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTableView.m; sourceTree = "<group>"; };
+		C9FF471510550BA50044BBAC /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		C9FF471610550BA50044BBAC /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		C9FF471710550BA50044BBAC /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		C9FF471810550BA50044BBAC /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
+		C9FF471910550BA50044BBAC /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
+		C9FF471E10550BA50044BBAC /* read_query.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_query.c; sourceTree = "<group>"; };
+		C9FF471F10550BA50044BBAC /* read_query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read_query.h; sourceTree = "<group>"; };
+		C9FF472010550BA50044BBAC /* ServerMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerMonitor.h; sourceTree = "<group>"; };
+		C9FF472110550BA50044BBAC /* ServerMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerMonitor.m; sourceTree = "<group>"; };
+		C9FF472310550BA50044BBAC /* EvemonXmlPlanIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvemonXmlPlanIO.h; sourceTree = "<group>"; };
+		C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvemonXmlPlanIO.m; sourceTree = "<group>"; };
+		C9FF472510550BA50044BBAC /* PlanIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanIO.h; sourceTree = "<group>"; };
+		C9FF472610550BA50044BBAC /* PlanIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanIO.m; sourceTree = "<group>"; };
+		C9FF472710550BA50044BBAC /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		C9FF472810550BA50044BBAC /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		C9FF472910550BA50044BBAC /* SkillGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillGroup.h; sourceTree = "<group>"; };
+		C9FF472A10550BA50044BBAC /* SkillGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillGroup.m; sourceTree = "<group>"; };
+		C9FF472B10550BA50044BBAC /* SkillPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPair.h; sourceTree = "<group>"; };
+		C9FF472C10550BA50044BBAC /* SkillPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPair.m; sourceTree = "<group>"; };
+		C9FF472D10550BA50044BBAC /* SkillPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlan.h; sourceTree = "<group>"; };
+		C9FF472E10550BA50044BBAC /* SkillPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlan.m; sourceTree = "<group>"; };
+		C9FF472F10550BA60044BBAC /* SkillTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillTree.h; sourceTree = "<group>"; };
+		C9FF473010550BA60044BBAC /* SkillTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillTree.m; sourceTree = "<group>"; };
+		C9FF473310550BA60044BBAC /* CCPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCategory.h; sourceTree = "<group>"; };
+		C9FF473410550BA60044BBAC /* CCPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCategory.m; sourceTree = "<group>"; };
+		C9FF473510550BA60044BBAC /* CCPDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPDatabase.h; sourceTree = "<group>"; };
+		C9FF473610550BA60044BBAC /* CCPDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPDatabase.m; sourceTree = "<group>"; };
+		C9FF473710550BA60044BBAC /* CCPDBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPDBObject.h; sourceTree = "<group>"; };
+		C9FF473810550BA60044BBAC /* CCPDBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPDBObject.m; sourceTree = "<group>"; };
+		C9FF473910550BA60044BBAC /* CCPGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPGroup.h; sourceTree = "<group>"; };
+		C9FF473A10550BA60044BBAC /* CCPGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPGroup.m; sourceTree = "<group>"; };
+		C9FF473B10550BA60044BBAC /* CCPMarketGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPMarketGroup.h; sourceTree = "<group>"; };
+		C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPMarketGroup.m; sourceTree = "<group>"; };
+		C9FF473D10550BA60044BBAC /* CCPMarketSubGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPMarketSubGroup.h; sourceTree = "<group>"; };
+		C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPMarketSubGroup.m; sourceTree = "<group>"; };
+		C9FF473F10550BA60044BBAC /* CCPShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPShip.h; sourceTree = "<group>"; };
+		C9FF474010550BA60044BBAC /* CCPShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPShip.m; sourceTree = "<group>"; };
+		C9FF474110550BA60044BBAC /* CCPType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPType.h; sourceTree = "<group>"; };
+		C9FF474210550BA60044BBAC /* CCPType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPType.m; sourceTree = "<group>"; };
+		C9FF474310550BA60044BBAC /* METSubGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METSubGroup.h; sourceTree = "<group>"; };
+		C9FF474410550BA60044BBAC /* METSubGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METSubGroup.m; sourceTree = "<group>"; };
+		C9FF474610550BA60044BBAC /* CharacterDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDatabase.h; sourceTree = "<group>"; };
+		C9FF474710550BA60044BBAC /* CharacterDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterDatabase.m; sourceTree = "<group>"; };
+		C9FF474810550BA60044BBAC /* CharacterDatabasePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDatabasePrivate.h; sourceTree = "<group>"; };
+		C9FF474910550BA60044BBAC /* CharacterDatabasePrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterDatabasePrivate.m; sourceTree = "<group>"; };
+		C9FF474A10550BA60044BBAC /* SqliteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDatabase.h; sourceTree = "<group>"; };
+		C9FF474B10550BA60044BBAC /* SqliteDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteDatabase.m; sourceTree = "<group>"; };
+		C9FF474C10550BA60044BBAC /* XmlFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlFetcher.h; sourceTree = "<group>"; };
+		C9FF474D10550BA60044BBAC /* XmlFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlFetcher.m; sourceTree = "<group>"; };
+		C9FF474E10550BA60044BBAC /* XmlHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlHelpers.h; sourceTree = "<group>"; };
+		C9FF474F10550BA60044BBAC /* XmlHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlHelpers.m; sourceTree = "<group>"; };
+		C9FF475110550BA60044BBAC /* AccountOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountOverviewController.h; sourceTree = "<group>"; };
+		C9FF475210550BA60044BBAC /* AccountOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountOverviewController.m; sourceTree = "<group>"; };
+		C9FF475310550BA60044BBAC /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		C9FF475410550BA60044BBAC /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		C9FF475510550BA60044BBAC /* GeneralSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettingsController.h; sourceTree = "<group>"; };
+		C9FF475610550BA60044BBAC /* GeneralSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralSettingsController.m; sourceTree = "<group>"; };
+		C9FF475710550BA60044BBAC /* PreferenceAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceAccount.xib; sourceTree = "<group>"; };
+		C9FF475810550BA60044BBAC /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		C9FF475910550BA60044BBAC /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		C9FF475A10550BA60044BBAC /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesAccountMaster.xib; sourceTree = "<group>"; };
+		C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesGeneral.xib; sourceTree = "<group>"; };
+		C9FF475D10550BA60044BBAC /* SkillPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanViewController.h; sourceTree = "<group>"; };
+		C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanViewController.m; sourceTree = "<group>"; };
+		C9FF476710550BA60044BBAC /* CharacterSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSheet.xib; sourceTree = "<group>"; };
+		C9FF476810550BA60044BBAC /* CharacterSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSheetController.h; sourceTree = "<group>"; };
+		C9FF476910550BA60044BBAC /* CharacterSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSheetController.m; sourceTree = "<group>"; };
+		C9FF476C10550BA60044BBAC /* METPluggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METPluggableView.h; sourceTree = "<group>"; };
+		C9FF476F10550BA60044BBAC /* PlanView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanView2.h; sourceTree = "<group>"; };
+		C9FF477010550BA60044BBAC /* PlanView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanView2.m; sourceTree = "<group>"; };
+		C9FF477210550BA60044BBAC /* PlanView2Datasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanView2Datasource.h; sourceTree = "<group>"; };
+		C9FF477310550BA60044BBAC /* PlanView2Datasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanView2Datasource.m; sourceTree = "<group>"; };
+		C9FF477410550BA60044BBAC /* SkillSearchCharacterDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillSearchCharacterDatasource.h; sourceTree = "<group>"; };
+		C9FF477510550BA60044BBAC /* SkillSearchCharacterDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillSearchCharacterDatasource.m; sourceTree = "<group>"; };
+		C9FF477610550BA60044BBAC /* SkillSearchShipDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillSearchShipDatasource.h; sourceTree = "<group>"; };
+		C9FF477710550BA60044BBAC /* SkillSearchShipDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillSearchShipDatasource.m; sourceTree = "<group>"; };
+		C9FF477810550BA60044BBAC /* SkillPlan.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlan.xib; sourceTree = "<group>"; };
+		C9FF477910550BA60044BBAC /* SkillPlanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanController.h; sourceTree = "<group>"; };
+		C9FF477A10550BA60044BBAC /* SkillPlanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanController.m; sourceTree = "<group>"; };
+		C9FF477B10550BA60044BBAC /* SkillSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillSearchView.h; sourceTree = "<group>"; };
+		C9FF477C10550BA60044BBAC /* SkillSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillSearchView.m; sourceTree = "<group>"; };
+		C9FF477E10550BA60044BBAC /* ShipDetailsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipDetailsWindowController.h; sourceTree = "<group>"; };
+		C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipDetailsWindowController.m; sourceTree = "<group>"; };
+		C9FF478010550BA60044BBAC /* SkillDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillDetails.xib; sourceTree = "<group>"; };
+		C9FF478110550BA60044BBAC /* SkillDetailsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillDetailsWindowController.h; sourceTree = "<group>"; };
+		C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillDetailsWindowController.m; sourceTree = "<group>"; };
+		C9FF47CD10550BE90044BBAC /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
+		C9FF482410550F190044BBAC /* LoaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoaderController.h; path = ../Core/LoaderController.h; sourceTree = "<group>"; };
+		C9FF482510550F190044BBAC /* LoaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoaderController.m; path = ../Core/LoaderController.m; sourceTree = "<group>"; };
+		C9FF48D71055151F0044BBAC /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
+		C9FF48D81055151F0044BBAC /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
+		C9FF4A3910552A180044BBAC /* ReleaseNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReleaseNotes.txt; sourceTree = "<group>"; };
+		C9FF4A79105532B60044BBAC /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		C9FF4A7F105536C00044BBAC /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C9F5147F1056719D00654F6D /* Private */,
+				C9FF475010550BA60044BBAC /* Preference Views */,
+				C9FF46EC10550BA50044BBAC /* Core */,
+				C9FF475F10550BA60044BBAC /* Views */,
+				C9FF477D10550BA60044BBAC /* Windows */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Mac Eve Tools.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Mac Eve Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF455A105508950044BBAC /* Images */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Mac Eve Tools";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* Mac_Eve_Tools_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF4A7F105536C00044BBAC /* dsa_pub.pem */,
+				C9FF4A79105532B60044BBAC /* Credits.html */,
+				C9FF4A3910552A180044BBAC /* ReleaseNotes.txt */,
+				8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9F5147F1056719D00654F6D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C9F5148D1056721300654F6D /* MainController.h */,
+				C9F5148E1056721300654F6D /* MainController.m */,
+				C9F514901056721300654F6D /* MTSegmentedCellCategory.h */,
+				C9F514911056721300654F6D /* MTSegmentedCellCategory.m */,
+				C9F514921056721300654F6D /* MTTableViewCategory.h */,
+				C9F514931056721300654F6D /* MTTableViewCategory.m */,
+				C9F5149F1056725600654F6D /* CharacterManager.h */,
+				C9F514A01056725600654F6D /* CharacterManager.m */,
+				C9FF482410550F190044BBAC /* LoaderController.h */,
+				C9FF482510550F190044BBAC /* LoaderController.m */,
+				C9AC24271056886F0031D591 /* Loading.xib */,
+				C9F5148F1056721300654F6D /* MainMenu.xib */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C9FF455A105508950044BBAC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF455B105508950044BBAC /* charsheet.png */,
+				C9FF455C105508950044BBAC /* darkgray.tiff */,
+				C9FF455D105508950044BBAC /* green.tiff */,
+				C9FF455E105508950044BBAC /* icon12_02.png */,
+				C9FF455F105508950044BBAC /* icon22_41.png */,
+				C9FF4560105508950044BBAC /* info.png */,
+				C9FF4561105508950044BBAC /* lightgray.tiff */,
+				C9FF4562105508950044BBAC /* red.tiff */,
+				C9FF4563105508950044BBAC /* skill.png */,
+				C9FF4564105508950044BBAC /* skillv.png */,
+				C9FF4565105508950044BBAC /* yellow.tiff */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C9FF46EC10550BA50044BBAC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF472210550BA50044BBAC /* Skills */,
+				C9FF473110550BA60044BBAC /* SQLite Database */,
+				C9FF470010550BA50044BBAC /* Controls */,
+				C9FF46F110550BA50044BBAC /* Character */,
+				C9FF46ED10550BA50044BBAC /* Account.h */,
+				C9FF46EE10550BA50044BBAC /* Account.m */,
+				C9FF46EF10550BA50044BBAC /* bsd-base64.c */,
+				C9FF46F010550BA50044BBAC /* bsd-base64.h */,
+				C9FF46FE10550BA50044BBAC /* Config.h */,
+				C9FF46FF10550BA50044BBAC /* Config.m */,
+				C9FF471510550BA50044BBAC /* DBManager.h */,
+				C9FF471610550BA50044BBAC /* DBManager.m */,
+				C9FF471710550BA50044BBAC /* Helpers.h */,
+				C9FF471810550BA50044BBAC /* Helpers.m */,
+				C9FF471910550BA50044BBAC /* macros.h */,
+				C9FF471E10550BA50044BBAC /* read_query.c */,
+				C9FF471F10550BA50044BBAC /* read_query.h */,
+				C9FF472010550BA50044BBAC /* ServerMonitor.h */,
+				C9FF472110550BA50044BBAC /* ServerMonitor.m */,
+				C9FF474C10550BA60044BBAC /* XmlFetcher.h */,
+				C9FF474D10550BA60044BBAC /* XmlFetcher.m */,
+				C9FF474E10550BA60044BBAC /* XmlHelpers.h */,
+				C9FF474F10550BA60044BBAC /* XmlHelpers.m */,
+				C9FF48D71055151F0044BBAC /* GlobalData.h */,
+				C9FF48D81055151F0044BBAC /* GlobalData.m */,
+				C9EB4EC7105A0883009192BC /* CharacterTemplate.h */,
+				C9EB4EC8105A0883009192BC /* CharacterTemplate.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C9FF46F110550BA50044BBAC /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF46F210550BA50044BBAC /* Character.h */,
+				C9FF46F310550BA50044BBAC /* Character.m */,
+				C9FF46F410550BA50044BBAC /* CharacterDatasoure.h */,
+				C9FF46F510550BA50044BBAC /* CharacterDatasoure.m */,
+				C9FF46F610550BA50044BBAC /* CharacterPrivate.h */,
+				C9FF46F710550BA50044BBAC /* CharacterPrivate.m */,
+				C9FF46F810550BA50044BBAC /* XMLCharacterOperation.h */,
+				C9FF46F910550BA50044BBAC /* XMLCharacterOperation.m */,
+				C9FF46FA10550BA50044BBAC /* XMLDownloadOperation.h */,
+				C9FF46FB10550BA50044BBAC /* XMLDownloadOperation.m */,
+				C9FF46FC10550BA50044BBAC /* XMLParseOperation.h */,
+				C9FF46FD10550BA50044BBAC /* XMLParseOperation.m */,
+				C9EB4F4E105A16BD009192BC /* GenericDownloadOperation.h */,
+				C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		C9FF470010550BA50044BBAC /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF470110550BA50044BBAC /* MTCharacterOverviewCell.h */,
+				C9FF470210550BA50044BBAC /* MTCharacterOverviewCell.m */,
+				C9FF470310550BA50044BBAC /* MTCountdown.h */,
+				C9FF470410550BA50044BBAC /* MTCountdown.m */,
+				C9FF470510550BA50044BBAC /* MTEveSkillCell.h */,
+				C9FF470610550BA50044BBAC /* MTEveSkillCell.m */,
+				C9FF470710550BA50044BBAC /* MTEveSkillQueueCell.h */,
+				C9FF470810550BA50044BBAC /* MTEveSkillQueueCell.m */,
+				C9FF470910550BA50044BBAC /* MTEveSkillQueueHeader.h */,
+				C9FF470A10550BA50044BBAC /* MTEveSkillQueueHeader.m */,
+				C9FF470B10550BA50044BBAC /* MTSegmentedCell.h */,
+				C9FF470C10550BA50044BBAC /* MTSegmentedCell.m */,
+				C9FF471110550BA50044BBAC /* MTSkillProgressCell.h */,
+				C9FF471210550BA50044BBAC /* MTSkillProgressCell.m */,
+				C9FF471310550BA50044BBAC /* MTTableView.h */,
+				C9FF471410550BA50044BBAC /* MTTableView.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		C9FF472210550BA50044BBAC /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF472310550BA50044BBAC /* EvemonXmlPlanIO.h */,
+				C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */,
+				C9FF472510550BA50044BBAC /* PlanIO.h */,
+				C9FF472610550BA50044BBAC /* PlanIO.m */,
+				C9FF472710550BA50044BBAC /* Skill.h */,
+				C9FF472810550BA50044BBAC /* Skill.m */,
+				C9FF472910550BA50044BBAC /* SkillGroup.h */,
+				C9FF472A10550BA50044BBAC /* SkillGroup.m */,
+				C9FF472B10550BA50044BBAC /* SkillPair.h */,
+				C9FF472C10550BA50044BBAC /* SkillPair.m */,
+				C9FF472D10550BA50044BBAC /* SkillPlan.h */,
+				C9FF472E10550BA50044BBAC /* SkillPlan.m */,
+				C9FF472F10550BA60044BBAC /* SkillTree.h */,
+				C9FF473010550BA60044BBAC /* SkillTree.m */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
+		C9FF473110550BA60044BBAC /* SQLite Database */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF473210550BA60044BBAC /* CCP Database */,
+				C9FF474510550BA60044BBAC /* Character Database */,
+				C9FF474A10550BA60044BBAC /* SqliteDatabase.h */,
+				C9FF474B10550BA60044BBAC /* SqliteDatabase.m */,
+			);
+			path = "SQLite Database";
+			sourceTree = "<group>";
+		};
+		C9FF473210550BA60044BBAC /* CCP Database */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF473310550BA60044BBAC /* CCPCategory.h */,
+				C9FF473410550BA60044BBAC /* CCPCategory.m */,
+				C9FF473510550BA60044BBAC /* CCPDatabase.h */,
+				C9FF473610550BA60044BBAC /* CCPDatabase.m */,
+				C9FF473710550BA60044BBAC /* CCPDBObject.h */,
+				C9FF473810550BA60044BBAC /* CCPDBObject.m */,
+				C9FF473910550BA60044BBAC /* CCPGroup.h */,
+				C9FF473A10550BA60044BBAC /* CCPGroup.m */,
+				C9FF473B10550BA60044BBAC /* CCPMarketGroup.h */,
+				C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */,
+				C9FF473D10550BA60044BBAC /* CCPMarketSubGroup.h */,
+				C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */,
+				C9FF473F10550BA60044BBAC /* CCPShip.h */,
+				C9FF474010550BA60044BBAC /* CCPShip.m */,
+				C9FF474110550BA60044BBAC /* CCPType.h */,
+				C9FF474210550BA60044BBAC /* CCPType.m */,
+				C9FF474310550BA60044BBAC /* METSubGroup.h */,
+				C9FF474410550BA60044BBAC /* METSubGroup.m */,
+			);
+			path = "CCP Database";
+			sourceTree = "<group>";
+		};
+		C9FF474510550BA60044BBAC /* Character Database */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF474610550BA60044BBAC /* CharacterDatabase.h */,
+				C9FF474710550BA60044BBAC /* CharacterDatabase.m */,
+				C9FF474810550BA60044BBAC /* CharacterDatabasePrivate.h */,
+				C9FF474910550BA60044BBAC /* CharacterDatabasePrivate.m */,
+			);
+			path = "Character Database";
+			sourceTree = "<group>";
+		};
+		C9FF475010550BA60044BBAC /* Preference Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF47CD10550BE90044BBAC /* PreferenceViewController.h */,
+				C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */,
+				C9FF475110550BA60044BBAC /* AccountOverviewController.h */,
+				C9FF475210550BA60044BBAC /* AccountOverviewController.m */,
+				C9FF475310550BA60044BBAC /* AccountViewController.h */,
+				C9FF475410550BA60044BBAC /* AccountViewController.m */,
+				C9FF475510550BA60044BBAC /* GeneralSettingsController.h */,
+				C9FF475610550BA60044BBAC /* GeneralSettingsController.m */,
+				C9FF475710550BA60044BBAC /* PreferenceAccount.xib */,
+				C9FF475810550BA60044BBAC /* PreferenceController.h */,
+				C9FF475910550BA60044BBAC /* PreferenceController.m */,
+				C9FF475A10550BA60044BBAC /* Preferences.xib */,
+				C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */,
+				C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */,
+				C9FF475D10550BA60044BBAC /* SkillPlanViewController.h */,
+				C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */,
+			);
+			path = "Preference Views";
+			sourceTree = "<group>";
+		};
+		C9FF475F10550BA60044BBAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF476E10550BA60044BBAC /* Skill Planner */,
+				C9FF476610550BA60044BBAC /* Character Sheet */,
+				C9FF476C10550BA60044BBAC /* METPluggableView.h */,
+				C90FB55910644F4300292067 /* METMenuPlugin.h */,
+				C90FB55A10644F8600292067 /* METInstance.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9FF476610550BA60044BBAC /* Character Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF476710550BA60044BBAC /* CharacterSheet.xib */,
+				C9FF476810550BA60044BBAC /* CharacterSheetController.h */,
+				C9FF476910550BA60044BBAC /* CharacterSheetController.m */,
+				C9F5143C10566CA200654F6D /* CharacterSheetPlugin.h */,
+				C9F5143D10566CA200654F6D /* CharacterSheetPlugin.m */,
+			);
+			path = "Character Sheet";
+			sourceTree = "<group>";
+		};
+		C9FF476E10550BA60044BBAC /* Skill Planner */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF477110550BA60044BBAC /* SkillDatasource */,
+				C9FF476F10550BA60044BBAC /* PlanView2.h */,
+				C9FF477010550BA60044BBAC /* PlanView2.m */,
+				C9FF477910550BA60044BBAC /* SkillPlanController.h */,
+				C9FF477A10550BA60044BBAC /* SkillPlanController.m */,
+				C9FF477B10550BA60044BBAC /* SkillSearchView.h */,
+				C9FF477C10550BA60044BBAC /* SkillSearchView.m */,
+				C9FF477810550BA60044BBAC /* SkillPlan.xib */,
+			);
+			path = "Skill Planner";
+			sourceTree = "<group>";
+		};
+		C9FF477110550BA60044BBAC /* SkillDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF477210550BA60044BBAC /* PlanView2Datasource.h */,
+				C9FF477310550BA60044BBAC /* PlanView2Datasource.m */,
+				C9FF477410550BA60044BBAC /* SkillSearchCharacterDatasource.h */,
+				C9FF477510550BA60044BBAC /* SkillSearchCharacterDatasource.m */,
+				C9FF477610550BA60044BBAC /* SkillSearchShipDatasource.h */,
+				C9FF477710550BA60044BBAC /* SkillSearchShipDatasource.m */,
+			);
+			path = SkillDatasource;
+			sourceTree = "<group>";
+		};
+		C9FF477D10550BA60044BBAC /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF477E10550BA60044BBAC /* ShipDetailsWindowController.h */,
+				C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */,
+				C9FF478010550BA60044BBAC /* SkillDetails.xib */,
+				C9FF478110550BA60044BBAC /* SkillDetailsWindowController.h */,
+				C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Mac Eve Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Mac Eve Tools" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				C9FF48B9105512AE0044BBAC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mac Eve Tools";
+			productInstallPath = "$(HOME)/Applications";
+			productName = "Mac Eve Tools";
+			productReference = 8D1107320486CEB800E47090 /* Mac Eve Tools.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mac Eve Tools" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Mac Eve Tools */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Mac Eve Tools */,
+				C9F51595105682AB00654F6D /* Package */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				C9FF4566105508950044BBAC /* charsheet.png in Resources */,
+				C9FF4567105508950044BBAC /* darkgray.tiff in Resources */,
+				C9FF4568105508950044BBAC /* green.tiff in Resources */,
+				C9FF4569105508950044BBAC /* icon12_02.png in Resources */,
+				C9FF456A105508950044BBAC /* icon22_41.png in Resources */,
+				C9FF456B105508950044BBAC /* info.png in Resources */,
+				C9FF456C105508950044BBAC /* lightgray.tiff in Resources */,
+				C9FF456D105508950044BBAC /* red.tiff in Resources */,
+				C9FF456E105508950044BBAC /* skill.png in Resources */,
+				C9FF456F105508950044BBAC /* skillv.png in Resources */,
+				C9FF4570105508950044BBAC /* yellow.tiff in Resources */,
+				C9FF47B410550BA60044BBAC /* PreferenceAccount.xib in Resources */,
+				C9FF47B610550BA60044BBAC /* Preferences.xib in Resources */,
+				C9FF47B710550BA60044BBAC /* PreferencesAccountMaster.xib in Resources */,
+				C9FF47B810550BA60044BBAC /* PreferencesGeneral.xib in Resources */,
+				C9FF47BD10550BA60044BBAC /* CharacterSheet.xib in Resources */,
+				C9FF47C510550BA60044BBAC /* SkillPlan.xib in Resources */,
+				C9FF47C910550BA60044BBAC /* SkillDetails.xib in Resources */,
+				C9FF4A3A10552A180044BBAC /* ReleaseNotes.txt in Resources */,
+				C9FF4A7A105532B60044BBAC /* Credits.html in Resources */,
+				C9FF4A80105536C00044BBAC /* dsa_pub.pem in Resources */,
+				C9F514961056721300654F6D /* MainMenu.xib in Resources */,
+				C9AC24281056886F0031D591 /* Loading.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9F51594105682AB00654F6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\nDEPLOYDIR=/Users/matt/programming/deployment\n\n\nFILELEN=`$DEPLOYDIR/length \"$DEPLOYDIR/MacEveApi.zip\"`\nCURDATE=`date +\"%Y-%m-%d %H:%M:%S +1000\"`\n\nrm -f $DEPLOYDIR/MacEveApi.dmg\nrm -f $DEPLOYDIR/MacEveApi.zip\nrm -rf /tmp/MacEveApi\nmkdir /tmp/MacEveApi\n\ncp '/Users/matt/Downloads/Sparkle 1/License.txt' '/tmp/MacEveApi/Sparkle License.txt'\ncp ReleaseNotes.txt /tmp/MacEveApi\ncp ReleaseNotes.txt $DEPLOYDIR\ncp Readme.rtf /tmp/MacEveApi\ncp -R \"$TARGET_BUILD_DIR/MacEveApi.app\" '/tmp/MacEveApi'\n\nhdiutil create -fs HFS+ -volname MacEveApi -srcfolder /tmp/MacEveApi/  -format UDBZ $DEPLOYDIR/MacEveApi.dmg\n\n#generate upgrade zipfile\nzip -r -9 -y -T  $DEPLOYDIR/MacEveApi.zip '/tmp/MacEveApi/MacEveApi.app'\n\nDSASIG=`ruby $DEPLOYDIR/sign_update.rb $DEPLOYDIR/MacEveApi.zip $DEPLOYDIR/dsa_priv.pem`\n\n#generate appcast xml\npython $DEPLOYDIR/appcast.py -v $CURRENT_PROJECT_VERSION -t \"MacEveApi Release:$CURRENT_PROJECT_VERSION\" -l $FILELEN -s $DSASIG -d \"$CURDATE\" > $DEPLOYDIR/APPCAST.XML\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				C9FF478310550BA60044BBAC /* Account.m in Sources */,
+				C9FF478410550BA60044BBAC /* bsd-base64.c in Sources */,
+				C9FF478510550BA60044BBAC /* Character.m in Sources */,
+				C9FF478610550BA60044BBAC /* CharacterDatasoure.m in Sources */,
+				C9FF478710550BA60044BBAC /* CharacterPrivate.m in Sources */,
+				C9FF478810550BA60044BBAC /* XMLCharacterOperation.m in Sources */,
+				C9FF478910550BA60044BBAC /* XMLDownloadOperation.m in Sources */,
+				C9FF478A10550BA60044BBAC /* XMLParseOperation.m in Sources */,
+				C9FF478B10550BA60044BBAC /* Config.m in Sources */,
+				C9FF478C10550BA60044BBAC /* MTCharacterOverviewCell.m in Sources */,
+				C9FF478D10550BA60044BBAC /* MTCountdown.m in Sources */,
+				C9FF478E10550BA60044BBAC /* MTEveSkillCell.m in Sources */,
+				C9FF478F10550BA60044BBAC /* MTEveSkillQueueCell.m in Sources */,
+				C9FF479010550BA60044BBAC /* MTEveSkillQueueHeader.m in Sources */,
+				C9FF479110550BA60044BBAC /* MTSegmentedCell.m in Sources */,
+				C9FF479410550BA60044BBAC /* MTSkillProgressCell.m in Sources */,
+				C9FF479510550BA60044BBAC /* MTTableView.m in Sources */,
+				C9FF479610550BA60044BBAC /* DBManager.m in Sources */,
+				C9FF479710550BA60044BBAC /* Helpers.m in Sources */,
+				C9FF479A10550BA60044BBAC /* read_query.c in Sources */,
+				C9FF479B10550BA60044BBAC /* ServerMonitor.m in Sources */,
+				C9FF479C10550BA60044BBAC /* EvemonXmlPlanIO.m in Sources */,
+				C9FF479D10550BA60044BBAC /* PlanIO.m in Sources */,
+				C9FF479E10550BA60044BBAC /* Skill.m in Sources */,
+				C9FF479F10550BA60044BBAC /* SkillGroup.m in Sources */,
+				C9FF47A010550BA60044BBAC /* SkillPair.m in Sources */,
+				C9FF47A110550BA60044BBAC /* SkillPlan.m in Sources */,
+				C9FF47A210550BA60044BBAC /* SkillTree.m in Sources */,
+				C9FF47A310550BA60044BBAC /* CCPCategory.m in Sources */,
+				C9FF47A410550BA60044BBAC /* CCPDatabase.m in Sources */,
+				C9FF47A510550BA60044BBAC /* CCPDBObject.m in Sources */,
+				C9FF47A610550BA60044BBAC /* CCPGroup.m in Sources */,
+				C9FF47A710550BA60044BBAC /* CCPMarketGroup.m in Sources */,
+				C9FF47A810550BA60044BBAC /* CCPMarketSubGroup.m in Sources */,
+				C9FF47A910550BA60044BBAC /* CCPShip.m in Sources */,
+				C9FF47AA10550BA60044BBAC /* CCPType.m in Sources */,
+				C9FF47AB10550BA60044BBAC /* METSubGroup.m in Sources */,
+				C9FF47AC10550BA60044BBAC /* CharacterDatabase.m in Sources */,
+				C9FF47AD10550BA60044BBAC /* CharacterDatabasePrivate.m in Sources */,
+				C9FF47AE10550BA60044BBAC /* SqliteDatabase.m in Sources */,
+				C9FF47AF10550BA60044BBAC /* XmlFetcher.m in Sources */,
+				C9FF47B010550BA60044BBAC /* XmlHelpers.m in Sources */,
+				C9FF47B110550BA60044BBAC /* AccountOverviewController.m in Sources */,
+				C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */,
+				C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */,
+				C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */,
+				C9FF47B910550BA60044BBAC /* SkillPlanViewController.m in Sources */,
+				C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */,
+				C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */,
+				C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */,
+				C9FF47C310550BA60044BBAC /* SkillSearchCharacterDatasource.m in Sources */,
+				C9FF47C410550BA60044BBAC /* SkillSearchShipDatasource.m in Sources */,
+				C9FF47C610550BA60044BBAC /* SkillPlanController.m in Sources */,
+				C9FF47C710550BA60044BBAC /* SkillSearchView.m in Sources */,
+				C9FF47C810550BA60044BBAC /* ShipDetailsWindowController.m in Sources */,
+				C9FF47CA10550BA60044BBAC /* SkillDetailsWindowController.m in Sources */,
+				C9FF47CF10550BE90044BBAC /* PreferenceViewController.m in Sources */,
+				C9FF482610550F190044BBAC /* LoaderController.m in Sources */,
+				C9FF48D91055151F0044BBAC /* GlobalData.m in Sources */,
+				C9F5143E10566CA200654F6D /* CharacterSheetPlugin.m in Sources */,
+				C9F514951056721300654F6D /* MainController.m in Sources */,
+				C9F514971056721300654F6D /* MTSegmentedCellCategory.m in Sources */,
+				C9F514981056721300654F6D /* MTTableViewCategory.m in Sources */,
+				C9F514A11056725600654F6D /* CharacterManager.m in Sources */,
+				C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */,
+				C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9F515A11056831F00654F6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Mac Eve Tools */;
+			targetProxy = C9F515A01056831F00654F6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Linked Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Mac_Eve_Tools_Prefix.pch;
+				INFOPLIST_FILE = "Mac_Eve_Tools-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Mac Eve Tools";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Linked Frameworks\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Mac_Eve_Tools_Prefix.pch;
+				INFOPLIST_FILE = "Mac_Eve_Tools-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Mac Eve Tools";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 15.3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-lcrypto",
+					"-lbz2",
+					"-lsqlite3",
+				);
+				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
+				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";
+				PREBINDING = NO;
+				PRODUCT_NAME = MacEveApi;
+				SDKROOT = macosx10.6;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 15.3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-lcrypto",
+					"-lbz2",
+					"-lsqlite3",
+				);
+				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
+				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";
+				PREBINDING = NO;
+				PRODUCT_NAME = MacEveApi;
+				SDKROOT = macosx10.6;
+				VALID_ARCHS = "i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		C9F51596105682AB00654F6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Package;
+			};
+			name = Debug;
+		};
+		C9F51597105682AB00654F6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Package;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Mac Eve Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mac Eve Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F51598105682C900654F6D /* Build configuration list for PBXAggregateTarget "Package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F51596105682AB00654F6D /* Debug */,
+				C9F51597105682AB00654F6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
