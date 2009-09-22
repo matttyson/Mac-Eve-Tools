@@ -27,6 +27,8 @@
 #import "SkillSearchCharacterDatasource.h"
 #import "SkillSearchShipDatasource.h"
 
+#import "METInstance.h"
+
 @interface SkillPlanController (SkillPlanControllerPrivate)
 
 /*delegate methods for the splitting panel*/
@@ -204,15 +206,18 @@
 	
 	[skillSearchView reloadDatasource:skillCharDatasource];
 	[skillSearchView selectDefaultGroup];
+	
+	[skillView2 refreshPlanView];
 }
 
 -(void) viewWillBeDeactivated
 {
 }
 -(void) viewWillBeActivated
-{	
+{
 }
 
+/*construct the toolbar menu*/
 -(NSMenuItem*) menuItems
 {
 	NSMenu *menu;
@@ -260,7 +265,7 @@
 	[skillView2 addSkillArrayToActivePlan:skills];
 }
 
-#pragma mark PlanSummaryDelegate
+#pragma mark SkillView2Delegate
 
 -(SkillPlan*) createNewPlan:(NSString*)planName;
 {
@@ -320,43 +325,23 @@
 	
 }
 
-/*
-  
-
-
--(IBAction) planButtonClick:(id)sender
+-(void) setInstance:(id<METInstance>)instance
 {
-	[NSApp endSheet:newPlan returnCode:[sender tag]];
-	[newPlan orderOut:sender];
+	//Don't retain.
+	mainApp = instance;
 }
 
--(void) newPlanNameSheet:(NSWindow*)sheet 
-			  returnCode:(NSInteger)returnCode 
-			 contextInfo:(NSString*)fname
+-(void) setToolbarMessage:(NSString *)message
 {
-	[fname autorelease];
-	
-	if(returnCode != 1){
-		return;
-	}
-	
-	PlanIO *pio = [[EvemonXmlPlanIO alloc]init];
-	
-	BOOL rc = [pio read:fname forCharacter:currentCharacter planName:[newPlanName stringValue]];
-	
-	if(!rc){
-		[pio release];
-		return;
-	}
-	
-	[[pio plan]savePlan];
-	
-	[pio release];
+	//Set a permanat message
+	[mainApp setToolbarMessage:message];
 }
-*/
-/*
- end of hacky shit
- */
+
+-(void) setToolbarMessage:(NSString*)message time:(NSInteger)seconds
+{
+	[mainApp setToolbarMessage:message time:seconds];
+}
+
 
 
 @end

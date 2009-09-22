@@ -19,9 +19,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "METInstance.h"
+#import "PlanView2Datasource.h"
+
 @class SkillPlan;
 
-@protocol SkillView2Delegate
+@protocol SkillView2Delegate <METInstance>
 
 /*
  the plan summary wants to create a new plan
@@ -46,7 +49,7 @@
 @class PlanView2Datasource;
 @class Character;
 
-@interface PlanView2 : NSView <NSTableViewDelegate> {
+@interface PlanView2 : NSView <NSTableViewDelegate,PlanView2Delegate> {
 	IBOutlet NSButton *plusButton;
 	IBOutlet NSButton *minusButton;
 	
@@ -87,5 +90,8 @@
 
 //Import a plan at this path
 -(void) performPlanImport:(NSString*)filePath;
+
+
+-(void) refreshPlanView;
 
 @end

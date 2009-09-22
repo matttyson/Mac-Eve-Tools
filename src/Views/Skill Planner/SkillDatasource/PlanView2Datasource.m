@@ -43,7 +43,13 @@
 
 -(void) dealloc
 {
+	[masterSkillSet release];
 	[super dealloc];
+}
+
+-(void) setViewDelegate:(id<PlanView2Delegate>)delegate
+{
+	viewDelegate = delegate;
 }
 
 -(Character*) character
@@ -116,10 +122,12 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_SPHR]){
 		return [skillPlan spHrForSkill:rowIndex];
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_TRAINING_TIME]){
-		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]timeIntervalSinceDate:[skillPlan skillTrainingStart:rowIndex]];
+		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]
+											 timeIntervalSinceDate:[skillPlan skillTrainingStart:rowIndex]];
 		return stringTrainingTime(trainingTime);
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_TRAINING_TTD]){
-		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]timeIntervalSinceDate:[skillPlan skillTrainingStart:0]];
+		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]
+											 timeIntervalSinceDate:[skillPlan skillTrainingStart:0]];
 		return stringTrainingTime(trainingTime);
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_CALSTART]){
 		/*the date and time that this skill will start training*/
@@ -143,13 +151,17 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 				}
 			}
 		}
-		NSInteger percentCompleted = (NSInteger) [character percentCompleted:[sp typeID] fromLevel:[sp skillLevel]-1 toLevel:[sp skillLevel]] * 100.0;
+		NSInteger percentCompleted = (NSInteger) [character percentCompleted:[sp typeID] 
+																   fromLevel:[sp skillLevel]-1 
+																	 toLevel:[sp skillLevel]] * 100.0;
 		return [NSString stringWithFormat:@"%ld%%",percentCompleted];
 	}
 	return nil;
 }
 
--(NSMenu*) tableView:(NSTableView*)table menuForTableColumn:(NSTableColumn*)column row:(NSInteger)row
+-(NSMenu*) tableView:(NSTableView*)table 
+  menuForTableColumn:(NSTableColumn*)column 
+				 row:(NSInteger)row
 {
 	/*
 	 this right click is to remove skills from the skill plan.  we have to figure out if removing the skill being removed
@@ -267,7 +279,6 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 	   proposedDropOperation:(NSTableViewDropOperation)operation
 {
 	if(mode == SPMode_overview){
-		//[aTableView setDropRow:row dropOperation:NSTableViewDropAn
 		return NSDragOperationCopy;
 	}
 	
@@ -299,9 +310,8 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 		
 		if(rc){
 			[plan savePlan];
-			[aTableView reloadData];
+			[viewDelegate refreshPlanView];
 			[aTableView deselectAll:self];
-			//[aTableView selectRowIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(row,[indexArray count])] byExtendingSelection:NO];
 		}
 		
 		return rc;
@@ -325,7 +335,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 			/*we are looking at a skill plan - append skills to the plan*/
 			[plan addSkillArrayToPlan:array];
 			[plan savePlan];
-			[aTableView noteNumberOfRowsChanged];
+			[viewDelegate refreshPlanView];
 			return YES;
 		}else if(mode == SPMode_overview){
 			if(operation == NSTableViewDropOn){

@@ -79,8 +79,6 @@ enum CharacterSortMode
  */
 -(BOOL)setTemplateArray:(NSArray*)tarray delegate:(id)del;
 
-
-
 /*
 	Get a character instance.
  

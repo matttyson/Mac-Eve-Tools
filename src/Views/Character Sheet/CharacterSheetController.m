@@ -501,4 +501,11 @@ willDisplayOutlineCell:(id)cell
 	return [outlineView rowHeight];
 }
 
+-(void) setInstance:(id<METInstance>)instance
+{
+	//Don't retain.
+	mainApp = instance;
+}
+
+
 @end

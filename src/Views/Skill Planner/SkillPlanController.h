@@ -28,12 +28,6 @@
 #import "SkillSearchCharacterDatasource.h"
 #import "SkillSearchShipDatasource.h"
 
-//#import "PlanTabView.h"
-//#import "PlanSummaryView.h"
-//#import "PlanView.h"
-//#import "SkillPlanOverviewDatasource.h"
-//#import "SkillPlanViewDatasource.h"
-
 #import "PlanView2.h"
 @class PlanView2Datasource;
 
@@ -44,7 +38,10 @@
 
 
 @interface SkillPlanController : NSViewController 
-	<METPluggableView, SkillSearchDelegate,SkillView2Delegate,NSSplitViewDelegate> 
+	<METPluggableView, 
+	 SkillSearchDelegate,
+	 SkillView2Delegate,
+	 NSSplitViewDelegate> 
 {
 	IBOutlet NSSplitView *splitView;
 	
@@ -57,6 +54,8 @@
 	/*datasources*/
 	SkillSearchCharacterDatasource *skillCharDatasource; /*this is one possible datasource for the SkillSearchView*/
 	SkillSearchShipDatasource *skillShipDatasource;
+	
+	id<METInstance> mainApp;
 }
 
 -(void) setCharacter:(Character*)c;

@@ -273,11 +273,13 @@
 	id<METPluggableView> mvc;
 	mvc = [[CharacterSheetController alloc]init];
 	[mvc view];//trigger the awakeFromNib
+	[mvc setInstance:self];
 	[viewControllers addObject:mvc];
 	[(NSObject*)mvc release];
 	
 	mvc = [[SkillPlanController alloc]init];
 	[mvc view];//trigger the awakeFromNib
+	[mvc setInstance:self];
 	[viewControllers addObject:mvc];
 	[(NSObject*)mvc release];
 	
@@ -387,8 +389,6 @@ downloadLabel:
 	/*check to see if the server is up*/
 	[self serverStatus:ServerUnknown];
 	[monitor startMonitoring];
-	
-	[self setStatusMessage:@"Hello!!!" imageState:StatusGreen time:10];
 }
 
 /*re-enable the button*/
@@ -620,12 +620,13 @@ downloadLabel:
 
 -(IBAction) toolbarButtonClick:(id)sender
 {
-	if([sender tag] == 2){
+	if([sender tag] == -1){
 		[overviewDrawer toggle:self];
 		return;
 	}
 	
 	id<METPluggableView> mvc = [viewControllers objectAtIndex:[sender tag]];
+	[self setStatusMessage:nil imageState:StatusHidden time:0];//clear any toolbar message.
 	[self setAsActiveView:mvc];
 }
 
@@ -704,13 +705,17 @@ downloadLabel:
 	[self charOverviewClick:[notification object]];
 }
 
-
-
-
--(IBAction) exportEvemonPlan:(id)sender
+-(void) setToolbarMessage:(NSString *)message
 {
-	
+	//Set a permanat message
+	[self setStatusMessage:message 
+				imageState:StatusHidden
+					  time:0];
 }
 
+-(void) setToolbarMessage:(NSString*)message time:(NSInteger)seconds
+{
+	[self setStatusMessage:message imageState:StatusHidden time:seconds];
+}
 
 @end

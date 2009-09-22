@@ -22,6 +22,7 @@
 #import "METPluggableView.h"
 #import "MTCountdown.h"
 #import "MTEveSkillQueueHeader.h"
+#import "METInstance.h"
 
 @class Character;
 @class Skill;
@@ -62,6 +63,7 @@
 	
 	Character *currentCharacter; /*the character we are displaying*/
 	Skill *trainingSkill;
+	id<METInstance> mainApp;
 }
 
 -(Character*) character;

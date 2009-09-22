@@ -229,8 +229,10 @@
  delegate called when the batch update of all characters is done.
  Called by the BatchParseOperation object.
  Notify that the update operation has been completed.
+ 
+ Object is an NSArray of error strings.  NIL if there are no errors
  */
--(void) batchUpdateOperationDone:(id)object
+-(void) batchUpdateOperationDone:(id)del errors:(NSArray*)errorArray
 {
 	[self buildCharacterDict];
 	
@@ -240,9 +242,10 @@
 	}
 	sortedArray = nil;
 	
-	if(object != nil){
-		if([object respondsToSelector:@selector(batchUpdateOperationDone:)]){
-			[object performSelector:@selector(batchUpdateOperationDone:)];
+	if(del != nil){
+		if([del respondsToSelector:@selector(batchUpdateOperationDone:)]){
+			[del performSelector:@selector(batchUpdateOperationDone:) 
+						   withObject:errorArray];
 		}
 	}
 }
@@ -257,7 +260,7 @@
 	XMLParseOperation *opParse = [[XMLParseOperation alloc]init];
 	
 	[opParse setDelegate:self];
-	[opParse setCallback:@selector(batchUpdateOperationDone:)];
+	[opParse setCallback:@selector(batchUpdateOperationDone:errors:)];
 	[opParse setObject:del];
 	
 	for(CharacterTemplate *template in templates){

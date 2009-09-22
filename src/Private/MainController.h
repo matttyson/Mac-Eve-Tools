@@ -25,12 +25,15 @@
 #import "DBManager.h"
 #import "macros.h"
 #import "METPluggableView.h"
+#import "METInstance.h"
 
 @class ServerMonitor;
 @class CharacterOverviewDatasource;
 @class CharacterManager;
 
-@interface MainController : NSWindowController <DBManagerDelegate, NSWindowDelegate>{
+@interface MainController : NSWindowController 
+	<DBManagerDelegate, NSWindowDelegate ,METInstance>
+{
 	IBOutlet NSToolbar *toolbar;
 	
 	IBOutlet NSPanel *noCharsPanel;

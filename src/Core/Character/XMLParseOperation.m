@@ -25,6 +25,8 @@
 
 #import "XmlHelpers.h"
 
+#import "UpdateError.h"
+
 #include <libxml/tree.h>
 
 @interface XMLParsePair : NSObject
@@ -122,6 +124,12 @@
 		xmlNode *xmlErrorMessage = findChildNode(root_node,(xmlChar*)"error");
 		if(xmlErrorMessage != NULL){
 			NSString *errorString = getNodeText(xmlErrorMessage);
+			NSString *errorNum = findAttribute(xmlErrorMessage,(xmlChar*)"code");
+			/*
+			UpdateError *error = [[UpdateError alloc]initWithError:[errorNum integerValue]
+														   message:errorString 
+													  forCharacter:
+			*/
 			NSLog(@"EVE XML error: %@",errorString);
 		}		
 		rc = NO;
@@ -220,8 +228,10 @@
 		//Remove all the pending directories, and their contents.
 		NSError *error = nil;
 		NSString *pendingDir = [[pair characterDir] stringByAppendingString:@"/pending"];
-		if(![manager removeItemAtPath:pendingDir error:&error]){
-			NSLog(@"Failed to delete '%@' (%@)",pendingDir,[error localizedDescription]);
+		if([manager fileExistsAtPath:pendingDir]){
+			if(![manager removeItemAtPath:pendingDir error:&error]){
+				NSLog(@"Failed to delete '%@' (%@)",pendingDir,[error localizedDescription]);
+			}
 		}
 	}
 	
@@ -233,24 +243,20 @@
 	if(delegate != nil){
 		if([delegate respondsToSelector:callback]){
 			/*notify on done, pass through the error array when i get it done.*/
-			[delegate performSelectorOnMainThread:callback
-									   withObject:nil
+			[self performSelectorOnMainThread:@selector(callDelegate:)
+									   withObject:nil //error array
 									waitUntilDone:YES];
 		}
 	}
 	
 }
 
-/*
--(void) addDependency:(NSOperation*)operation
+-(void) callDelegate:(NSArray*)errorArray
 {
-	if([operation respondsToSelector:@selector(xmlDoc)]){
-		//adds the name if the XML sheet
-		[xmlFiles addObject:[(XMLDownloadOperation*)operation xmlDoc]];
-		NSLog(@"Added %@ to XML update queue",[(XMLDownloadOperation*)operation xmlDoc]);
-	}
-	[super addDependency:operation];
+	/*call the delegate function on the main thread*/
+	[delegate performSelector:callback
+				   withObject:object
+				   withObject:errorArray];
 }
-*/
 
 @end

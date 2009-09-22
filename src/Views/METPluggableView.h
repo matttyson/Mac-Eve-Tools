@@ -19,6 +19,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "METInstance.h"
+
 @class Character;
 
 /*
@@ -48,6 +50,9 @@
 
 -(void) viewWillBeDeactivated; //called before the view is deactivated.
 -(void) viewWillBeActivated;  //called after the view is deactivated
+
+//This is a callback to the main application
+-(void) setInstance:(id<METInstance>)instance;
 
 /*
 	Return an NSMenuItem populated with any options to display to the user

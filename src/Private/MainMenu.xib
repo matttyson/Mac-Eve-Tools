@@ -13,7 +13,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="372"/>
+			<integer value="481"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -752,7 +752,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{3, 14}, {39, 38}}</string>
 									<reference key="NSSuperview"/>
-									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="162889321">
 										<int key="NSCellFlags">-2080244224</int>
@@ -843,7 +842,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{0, 14}, {150, 25}}</string>
 									<reference key="NSSuperview"/>
-									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSPopUpButtonCell" key="NSCell" id="911348147">
 										<int key="NSCellFlags">-2076049856</int>
@@ -923,7 +921,7 @@
 								<string key="NSToolbarItemMaxSize">{0, 0}</string>
 								<bool key="NSToolbarItemEnabled">YES</bool>
 								<bool key="NSToolbarItemAutovalidates">YES</bool>
-								<int key="NSToolbarItemTag">2</int>
+								<int key="NSToolbarItemTag">-1</int>
 								<bool key="NSToolbarIsUserRemovable">YES</bool>
 								<int key="NSToolbarItemVisibilityPriority">0</int>
 							</object>
@@ -3609,7 +3607,7 @@
 					<object class="NSMutableArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 					</object>
-					<string>{{572, 754}, {617, 0}}</string>
+					<string>{{680, 485}, {617, 239}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

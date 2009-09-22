@@ -19,6 +19,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+#import "METInstance.h"
+
 enum SkillPlanMode{
 	SPMode_overview,
 	SPMode_plan,
@@ -28,17 +31,28 @@ enum SkillPlanMode{
 @class Character;
 @class SkillPlan;
 
+@protocol PlanView2Delegate
+
+/*called when you want to update the */
+-(void) refreshPlanView;
+
+@end
+
+
 @interface PlanView2Datasource : NSObject <NSTableViewDelegate, NSTableViewDataSource> {
 	NSDictionary *masterSkillSet;
 	Character *character;
 	NSInteger planId;
 	enum SkillPlanMode mode;
+	id<PlanView2Delegate> viewDelegate;
 }
 
 @property (readwrite,nonatomic) NSInteger planId;
 @property (readwrite,nonatomic) enum SkillPlanMode mode;
 
 -(id) init;
+
+-(void) setViewDelegate:(id<PlanView2Delegate>)delegate;
 
 -(Character*) character;
 -(void) setCharacter:(Character*)c;

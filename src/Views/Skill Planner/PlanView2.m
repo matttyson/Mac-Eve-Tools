@@ -67,7 +67,7 @@
 		[[segmentedButton cell]removeCellWithTag:[plan planId]];
 		[character removeSkillPlan:plan];
 		[segmentedButton setSelectedSegment:0];
-		[tableView noteNumberOfRowsChanged];
+		[self refreshPlanView];
 	}
 	free(ary);
 }
@@ -79,7 +79,7 @@
 	NSArray *antiPlan = contextInfo;
 	if(returnCode == 1){
 		[pvDatasource removeSkillsFromPlan:antiPlan];
-		[tableView noteNumberOfRowsChanged];
+		[self refreshPlanView];
 	}
 	[antiPlan release];
 }
@@ -88,7 +88,7 @@
 {
 	if([antiPlan count] == 1){
 		[pvDatasource removeSkillsFromPlan:antiPlan];
-		[tableView noteNumberOfRowsChanged];
+		[self refreshPlanView];
 		return;
 	}
 	
@@ -154,7 +154,7 @@
 	SkillPlan *plan = [delegate createNewPlan:str];
 	
 	if(plan != nil){
-		[tableView noteNumberOfRowsChanged];
+		[self refreshPlanView];
 		[self loadPlan:plan];
 		[self displayPlanByPlanId:[plan planId]];
 	}
@@ -199,6 +199,13 @@
 	[segmentedButton setFrameOrigin:newSize.origin];
 }
 
+-(void)toobarMessageForPlan:(SkillPlan*)plan
+{
+	NSString *trainingTime = stringTrainingTime([plan trainingTime]);
+	NSString *message = [NSString stringWithFormat:@"%ld skills planned. Total training time: %@",
+						 [plan skillCount],trainingTime];
+	[delegate setToolbarMessage:message];
+}
 
 /*-1 is a special plan ID which triggers the overview*/
 -(IBAction) displayPlanByPlanId:(NSInteger)tag
@@ -210,6 +217,7 @@
 	if(tag == -1){ //if we are switching to the overview
 		[self switchColumns:overviewColumns];
 		[pvDatasource setMode:SPMode_overview];
+		[delegate setToolbarMessage:nil];
 	}else if(currentTag == -1){ //if we are switching FROM the overview
 		[self switchColumns:skillPlanColumns];
 		[pvDatasource setMode:SPMode_plan];
@@ -219,7 +227,7 @@
 	}
 	
 	currentTag = tag;
-	[tableView reloadData];
+	[self refreshPlanView];
 }
 
 @end
@@ -228,6 +236,14 @@
 @implementation PlanView2
 
 @synthesize delegate;
+
+-(void) refreshPlanView
+{
+	[tableView reloadData];
+	if([pvDatasource mode] == SPMode_plan){
+		[self toobarMessageForPlan:[pvDatasource currentPlan]];
+	}
+}
 
 -(void) buildSkillPlanColumnArray
 {
@@ -308,6 +324,7 @@
 		overviewColumns = [[NSMutableArray alloc]init];
 		skillPlanColumns = [[NSMutableArray alloc]init];
 		pvDatasource = [[PlanView2Datasource alloc]init];
+		[pvDatasource setViewDelegate:self];
 		[self buildSkillOverviewColumnArray];
 		[self buildSkillPlanColumnArray];
 		currentTag = -1;
@@ -414,7 +431,7 @@
 	}else{
 		//If we are in overview mode, reload the datasource
 		if([pvDatasource mode] == SPMode_overview){
-			[tableView reloadData];
+			[self refreshPlanView];
 		}
 	}
 }
@@ -426,14 +443,6 @@
 		modalDelegate:self
 	   didEndSelector:@selector(importSheetDidEnd:returnCode:contextInfo:)
 		  contextInfo:[filePath retain]];
-}
-
-
-		
--(void) characterIsFinishedUpating:(NSNotification*)notification
-{
-	[tableView noteNumberOfRowsChanged];
-	[tableView reloadData];
 }
 
 -(IBAction) segmentedButtonClick:(id)sender
@@ -473,7 +482,7 @@
 	[segmentedButton setSegmentCount:1];
 	[pvDatasource setCharacter:c];
 	[self displayPlanByPlanId:-1];
-	[tableView reloadData];
+	[self refreshPlanView];
 }
 
 -(Character*) character
@@ -521,7 +530,7 @@
 {
 	[pvDatasource addSkillArrayToActivePlan:skillArray];
 	[[pvDatasource currentPlan]savePlan];
-	[tableView noteNumberOfRowsChanged];
+	[self refreshPlanView];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView 
