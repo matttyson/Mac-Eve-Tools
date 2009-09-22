@@ -54,7 +54,7 @@ long read_query(char *restrict buffer, long n, FILE *stream)
 		}
 	}
 	funlockfile(stream);
-
+	
 	if(i >= n){
 		/*error, buffer not large enough*/
 		ungetc(*buffer,stream);

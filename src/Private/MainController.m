@@ -391,22 +391,6 @@ downloadLabel:
 	[monitor startMonitoring];
 }
 
-/*re-enable the button*/
--(void) characterUpdateFinished:(NSNotification*)notification
-{
-	[[NSNotificationCenter defaultCenter]
-	 removeObserver:self
-	 name:CHARACTER_FINISHED_UPDATE_NOTIFICATION
-	 object:[notification object]];
-	
-	[fetchCharButton setEnabled:YES];
-	[charButton setEnabled:YES];
-	
-	[statusString setHidden:YES];
-	
-	[overviewTableView reloadData];
-}
-
 -(void) setAsActiveView:(id<METPluggableView>)mvc
 {
 	if(mvc == currentController){
