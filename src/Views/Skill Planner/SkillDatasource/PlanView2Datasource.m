@@ -229,7 +229,6 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}
 }
 
-
 #pragma mark Drag and drop methods
 - (BOOL)tableView:(NSTableView *)tv 
 writeRowsWithIndexes:(NSIndexSet *)rowIndexes 

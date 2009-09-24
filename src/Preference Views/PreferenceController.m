@@ -23,6 +23,8 @@
 #import "AccountOverviewController.h"
 #import "GeneralSettingsController.h"
 
+#import "SkillPlanConfig.h"
+
 #define PLUS_TAG 0
 #define MINUS_TAG 1
 
@@ -102,6 +104,11 @@
 		[viewControllers addObject:vc];
 		[vc setPc:self];
 		[vc release];
+		
+		vc = [[SkillPlanConfig alloc]init];
+		[viewControllers addObject:vc];
+		[vc setPc:self];
+		[vc release];
 	}
 	
 	return self;
@@ -124,6 +131,14 @@
 {
 	NSLog(@"Writing out config");
 	[cfg saveConfig];
+	
+	/*need to write out the viewcontrollers*/
+	for(PreferenceViewController *pvc in viewControllers){
+		if([pvc respondsToSelector:@selector(writeDefaults)]){
+			[pvc performSelector:@selector(writeDefaults)];
+		}
+	}
+		
 	
 	[[self window]close];
 }

@@ -660,16 +660,4 @@
 	return [db writeSkillPlans:skillPlans];
 }
 
--(void) beginXmlProcessing
-{
-	
-}
-
--(void) finishedXmlProcessing:(BOOL)success
-{
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:CHARACTER_FINISHED_UPDATE_NOTIFICATION 
-	 object:self];
-}
-
 @end

@@ -19,6 +19,7 @@
 
 #import "PlanView2.h"
 #import "macros.h"
+#import "PlannerColumn.h"
 
 #import "GlobalData.h"
 #import "SkillPlan.h"
@@ -249,49 +250,18 @@
 {
 	NSTableColumn *col;
 	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_SKILLNAME];
-	[col setWidth:175.0];
-	[[col headerCell]setStringValue:@"Skill Name"];
-	[skillPlanColumns addObject:col];
-	[col release];
+	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"skill_plan_config"];
+	NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_TRAINING_TIME];
-	[col setWidth:90.0];
-	[[col headerCell]setStringValue:@"Training Time"];
-	[[col dataCell]setAlignment:NSRightTextAlignment];
-	[skillPlanColumns addObject:col];
-	[col release];
-	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_TRAINING_TTD];
-	[col setWidth:90.0];
-	[[col headerCell]setStringValue:@"Running Total"];
-	[[col dataCell]setAlignment:NSRightTextAlignment];
-	[skillPlanColumns addObject:col];
-	[col release];
-	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_SPHR];
-	[col setWidth:50.0];
-	[[col headerCell]setStringValue:@"SP/Hr"];
-	[skillPlanColumns addObject:col];
-	[col release];
-	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_CALSTART];
-	[col setWidth:125.0];
-	[[col headerCell]setStringValue:@"Start Date"];
-	[skillPlanColumns addObject:col];
-	[col release];
-	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_CALFINISH];
-	[col setWidth:125.0];
-	[[col headerCell]setStringValue:@"Finish Date"];
-	[skillPlanColumns addObject:col];
-	[col release];
-	
-	col = [[NSTableColumn alloc]initWithIdentifier:COL_PLAN_PERCENT];
-	[col setWidth:50.0];
-	[[col headerCell]setStringValue:@"Done"];
-	[skillPlanColumns addObject:col];
-	[col release];
+	for(PlannerColumn *pcol in ary){
+		if([pcol active]){
+			col = [[NSTableColumn alloc]initWithIdentifier:[pcol identifier]];
+			[col setWidth:[pcol columnWidth]];
+			[[col headerCell]setStringValue:[pcol columnName]];
+			[skillPlanColumns addObject:col];
+			[col release];
+		}
+	}
 }
 
 -(void) buildSkillOverviewColumnArray
@@ -539,5 +509,14 @@ shouldEditTableColumn:(NSTableColumn *)aTableColumn
 {
 	return NO;
 }
+
+- (void)tableViewColumnDidResize:(NSNotification *)aNotification
+{
+	NSTableColumn *col = [[aNotification userInfo]objectForKey:@"NSTableColumn"];
+	NSLog(@"resized %@ to %.2f",[col identifier],(double)[col width]);
+	
+	//Save the column width
+}
+
 
 @end

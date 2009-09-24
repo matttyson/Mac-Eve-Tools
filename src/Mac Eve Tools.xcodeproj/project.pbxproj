@@ -25,6 +25,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
+		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
+		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
 		C9AC24281056886F0031D591 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AC24271056886F0031D591 /* Loading.xib */; };
 		C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4EC8105A0883009192BC /* CharacterTemplate.m */; };
 		C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */; };
@@ -95,7 +98,6 @@
 		C9FF47B610550BA60044BBAC /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475A10550BA60044BBAC /* Preferences.xib */; };
 		C9FF47B710550BA60044BBAC /* PreferencesAccountMaster.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */; };
 		C9FF47B810550BA60044BBAC /* PreferencesGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */; };
-		C9FF47B910550BA60044BBAC /* SkillPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */; };
 		C9FF47BD10550BA60044BBAC /* CharacterSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF476710550BA60044BBAC /* CharacterSheet.xib */; };
 		C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF476910550BA60044BBAC /* CharacterSheetController.m */; };
 		C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477010550BA60044BBAC /* PlanView2.m */; };
@@ -148,8 +150,12 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C90FB55910644F4300292067 /* METMenuPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMenuPlugin.h; sourceTree = "<group>"; };
 		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
+		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
+		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
+		C979E0071069B05400457530 /* SkillPlannerConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlannerConfig.xib; sourceTree = "<group>"; };
+		C979E00B1069C42700457530 /* PlannerColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerColumn.h; sourceTree = "<group>"; };
+		C979E00C1069C42700457530 /* PlannerColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerColumn.m; sourceTree = "<group>"; };
 		C9AC24271056886F0031D591 /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Loading.xib; path = Core/Loading.xib; sourceTree = SOURCE_ROOT; };
 		C9EB4EC7105A0883009192BC /* CharacterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTemplate.h; sourceTree = "<group>"; };
 		C9EB4EC8105A0883009192BC /* CharacterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTemplate.m; sourceTree = "<group>"; };
@@ -274,8 +280,6 @@
 		C9FF475A10550BA60044BBAC /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesAccountMaster.xib; sourceTree = "<group>"; };
 		C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesGeneral.xib; sourceTree = "<group>"; };
-		C9FF475D10550BA60044BBAC /* SkillPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanViewController.h; sourceTree = "<group>"; };
-		C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanViewController.m; sourceTree = "<group>"; };
 		C9FF476710550BA60044BBAC /* CharacterSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSheet.xib; sourceTree = "<group>"; };
 		C9FF476810550BA60044BBAC /* CharacterSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSheetController.h; sourceTree = "<group>"; };
 		C9FF476910550BA60044BBAC /* CharacterSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSheetController.m; sourceTree = "<group>"; };
@@ -400,6 +404,18 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C979E0011069AA0300457530 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C979E0021069AA0E00457530 /* SkillPlanConfig.h */,
+				C979E0031069AA0E00457530 /* SkillPlanConfig.m */,
+				C979E0071069B05400457530 /* SkillPlannerConfig.xib */,
+				C979E00B1069C42700457530 /* PlannerColumn.h */,
+				C979E00C1069C42700457530 /* PlannerColumn.m */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		C9F5147F1056719D00654F6D /* Private */ = {
@@ -602,8 +618,6 @@
 				C9FF475A10550BA60044BBAC /* Preferences.xib */,
 				C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */,
 				C9FF475C10550BA60044BBAC /* PreferencesGeneral.xib */,
-				C9FF475D10550BA60044BBAC /* SkillPlanViewController.h */,
-				C9FF475E10550BA60044BBAC /* SkillPlanViewController.m */,
 			);
 			path = "Preference Views";
 			sourceTree = "<group>";
@@ -614,7 +628,6 @@
 				C9FF476E10550BA60044BBAC /* Skill Planner */,
 				C9FF476610550BA60044BBAC /* Character Sheet */,
 				C9FF476C10550BA60044BBAC /* METPluggableView.h */,
-				C90FB55910644F4300292067 /* METMenuPlugin.h */,
 				C90FB55A10644F8600292067 /* METInstance.h */,
 			);
 			path = Views;
@@ -635,6 +648,7 @@
 		C9FF476E10550BA60044BBAC /* Skill Planner */ = {
 			isa = PBXGroup;
 			children = (
+				C979E0011069AA0300457530 /* Config */,
 				C9FF477110550BA60044BBAC /* SkillDatasource */,
 				C9FF476F10550BA60044BBAC /* PlanView2.h */,
 				C9FF477010550BA60044BBAC /* PlanView2.m */,
@@ -741,6 +755,7 @@
 				C9FF4A80105536C00044BBAC /* dsa_pub.pem in Resources */,
 				C9F514961056721300654F6D /* MainMenu.xib in Resources */,
 				C9AC24281056886F0031D591 /* Loading.xib in Resources */,
+				C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +829,6 @@
 				C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */,
 				C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */,
 				C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */,
-				C9FF47B910550BA60044BBAC /* SkillPlanViewController.m in Sources */,
 				C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */,
 				C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */,
 				C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */,
@@ -834,6 +848,8 @@
 				C9F514A11056725600654F6D /* CharacterManager.m in Sources */,
 				C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */,
 				C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */,
+				C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */,
+				C979E00D1069C42700457530 /* PlannerColumn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

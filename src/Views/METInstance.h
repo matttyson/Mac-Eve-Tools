@@ -10,7 +10,7 @@
 
 /*
 	This allows a view to commiunicate back to the main program.
-	Each time a view is activated it will be given this instance.
+	When a view is initialized it will be given this instance.
  */
 
 @protocol METInstance

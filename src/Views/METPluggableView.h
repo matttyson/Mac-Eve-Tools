@@ -57,9 +57,7 @@
 /*
 	Return an NSMenuItem populated with any options to display to the user
 	return nil if the plugin does not require a menu
- 
-	(Not yet implemented in the MainController class)
- 
+	
 	If this view returns a menu other than nil, it will be displayed
 	to the left of the "Mac Eve Tools" menu bar item
  */
