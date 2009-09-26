@@ -36,6 +36,8 @@
 #import "PlanIO.h"
 #import "EvemonXmlPlanIO.h"
 
+#import "ColumnConfigManager.h"
+
 @interface PlanView2 (SkillView2Private)
 
 -(void) loadPlan:(SkillPlan*)planIndex;
@@ -71,6 +73,24 @@
 		[self refreshPlanView];
 	}
 	free(ary);
+}
+
+// The tag is the plan id.  There's no way to call this from the datasource after the rename
+// has completed. bah.
+-(void) renameButtonWithTag:(NSInteger)tag
+{
+	NSUInteger rowsetCount = [segmentedButton segmentCount];
+	
+	for(NSUInteger i = 0; i < rowsetCount; i++){
+		if([[segmentedButton cell]tagForSegment:i] == tag){
+			SkillPlan *plan = [character skillPlanById:tag];
+			if(plan = nil){
+				return;
+			}
+			
+			[[segmentedButton cell]setLabel:[plan planName] forSegment:i];
+		}
+	}
 }
 
 -(void) removeSkillSheetDidEnd:(NSWindow *)sheet 
@@ -250,6 +270,8 @@
 {
 	NSTableColumn *col;
 	
+	[skillPlanColumns removeAllObjects];
+	
 	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"skill_plan_config"];
 	NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	
@@ -267,6 +289,8 @@
 -(void) buildSkillOverviewColumnArray
 {
 	NSTableColumn *col;
+	
+	[overviewColumns removeAllObjects];
 	
 	col = [[NSTableColumn alloc]initWithIdentifier:COL_POV_NAME];
 	[col setWidth:270.0];
@@ -287,16 +311,24 @@
 	[col release];
 }
 
+-(void) buildTableviewColumns
+{
+	[self buildSkillOverviewColumnArray];
+	[self buildSkillPlanColumnArray];
+}
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code here.
 		overviewColumns = [[NSMutableArray alloc]init];
 		skillPlanColumns = [[NSMutableArray alloc]init];
+		
 		pvDatasource = [[PlanView2Datasource alloc]init];
 		[pvDatasource setViewDelegate:self];
-		[self buildSkillOverviewColumnArray];
-		[self buildSkillPlanColumnArray];
+		
+		[self buildTableviewColumns];
+		
 		currentTag = -1;
 	}
 	return self;
@@ -490,6 +522,13 @@
 	[self deleteSkillPlan:[NSIndexSet indexSetWithIndex:[planId unsignedIntegerValue]]];
 }
 
+-(void) renameSkillPlan:(id)sender
+{
+	NSNumber *planRow = [sender representedObject];
+	
+	[tableView editColumn:0 row:[planRow integerValue] withEvent:nil select:YES];
+}
+
 -(void) removeSkillFromPlan:(id)sender
 {
 	NSNumber *planId = [sender representedObject];
@@ -515,7 +554,12 @@ shouldEditTableColumn:(NSTableColumn *)aTableColumn
 	NSTableColumn *col = [[aNotification userInfo]objectForKey:@"NSTableColumn"];
 	NSLog(@"resized %@ to %.2f",[col identifier],(double)[col width]);
 	
-	//Save the column width
+	/*write out the new column width.*/
+	ColumnConfigManager *ccm = [[ColumnConfigManager alloc]init];	
+	
+	[ccm setWidth:[col width] forColumn:[col identifier]];
+	
+	[ccm release];
 }
 
 

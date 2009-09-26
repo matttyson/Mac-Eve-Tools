@@ -150,9 +150,9 @@
 	
 	[[NSNotificationCenter defaultCenter] 
 		addObserver:self
-	 selector:@selector(windowWillClose:)
+		selector:@selector(windowWillClose:)
 		name:NSWindowWillCloseNotification
-	 object:[self window]];
+		object:[self window]];
 	
 }
 
@@ -257,12 +257,8 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 {
 	if(item == nil){
 		return skill;
-		//return [[skill prerequisites]objectAtIndex:index];
-		//return [[SkillPair alloc]initWithSkill:[skill typeID] level:[skill skillLevel]];
 	}
 	
-	/*return*/// [[Config GetInstance]->st skillForId:[item typeID]];
-	//return [[item prerequisites]objectAtIndex:index];
 	return [[[[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]]prerequisites]objectAtIndex:index];
 }
 

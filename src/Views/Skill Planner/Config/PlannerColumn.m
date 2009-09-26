@@ -1,10 +1,22 @@
-//
-//  PlannerColumn.m
-//  Mac Eve Tools
-//
-//  Created by Matt Tyson on 23/09/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
+/*
+ This file is part of Mac Eve Tools.
+ 
+ Mac Eve Tools is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ Mac Eve Tools is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with Mac Eve Tools.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ Copyright Matt Tyson, 2009.
+ */
+
 
 #import "PlannerColumn.h"
 
@@ -13,6 +25,7 @@
 #define COL_ACTIVE @"col_active"
 #define COL_WIDTH @"col_width"
 #define COL_IDENTIFER @"col_identifier"
+#define COL_ORDER @"col_order"
 
 @implementation PlannerColumn
 
@@ -20,10 +33,12 @@
 @synthesize columnName;
 @synthesize active;
 @synthesize columnWidth;
+@synthesize order;
 
 -(void) dealloc
 {
 	[columnName release];
+	[identifier release];
 	[super dealloc];
 }
 
@@ -48,6 +63,7 @@
 		identifier = [[aDecoder decodeObjectForKey:COL_IDENTIFER]retain];
 		active = [aDecoder decodeBoolForKey:COL_ACTIVE];
 		columnWidth = [aDecoder decodeFloatForKey:COL_WIDTH];
+		order = [aDecoder decodeIntForKey:COL_ORDER];
 	}
 	return self;
 }
@@ -58,6 +74,7 @@
 	[aCoder encodeObject:identifier forKey:COL_IDENTIFER];
 	[aCoder encodeBool:active forKey:COL_ACTIVE];
 	[aCoder encodeFloat:columnWidth forKey:COL_WIDTH];
+	[aCoder encodeInt:order forKey:COL_ORDER];
 }
 
 -(NSString*) description

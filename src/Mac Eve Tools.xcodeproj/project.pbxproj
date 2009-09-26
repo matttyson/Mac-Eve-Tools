@@ -25,6 +25,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
@@ -151,6 +152,8 @@
 		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
+		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
+		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
 		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
 		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
 		C979E0071069B05400457530 /* SkillPlannerConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlannerConfig.xib; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				C979E0071069B05400457530 /* SkillPlannerConfig.xib */,
 				C979E00B1069C42700457530 /* PlannerColumn.h */,
 				C979E00C1069C42700457530 /* PlannerColumn.m */,
+				C92EA236106DC26D00B57823 /* ColumnConfigManager.h */,
+				C92EA237106DC26D00B57823 /* ColumnConfigManager.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -773,7 +778,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nDEPLOYDIR=/Users/matt/programming/deployment\n\n\nFILELEN=`$DEPLOYDIR/length \"$DEPLOYDIR/MacEveApi.zip\"`\nCURDATE=`date +\"%Y-%m-%d %H:%M:%S +1000\"`\n\nrm -f $DEPLOYDIR/MacEveApi.dmg\nrm -f $DEPLOYDIR/MacEveApi.zip\nrm -rf /tmp/MacEveApi\nmkdir /tmp/MacEveApi\n\ncp '/Users/matt/Downloads/Sparkle 1/License.txt' '/tmp/MacEveApi/Sparkle License.txt'\ncp ReleaseNotes.txt /tmp/MacEveApi\ncp ReleaseNotes.txt $DEPLOYDIR\ncp Readme.rtf /tmp/MacEveApi\ncp -R \"$TARGET_BUILD_DIR/MacEveApi.app\" '/tmp/MacEveApi'\n\nhdiutil create -fs HFS+ -volname MacEveApi -srcfolder /tmp/MacEveApi/  -format UDBZ $DEPLOYDIR/MacEveApi.dmg\n\n#generate upgrade zipfile\nzip -r -9 -y -T  $DEPLOYDIR/MacEveApi.zip '/tmp/MacEveApi/MacEveApi.app'\n\nDSASIG=`ruby $DEPLOYDIR/sign_update.rb $DEPLOYDIR/MacEveApi.zip $DEPLOYDIR/dsa_priv.pem`\n\n#generate appcast xml\npython $DEPLOYDIR/appcast.py -v $CURRENT_PROJECT_VERSION -t \"MacEveApi Release:$CURRENT_PROJECT_VERSION\" -l $FILELEN -s $DSASIG -d \"$CURDATE\" > $DEPLOYDIR/APPCAST.XML\n\nexit 0";
+			shellScript = "# shell script goes here\n\nDEPLOYDIR=/Users/matt/programming/deployment\n\n\nFILELEN=`$DEPLOYDIR/length \"$DEPLOYDIR/MacEveApi.zip\"`\nCURDATE=`date +\"%Y-%m-%d %H:%M:%S +1000\"`\n\nrm -f $DEPLOYDIR/MacEveApi.dmg\nrm -f $DEPLOYDIR/MacEveApi.zip\nrm -rf /tmp/MacEveApi\nmkdir /tmp/MacEveApi\n\ncp '/Users/matt/Downloads/Sparkle 1/License.txt' '/tmp/MacEveApi/Sparkle License.txt'\ncp ReleaseNotes.txt /tmp/MacEveApi\ncp ReleaseNotes.txt $DEPLOYDIR\ncp Readme.rtf /tmp/MacEveApi\ncp -R \"$TARGET_BUILD_DIR/Mac Eve Tools.app\" '/tmp/MacEveApi'\n\nhdiutil create -fs HFS+ -volname MacEveApi -srcfolder /tmp/MacEveApi/  -format UDBZ $DEPLOYDIR/MacEveApi.dmg\n\n#generate upgrade zipfile\nzip -r -9 -y -T  $DEPLOYDIR/MacEveApi.zip '/tmp/MacEveApi/MacEveApi.app'\n\nDSASIG=`ruby $DEPLOYDIR/sign_update.rb $DEPLOYDIR/MacEveApi.zip $DEPLOYDIR/dsa_priv.pem`\n\n#generate appcast xml\npython $DEPLOYDIR/appcast.py -v $CURRENT_PROJECT_VERSION -t \"MacEveApi Release:$CURRENT_PROJECT_VERSION\" -l $FILELEN -s $DSASIG -d \"$CURDATE\" > $DEPLOYDIR/APPCAST.XML\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -850,6 +855,7 @@
 				C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */,
 				C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */,
 				C979E00D1069C42700457530 /* PlannerColumn.m in Sources */,
+				C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

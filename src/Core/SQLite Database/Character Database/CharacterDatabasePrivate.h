@@ -21,10 +21,16 @@
 -(BOOL) deleteSkillPlanPrivate:(SkillPlan*)plan;
 -(BOOL) deleteAllSkillPlansPrivate;
 
+/*
+ the SkillPlan class now has this identifier internally, but it never used to
+ This function is mostly historical now.
+*/
 -(sqlite_int64) findSkillPlanId:(SkillPlan*)plan;
 -(sqlite_int64) createSkillPlan:(NSString*)name;
 
 -(BOOL) writeSkillPlanPrivate:(SkillPlan*)plan;
 -(BOOL) writeSkillPlanById:(sqlite_int64)planId forPlan:(SkillPlan*)plan;
+
+-(BOOL) renameSkillPlanPrivate:(SkillPlan*)plan;
 
 @end

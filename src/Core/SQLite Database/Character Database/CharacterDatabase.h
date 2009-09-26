@@ -31,6 +31,9 @@ typedef struct sqlite3_stmt sqlite3_stmt;
 -(BOOL) writeSkillPlan:(SkillPlan*)plan;
 -(BOOL) deleteSkillPlan:(SkillPlan*)plan;
 
+/*Set the name of the skill plan object, then write it out to disk.*/
+-(BOOL) renameSkillPlan:(SkillPlan*)plan;
+
 -(BOOL) deleteAllSkillPlans;
 
 -(BOOL) initDatabase;

@@ -14,7 +14,7 @@
 
 @implementation CharacterDatabase (CharacterDatabasePrivate) 
 
-
+//Read the skill plan items into the skill plan.
 -(BOOL) readSkillPlanPrivate:(SkillPlan*)plan planId:(sqlite_int64)planId
 {
 	const char select_skill_plan[] = "SELECT type_id, level FROM skill_plan WHERE plan_id = ? ORDER BY type_order;";
@@ -95,7 +95,6 @@
 	return rc == SQLITE_OK;
 }
 
-/*this does not use a transaction*/
 -(BOOL) deleteSkillPlanById:(sqlite_int64)planId
 {
 	const char delete_skill_plan[] = "DELETE FROM skill_plan WHERE plan_id = %lld";
@@ -205,17 +204,12 @@
 	/*get the plan id for this plan name*/
 	
 	sqlite_int64 planId;
-	/*
-	if([plan skillCount] == 0){
-		NSLog(@"Refusing to save an empty plan");
-		return NO;
-	}
-	*/
+	
 	planId = [self findSkillPlanId:plan];
 	
 	if(planId == -1){
-		planId = [self createSkillPlan:[plan planName]];
 		NSLog(@"Plan '%@' does not exist - creating a new plan!",[plan planName]);
+		planId = [self createSkillPlan:[plan planName]];
 	}
 	
 	if(planId == -1){
@@ -245,8 +239,6 @@
 	
 	rc = sqlite3_bind_int64(insert_skill_stmt,1,planId);
 	
-	NSInteger i = 0;
-	
 	for(NSInteger i = 0; i< skillCount; i++){
 		SkillPair *sp = [plan skillAtIndex:i];
 		rc = sqlite3_bind_nsint(insert_skill_stmt,2,i);
@@ -266,6 +258,32 @@
 	return success;
 }
 
-
+-(BOOL) renameSkillPlanPrivate:(SkillPlan*)plan
+{
+	const char rename_plan[] = "UPDATE skill_plan_overview SET plan_name = ? WHERE plan_id = ?;";
+	sqlite3_stmt *rename_stmt;
+	BOOL success = YES;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,rename_plan,(int)sizeof(rename_plan),&rename_stmt,NULL);
+	
+	NSString *planName = [plan planName];
+	
+	rc = sqlite3_bind_text(rename_stmt,1,[planName UTF8String],
+						   (int)[planName lengthOfBytesUsingEncoding:NSUTF8StringEncoding],
+						   NULL);
+	rc = sqlite3_bind_nsint(rename_stmt,2,[plan planId]);
+	
+	if((rc = sqlite3_step(rename_stmt)) != SQLITE_DONE){
+		NSLog(@"Error renaming skill plan");
+		success = NO;
+	}
+	
+	sqlite3_reset(rename_stmt);
+	
+	sqlite3_finalize(rename_stmt);
+	
+	return success;
+}
 
 @end

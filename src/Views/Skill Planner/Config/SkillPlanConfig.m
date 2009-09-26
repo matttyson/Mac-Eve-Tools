@@ -1,18 +1,33 @@
-//
-//  SkillPlanConfig.m
-//  Mac Eve Tools
-//
-//  Created by Matt Tyson on 23/09/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
+/*
+ This file is part of Mac Eve Tools.
+ 
+ Mac Eve Tools is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ Mac Eve Tools is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with Mac Eve Tools.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ Copyright Matt Tyson, 2009.
+ */
 
 #import "SkillPlanConfig.h"
 #import "PlannerColumn.h"
 #import "macros.h"
 
+#import "ColumnConfigManager.h"
+
 #define SKILL_PLAN_CONFIG @"skill_plan_config"
 
 @implementation SkillPlanConfig
+
+/*
 
 -(NSArray*) buildDefaultColumnList
 {
@@ -29,7 +44,7 @@
 	col = [[PlannerColumn alloc]initWithName:@"Training Time"
 								  identifier:COL_PLAN_TRAINING_TIME
 									  status:YES
-									   width:90.0f];
+									   width:95.0f];
 	[array addObject:col];
 	[col release];
 	
@@ -79,17 +94,23 @@
 		[columnList release];
 	}
 	
+	//Create the default list
+	
+	//load up the saved list and merge the two.
+	//Note: if new columns are added then they will never be seen.  fix this.
+	
 	NSData *data = [defaults objectForKey:SKILL_PLAN_CONFIG];
 	if(data != nil){
 		NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 		columnList = [ary mutableCopy];
 	}else{
-		//Nothing has been saved, read in the defaults.
 		columnList = [[self buildDefaultColumnList]retain];
 	}
-	
-	//Note - will need to 
 }
+*/
+
+
+/*this is still a bit hacky*/
 
 -(void) writeDefaults
 {	
@@ -99,6 +120,8 @@
 		NSData *data = [NSKeyedArchiver archivedDataWithRootObject:columnList];
 		
 		[defaults setObject:data forKey:SKILL_PLAN_CONFIG];
+		
+		[defaults synchronize];
 	}
 }
 
@@ -106,8 +129,9 @@
 {
 	if((self = [super initWithNibName:@"SkillPlannerConfig" bundle:nil])){
 		name = @"Skill Planner";
-		columnList = [[self buildDefaultColumnList]retain];
-		[self readDefaults];
+		
+		manager = [[ColumnConfigManager alloc]init];
+		columnList = [[manager columns]mutableCopy];
 	}
 	return self;
 }
@@ -120,7 +144,6 @@
 	[columnTable setDataSource:self];
 	
 	[columnTable registerForDraggedTypes:[NSArray arrayWithObject:PLAN_CONFIG_TYPE]];
-//	[columnTable setDragging
 }
 
 -(void)dealloc

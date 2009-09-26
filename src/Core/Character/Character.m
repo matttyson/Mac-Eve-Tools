@@ -316,6 +316,18 @@
 	[db writeSkillPlan:plan];
 }
 
+-(BOOL) renameSkillPlan:(SkillPlan*)plan
+{
+	/*check that the skill plan belongs to this character*/
+	if([skillPlans indexOfObject:plan] == NSNotFound){
+		NSLog(@"Error: attempting to save a skill plan that does not belong to this character");
+		return NO;
+	}
+	
+	return [db renameSkillPlan:plan];
+}
+
+
 -(NSString*) getAttributeString:(NSInteger)attr
 {
 	return [NSString stringWithFormat:@"%2.2f",(double)attributeTotals[attr]];

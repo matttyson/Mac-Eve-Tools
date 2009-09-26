@@ -78,13 +78,12 @@
 
 -(Character*) initWithPath:(NSString*)path;
 
-
-
 /*Get a string value from the NSDictionary - see the #defines above for valid key values*/
 -(NSString*) stringForKey:(NSString*)key;
-/*returns an integer representation, if the value is an integer
-results are undefined if the key does not contain a string representation of an integer value
- */
+/*
+ returns an integer representation, if the value is an integer
+ results are undefined if the key does not contain a string representation of an integer value
+*/
 -(NSInteger) integerForKey:(NSString*)key;
 
 /*returns an attribute as a string for easy display*/
@@ -146,9 +145,13 @@ results are undefined if the key does not contain a string representation of an 
 -(SkillPlan*) skillPlanAtIndex:(NSInteger)index;
 -(SkillPlan*) skillPlanById:(NSInteger)planId;
 
+//save the name change of the plan.
+-(BOOL) renameSkillPlan:(SkillPlan*)plan; 
+
 /*!NOTE! the skill functions below will be (possibly) be ripped out later.*/
 -(void) updateSkillPlan:(SkillPlan*)plan; /*as above, but supply a skill plan object in the characters internal skill plan queue*/
 
+/*these error functions might also get ripped out.*/
 -(BOOL) charSheetError;
 -(BOOL) trainingSheetError;
 
@@ -156,7 +159,7 @@ results are undefined if the key does not contain a string representation of an 
 -(NSString*) trainingSheetErrorMessage;
 
 /*modify attribute by level - used for optimising a skill plan*/
--(void) modifyAttribute:(NSInteger)attribute  byLevel:(NSInteger) level;
+-(void) modifyAttribute:(NSInteger)attribute  byLevel:(NSInteger)level;
 -(void) modifyLearning:(NSInteger)level;
 -(void) resetTempAttrBonus; //reset the bonuses back to the normal levels.
 

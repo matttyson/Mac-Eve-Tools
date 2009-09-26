@@ -388,4 +388,22 @@
 	return sp;
 }
 
+-(BOOL) renameSkillPlan:(SkillPlan*)plan
+{
+	[self openDatabase];
+	[self beginTransaction];
+	
+	BOOL rc = [self renameSkillPlanPrivate:plan];
+	
+	if(rc){
+		[self commitTransaction];
+	}else{
+		[self rollbackTransaction];
+	}
+	
+	[self closeDatabase];
+	
+	return rc;
+}
+
 @end

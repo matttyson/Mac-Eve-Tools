@@ -159,6 +159,20 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	return nil;
 }
 
+- (void)tableView:(NSTableView *)aTableView 
+   setObjectValue:(id)anObject 
+   forTableColumn:(NSTableColumn *)aTableColumn 
+			  row:(NSInteger)rowIndex
+{
+	SkillPlan *plan = [character skillPlanAtIndex:rowIndex];
+	NSString *oldName = [[plan planName]retain];
+	[plan setPlanName:anObject];
+	if(![character renameSkillPlan:plan]){ //verify that the name change succeded
+		[plan setPlanName:oldName];//rename failed. restore old name.
+	}
+	[oldName release];
+}
+
 -(NSMenu*) tableView:(NSTableView*)table 
   menuForTableColumn:(NSTableColumn*)column 
 				 row:(NSInteger)row
@@ -175,40 +189,56 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	NSMenu *menu = nil;
 	SkillPlan *skillPlan = nil;
 	NSMenuItem *item = nil;
+	NSNumber *planRow = [NSNumber numberWithInteger:row];
 	
+	menu = [[[NSMenu alloc]initWithTitle:@""]autorelease];
+
 	if(mode == SPMode_plan){
+		
 		skillPlan = [character skillPlanById:planId];
+		
+		if(skillPlan == nil){
+			return nil;
+		}
+		
 		SkillPair *sp = [skillPlan skillAtIndex:row];
 		Skill *s = [masterSkillSet objectForKey:[sp typeID]];
 		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove %@ %@",[s skillName],
 															 romanForInteger([sp skillLevel])]
 													 action:@selector(removeSkillFromPlan:)
 											  keyEquivalent:@""];
-		[item autorelease];
+		[item setRepresentedObject:planRow];
+		[menu addItem:item];
+		[item release];
+		
 	}else if(mode == SPMode_overview){
 		skillPlan = [character skillPlanAtIndex:row];
-		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove %@",[skillPlan planName]]
+		
+		if(skillPlan == nil){
+			return nil;
+		}
+		
+		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove plan \"%@\"",[skillPlan planName]]
 													action:@selector(removeSkillPlanFromOverview:)
 											  keyEquivalent:@""];
-		[item autorelease];
+		[item setRepresentedObject:planRow];
+		[menu addItem:item];
+		[item release];
+		
+		
+		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Rename plan \"%@\"",[skillPlan planName]]
+										 action:@selector(renameSkillPlan:) 
+								  keyEquivalent:@""];
+		[item setRepresentedObject:planRow];
+		[menu addItem:item];
+		[item release];
 	}
-	
-	if(skillPlan == nil){
-		return nil;
-	}
-	
-	NSNumber *planRow = [NSNumber numberWithInteger:row];
-	menu = [[[NSMenu alloc]initWithTitle:@""]autorelease];
-	
-	[item setRepresentedObject:planRow];
-	[menu addItem:item];
 	
 	return menu;
 }
 
 -(BOOL) shouldHighlightCell:(NSInteger)rowIndex
 {
-	//return [skillPlan skillInTraining];
 	if([character isTraining]){
 		SkillPlan *plan = [character skillPlanById:planId];
 		SkillPair *sp = [plan skillAtIndex:rowIndex];
@@ -256,6 +286,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 		for(NSUInteger i=0; i < count; i++){
 			[array addObject:[NSNumber numberWithInteger:(NSInteger)indexBuffer[i]]];
 		}
+		
 		free(indexBuffer);
 	}
 	

@@ -25,7 +25,7 @@
 
 #import "XmlHelpers.h"
 
-#import "UpdateError.h"
+//#import "UpdateError.h"
 
 #include <libxml/tree.h>
 
