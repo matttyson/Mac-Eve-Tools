@@ -562,5 +562,12 @@ shouldEditTableColumn:(NSTableColumn *)aTableColumn
 	[ccm release];
 }
 
+- (void)tableViewColumnDidMove:(NSNotification *)aNotification
+{
+	NSNumber *oldIndex = [[aNotification userInfo]objectForKey:@"NSOldColumn"];
+	NSNumber *newIndex = [[aNotification userInfo]objectForKey:@"NSNewColumn"];	
+	
+	//The column at oldIndex got moved to newIndex.
+}
 
 @end

@@ -126,6 +126,12 @@
 	[[NSUserDefaults standardUserDefaults]synchronize];
 }
 
+-(void) resetConfig
+{
+	[self eraseConfig];
+	[self readConfig];
+}
+
 -(PlannerColumn*) columnForIdentifer:(NSString*)identifier
 {
 	for(PlannerColumn *pcol in columnList){
@@ -157,6 +163,11 @@
 -(NSArray*) columns
 {
 	return [[columnList copy]autorelease];
+}
+
+-(BOOL) moveColumn:(NSInteger)from toPosition:(NSInteger)to
+{
+	
 }
 
 @end

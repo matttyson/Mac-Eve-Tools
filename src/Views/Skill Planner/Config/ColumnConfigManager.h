@@ -17,9 +17,11 @@
 -(void) readConfig;
 -(void) writeConfig;
 -(void) eraseConfig;
+-(void) resetConfig;
 
 -(BOOL) setWidth:(CGFloat)width forColumn:(NSString*)columnId;
 -(BOOL) setOrder:(NSInteger)position forColumn:(NSString*)columnId;
+-(BOOL) moveColumn:(NSInteger)from toPosition:(NSInteger)to;
 
 -(NSArray*) columns;
 

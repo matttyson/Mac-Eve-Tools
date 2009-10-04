@@ -26,6 +26,6 @@
  read an SQL query into the buffer.  returns the number of bytes read.
  returns 0 on error or EOF
  */
-long read_query(char *restrict buffer, long n, FILE *stream);
+long read_query(char *restrict buffer, long n, FILE *restrict stream);
 
 #endif

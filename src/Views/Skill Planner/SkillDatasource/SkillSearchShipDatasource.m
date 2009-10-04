@@ -41,6 +41,15 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[database release];
+	[category release];
+	[searchObjects release];
+	[searchString release];
+	[super dealloc];
+}
+
 -(id)initWithCategory:(NSInteger)cat
 {
 	if(self = [self init]){
@@ -58,7 +67,6 @@
 			}
 		}
 		
-		
 		database = [[CCPDatabase alloc]initWithPath:path];
 		if(database == nil){
 			/*fall back to user directory*/
@@ -69,15 +77,6 @@
 		category = [[database category:cat]retain];
 	}
 	return self;
-}
-
--(void) dealloc
-{
-	[database release];
-	[category release];
-	[searchObjects release];
-	[searchString release];
-	[super dealloc];
 }
 
 -(NSString*) skillSearchName

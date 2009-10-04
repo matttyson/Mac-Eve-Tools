@@ -21,7 +21,7 @@
 
 #include <stdio.h>
 
-long read_query(char *restrict buffer, long n, FILE *stream)
+long read_query(char *restrict buffer, long n, FILE *restrict stream)
 {
 	long i = 0;
 	long quote = 0;

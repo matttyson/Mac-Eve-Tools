@@ -25,6 +25,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C911FE98107820B2000D88E2 /* CCPCrtCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FE97107820B2000D88E2 /* CCPCrtCategory.m */; };
+		C911FE9C107820D5000D88E2 /* Certificate.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FE9B107820D5000D88E2 /* Certificate.m */; };
+		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
@@ -152,6 +155,12 @@
 		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
+		C911FE96107820B2000D88E2 /* CCPCrtCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCrtCategory.h; sourceTree = "<group>"; };
+		C911FE97107820B2000D88E2 /* CCPCrtCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCrtCategory.m; sourceTree = "<group>"; };
+		C911FE9A107820D5000D88E2 /* Certificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Certificate.h; sourceTree = "<group>"; };
+		C911FE9B107820D5000D88E2 /* Certificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Certificate.m; sourceTree = "<group>"; };
+		C911FED510782C50000D88E2 /* CharacterParseError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterParseError.h; sourceTree = "<group>"; };
+		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
 		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
 		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
@@ -409,6 +418,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C911FE95107820B2000D88E2 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				C911FE96107820B2000D88E2 /* CCPCrtCategory.h */,
+				C911FE97107820B2000D88E2 /* CCPCrtCategory.m */,
+				C911FE9A107820D5000D88E2 /* Certificate.h */,
+				C911FE9B107820D5000D88E2 /* Certificate.m */,
+			);
+			path = Certificates;
+			sourceTree = "<group>";
+		};
 		C979E0011069AA0300457530 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +531,8 @@
 				C9FF46FD10550BA50044BBAC /* XMLParseOperation.m */,
 				C9EB4F4E105A16BD009192BC /* GenericDownloadOperation.h */,
 				C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */,
+				C911FED510782C50000D88E2 /* CharacterParseError.h */,
+				C911FED610782C50000D88E2 /* CharacterParseError.m */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -573,6 +595,7 @@
 		C9FF473210550BA60044BBAC /* CCP Database */ = {
 			isa = PBXGroup;
 			children = (
+				C911FE95107820B2000D88E2 /* Certificates */,
 				C9FF473310550BA60044BBAC /* CCPCategory.h */,
 				C9FF473410550BA60044BBAC /* CCPCategory.m */,
 				C9FF473510550BA60044BBAC /* CCPDatabase.h */,
@@ -856,6 +879,9 @@
 				C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */,
 				C979E00D1069C42700457530 /* PlannerColumn.m in Sources */,
 				C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */,
+				C911FE98107820B2000D88E2 /* CCPCrtCategory.m in Sources */,
+				C911FE9C107820D5000D88E2 /* Certificate.m in Sources */,
+				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +953,7 @@
 				CURRENT_PROJECT_VERSION = 15.3;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = MACEVEAPI_DEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

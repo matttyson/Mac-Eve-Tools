@@ -25,7 +25,7 @@
 
 #import "XmlHelpers.h"
 
-//#import "UpdateError.h"
+#import "CharacterParseError.h"
 
 #include <libxml/tree.h>
 
@@ -99,7 +99,7 @@
 }
 
 
--(BOOL) didXmlSheetError:(NSString*)xmlSheet
+-(BOOL) didXmlSheetError:(NSString*)xmlSheet error:(CharacterParseError**)error
 {
 	xmlDoc *doc;
 	xmlNode *root_node;
@@ -125,11 +125,12 @@
 		if(xmlErrorMessage != NULL){
 			NSString *errorString = getNodeText(xmlErrorMessage);
 			NSString *errorNum = findAttribute(xmlErrorMessage,(xmlChar*)"code");
-			/*
-			UpdateError *error = [[UpdateError alloc]initWithError:[errorNum integerValue]
-														   message:errorString 
-													  forCharacter:
-			*/
+			
+			*error = [[CharacterParseError alloc]initWithError:errorString
+														 code:[errorNum integerValue] 
+													 xmlSheet:[xmlSheet lastPathComponent]];
+			[*error autorelease];
+			
 			NSLog(@"EVE XML error: %@",errorString);
 		}		
 		rc = NO;
@@ -138,15 +139,19 @@
 	return rc;
 }
 
--(BOOL) validateXmlFile:(NSString*)xmlDocFile
+-(BOOL) validateXmlFile:(NSString*)xmlDocFile error:(CharacterParseError**)error
 {
 	if(![[NSFileManager defaultManager] fileExistsAtPath:xmlDocFile]){
 		NSLog(@"%@ does not exist. cannot process",xmlDocFile);
+		*error = [[CharacterParseError alloc]initWithError:@"Download error" 
+													  code:-1 
+												  xmlSheet:[xmlDocFile lastPathComponent]];
+		[*error autorelease];
 		return NO;
 	}
-
+	
 	/*now we need to parse it to see if it errored*/
-	BOOL isXmlValid = [self didXmlSheetError:xmlDocFile];
+	BOOL isXmlValid = [self didXmlSheetError:xmlDocFile error:error];
 	if(!isXmlValid){
 		NSLog(@"Validation for %@ failed!",xmlDocFile);
 		return NO;
@@ -182,6 +187,7 @@
 	 */
 	
 	NSFileManager *manager = [NSFileManager defaultManager];
+	NSMutableArray *errorArray = nil;
 	
 	for(XMLParsePair *pair in xmlFiles){
 		NSString *charDir = [pair characterDir];
@@ -189,7 +195,10 @@
 		NSString *sheet = [pair xmlSheet];
 		
 		NSString *pendingFile = [pendingDir stringByAppendingFormat:@"/%@",[sheet lastPathComponent]];
-		BOOL isValid = [self validateXmlFile:pendingFile];
+		
+		CharacterParseError *error = nil;
+		
+		BOOL isValid = [self validateXmlFile:pendingFile error:&error];
 		
 		if(!isValid){
 			NSLog(@"Failed to validate %@",pendingFile);
@@ -198,8 +207,16 @@
 			This should extract the type of error (file does not exist, XML api server error)
 			and return an error message to the user.
 			 
-			 Save them up in an error array and and pass it off to the user in the callback.
+			Save them up in an error array and and pass it off to the user in the callback.
 			*/
+						
+			if(error != nil){
+				if(errorArray == nil){
+					errorArray = [[[NSMutableArray alloc]initWithCapacity:1]autorelease];
+				}
+				[errorArray addObject:error];
+			}
+			
 		}else{
 			/*
 			 File is valid.
@@ -211,6 +228,7 @@
 			NSError *error = nil;
 			
 			if([manager fileExistsAtPath:toDir]){
+				//Remove the old file
 				if(![manager removeItemAtPath:toDir error:&error]){
 					NSLog(@"ERROR: Failed to remove %@ (%@)",toDir,[error localizedDescription]);
 				}
@@ -244,7 +262,7 @@
 		if([delegate respondsToSelector:callback]){
 			/*notify on done, pass through the error array when i get it done.*/
 			[self performSelectorOnMainThread:@selector(callDelegate:)
-									   withObject:nil //error array
+									   withObject:errorArray
 									waitUntilDone:YES];
 		}
 	}

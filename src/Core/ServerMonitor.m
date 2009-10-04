@@ -45,7 +45,7 @@
 	[NSTimer scheduledTimerWithTimeInterval:300.0
 									 target:self
 								   selector:@selector(timerFired:)
-								   userInfo:nil
+								   userInfo:nil 
 									repeats:YES];
 	[self checkServerStatus];
 #endif
@@ -60,6 +60,11 @@
 -(void) timerFired:(NSTimer*)theTimer
 {
 	[self checkServerStatus];
+}
+
+-(void) notifyListeners
+{
+	[[NSNotificationCenter defaultCenter]postNotificationName:SERVER_STATUS_NOTIFICATION object:self];
 }
 
 -(void) checkServerStatus
@@ -151,15 +156,16 @@
 	NSLog(@"Tranquility: %@ (%ld)",
 		  status == ServerUp ? @"online" : @"offline",
 		  numPlayers);
-	
-	[[NSNotificationCenter defaultCenter]postNotificationName:SERVER_STATUS_NOTIFICATION object:self];
+	[self notifyListeners];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 	/*error fetching URL*/
 	[xmlData setLength:0];
+	status = ServerUnknown;
 	NSLog(@"Error fetching server status (%@)",[error localizedDescription]);
+	[self notifyListeners];
 }
 
 @end

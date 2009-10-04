@@ -298,6 +298,8 @@
 	 we have no way of knowing if the XML is out of date.
 	 */
 downloadLabel:
+	
+	
 	if(![cfg requisiteFilesExist]){
 		LoaderController *lc = [[LoaderController alloc]initWithWindowNibName:@"Loading"];
 		[[lc window]center];
@@ -537,6 +539,9 @@ downloadLabel:
 	[self setCurrentCharacter:character];
 }
 
+#pragma mark Character update delegate
+//Called from the character manager class.
+
 -(void) batchUpdateOperationDone:(NSArray*)errors
 {
 	// All characters have been updated.
@@ -548,15 +553,21 @@ downloadLabel:
 	[charButton setEnabled:YES];
 	
 	/*
-	replace this with a new message that says update completed
-	and then have a timer that will clear the message after X seconds.
-	Need to be careful with race conditions, however.
+	 replace this with a new message that says update completed
+	 and then have a timer that will clear the message after X seconds.
+	 Need to be careful with race conditions, however.
 	 
 	 Ideally we want to be able to provide a simple error message here,
 	 however this may not be possible because we are updating a bunch of
 	 characters, each with possibly a different error message.
 	*/
 	[self statusMessage:nil];
+	
+	if(errors != nil){
+		[self setStatusMessage:@"Error updating characters" imageState:StatusRed time:5];
+	}else{
+		[self setStatusMessage:@"Update Completed" imageState:StatusGreen time:5];
+	}
 	
 	//reload the datasource for the character overview.
 	[overviewTableView reloadData];

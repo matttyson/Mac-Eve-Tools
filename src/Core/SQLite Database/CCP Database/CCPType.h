@@ -62,6 +62,8 @@
 -(NSInteger) metaGroupID;
 -(NSInteger) parentTypeID;
 -(NSInteger) metaLevel;
+
+//prob shouldn't be here
 -(BOOL) isPirateShip;
 
 /*hm, this could use some rethinking.*/

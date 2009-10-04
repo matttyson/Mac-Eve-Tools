@@ -218,15 +218,20 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			return nil;
 		}
 		
-		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove plan \"%@\"",[skillPlan planName]]
+		item = [[NSMenuItem alloc]initWithTitle:[skillPlan planName] action:NULL keyEquivalent:@""];
+		[menu addItem:item];
+		[item release];
+		
+		[menu addItem:[NSMenuItem separatorItem]];
+		 
+		item = [[NSMenuItem alloc]initWithTitle:@"Delete"//[NSString stringWithFormat:@"Remove plan \"%@\"",[skillPlan planName]]
 													action:@selector(removeSkillPlanFromOverview:)
 											  keyEquivalent:@""];
 		[item setRepresentedObject:planRow];
 		[menu addItem:item];
 		[item release];
 		
-		
-		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Rename plan \"%@\"",[skillPlan planName]]
+		item = [[NSMenuItem alloc]initWithTitle:@"Rename"//[NSString stringWithFormat:@"Rename plan \"%@\"",[skillPlan planName]]
 										 action:@selector(renameSkillPlan:) 
 								  keyEquivalent:@""];
 		[item setRepresentedObject:planRow];

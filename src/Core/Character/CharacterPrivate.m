@@ -27,6 +27,8 @@
 
 #import "XMLDownloadOperation.h"
 
+#include <assert.h>
+
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
@@ -101,10 +103,7 @@
 	return YES;	
 }
 
--(void) xmlDidFailWithError:(NSError*)xmlErrorMessage xmlPath:(NSString*)path xmlDocName:(NSString*)docName
-{
-	NSLog(@"Connection failed! (%@)",[xmlErrorMessage localizedDescription]);
-}
+
 
 -(BOOL) xmlValidateData:(NSData*)xmlData xmlPath:(NSString*)path xmlDocName:(NSString*)docName
 {
@@ -137,65 +136,7 @@
 	return rc;
 }
 
--(void) xmlDocumentFinished:(BOOL)status xmlPath:(NSString*)path xmlDocName:(NSString*)docName;
-{
-	if(status == NO){
-		NSLog(@"Failed to download XML %@",docName);
-		return;
-	}
-	
-	BOOL rc = NO;
-	
-	if([docName isEqualToString:XMLAPI_CHAR_TRAINING]){
-		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
-		
-		if(doc == NULL){
-			NSLog(@"Error reading %@",path);
-		}else{
-			rc = [self parseXmlTraningSheet:doc];
-			xmlFreeDoc(doc);
-		}
-	}else if([docName isEqualToString:XMLAPI_CHAR_SHEET]){
-		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
-		
-		if(doc == NULL){
-			NSLog(@"Error reading %@",path);
-		}else{
-			rc = [self parseXmlSheet:doc];
-			xmlFreeDoc(doc);
-			
-			NSLog(@"%@ finished update procedure",characterName);		
-			for(SkillPlan *plan in skillPlans){
-				if([plan purgeCompletedSkills] > 0){
-					NSLog(@"Purging plan %@",[plan planName]);
-					/*we prob don't need to post this notification anymore*/
-					[[NSNotificationCenter defaultCenter]
-					 postNotificationName:CHARACTER_SKILL_PLAN_PURGED
-					 object:plan];	
-				}
-			}
-			
-			[[NSNotificationCenter defaultCenter]
-				postNotificationName:CHARACTER_SHEET_UPDATE_NOTIFICATION 
-								object:self];
-		}
-	}else if([docName isEqualToString:PORTRAIT]){
-		rc = status;
-	}else if([docName isEqualToString:XMLAPI_CHAR_QUEUE]){
-		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
-		
-		if(doc == NULL){
-			NSLog(@"Error reading %@",path);
-		}else{
-			rc = [self parseXmlQueueSheet:doc];
-			xmlFreeDoc(doc);
-		}
-		
-	}else{
-		NSLog(@"Unknown callback %@",docName);
-		assert(0);
-	}
-}
+
 
 /*
 -(XMLDownloadOperation*) buildOperation:(NSString*)docPath
@@ -658,6 +599,79 @@
 -(BOOL) writeSkillPlan
 {
 	return [db writeSkillPlans:skillPlans];
+}
+
+
+
+/*
+ This is some of the old updating code that existed before the CharacterManager class.
+ It shouldn't be used anymore.
+ */
+-(void) xmlDidFailWithError:(NSError*)xmlErrorMessage xmlPath:(NSString*)path xmlDocName:(NSString*)docName
+{
+	assert(0);
+	NSLog(@"Connection failed! (%@)",[xmlErrorMessage localizedDescription]);
+}
+
+-(void) xmlDocumentFinished:(BOOL)status xmlPath:(NSString*)path xmlDocName:(NSString*)docName;
+{
+	assert(0);
+	if(status == NO){
+		NSLog(@"Failed to download XML %@",docName);
+		return;
+	}
+	
+	BOOL rc = NO;
+	
+	if([docName isEqualToString:XMLAPI_CHAR_TRAINING]){
+		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
+		
+		if(doc == NULL){
+			NSLog(@"Error reading %@",path);
+		}else{
+			rc = [self parseXmlTraningSheet:doc];
+			xmlFreeDoc(doc);
+		}
+	}else if([docName isEqualToString:XMLAPI_CHAR_SHEET]){
+		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
+		
+		if(doc == NULL){
+			NSLog(@"Error reading %@",path);
+		}else{
+			rc = [self parseXmlSheet:doc];
+			xmlFreeDoc(doc);
+			
+			NSLog(@"%@ finished update procedure",characterName);		
+			for(SkillPlan *plan in skillPlans){
+				if([plan purgeCompletedSkills] > 0){
+					NSLog(@"Purging plan %@",[plan planName]);
+					/*we prob don't need to post this notification anymore*/
+					[[NSNotificationCenter defaultCenter]
+					 postNotificationName:CHARACTER_SKILL_PLAN_PURGED
+					 object:plan];	
+				}
+			}
+			
+			[[NSNotificationCenter defaultCenter]
+			 postNotificationName:CHARACTER_SHEET_UPDATE_NOTIFICATION 
+			 object:self];
+		}
+	}else if([docName isEqualToString:PORTRAIT]){
+		rc = status;
+	}else if([docName isEqualToString:XMLAPI_CHAR_QUEUE]){
+		xmlDoc *doc = xmlReadFile([path fileSystemRepresentation],NULL,0);
+		
+		if(doc == NULL){
+			NSLog(@"Error reading %@",path);
+		}else{
+			rc = [self parseXmlQueueSheet:doc];
+			xmlFreeDoc(doc);
+		}
+		
+	}else{
+		NSLog(@"Unknown callback %@",docName);
+		assert(0);
+	}
 }
 
 @end
