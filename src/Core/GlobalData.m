@@ -31,7 +31,7 @@
 
 static GlobalData *_privateData = nil;
 
--(SkillTree*) buildSkillTree
++(SkillTree*) buildSkillTree
 {
 	NSString *path = [Config filePath:XMLAPI_SKILL_TREE,nil];
 	
@@ -75,7 +75,14 @@ static GlobalData *_privateData = nil;
 +(GlobalData*) sharedInstance
 {
 	if(_privateData == nil)
-	{
+	{	
+		SkillTree *st = [GlobalData buildSkillTree];
+		
+		if(st == nil){
+			NSLog(@"Error: SkillTree xml file does not exist");
+			return nil;
+		}
+		
 		_privateData = [[GlobalData alloc]privateInit];
 		
 		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
@@ -84,7 +91,7 @@ static GlobalData *_privateData = nil;
 		[_privateData->dateFormatter setDateStyle:NSDateFormatterShortStyle];
 		[_privateData->dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		
-		_privateData->skillTree = [_privateData buildSkillTree];
+		_privateData->skillTree = st;
 	}
 	
 	return _privateData;

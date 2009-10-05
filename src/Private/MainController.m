@@ -264,31 +264,12 @@
 	 object:NSApp];
 
 	xmlInitParser(); //Init libxml2
-		
-	//init the config syste.
+////////////// ---- THIS BLOCK MUST EXECUTE BEFORE ANY OTHER CODE ---- \\\\\\\\\\\\\\\\
+	
+	//init the config system.
 	Config *cfg = [Config sharedInstance];
-	
-	/*init the views that will be used by this window*/
-	
-	id<METPluggableView> mvc;
-	mvc = [[CharacterSheetController alloc]init];
-	[mvc view];//trigger the awakeFromNib
-	[mvc setInstance:self];
-	[viewControllers addObject:mvc];
-	[(NSObject*)mvc release];
-	
-	mvc = [[SkillPlanController alloc]init];
-	[mvc view];//trigger the awakeFromNib
-	[mvc setInstance:self];
-	[viewControllers addObject:mvc];
-	[(NSObject*)mvc release];
-	
-	id<METPluggableView> view = [viewControllers objectAtIndex:1];
-	NSMenuItem *menuItem = [view menuItems];
-	if(menuItem != nil){
-		[[NSApp mainMenu]insertItem:menuItem atIndex:1];
-	}
-	
+	//read the config file off disk.
+	[cfg readConfig];
 	
 	/*
 	 Check required files exists.
@@ -298,7 +279,6 @@
 	 we have no way of knowing if the XML is out of date.
 	 */
 downloadLabel:
-	
 	
 	if(![cfg requisiteFilesExist]){
 		LoaderController *lc = [[LoaderController alloc]initWithWindowNibName:@"Loading"];
@@ -310,6 +290,7 @@ downloadLabel:
 		[lc close];
 		[lc release];
 	}
+	
 	//Init the skill tree from XML
 	SkillTree *tree = [[GlobalData sharedInstance]skillTree];
 	if(tree == nil){
@@ -334,9 +315,29 @@ downloadLabel:
 			default:
 				break;
 		}
+	}	
+////////////// ---- BLOCK END ---- \\\\\\\\\\\\\\\\
+	
+	/*init the views that will be used by this window*/
+	
+	id<METPluggableView> mvc;
+	mvc = [[CharacterSheetController alloc]init];
+	[mvc view];//trigger the awakeFromNib
+	[mvc setInstance:self];
+	[viewControllers addObject:mvc];
+	[(NSObject*)mvc release];
+	
+	mvc = [[SkillPlanController alloc]init];
+	[mvc view];//trigger the awakeFromNib
+	[mvc setInstance:self];
+	[viewControllers addObject:mvc];
+	[(NSObject*)mvc release];
+	
+	id<METPluggableView> view = [viewControllers objectAtIndex:1];
+	NSMenuItem *menuItem = [view menuItems];
+	if(menuItem != nil){
+		[[NSApp mainMenu]insertItem:menuItem atIndex:1];
 	}
-	//read the config file off disk.
-	[cfg readConfig];
 		
 	[[self window] makeKeyAndOrderFront:self];
 	[[self window] makeMainWindow];
@@ -380,8 +381,6 @@ downloadLabel:
 	[overviewTableView setDataSource:characterManager];
 	[overviewTableView setDelegate:characterManager];
 	[overviewTableView reloadData];
-		//Load all characters off disk
-	//[self reloadAllCharacters];
 	
 	[self performSelector:@selector(setCurrentCharacter:) 
 			   withObject:[characterManager defaultCharacter]];
@@ -398,7 +397,6 @@ downloadLabel:
 	if(mvc == currentController){
 		return;
 	}
-	
 	
 	id<METPluggableView> old = currentController;
 	currentController = mvc;

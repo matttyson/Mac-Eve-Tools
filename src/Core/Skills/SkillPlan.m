@@ -714,5 +714,17 @@ static NSDictionary *masterSkillSet = nil;;
 	}
 	return [spHrArray objectAtIndex:index];
 }
-
+/*
+-(id) copyWithZone:(NSZone)zone
+{
+	SkillPlan *plan;// = [super copyWithZone:zone];
+	
+	plan->skillDates = nil;
+	plan->spHrArray = nil;
+	plan->character = self->character;
+	plan->skillPlan = [self->skillPlan mutableCopy];
+	
+	return plan;	
+}
+*/
 @end

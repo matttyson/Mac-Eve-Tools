@@ -218,7 +218,10 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			return nil;
 		}
 		
-		item = [[NSMenuItem alloc]initWithTitle:[skillPlan planName] action:NULL keyEquivalent:@""];
+		item = [[NSMenuItem alloc]initWithTitle:[skillPlan planName] 
+										 action:@selector(activatePlanAtRow:) 
+								  keyEquivalent:@""];
+		[item setRepresentedObject:planRow];
 		[menu addItem:item];
 		[item release];
 		

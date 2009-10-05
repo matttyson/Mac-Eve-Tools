@@ -529,6 +529,14 @@
 	[tableView editColumn:0 row:[planRow integerValue] withEvent:nil select:YES];
 }
 
+-(void) activatePlanAtRow:(id)sender
+{
+	NSNumber *planRow = [sender representedObject];
+	
+	SkillPlan *plan = [character skillPlanAtIndex:[planRow integerValue]];
+	[self loadPlan:plan];
+}
+
 -(void) removeSkillFromPlan:(id)sender
 {
 	NSNumber *planId = [sender representedObject];
