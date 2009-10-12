@@ -105,6 +105,7 @@
 							   accountID:accountID 
 								  apiKey:apiKey
 								  charId:nil];
+	NSLog(apiUrl);
 	
 	if(modalDelegate){
 		[f saveXmlDocument:apiUrl

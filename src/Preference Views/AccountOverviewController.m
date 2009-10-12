@@ -35,6 +35,7 @@
 
 -(void) reloadAccounts
 {
+	BOOL primarySet = NO;
 	[charactersForAccount removeAllItems];
 	
 	Config *cfg = [Config sharedInstance];
@@ -54,11 +55,19 @@
 			[menu addItem:item];
 		
 			if([template primary]){
+				primarySet = YES;
 				primary = item;
 			}
 			[item release];
 		}
 	}
+	
+	if(!primarySet){
+		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Not Set" action:nil keyEquivalent:@""];
+		[menu insertItem:item atIndex:0];
+		[item release];
+	}
+	
 	[charactersForAccount setMenu:menu];
 	if(primary != nil){
 		[charactersForAccount selectItem:primary];
@@ -93,8 +102,6 @@
 	/*go though all the accounts, deselect them as primary, set this one as primary*/
 	
 	Config *cfg = [Config sharedInstance];
-	
-	
 	
 	for(Account *a in [cfg accounts]){
 		for(CharacterTemplate *template in [a characters]){

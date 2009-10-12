@@ -1,3 +1,9 @@
+Release 16 (12/10/2009)
+	Rewrite of the character update procedure.
+	Lots of internal refactoring.
+	Skill plans can be renamed.
+	Skill planner column reordering (See preference screen).
+
 Alpha 15.3 (10/9/2009)
 	Fix a crash caused by the server status monitor.
 	Snow Leopard only release.

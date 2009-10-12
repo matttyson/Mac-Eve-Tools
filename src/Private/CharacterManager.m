@@ -358,6 +358,21 @@
 			return [self loadCharacter:t];
 		}
 	}
+	
+	/*fallback, find the first active character*/
+	
+	NSLog(@"Primary character not set, finding first active");
+	
+	for(CharacterTemplate *t in templateArray){
+		if([t active]){
+			if(characterDictionary != nil){
+				return [characterDictionary objectForKey:
+						[NSNumber numberWithInteger:[[t characterId] integerValue]]];
+			}
+			return [self loadCharacter:t];
+		}
+	}
+	
 	return nil;
 }
 

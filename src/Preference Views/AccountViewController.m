@@ -109,9 +109,14 @@
 
 -(void) setTextboxes
 {
+	[acctName setObjectValue:nil];
+	[acctId setObjectValue:nil];
+	[acctKey setObjectValue:nil];
+	
 	if(account == nil){
 		return;
 	}
+	
 	NSString *str;
 	
 	if((str = [account accountName]) != nil){
@@ -203,7 +208,6 @@
 
 -(IBAction) characterActiveCellButtonClick:(id)sender
 {
-	// what the hell? yes it does you retard compiler
 	//[[[account characters]objectAtIndex:[sender selectedRow]]toggleActiveState];
 	CharacterTemplate *template = [[account characters]objectAtIndex:[sender selectedRow]];
 	[template setActive:![template active]];
@@ -243,7 +247,12 @@
 -(IBAction) updateButtonClick:(id)sender
 {
 	[self updateAccount];
+#ifdef MACEVEAPI_DEBUG
+	[account loadAccount:self runForModalWindow:NO];
+#else
 	[account loadAccount:self runForModalWindow:YES];
+#endif
+
 	[progressIndicator setHidden:NO];
 	[progressIndicator startAnimation:self];
 }
