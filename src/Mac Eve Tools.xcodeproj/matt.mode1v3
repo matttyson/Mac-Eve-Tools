@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>C9B5E0E91082B38300DA68F6</string>
+						<string>C9B5E0F21082B4E500DA68F6</string>
 						<key>history</key>
 						<array>
 							<string>C9B5E04B1082A97400DA68F6</string>
@@ -331,7 +331,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 244}, {237, 619}}</string>
+							<string>{{0, 280}, {237, 619}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -382,7 +382,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C9B5E0E81082B38300DA68F6</string>
+										<string>C9B5E0F11082B4E500DA68F6</string>
 										<key>history</key>
 										<array>
 											<string>C9145E0B10607125000F9059</string>
@@ -504,7 +504,7 @@
 											<string>C9B5E0DE1082B35F00DA68F6</string>
 											<string>C9B5E0E51082B38300DA68F6</string>
 											<string>C9B5E0E61082B38300DA68F6</string>
-											<string>C9B5E0E71082B38300DA68F6</string>
+											<string>C9B5E0F01082B4E500DA68F6</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -702,14 +702,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C9B5E0E21082B35F00DA68F6</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>C9B5E02D1082A5E000DA68F6</string>
 		<string>C9B5E02E1082A5E000DA68F6</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>C9FF44DB105506B80044BBAC</string>
 		<string>C9B5E0491082A97400DA68F6</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>C9FF44DB105506B80044BBAC</string>
 		<string>/Users/matt/programming/Mac Eve Tools/src/Mac Eve Tools.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -729,12 +728,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>Account.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -743,7 +744,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1016, 343}}</string>
 								<key>RubberWindowFrame</key>
-								<string>264 124 1016 652 0 0 1920 1178 </string>
+								<string>904 513 1016 652 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -767,7 +768,7 @@
 								<key>Frame</key>
 								<string>{{0, 348}, {1016, 263}}</string>
 								<key>RubberWindowFrame</key>
-								<string>264 124 1016 652 0 0 1920 1178 </string>
+								<string>904 513 1016 652 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -799,11 +800,11 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>264 124 1016 652 0 0 1920 1178 </string>
+			<string>904 513 1016 652 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>C9FF44DB105506B80044BBAC</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
