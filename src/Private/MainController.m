@@ -352,8 +352,8 @@ downloadLabel:
 #ifdef HAVE_SPARKLE
 	SUUpdater *updater = [SUUpdater sharedUpdater];
 	[updater setAutomaticallyChecksForUpdates:NO];
-	[updater setFeedURL:[NSURL URLWithString:cfg->updateFeedUrl]];
-	[updater setSendsSystemProfile:cfg->submitSystemInformation];	
+	[updater setFeedURL:[NSURL URLWithString:[cfg updateFeedUrl]]];
+	[updater setSendsSystemProfile:[cfg submitSystemInformation]];	
 #endif
 	
 	if([[cfg accounts] count] == 0){
