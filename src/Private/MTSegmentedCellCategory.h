@@ -27,3 +27,9 @@
 
 @end
 
+@interface NSSegmentedControl (MTSegmentedControlCategory)
+
+-(void) rightMouseDown:(NSEvent *)theEvent;
+
+@end
+

@@ -26,7 +26,8 @@
 {
 	NSInteger count = [self segmentCount];
 	for(NSInteger i = 0; i < count; i++){
-		if([self tagForSegment:i] == tag){
+		NSInteger segTag = [self tagForSegment:i];
+		if(segTag == tag){
 			[self removeCellAtIndex:i];
 			break;
 		}
@@ -43,8 +44,43 @@
 		}
 		[self setTag:[self tagForSegment:i+1] forSegment:i];
 		[self setLabel:[self labelForSegment:i+1] forSegment:i];
+		[self setMenu:[self menuForSegment:i+1] forSegment:i];
 	}
 	[self setSegmentCount:count-1];
 }
 
 @end
+
+@implementation NSSegmentedControl (MTSegmentedControlCategory)
+
+-(void) rightMouseDown:(NSEvent *)theEvent
+{
+	/*
+	if(!([theEvent type] == NSRightMouseDown)){
+		//If not a right mouse down event, let the class handle this normally.
+		[super mouseDown:theEvent];	
+		return;
+	}
+	NSPoint window_loc = [theEvent locationInWindow];
+	
+	//NSPoint local = [self convertPoint:window_loc fromView:nil];
+	
+	NSEvent *event = [NSEvent mouseEventWithType:NSLeftMouseDown
+										location:window_loc
+								   modifierFlags:0 
+									   timestamp:[NSDate timeIntervalSinceReferenceDate]
+									windowNumber:[[self window]windowNumber] 
+										 context:[[self window]graphicsContext]
+									 eventNumber:0
+									  clickCount:1
+										pressure:0.0f];
+	*/
+	//we don't need any of the above shit, we can just take the right mouse event
+	//and reroute it to the left mouse event.
+	[self mouseDown:theEvent];
+	
+	//[NSMenu popUpContextMenu:<#(NSMenu *)menu#> withEvent:<#(NSEvent *)event#> forView:<#(NSView *)view#>
+}
+
+@end
+

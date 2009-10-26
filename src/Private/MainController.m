@@ -517,6 +517,8 @@ downloadLabel:
 	}
 	
 	NSLog(@"Current character is %@",[currentCharacter characterName]);
+	
+	[[self window]setTitle:[NSString stringWithFormat:@"Mac Eve Tools - %@",[currentCharacter characterName]]];
 }
 
 -(IBAction)charSelectorClick:(id)sender
