@@ -71,6 +71,7 @@
 		[character removeSkillPlan:plan];
 		[segmentedButton setSelectedSegment:0];
 		[self refreshPlanView];
+		[self repositionButton];
 	}
 	free(ary);
 }
@@ -211,13 +212,13 @@
 		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Close" 
 													 action:@selector(closePlan:) 
 											  keyEquivalent:@""];
+		
 		[item setRepresentedObject:[NSNumber numberWithInteger:[plan planId]]];
 		[menu addItem:item];
 		[item release];
 		[segmentedButton setMenu:menu forSegment:buttonCount];
 		[menu release];
 		
-		[segmentedButton sizeToFit];
 		[self repositionButton];
 	}
 	[self displayPlanByPlanId:[plan planId]];
@@ -232,10 +233,12 @@
 	}
 	
 	[[segmentedButton cell]removeCellWithTag:tag];
+	[self repositionButton];
 }
 
 -(void) repositionButton
 {
+	[segmentedButton sizeToFit];
 	NSRect newSize = [segmentedButton frame];
 	NSRect viewSize = [self bounds];
 	newSize.origin.x = (viewSize.size.width / 2) - (newSize.size.width / 2);
