@@ -206,10 +206,32 @@
 		[[segmentedButton cell]setTag:[plan planId] forSegment:buttonCount];
 		[[segmentedButton cell]setLabel:[plan planName] forSegment:buttonCount];
 		[[segmentedButton cell]selectSegmentWithTag:[plan planId]];
+		
+		NSMenu *menu = [[NSMenu alloc]initWithTitle:@"Close"];
+		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Close" 
+													 action:@selector(closePlan:) 
+											  keyEquivalent:@""];
+		[item setRepresentedObject:[NSNumber numberWithInteger:[plan planId]]];
+		[menu addItem:item];
+		[item release];
+		[segmentedButton setMenu:menu forSegment:buttonCount];
+		[menu release];
+		
 		[segmentedButton sizeToFit];
 		[self repositionButton];
 	}
 	[self displayPlanByPlanId:[plan planId]];
+}
+							
+-(void) closePlan:(NSMenuItem*)item
+{
+	NSInteger tag = [[item representedObject]integerValue];
+	
+	if(currentTag == tag){
+		[self displayPlanByPlanId:-1];
+	}
+	
+	[[segmentedButton cell]removeCellWithTag:tag];
 }
 
 -(void) repositionButton
