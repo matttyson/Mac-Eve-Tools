@@ -41,6 +41,9 @@
 		C9F514971056721300654F6D /* MTSegmentedCellCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514911056721300654F6D /* MTSegmentedCellCategory.m */; };
 		C9F514981056721300654F6D /* MTTableViewCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514931056721300654F6D /* MTTableViewCategory.m */; };
 		C9F514A11056725600654F6D /* CharacterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F514A01056725600654F6D /* CharacterManager.m */; };
+		C9FE051F10955F78004D373A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FE051E10955F78004D373A /* Sparkle.framework */; };
+		C9FE053510955FD0004D373A /* Cocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C9FE054A1095608D004D373A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9FE051E10955F78004D373A /* Sparkle.framework */; };
 		C9FF4566105508950044BBAC /* charsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455B105508950044BBAC /* charsheet.png */; };
 		C9FF4567105508950044BBAC /* darkgray.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455C105508950044BBAC /* darkgray.tiff */; };
 		C9FF4568105508950044BBAC /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C9FF455D105508950044BBAC /* green.tiff */; };
@@ -139,6 +142,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C9FE054A1095608D004D373A /* Sparkle.framework in CopyFiles */,
+				C9FE053510955FD0004D373A /* Cocoa.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +189,7 @@
 		C9F514931056721300654F6D /* MTTableViewCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTableViewCategory.m; sourceTree = "<group>"; };
 		C9F5149F1056725600654F6D /* CharacterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterManager.h; sourceTree = "<group>"; };
 		C9F514A01056725600654F6D /* CharacterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterManager.m; sourceTree = "<group>"; };
+		C9FE051E10955F78004D373A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "Linked Frameworks/Sparkle.framework"; sourceTree = "<group>"; };
 		C9FF455B105508950044BBAC /* charsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charsheet.png; sourceTree = "<group>"; };
 		C9FF455C105508950044BBAC /* darkgray.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = darkgray.tiff; sourceTree = "<group>"; };
 		C9FF455D105508950044BBAC /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				C9FE051F10955F78004D373A /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9FE051E10955F78004D373A /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -980,6 +988,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CURRENT_PROJECT_VERSION = 16.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_SPARKLE;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
