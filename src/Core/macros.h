@@ -185,6 +185,8 @@ enum AttributeType {
 #define DB_CATEGORY_MODULE 7
 #define DB_CATEGORY_CHARGE 8
 
+#define SKILL_PLAN_CONFIG @"skill_plan_config"
+
 
 enum CCPRace
 {

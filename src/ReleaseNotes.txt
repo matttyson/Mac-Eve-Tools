@@ -1,3 +1,7 @@
+Release 16.1 (26/10/2009)
+	Add option to close skill plans (right click on tab).
+	Fix bug caused by not having skill plan columns set.
+
 Release 16 (12/10/2009)
 	Rewrite of the character update procedure.
 	Lots of internal refactoring.

@@ -297,8 +297,18 @@
 	
 	[skillPlanColumns removeAllObjects];
 	
-	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"skill_plan_config"];
-	NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SKILL_PLAN_CONFIG];
+	NSArray *ary;
+	
+	if(data == nil){
+		//fall back to defaults
+		ColumnConfigManager *ccm = [[ColumnConfigManager alloc]init];
+		[ccm readConfig];
+		ary = [ccm columns];
+		[ccm release];		
+	}else{
+		ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	}
 	
 	for(PlannerColumn *pcol in ary){
 		if([pcol active]){

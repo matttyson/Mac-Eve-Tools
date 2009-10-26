@@ -23,7 +23,7 @@
 
 #import "ColumnConfigManager.h"
 
-#define SKILL_PLAN_CONFIG @"skill_plan_config"
+
 
 @implementation SkillPlanConfig
 
