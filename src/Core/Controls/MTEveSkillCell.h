@@ -66,4 +66,8 @@ enum MTEveSkillCellMode
 -(CGFloat) percentCompleted;
 -(void) setPercentCompleted:(CGFloat)percentCompleted;
 
+-(NSRect) skillProgressRect:(const NSRect* restrict)bounds
+				   infoRect:(const NSRect* restrict)infoRect
+					yOffset:(CGFloat)yOffset;
+
 @end

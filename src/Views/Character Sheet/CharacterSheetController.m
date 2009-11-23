@@ -176,13 +176,11 @@
 		trainingSkill = nil;
 		return;
 	}
-	[timeRemaining setHidden:NO];
-	[trainingRate setHidden:NO];
+		
 	[queueHeader setHidden:NO];
 	[titleRate setHidden:NO];
 	[titleRemaining setHidden:NO];
 	
-	[timeRemaining setVisible:YES];
 	
 	NSString *typeID = [character stringForKey:CHAR_TRAINING_TYPEID];
 	NSNumber *key = [NSNumber numberWithInteger:[typeID integerValue]];
@@ -201,15 +199,25 @@
 	NSString *endTime = [NSString stringWithFormat:@"%@ +0000",[character stringForKey:CHAR_TRAINING_END]];
 	NSDate *finishDate = [NSDate dateWithString:endTime];
 	NSTimeInterval timeDiff = [finishDate timeIntervalSinceNow];
-	
-	[timeRemaining setInterval:timeDiff];
-	[timeRemaining activate];
+	if(timeDiff > 0.0){
 		
-	/*this needs the character sheet to calculate, and also needs the training sheet to know if it should be displayed*/
-	NSInteger sphr = [character spPerHour];
-	[trainingRate setStringValue:[NSString stringWithFormat:@"%ld SP/hr",sphr]];
-	[trainingRate sizeToFit];
-	
+		[timeRemaining setInterval:timeDiff];
+		[timeRemaining activate];
+			
+		/*this needs the character sheet to calculate, and also needs the training sheet to know if it should be displayed*/
+		NSInteger sphr = [character spPerHour];
+		[trainingRate setStringValue:[NSString stringWithFormat:@"%ld SP/hr",sphr]];
+		[trainingRate sizeToFit];
+
+		[timeRemaining setVisible:YES];
+		[timeRemaining setHidden:NO];
+		[trainingRate setHidden:NO];
+	}else{
+		[timeRemaining setHidden:YES];
+		[trainingRate setHidden:YES];
+		[titleRemaining setHidden:YES];
+		[titleRate setHidden:YES];
+	}
 	trainingSkill = [[character st]skillForId:[character trainingSkill]];
 }
 
@@ -429,7 +437,7 @@
 	NSInteger row = [sender clickedRow];
 	
 	[SkillDetailsWindowController displayWindowForSkill:
-	 [sender itemAtRow:row] forCharacter:currentCharacter];
+	[sender itemAtRow:row] forCharacter:currentCharacter];
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView 

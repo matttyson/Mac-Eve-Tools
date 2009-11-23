@@ -84,14 +84,6 @@
 	skillLevel = [pair skillLevel];
 }
 
--(NSRect) rectForProgressBar:(NSRect)bounds
-{
-	NSRect result = bounds;
-	
-	bounds.origin.y = bounds.size.height - 3;
-	return result;
-}
-
 -(void) setColourForLevel:(NSInteger)level
 {
 	if(level > realSkillLevel){
@@ -101,11 +93,6 @@
 	}
 }
 
-- (void)drawInteriorWithFrame:(NSRect)bounds inView:(NSView *)controlView
-{
-	[super drawInteriorWithFrame:bounds inView:controlView];
-}
-
 #pragma mark Overridden methods
 
 -(NSAttributedString*) buildSubtitleString
@@ -113,7 +100,8 @@
 	return nil;
 }
 
--(void) drawSubtitleInRect:(NSRect)bounds theString:(NSAttributedString*)astr
+-(void) drawSubtitleInRect:(NSRect)bounds 
+				 theString:(NSAttributedString*)astr
 {
 	
 }
@@ -123,7 +111,7 @@
 	
 }
 
-- (NSRect) infoButtonRect:(NSRect)bounds
+-(NSRect) infoButtonRect:(NSRect)bounds
 {
 	NSRect result = bounds;
 	result.origin.x = bounds.size.width;

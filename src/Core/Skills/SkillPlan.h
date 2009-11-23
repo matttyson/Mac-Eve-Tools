@@ -88,11 +88,21 @@
 /*number of skills in the plan*/
 -(NSInteger) skillCount;
 -(SkillPair*) skillAtIndex:(NSInteger)index;
+/*returns the max level this skill is queued to*/
+-(NSInteger) maxLevelForSkill:(NSNumber*)typeId atIndex:(NSInteger*)index;
 /*sp/hr for the skill at index, adjusted for any learning skills that have been added*/
 -(NSNumber*) spHrForSkill:(NSInteger)index;
 
 /*supply an array of indexes of skills you want to move, and the location where you want them all inserted*/
 -(BOOL) moveSkill:(NSArray*)fromIndexArray to:(NSInteger)toIndex;
+
+/*
+ insert a skill at the given index.
+ Prerequisites must be satisfied for this to work.
+ TRUE on success. FALSE on failure.
+ */
+-(BOOL) addSkill:(SkillPair*)pair atIndex:(NSInteger)index;
+-(void) removeSkillAtIndex:(NSInteger)index;
 
 /*returns the total training time of the plan in seconds*/
 -(NSInteger) trainingTime;

@@ -243,7 +243,7 @@
 }
 
 
-// Level 4 etc
+// Level 4 etc (text string) bounding box
 -(NSRect) skillTimeLeftRect:(const NSRect* restrict)bounds 
 			   skillBoxRect:(const NSRect* restrict)skillBoxRect
 				  topString:(NSAttributedString* restrict)topStr
@@ -256,7 +256,7 @@
 }
 
 
-//2d 20h 38m 15s etc
+//2d 20h 38m 15s etc (text string) bounding box
 -(NSRect) skillTimeLeftRect:(const NSRect* restrict)bounds 
 			   skillBoxRect:(const NSRect* restrict)skillBoxRect
 			   bottomString:(NSAttributedString* restrict)topStr
@@ -344,9 +344,10 @@
 	return result;
 }
 
+/*draw the rectangle that surrounds the skill progress bar*/
 -(NSRect) skillProgressRect:(const NSRect* restrict)bounds
-				 infoRect:(const NSRect* restrict)infoRect
-				  yOffset:(CGFloat)yOffset
+				   infoRect:(const NSRect* restrict)infoRect
+					yOffset:(CGFloat)yOffset
 {
 	NSRect result;
 	
@@ -391,13 +392,17 @@
 
 -(void) drawSkillProgressBar:(NSRect)bounds
 {
-	
+	/*
+	 draw the inner portion of the progress bar.  
+	 we cut off a pixel either side to make the border effect
+	 */
 	[[NSColor blackColor]set];
 	[NSBezierPath strokeRect:bounds];
 	
 	bounds.origin.y += 1.5;
 	bounds.origin.x += 1.5;
 	bounds.size.height -= 3.0;
+	
 	[self drawSkillCompletionProgress:bounds];
 }
 
@@ -653,7 +658,12 @@
     return YES;
 }
 
-- (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)flag {
+- (BOOL)trackMouse:(NSEvent *)theEvent 
+			inRect:(NSRect)cellFrame 
+			ofView:(NSView *)controlView 
+	  untilMouseUp:(BOOL)flag 
+{
+	
     [self setControlView:controlView];
 	
     NSRect infoButtonRect = [self infoButtonRect:cellFrame];
@@ -688,7 +698,11 @@
 }
 
 // Mouse movement tracking -- we have a custom NSOutlineView subclass that automatically lets us add mouseEntered:/mouseExited: support to any cell!
-- (void)addTrackingAreasForView:(NSView *)controlView inRect:(NSRect)cellFrame withUserInfo:(NSDictionary *)userInfo mouseLocation:(NSPoint)mouseLocation {
+- (void)addTrackingAreasForView:(NSView *)controlView 
+						 inRect:(NSRect)cellFrame 
+				   withUserInfo:(NSDictionary *)userInfo 
+				  mouseLocation:(NSPoint)mouseLocation
+{
     NSRect infoButtonRect = [self infoButtonRect:cellFrame];
 	
     NSTrackingAreaOptions options = NSTrackingEnabledDuringMouseDrag | NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways;

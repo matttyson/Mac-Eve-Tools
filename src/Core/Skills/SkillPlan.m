@@ -707,6 +707,25 @@ static NSDictionary *masterSkillSet = nil;;
 	return [skillPlan objectAtIndex:index]; 
 }
 
+-(NSInteger) maxLevelForSkill:(NSNumber*)typeId atIndex:(NSInteger*)index;
+{
+	NSInteger level = 0;
+	NSInteger i = 0;
+	
+	for(SkillPair *pair in skillPlan){
+		if([[pair typeID]isEqualToNumber:typeId]){
+			if([pair skillLevel] > level){
+				level = [pair skillLevel];
+				if(index != NULL){
+					*index = i;
+				}
+			}
+		}
+		i++;
+	}
+	return level;
+}
+
 -(NSNumber*) spHrForSkill:(NSInteger)index
 {
 	if([spHrArray count] == 0){
@@ -714,6 +733,38 @@ static NSDictionary *masterSkillSet = nil;;
 	}
 	return [spHrArray objectAtIndex:index];
 }
+
+-(BOOL) addSkill:(SkillPair*)pair atIndex:(NSInteger)index
+{	
+	NSMutableArray *newPlan = [skillPlan mutableCopy];
+	
+	if(index >= [newPlan count]){
+		[newPlan addObject:pair];
+	}else{
+		[newPlan insertObject:pair atIndex:index];
+	}
+	
+	if([self validatePlan:newPlan]){
+		[skillPlan release];
+		skillPlan = newPlan;
+		[self resetCache];
+		[self savePlan];
+		return YES;
+	}else{
+		[newPlan release];
+		return NO;
+	}
+	
+	return NO;
+}
+
+-(void) removeSkillAtIndex:(NSInteger)index
+{
+	NSArray *ary = [self constructAntiPlan:index];
+	
+	[self removeSkillArrayFromPlan:ary];
+}
+
 /*
 -(id) copyWithZone:(NSZone)zone
 {

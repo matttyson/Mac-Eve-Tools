@@ -343,7 +343,7 @@
 		[skillPlanView setDelegate:self];
 		[skillPlanView setDataSource:self];
 		[skillPlanView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
-		[skillPlanView setRowHeight:38.0];
+		[skillPlanView setRowHeight:36.0];
 		
 		[scrollView setDocumentView:skillPlanView];
 		

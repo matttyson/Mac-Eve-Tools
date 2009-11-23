@@ -29,6 +29,7 @@
 //#import "MTSegmentedCellCategory.h"
 #import "SkillDetailsWindowController.h"
 #import "MTSegmentedCell.h"
+#import "MTSkillNameCell.h"
 
 #import "Helpers.h"
 #import "Config.h"
@@ -51,6 +52,10 @@
 -(void) removeSkillSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 -(void) repositionButton;
+
+-(void) cellPlusButtonClick:(id)sender;
+-(void) cellMinusButtonClick:(id)sender;
+-(void) cellNotesButtonClick:(id)sender;
 
 @end
 
@@ -276,6 +281,53 @@
 	[self refreshPlanView];
 }
 
+-(void) cellPlusButtonClick:(id)sender
+{	
+	/*
+	 Find out what skill this is.
+	 If level 5, do nothing.
+	 Else, add it to the next level in the next row.
+	 */
+	NSInteger row = [sender clickedRow];
+	NSInteger insertRow = -1;
+	
+	SkillPlan *plan = [pvDatasource currentPlan];
+	
+	SkillPair *pair = [plan skillAtIndex:row];
+	
+	NSInteger maxQueuedLevel = [plan maxLevelForSkill:[pair typeID] atIndex:&insertRow];
+	
+	if((maxQueuedLevel == 5) || (maxQueuedLevel == 0)){
+		return;
+	}
+	
+	SkillPair *newPair = [[SkillPair alloc]initWithSkill:[pair typeID] level:maxQueuedLevel+1];
+	[plan addSkill:newPair atIndex:insertRow+1];
+	[newPair release];
+	
+	[self refreshPlanView];
+}
+-(void) cellMinusButtonClick:(id)sender
+{
+	/*
+	 Find this skill and remove it from the plan
+	 */
+	NSInteger row = [sender clickedRow];
+	SkillPlan *plan = [pvDatasource currentPlan];
+	
+	/*this does not display the warning dialog.*/
+	[plan removeSkillAtIndex:row];
+	[self refreshPlanView];
+	
+	NSLog(@"Minus button click %ld",row);
+}
+-(void) cellNotesButtonClick:(id)sender
+{
+	NSInteger row = [sender clickedRow];
+	NSLog(@"Notes button click row %ld",row);
+}
+
+
 @end
 
 
@@ -317,6 +369,20 @@
 			[[col headerCell]setStringValue:[pcol columnName]];
 			[skillPlanColumns addObject:col];
 			[col release];
+			
+			
+			/*special case for the plan name column to add info and plus / minus buttons.*/
+			if([[col identifier]isEqualToString:COL_PLAN_SKILLNAME]){
+				MTSkillNameCell *cell = [[MTSkillNameCell alloc]init];
+								
+				[cell setTarget:self];
+				[cell setPlusButtonAction:@selector(cellPlusButtonClick:)];
+				[cell setMinusButtonAction:@selector(cellMinusButtonClick:)];
+				[cell setNotesButtonAction:@selector(cellNotesButtonClick:)];
+				 
+				[col setDataCell:cell];
+			}
+			
 		}
 	}
 }

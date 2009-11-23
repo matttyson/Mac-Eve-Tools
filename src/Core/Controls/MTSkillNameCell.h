@@ -20,21 +20,30 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "PlannerColumn.h"
+/*
+ This class exists to display the name of the skill being trained, 
+ but also to provide functionality such as adding the skill to the next leve
+ (plus button) removing the skill (minus button) and opening up the notes window
+ (info button).
+ */
 
-@interface ColumnConfigManager : NSObject {
-	NSMutableArray *columnList;
+@interface MTSkillNameCell : NSTextFieldCell 
+{
+	SEL notesButtonAction;
+	SEL plusButtonAction;
+	SEL minusButtonAction;
+	
+	BOOL mouseInNotesButton;
+	BOOL mouseInPlusButton;
+	BOOL mouseInMinusButton;
+	
+	BOOL mouseDownInNotesButton;
+	BOOL mouseDownInPlusButton;
+	BOOL mouseDownInMinusButton;
 }
 
--(void) readConfig;
--(void) writeConfig;
--(void) eraseConfig;
--(void) resetConfig;
-
--(BOOL) setWidth:(CGFloat)width forColumn:(NSString*)columnId;
--(BOOL) setOrder:(NSInteger)position forColumn:(NSString*)columnId;
--(BOOL) moveColumn:(NSInteger)from toPosition:(NSInteger)to;
-
--(NSArray*) columns;
+@property (nonatomic,readwrite,assign) SEL notesButtonAction;
+@property (nonatomic,readwrite,assign) SEL plusButtonAction;
+@property (nonatomic,readwrite,assign) SEL minusButtonAction;
 
 @end

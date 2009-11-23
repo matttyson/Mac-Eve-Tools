@@ -75,11 +75,13 @@
 									  clickCount:1
 										pressure:0.0f];
 	*/
-	//we don't need any of the above shit, we can just take the right mouse event
-	//and reroute it to the left mouse event.
-	[self mouseDown:theEvent];
 	
 	//[NSMenu popUpContextMenu:<#(NSMenu *)menu#> withEvent:<#(NSEvent *)event#> forView:<#(NSView *)view#>
+	
+	//we don't need any of the above shit, we can just take the right mouse event
+	//and reroute it to the left mouse event.
+	
+	[self mouseDown:theEvent];
 }
 
 @end

@@ -192,18 +192,37 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		if([[aTableColumn identifier]isEqualToString:SD_LEVEL]){
 			return [NSNumber numberWithInteger:rowIndex + 1];
 		}else if([[aTableColumn identifier]isEqualToString:SD_TIME]){
-			return stringTrainingTime([character trainingTimeInSeconds:[skill typeID]
-									  fromLevel:rowIndex
-										toLevel:rowIndex+1
-						accountForTrainingSkill:NO]);
+
+			NSInteger rank = [skill skillRank];
+			NSInteger primaryAttr = [skill primaryAttr];
+			NSInteger secondaryAttr = [skill secondaryAttr];
+			
+			NSInteger totalForLevel = 
+				totalSkillPointsForLevel(rowIndex+1,rank) - totalSkillPointsForLevel(rowIndex,rank);
+			
+			NSInteger seconds = [character trainingTimeInSeconds:primaryAttr secondary:secondaryAttr skillPoints:totalForLevel];
+			
+			return stringTrainingTime(seconds);
+			
 		}else if([[aTableColumn identifier]isEqualToString:SD_TOTAL]){
 			NSInteger time = 0;
 			
 			for(NSInteger i = 0; i <= rowIndex; i++){
+				/*
 				time += [character trainingTimeInSeconds:[skill typeID]
 									fromLevel:i
 									toLevel:i+1
 					accountForTrainingSkill:NO];
+				 */
+				
+				NSInteger rank = [skill skillRank];
+				NSInteger primaryAttr = [skill primaryAttr];
+				NSInteger secondaryAttr = [skill secondaryAttr];
+				
+				NSInteger totalForLevel = 
+				totalSkillPointsForLevel(i+1,rank) - totalSkillPointsForLevel(i,rank);
+				
+				time += [character trainingTimeInSeconds:primaryAttr secondary:secondaryAttr skillPoints:totalForLevel];
 			}
 			return stringTrainingTime(time);
 			
@@ -217,7 +236,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 				time += [character trainingTimeInSeconds:[skill typeID]
 											   fromLevel:i
 												 toLevel:i+1
-								 accountForTrainingSkill:NO];
+								 accountForTrainingSkill:YES];
 			}
 			return stringTrainingTime(time);
 			
