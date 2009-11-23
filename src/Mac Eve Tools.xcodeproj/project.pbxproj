@@ -1016,6 +1016,62 @@
 			};
 			name = Release;
 		};
+		C940ED8F10BA2FB4002E8635 /* Test Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 16.2;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-lcrypto",
+					"-lbz2",
+					"-lsqlite3",
+				);
+				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
+				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";
+				PREBINDING = NO;
+				PRODUCT_NAME = "";
+				SDKROOT = macosx10.6;
+				VALID_ARCHS = "i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Test Release";
+		};
+		C940ED9010BA2FB4002E8635 /* Test Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Linked Frameworks\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Mac_Eve_Tools_Prefix.pch;
+				INFOPLIST_FILE = "Mac_Eve_Tools-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Mac Eve Tools";
+			};
+			name = "Test Release";
+		};
+		C940ED9110BA2FB4002E8635 /* Test Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Package;
+				ZERO_LINK = NO;
+			};
+			name = "Test Release";
+		};
 		C9F51596105682AB00654F6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1045,6 +1101,7 @@
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
 				C01FCF4C08A954540054247B /* Release */,
+				C940ED9010BA2FB4002E8635 /* Test Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1054,6 +1111,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				C940ED8F10BA2FB4002E8635 /* Test Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1063,6 +1121,7 @@
 			buildConfigurations = (
 				C9F51596105682AB00654F6D /* Debug */,
 				C9F51597105682AB00654F6D /* Release */,
+				C940ED9110BA2FB4002E8635 /* Test Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

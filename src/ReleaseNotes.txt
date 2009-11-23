@@ -1,3 +1,8 @@
+Release 16.2 (23/11/2009) - BETA RELEASE
+	Add plus / minus buttons to the skill planner.
+	Notes button not implemented.
+	BUG: Clicking on the button too fast triggers a double click event.
+
 Release 16.1 (26/10/2009)
 	Add option to close skill plans (right click on tab).
 	Fix bug caused by not having skill plan columns set.
