@@ -124,7 +124,7 @@
 
 -(SkillPlanController*) init
 {
-	if(self = [super initWithNibName:@"SkillPlan" bundle:nil]){
+	if((self = [super initWithNibName:@"SkillPlan" bundle:nil])){
 		
 	}
 	return self;

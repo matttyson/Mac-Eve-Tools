@@ -37,4 +37,6 @@
 
 -(NSArray*) columns;
 
++(ColumnConfigManager*) manager;
+
 @end

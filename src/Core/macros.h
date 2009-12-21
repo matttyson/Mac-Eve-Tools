@@ -106,6 +106,7 @@ enum AttributeType {
 #define COL_PLAN_SPHR @"SPHR"
 #define COL_PLAN_TRAINING_TIME @"TRAININGTIME"
 #define COL_PLAN_TRAINING_TTD @"TIMETODATE"
+#define COL_PLAN_BUTTONS @"BUTTONS"
 
 
 /*XML Documents we are interested in downloading*/

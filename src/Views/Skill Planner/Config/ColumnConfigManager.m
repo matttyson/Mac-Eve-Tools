@@ -40,6 +40,11 @@
 	[super dealloc];
 }
 
++(ColumnConfigManager*) manager
+{
+	return [[[ColumnConfigManager alloc]init]autorelease];
+}
+
 -(NSArray*) buildDefaultColumnList
 {
 	PlannerColumn *col;
@@ -94,15 +99,22 @@
 	[array addObject:col];
 	[col release];
 	
+	/*
+	col = [[PlannerColumn alloc]initWithName:@"Buttons"
+								  identifier:COL_PLAN_BUTTONS 
+									  status:NO
+									   width:50.0f];
+	[array addObject:col];
+	[col release];
+	*/
 	return array;
 }
 
 -(void) readConfig
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
 	if(columnList != nil){
 		[columnList release];
+		columnList = nil;
 	}
 	
 	//Create the default list
@@ -110,11 +122,12 @@
 	//load up the saved list and merge the two.
 	//Note: if new columns are added then they will never be seen.  fix this.
 	
-	NSData *data = [defaults objectForKey:SKILL_PLAN_CONFIG];
+	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SKILL_PLAN_CONFIG];
 	if(data != nil){
 		NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 		columnList = [ary mutableCopy];
 	}else{
+		//Column list has been built from defaults.
 		columnList = [[self buildDefaultColumnList]retain];
 	}
 }

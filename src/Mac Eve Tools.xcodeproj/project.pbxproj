@@ -29,7 +29,7 @@
 		C911FE9C107820D5000D88E2 /* Certificate.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FE9B107820D5000D88E2 /* Certificate.m */; };
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
-		C93815E5109E8FEF002C9B16 /* MTSkillNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillNameCell.m */; };
+		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
@@ -169,8 +169,8 @@
 		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
 		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
-		C93815E3109E8FEF002C9B16 /* MTSkillNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillNameCell.h; sourceTree = "<group>"; };
-		C93815E4109E8FEF002C9B16 /* MTSkillNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSkillNameCell.m; sourceTree = "<group>"; };
+		C93815E3109E8FEF002C9B16 /* MTSkillButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillButtonCell.h; sourceTree = "<group>"; };
+		C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSkillButtonCell.m; sourceTree = "<group>"; };
 		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
 		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
 		C979E0071069B05400457530 /* SkillPlannerConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlannerConfig.xib; sourceTree = "<group>"; };
@@ -567,8 +567,8 @@
 				C9FF471210550BA50044BBAC /* MTSkillProgressCell.m */,
 				C9FF471310550BA50044BBAC /* MTTableView.h */,
 				C9FF471410550BA50044BBAC /* MTTableView.m */,
-				C93815E3109E8FEF002C9B16 /* MTSkillNameCell.h */,
-				C93815E4109E8FEF002C9B16 /* MTSkillNameCell.m */,
+				C93815E3109E8FEF002C9B16 /* MTSkillButtonCell.h */,
+				C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -895,7 +895,7 @@
 				C911FE98107820B2000D88E2 /* CCPCrtCategory.m in Sources */,
 				C911FE9C107820D5000D88E2 /* Certificate.m in Sources */,
 				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
-				C93815E5109E8FEF002C9B16 /* MTSkillNameCell.m in Sources */,
+				C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

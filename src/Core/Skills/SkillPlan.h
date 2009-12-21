@@ -102,6 +102,10 @@
  TRUE on success. FALSE on failure.
  */
 -(BOOL) addSkill:(SkillPair*)pair atIndex:(NSInteger)index;
+
+/*take an already queued skill that is less than level, and increase it to level*/
+-(BOOL) increaseSkillToLevel:(SkillPair*)pair;
+
 -(void) removeSkillAtIndex:(NSInteger)index;
 
 /*returns the total training time of the plan in seconds*/

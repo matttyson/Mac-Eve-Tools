@@ -27,7 +27,7 @@
  (info button).
  */
 
-@interface MTSkillNameCell : NSTextFieldCell 
+@interface MTSkillButtonCell : NSTextFieldCell 
 {
 	SEL notesButtonAction;
 	SEL plusButtonAction;

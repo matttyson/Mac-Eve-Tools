@@ -1,3 +1,7 @@
+Release 16.3 (21/12/2009)
+	Add option to increase skill level directly from plan (right click)
+	Misc bug fixes.
+
 Release 16.2 (23/11/2009) - BETA RELEASE
 	Add plus / minus buttons to the skill planner.
 	Notes button not implemented.

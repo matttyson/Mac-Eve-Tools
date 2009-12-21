@@ -29,7 +29,7 @@
 //#import "MTSegmentedCellCategory.h"
 #import "SkillDetailsWindowController.h"
 #import "MTSegmentedCell.h"
-#import "MTSkillNameCell.h"
+#import "MTSkillButtonCell.h"
 
 #import "Helpers.h"
 #import "Config.h"
@@ -305,6 +305,7 @@
 	[plan addSkill:newPair atIndex:insertRow+1];
 	[newPair release];
 	
+	[[pvDatasource currentPlan]savePlan];
 	[self refreshPlanView];
 }
 -(void) cellMinusButtonClick:(id)sender
@@ -317,6 +318,7 @@
 	
 	/*this does not display the warning dialog.*/
 	[plan removeSkillAtIndex:row];
+	[[pvDatasource currentPlan]savePlan];
 	[self refreshPlanView];
 	
 	NSLog(@"Minus button click %ld",row);
@@ -372,17 +374,17 @@
 			
 			
 			/*special case for the plan name column to add info and plus / minus buttons.*/
-			if([[col identifier]isEqualToString:COL_PLAN_SKILLNAME]){
-				MTSkillNameCell *cell = [[MTSkillNameCell alloc]init];
-								
+			
+			if([[col identifier]isEqualToString:COL_PLAN_BUTTONS]){
+				MTSkillButtonCell *cell = [[MTSkillButtonCell alloc]init];
+				
 				[cell setTarget:self];
 				[cell setPlusButtonAction:@selector(cellPlusButtonClick:)];
 				[cell setMinusButtonAction:@selector(cellMinusButtonClick:)];
 				[cell setNotesButtonAction:@selector(cellNotesButtonClick:)];
-				 
+				
 				[col setDataCell:cell];
 			}
-			
 		}
 	}
 }
@@ -627,7 +629,9 @@
 {
 	NSNumber *planRow = [sender representedObject];
 	
-	[tableView editColumn:0 row:[planRow integerValue] withEvent:nil select:YES];
+	NSInteger column = [tableView columnWithIdentifier:COL_POV_NAME];
+	
+	[tableView editColumn:column row:[planRow integerValue] withEvent:nil select:YES];
 }
 
 -(void) activatePlanAtRow:(id)sender
@@ -642,6 +646,14 @@
 {
 	NSNumber *planId = [sender representedObject];
 	[self removeSkillsFromPlan:[NSIndexSet indexSetWithIndex:[planId unsignedIntegerValue]]];
+}
+
+-(void) trainSkillToLevel:(id)sender
+{
+	SkillPair *pair = [sender representedObject];
+	if([[pvDatasource currentPlan]increaseSkillToLevel:pair]){
+		[self refreshPlanView];
+	}
 }
 
 -(void) addSkillArrayToActivePlan:(NSArray*)skillArray

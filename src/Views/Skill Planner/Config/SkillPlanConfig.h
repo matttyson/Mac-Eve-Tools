@@ -29,8 +29,10 @@
 	
 	IBOutlet NSTableView *columnTable;
 	
-	ColumnConfigManager *manager;
+	IBOutlet NSButton *defaultButton;
 }
+
+-(IBAction) resetToDefaults:(id)sender;
 
 
 @end

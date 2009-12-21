@@ -83,7 +83,6 @@
 	SkillPair *sp = [[SkillPair alloc]initWithSkill:typeID level:level];
 	[skillPlan addObject:sp];
 	[sp release];
-	//[self resetCache];
 }
 
 /*
@@ -732,6 +731,47 @@ static NSDictionary *masterSkillSet = nil;;
 		return nil;
 	}
 	return [spHrArray objectAtIndex:index];
+}
+
+-(BOOL) increaseSkillToLevel:(SkillPair*)pair
+{
+	NSInteger curIndex;
+	NSInteger curMaxLevel = [self maxLevelForSkill:[pair typeID] atIndex:&curIndex];
+	NSInteger increaseToLevel = [pair skillLevel];
+	
+	if(curMaxLevel == 0){
+		return NO;
+	}
+	
+	NSMutableArray *newPlan = [skillPlan mutableCopy];
+	
+	curIndex++; //Current index where we are inserting.  move to one beyond the skill.
+	
+	for(NSInteger i = curMaxLevel + 1; i <= increaseToLevel; i++){
+		
+		SkillPair *newPair = [[SkillPair alloc]initWithSkill:[pair typeID] level:i];
+		
+		if(curIndex >= [newPlan count]){
+			[newPlan addObject:newPair];
+		}else{
+			[newPlan insertObject:newPair atIndex:curIndex];
+		}
+		
+		[newPair release];
+		curIndex++;
+	}
+	
+	if([self validatePlan:newPlan]){
+		[skillPlan release];
+		skillPlan = newPlan;
+		[self resetCache];
+		[self savePlan];
+		return YES;
+	}else{
+		[newPlan release];
+		return NO;
+	}
+	
 }
 
 -(BOOL) addSkill:(SkillPair*)pair atIndex:(NSInteger)index

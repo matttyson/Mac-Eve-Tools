@@ -203,6 +203,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		
 		SkillPair *sp = [skillPlan skillAtIndex:row];
 		Skill *s = [masterSkillSet objectForKey:[sp typeID]];
+		
+		
 		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove %@ %@",[s skillName],
 															 romanForInteger([sp skillLevel])]
 													 action:@selector(removeSkillFromPlan:)
@@ -210,6 +212,32 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		[item setRepresentedObject:planRow];
 		[menu addItem:item];
 		[item release];
+		
+		/*
+		 If the skill is not planned to a level higher than the current level
+		 then add the option to right-click and train to a particular level.
+		 */
+		
+//		if([sp skillLevel] < 5){
+		
+		NSInteger queuedIndex;
+		NSInteger queuedMax = [[self currentPlan]maxLevelForSkill:[sp typeID] atIndex:&queuedIndex];
+		
+		if(queuedMax < 5){
+			for(NSInteger i = queuedMax + 1; i <= 5; i++){
+				item = [[NSMenuItem alloc]initWithTitle:
+						[NSString stringWithFormat:@"Train to level %@",romanForInteger(i) ]
+												 action:@selector(trainSkillToLevel:)
+										  keyEquivalent:@""];
+				
+				SkillPair *newPair = [[SkillPair alloc]initWithSkill:[sp typeID] level:i];
+				
+				[item setRepresentedObject:newPair];
+				[menu addItem:item];
+				[item release];
+				[newPair release];
+			}
+		}
 		
 	}else if(mode == SPMode_overview){
 		skillPlan = [character skillPlanAtIndex:row];

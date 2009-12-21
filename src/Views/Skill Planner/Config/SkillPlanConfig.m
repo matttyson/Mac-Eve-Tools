@@ -27,88 +27,6 @@
 
 @implementation SkillPlanConfig
 
-/*
-
--(NSArray*) buildDefaultColumnList
-{
-	PlannerColumn *col;
-	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Skill Name" 
-								  identifier:COL_PLAN_SKILLNAME 
-									  status:YES
-									   width:175.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Training Time"
-								  identifier:COL_PLAN_TRAINING_TIME
-									  status:YES
-									   width:95.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Running Total"
-								  identifier:COL_PLAN_TRAINING_TTD
-									  status:NO
-									   width:90.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"SP/Hr"
-								  identifier:COL_PLAN_SPHR
-									  status:NO
-									   width:50.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Start Date"
-								  identifier:COL_PLAN_CALSTART
-									  status:YES
-									   width:125.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Finish Date"
-								  identifier:COL_PLAN_CALFINISH
-									  status:NO
-									   width:125.0f];
-	[array addObject:col];
-	[col release];
-	
-	col = [[PlannerColumn alloc]initWithName:@"Progress"
-								  identifier:COL_PLAN_PERCENT
-									  status:YES
-									   width:50.0f];
-	[array addObject:col];
-	[col release];
-	
-	return array;
-}
-
--(void) readDefaults
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	if(columnList != nil){
-		[columnList release];
-	}
-	
-	//Create the default list
-	
-	//load up the saved list and merge the two.
-	//Note: if new columns are added then they will never be seen.  fix this.
-	
-	NSData *data = [defaults objectForKey:SKILL_PLAN_CONFIG];
-	if(data != nil){
-		NSArray *ary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-		columnList = [ary mutableCopy];
-	}else{
-		columnList = [[self buildDefaultColumnList]retain];
-	}
-}
-*/
-
 
 /*this is still a bit hacky*/
 
@@ -125,13 +43,21 @@
 	}
 }
 
+-(void) buildColumnList
+{
+	if(columnList != nil){
+		[columnList release];
+	}
+	
+	ColumnConfigManager *manager = [ColumnConfigManager manager];
+	columnList = [[manager columns]mutableCopy];
+}
+
 -(id) init
 {
 	if((self = [super initWithNibName:@"SkillPlannerConfig" bundle:nil])){
 		name = @"Skill Planner";
-		
-		manager = [[ColumnConfigManager alloc]init];
-		columnList = [[manager columns]mutableCopy];
+		[self buildColumnList];
 	}
 	return self;
 }
@@ -220,6 +146,18 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 {
 	[aTableView setDropRow:row dropOperation:NSTableViewDropOn];
 	return NSDragOperationMove;
+}
+
+-(IBAction) resetToDefaults:(id)sender
+{
+	ColumnConfigManager *manager = [ColumnConfigManager manager];
+	[manager resetConfig];
+	
+	//[self buildColumnList];
+	[columnList removeAllObjects];
+	[columnList addObjectsFromArray:[manager columns]];
+	
+	[columnTable reloadData];
 }
 
 

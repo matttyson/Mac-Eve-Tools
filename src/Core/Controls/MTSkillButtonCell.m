@@ -18,10 +18,10 @@
 */
 
 
-#import "MTSkillNameCell.h"
+#import "MTSkillButtonCell.h"
 
 
-@implementation MTSkillNameCell
+@implementation MTSkillButtonCell
 
 @synthesize notesButtonAction;
 @synthesize plusButtonAction;
@@ -54,7 +54,7 @@
 {
 	NSRect box = bounds;
 	
-	box.origin.x = bounds.size.width - 50.0;	
+	//box.origin.x = bounds.size.width - 50.0;	
 	box.origin.y += (bounds.size.height / 2.0) - (15.0 / 2.0);
 	
 	box.size.width = 15.0;
@@ -67,7 +67,8 @@
 {
 	NSRect box = bounds;
 	
-	box.origin.x = (bounds.size.width - 35.0) + 2.0;
+	//box.origin.x = (bounds.size.width - 35.0) + 2.0;
+	box.origin.x += +17.0;
 	box.origin.y += (bounds.size.height / 2.0) - (15.0 / 2.0);
 
 	box.size.width = 15.0;
@@ -78,9 +79,11 @@
 
 -(NSRect) infoButtonRect:(NSRect)bounds
 {
+	
 	NSRect box = bounds;
 	
-	box.origin.x = (bounds.size.width - 20.0) + 2.0;
+	//box.origin.x = (bounds.size.width - 20.0) + 2.0;
+	box.origin.x += 15.0 + 15.0 + 2.0;
 	box.origin.y += (bounds.size.height / 2.0) - (15.0 / 2.0);
 	
 	box.size.width = 15.0;
@@ -290,7 +293,7 @@
 
 -(id) copyWithZone:(NSZone*)zone
 {
-	MTSkillNameCell *cell = [super copyWithZone:zone];
+	MTSkillButtonCell *cell = [super copyWithZone:zone];
 	
 	if(cell != nil){
 		cell->notesButtonAction = self->notesButtonAction;
