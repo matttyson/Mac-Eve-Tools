@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>C964CA5110DF006B00F735E9</string>
+						<string>C964CA6F10DF097600F735E9</string>
 						<key>history</key>
 						<array>
 							<string>C964CA3B10D9E09200F735E9</string>
@@ -256,7 +256,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>C964CA5210DF006B00F735E9</string>
+						<string>C964CA7010DF097600F735E9</string>
 						<key>history</key>
 						<array>
 							<string>C964C9FB10D9CD3800F735E9</string>
@@ -313,6 +313,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -353,12 +355,9 @@
 								<string>C9FF455A105508950044BBAC</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>C9F5147F1056719D00654F6D</string>
+								<string>C9FF475010550BA60044BBAC</string>
 								<string>C9FF46EC10550BA50044BBAC</string>
 								<string>C9FF475F10550BA60044BBAC</string>
-								<string>C9FF476E10550BA60044BBAC</string>
-								<string>C979E0011069AA0300457530</string>
-								<string>C9FF477110550BA60044BBAC</string>
-								<string>C9FF476610550BA60044BBAC</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
@@ -371,16 +370,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>65</integer>
-									<integer>58</integer>
-									<integer>57</integer>
-									<integer>56</integer>
-									<integer>13</integer>
+									<integer>83</integer>
+									<integer>79</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 784}, {311, 664}}</string>
+							<string>{{0, 1024}, {311, 664}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -401,7 +397,7 @@
 							<real>289</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>286 252 1252 723 0 0 1920 1178 </string>
+						<string>425 235 1252 723 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -412,8 +408,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -431,7 +425,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C964CA5010DF006B00F735E9</string>
+										<string>C964CA6E10DF097600F735E9</string>
 										<key>history</key>
 										<array>
 											<string>C9E642571063429F00DF6A5C</string>
@@ -595,7 +589,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {919, 602}}</string>
 								<key>RubberWindowFrame</key>
-								<string>286 252 1252 723 0 0 1920 1178 </string>
+								<string>425 235 1252 723 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -615,7 +609,7 @@
 								<key>Frame</key>
 								<string>{{0, 607}, {919, 75}}</string>
 								<key>RubberWindowFrame</key>
-								<string>286 252 1252 723 0 0 1920 1178 </string>
+								<string>425 235 1252 723 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -779,7 +773,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C964CA5310DF006B00F735E9</string>
 		<string>C964CA2010D9D1D900F735E9</string>
 		<string>C964C90610D71F9300F735E9</string>
 		<string>C964C8C810D710AD00F735E9</string>
@@ -794,7 +787,7 @@
 		<string>/Users/matt/programming/Mac Eve Tools/src/Mac Eve Tools.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>286 252 1252 723 0 0 1920 1178 </string>
+	<string>425 235 1252 723 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
