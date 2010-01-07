@@ -184,8 +184,24 @@
 	
 	NSArray *skills = [item prereqs];
 	
+	
+	
 	NSMenu *menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
-	NSMenuItem *menuItem = [[NSMenuItem alloc]initWithTitle:[item typeName] action:@selector(menuAddSkillClick:) keyEquivalent:@""];
+	
+	NSMenuItem *menuItem;
+	menuItem = [[NSMenuItem alloc]initWithTitle:[item typeName] 
+									 action:@selector(displayShipWindow:)
+							  keyEquivalent:@""];
+	[menuItem setRepresentedObject:item];
+	[menu addItem:menuItem];
+	[menuItem release];
+	
+	[menu addItem:[NSMenuItem separatorItem]];
+	
+	menuItem = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Add %@ to plan",[item typeName]] 
+									 action:@selector(menuAddSkillClick:) 
+							  keyEquivalent:@""];
+	
 	[menuItem setRepresentedObject:skills];
 	[menu addItem:menuItem];
 	[menuItem release];

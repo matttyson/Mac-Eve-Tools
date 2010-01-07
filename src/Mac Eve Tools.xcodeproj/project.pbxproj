@@ -30,6 +30,8 @@
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
 		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
+		C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */; };
+		C964CB6E10F43D2E00F735E9 /* ShipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
@@ -90,7 +92,7 @@
 		C9FF47A610550BA60044BBAC /* CCPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473A10550BA60044BBAC /* CCPGroup.m */; };
 		C9FF47A710550BA60044BBAC /* CCPMarketGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */; };
 		C9FF47A810550BA60044BBAC /* CCPMarketSubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */; };
-		C9FF47A910550BA60044BBAC /* CCPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474010550BA60044BBAC /* CCPShip.m */; };
+		C9FF47A910550BA60044BBAC /* METShip.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474010550BA60044BBAC /* METShip.m */; };
 		C9FF47AA10550BA60044BBAC /* CCPType.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474210550BA60044BBAC /* CCPType.m */; };
 		C9FF47AB10550BA60044BBAC /* METSubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474410550BA60044BBAC /* METSubGroup.m */; };
 		C9FF47AC10550BA60044BBAC /* CharacterDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474710550BA60044BBAC /* CharacterDatabase.m */; };
@@ -171,6 +173,9 @@
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
 		C93815E3109E8FEF002C9B16 /* MTSkillButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillButtonCell.h; sourceTree = "<group>"; };
 		C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSkillButtonCell.m; sourceTree = "<group>"; };
+		C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPTypeAttribute.h; sourceTree = "<group>"; };
+		C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPTypeAttribute.m; sourceTree = "<group>"; };
+		C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipDetails.xib; sourceTree = "<group>"; };
 		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
 		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
 		C979E0071069B05400457530 /* SkillPlannerConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlannerConfig.xib; sourceTree = "<group>"; };
@@ -273,8 +278,8 @@
 		C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPMarketGroup.m; sourceTree = "<group>"; };
 		C9FF473D10550BA60044BBAC /* CCPMarketSubGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPMarketSubGroup.h; sourceTree = "<group>"; };
 		C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPMarketSubGroup.m; sourceTree = "<group>"; };
-		C9FF473F10550BA60044BBAC /* CCPShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPShip.h; sourceTree = "<group>"; };
-		C9FF474010550BA60044BBAC /* CCPShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPShip.m; sourceTree = "<group>"; };
+		C9FF473F10550BA60044BBAC /* METShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METShip.h; sourceTree = "<group>"; };
+		C9FF474010550BA60044BBAC /* METShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METShip.m; sourceTree = "<group>"; };
 		C9FF474110550BA60044BBAC /* CCPType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPType.h; sourceTree = "<group>"; };
 		C9FF474210550BA60044BBAC /* CCPType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPType.m; sourceTree = "<group>"; };
 		C9FF474310550BA60044BBAC /* METSubGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METSubGroup.h; sourceTree = "<group>"; };
@@ -621,12 +626,14 @@
 				C9FF473C10550BA60044BBAC /* CCPMarketGroup.m */,
 				C9FF473D10550BA60044BBAC /* CCPMarketSubGroup.h */,
 				C9FF473E10550BA60044BBAC /* CCPMarketSubGroup.m */,
-				C9FF473F10550BA60044BBAC /* CCPShip.h */,
-				C9FF474010550BA60044BBAC /* CCPShip.m */,
+				C9FF473F10550BA60044BBAC /* METShip.h */,
+				C9FF474010550BA60044BBAC /* METShip.m */,
 				C9FF474110550BA60044BBAC /* CCPType.h */,
 				C9FF474210550BA60044BBAC /* CCPType.m */,
 				C9FF474310550BA60044BBAC /* METSubGroup.h */,
 				C9FF474410550BA60044BBAC /* METSubGroup.m */,
+				C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */,
+				C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */,
 			);
 			path = "CCP Database";
 			sourceTree = "<group>";
@@ -720,9 +727,10 @@
 			children = (
 				C9FF477E10550BA60044BBAC /* ShipDetailsWindowController.h */,
 				C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */,
-				C9FF478010550BA60044BBAC /* SkillDetails.xib */,
+				C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */,
 				C9FF478110550BA60044BBAC /* SkillDetailsWindowController.h */,
 				C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */,
+				C9FF478010550BA60044BBAC /* SkillDetails.xib */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -797,6 +805,7 @@
 				C9F514961056721300654F6D /* MainMenu.xib in Resources */,
 				C9AC24281056886F0031D591 /* Loading.xib in Resources */,
 				C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */,
+				C964CB6E10F43D2E00F735E9 /* ShipDetails.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +823,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nDEPLOYDIR=/Users/matt/programming/deployment\n\nFILELEN=`$DEPLOYDIR/length \"$DEPLOYDIR/MacEveApi.zip\"`\nCURDATE=`date +\"%Y-%m-%d %H:%M:%S +1000\"`\n\nrm -f \"$DEPLOYDIR/Mac Eve Tools.dmg\"\nrm -f \"$DEPLOYDIR/Mac Eve Tools.zip\"\nrm -rf /tmp/MacEveApi\nmkdir /tmp/MacEveApi\n\n#cp '/Users/matt/Downloads/Sparkle 1/License.txt' '/tmp/MacEveApi/Sparkle License.txt'\ncp ReleaseNotes.txt /tmp/MacEveApi\ncp ReleaseNotes.txt $DEPLOYDIR\ncp Readme.rtf /tmp/MacEveApi\ncp -R \"$TARGET_BUILD_DIR/Mac Eve Tools.app\" '/tmp/MacEveApi'\n\nhdiutil create -fs HFS+ -volname \"Mac Eve Tools\" -srcfolder /tmp/MacEveApi/  -format UDBZ \"$DEPLOYDIR/Mac Eve Tools.dmg\"\n\n#generate upgrade zipfile\nzip -r -9 -y -T  \"$DEPLOYDIR/MacEveApi.zip\" '/tmp/MacEveApi/Mac Eve Tools.app'\n\nDSASIG=`ruby $DEPLOYDIR/sign_update.rb \"$DEPLOYDIR/MacEveApi.zip\" $DEPLOYDIR/dsa_priv.pem`\n\n#generate appcast xml\npython $DEPLOYDIR/appcast.py -v $CURRENT_PROJECT_VERSION -t \"MacEveApi Release:$CURRENT_PROJECT_VERSION\" -l $FILELEN -s $DSASIG -d \"$CURDATE\" > $DEPLOYDIR/APPCAST.XML\n\nexit 0";
+			shellScript = "# shell script goes here\n\nDEPLOYDIR=/Users/matt/programming/deployment\n\nFILELEN=`$DEPLOYDIR/length \"$DEPLOYDIR/MacEveApi.zip\"`\nCURDATE=`date +\"%Y-%m-%d %H:%M:%S +1000\"`\n\nrm -f \"$DEPLOYDIR/MacEveApi.zip\"\nrm -f \"$DEPLOYDIR/Mac Eve Tools.dmg\"\nrm -f \"$DEPLOYDIR/Mac Eve Tools.zip\"\nrm -rf /tmp/MacEveApi\nmkdir /tmp/MacEveApi\n\n#cp '/Users/matt/Downloads/Sparkle 1/License.txt' '/tmp/MacEveApi/Sparkle License.txt'\ncp ReleaseNotes.txt /tmp/MacEveApi\ncp ReleaseNotes.txt $DEPLOYDIR\ncp Readme.rtf /tmp/MacEveApi\ncp -R \"$TARGET_BUILD_DIR/Mac Eve Tools.app\" '/tmp/MacEveApi'\n\nhdiutil create -fs HFS+ -volname \"Mac Eve Tools\" -srcfolder /tmp/MacEveApi/  -format UDBZ \"$DEPLOYDIR/Mac Eve Tools.dmg\"\n\n#generate upgrade zipfile\nOLDDIR=`pwd`\ncd '/tmp/MacEveApi'\nzip -r -9 -y -T  \"$DEPLOYDIR/MacEveApi.zip\" 'Mac Eve Tools.app'\ncd $OLDDIR\nDSASIG=`ruby $DEPLOYDIR/sign_update.rb \"$DEPLOYDIR/MacEveApi.zip\" $DEPLOYDIR/dsa_priv.pem`\n\n#generate appcast xml\npython $DEPLOYDIR/appcast.py -v $CURRENT_PROJECT_VERSION -t \"MacEveApi Release:$CURRENT_PROJECT_VERSION\" -l $FILELEN -s $DSASIG -d \"$CURDATE\" > $DEPLOYDIR/APPCAST.XML\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -858,7 +867,7 @@
 				C9FF47A610550BA60044BBAC /* CCPGroup.m in Sources */,
 				C9FF47A710550BA60044BBAC /* CCPMarketGroup.m in Sources */,
 				C9FF47A810550BA60044BBAC /* CCPMarketSubGroup.m in Sources */,
-				C9FF47A910550BA60044BBAC /* CCPShip.m in Sources */,
+				C9FF47A910550BA60044BBAC /* METShip.m in Sources */,
 				C9FF47AA10550BA60044BBAC /* CCPType.m in Sources */,
 				C9FF47AB10550BA60044BBAC /* METSubGroup.m in Sources */,
 				C9FF47AC10550BA60044BBAC /* CharacterDatabase.m in Sources */,
@@ -896,6 +905,7 @@
 				C911FE9C107820D5000D88E2 /* Certificate.m in Sources */,
 				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
 				C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */,
+				C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,7 +1002,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.1;
+				CURRENT_PROJECT_VERSION = 16.3;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_SPARKLE;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

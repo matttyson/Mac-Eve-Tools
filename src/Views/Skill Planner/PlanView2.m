@@ -576,6 +576,18 @@
 }
 
 
+-(void) displaySkillWindow:(id)sender
+{
+	Skill *s = [sender representedObject];
+	
+	if(s == nil){
+		NSLog(@"Error: Skill is nil!");
+		return;
+	}
+	
+	[SkillDetailsWindowController displayWindowForSkill:s forCharacter:character];
+}
+
 -(void) setCharacter:(Character*)c
 {
 	if(c == character){

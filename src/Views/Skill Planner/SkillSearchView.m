@@ -20,6 +20,7 @@
 #import "SkillSearchView.h"
 #import "Config.h"
 #import "SkillDetailsWindowController.h"
+#import "ShipDetailsWindowController.h"
 #import "SkillPair.h"
 
 @interface SkillSearchView (SkillSearchViewPrivate)
@@ -136,7 +137,7 @@
 -(IBAction) skillSearchCategoriesClick:(id)sender
 {
 	NSInteger tag = [[sender cell] tagForSegment:[sender selectedSegment]];
-	id<SkillSearchDatasource> data = [datasources objectAtIndex:tag];
+	id<SkillSearchDatasource,NSOutlineViewDataSource> data = [datasources objectAtIndex:tag];
 	[skillList setDataSource:data];
 	currentDatasource = tag;
 }
@@ -181,6 +182,10 @@
 	[self skillSearchCategoriesClick:skillSearchCategories];
 }
 
+-(void) displayShipWindow:(id)sender
+{
+	[ShipDetailsWindowController displayShip:[sender representedObject] forCharacter:[delegate character]];
+}
 
 /*pop up the skill window*/
 -(void) displayItemAtRow:(NSInteger)row
@@ -188,7 +193,7 @@
 	id item = [skillList itemAtRow:row];
 	
 	if([item isKindOfClass:[Skill class]]){
-		Skill *s = [[((Character*)[delegate character])st]skillForId:[item typeID]];
+		Skill *s = [[((Character*)[delegate character])st]skillForId:[item typeID]]; //ignore this warning
 		
 		/*Not a leak*/
 		SkillDetailsWindowController *wc = [[SkillDetailsWindowController alloc]init];

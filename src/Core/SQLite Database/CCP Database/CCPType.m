@@ -39,6 +39,8 @@
 @synthesize typeName;
 @synthesize typeDescription;
 
+@synthesize attributes;
+
 -(CCPType*) initWithType:(NSInteger)tID
 				   group:(NSInteger)gID
 				 graphic:(NSInteger)grID
@@ -133,6 +135,15 @@
 		}
 	}
 	return (pirate == 1);
+}
+
+-(CCPTypeAttribute*) attributeForID:(NSInteger)attrID
+{
+	if(attributes == nil){
+		attributes = [[database typeAttributesForTypeID:typeID]retain];
+		
+	}
+	return [attributes objectForKey:[NSNumber numberWithInteger:attrID]];
 }
 
 @end

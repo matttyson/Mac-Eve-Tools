@@ -17,9 +17,40 @@
  Copyright Matt Tyson, 2009.
  */
 
-#import "CCPShip.h"
+#import "CCPType.h"
+#import "METShip.h"
+#import "CCPTypeAttribute.h"
+#import "macros.h"
+#import "Helpers.h"
+
+#include <sqlite3.h>
 
 
-@implementation CCPShip
+@implementation METShip
+
+-(METShip*) initWithAttributes
+{
+	if((self = [super init])){
+		
+	}
+	return self;
+}
+
+-(void)dealloc
+{
+	[attributes release];
+	[shipType release];
+	[super dealloc];
+}
+
+-(NSString*) shipName
+{
+	return [shipType typeName];
+}
+
+-(CCPTypeAttribute*) attributeForID:(NSInteger)attrID
+{
+	return [attributes objectForKey:[NSNumber numberWithInteger:attrID]];
+}
 
 @end

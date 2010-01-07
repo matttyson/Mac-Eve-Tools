@@ -23,6 +23,7 @@
 @class CCPCategory;
 @class CCPGroup;
 @class CCPType;
+@class METShip;
 
 @interface CCPDatabase : SqliteDatabase {
 	
@@ -58,4 +59,11 @@
 -(NSInteger) metaLevelForTypeID:(NSInteger)typeID;
 
 -(BOOL) isPirateShip:(NSInteger)typeID;
+
+-(NSDictionary*) typeAttributesForTypeID:(NSInteger)typeID;
+
+
+/*given the typeID, return a ship object*/
+-(METShip*) shipForTypeID:(NSInteger)typeID;
+
 @end

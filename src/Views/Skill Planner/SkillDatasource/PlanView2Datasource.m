@@ -205,6 +205,15 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		Skill *s = [masterSkillSet objectForKey:[sp typeID]];
 		
 		
+		item = [[NSMenuItem alloc]initWithTitle:[s skillName] 
+										 action:@selector(displaySkillWindow:) 
+								  keyEquivalent:@""];
+		[item setRepresentedObject:s];
+		[menu addItem:item];
+		[item release];
+		
+		[menu addItem:[NSMenuItem separatorItem]];
+		
 		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove %@ %@",[s skillName],
 															 romanForInteger([sp skillLevel])]
 													 action:@selector(removeSkillFromPlan:)

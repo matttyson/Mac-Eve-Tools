@@ -192,7 +192,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		if([[aTableColumn identifier]isEqualToString:SD_LEVEL]){
 			return [NSNumber numberWithInteger:rowIndex + 1];
 		}else if([[aTableColumn identifier]isEqualToString:SD_TIME]){
-
+			
 			NSInteger rank = [skill skillRank];
 			NSInteger primaryAttr = [skill primaryAttr];
 			NSInteger secondaryAttr = [skill secondaryAttr];

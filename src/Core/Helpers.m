@@ -167,7 +167,20 @@ NSString* sqlite3_column_nsstr(void *stmt, int col)
 	if(str == NULL){
 		return [NSString stringWithString:@""];
 	}else{
-		return [NSString stringWithUTF8String:(const char*)str];
+		NSString *newString;
+		newString = [NSString stringWithUTF8String:(const char*)str];
+		if(newString != NULL){
+			return newString;
+		}
+		
+		/*for some reason stringWithUTF8String will return null.  attempt ASCII encoding*/
+		newString = [NSString stringWithCString:(const char*)str encoding:NSASCIIStringEncoding];
+		if(newString != NULL){
+			return newString;
+		}
+		
+		newString = [NSString stringWithString:@"If you can see this then this is a bug, please report it."];
+		return newString;
 	}
 }
 

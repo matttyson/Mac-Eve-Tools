@@ -21,6 +21,10 @@
 #import "CCPGroup.h"
 #import "CCPCategory.h"
 #import "CCPType.h"
+#import "CCPTypeAttribute.h"
+
+#import "METShip.h"
+
 #import "Helpers.h"
 #import "macros.h"
 #import "SkillPair.h"
@@ -232,6 +236,9 @@
 						 typeName:sqlite3_column_nsstr(read_stmt,10)
 						 typeDesc:sqlite3_column_nsstr(read_stmt,11)
 						 database:self];
+		if([type typeID] == 23915){
+			NSLog(@"hi");
+		}
 		
 		[array addObject:type];
 		[type release];		
@@ -353,6 +360,76 @@
 	
 	return result;
 }
-//elect ta.*,at.attributeName from dgmTypeAttributes ta INNER JOIN dgmAttributeTypes at ON ta.attributeID = at.attributeID where typeID = 17636;
+
+-(NSDictionary*) typeAttributesForTypeID:(NSInteger)typeID
+{
+	const char query[] =
+		"SELECT at.graphicID, at.attributeID, at.displayName, un.displayName, ta.valueInt, ta.valueFloat "
+		"FROM dgmTypeAttributes ta, dgmAttributeTypes at, eveUnits un "
+		"WHERE at.attributeID = ta.attributeID "
+		"AND un.unitID = at.unitID "
+		"AND ta.typeID = ?;";
+	
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db, query, (int)sizeof(query), &read_stmt, NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: SQLite error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,typeID);
+	
+	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc]init]autorelease];
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger graphicID = sqlite3_column_nsint(read_stmt,0);
+		NSInteger attributeID = sqlite3_column_nsint(read_stmt,1);
+		NSString *dispName = sqlite3_column_nsstr(read_stmt, 2);
+		NSString *unitDisp = sqlite3_column_nsstr(read_stmt, 3);
+		
+		NSInteger vInt;
+		
+		if(sqlite3_column_type(read_stmt,4) == SQLITE_NULL){
+			vInt = NSIntegerMax;
+		}else{
+			vInt = sqlite3_column_nsint(read_stmt,4);
+		}
+		
+		CGFloat vFloat;
+		
+		if(sqlite3_column_type(read_stmt, 5) == SQLITE_NULL){
+			vFloat = CGFLOAT_MAX;
+		}else{
+			vFloat = (CGFloat) sqlite3_column_double(read_stmt, 5);
+		}
+		
+		NSNumber *attrNum = [NSNumber numberWithInteger:attributeID];
+		
+		CCPTypeAttribute *ta = [CCPTypeAttribute createTypeAttribute:attrNum
+															dispName:dispName 
+														 unitDisplay:unitDisp
+														   graphicId:graphicID 
+															valueInt:vInt 
+														  valueFloat:vFloat];
+		
+		[attributes setObject:ta forKey:attrNum];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return attributes;
+}
+
+-(METShip*) shipForTypeID:(NSInteger)typeID
+{
+	CCPType *shipType = [self type:typeID];
+	NSDictionary *typeAttr = [self typeAttributesForTypeID:typeID];
+	
+	
+}
+
+//select ta.*,at.attributeName from dgmTypeAttributes ta INNER JOIN dgmAttributeTypes at ON ta.attributeID = at.attributeID where typeID = 17636;
 
 @end

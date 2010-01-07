@@ -55,7 +55,6 @@
 
 -(void) activateAccountConfig:(Account*) acct
 {
-	
 	[avc setAccount:acct];
 	[box setContentView:[avc view]];
 	[minusButton setEnabled:YES];

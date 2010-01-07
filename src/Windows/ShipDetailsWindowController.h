@@ -20,8 +20,28 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface ShipDetailsWindowController : NSWindowController {
+@class CCPType;
+@class Character;
 
+@interface ShipDetailsWindowController : NSWindowController  <NSOutlineViewDataSource>{
+	IBOutlet NSImageView *shipView;
+	IBOutlet NSTextField *shipName;
+	
+	//IBOutlet NSTextField *shipDescription;
+	IBOutlet NSTextView *shipDescription;
+	
+	IBOutlet NSTableView *shipAttributes;
+	
+	IBOutlet NSTableView *shipFitting;
+	
+	IBOutlet NSOutlineView *shipPrerequisites;
+		
+	CCPType *ship;
+	Character *character;
 }
+
+
+/*Display a ship, given the typeID of the ship*/
++(void) displayShip:(CCPType*)type forCharacter:(Character*)ch;
 
 @end

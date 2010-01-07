@@ -20,6 +20,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class CCPDatabase;
+@class CCPTypeAttribute;
 
 @interface CCPType : NSObject {
 	NSInteger typeID;
@@ -42,6 +43,8 @@
 	
 	NSArray *skills;
 	CCPDatabase *database;
+	
+	NSDictionary *attributes;
 }
 
 @property (readonly,nonatomic) NSInteger typeID;
@@ -58,6 +61,8 @@
 
 @property (readonly,nonatomic) NSString* typeName;
 @property (readonly,nonatomic) NSString* typeDescription;
+
+@property (readonly,nonatomic) NSDictionary* attributes;
 
 -(NSInteger) metaGroupID;
 -(NSInteger) parentTypeID;
@@ -83,5 +88,10 @@
 
 -(NSArray*) prereqs;
 
+/*
+ return an attribute that belongs to this type. 
+ returns NULL if nothing is available for the requested typeAttribute
+ */
+-(CCPTypeAttribute*) attributeForID:(NSInteger)attrID;
 
 @end
