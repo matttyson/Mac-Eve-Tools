@@ -27,6 +27,9 @@
 
 #import "METShip.h"
 
+#import "ShipPrerequisiteDatasource.h"
+#import "ShipAttributeDatasource.h"
+
 @implementation ShipDetailsWindowController
 
 -(void)awakeFromNib
@@ -38,6 +41,17 @@
 {
 	[ship release];
 	[character release];
+	
+	@synchronized(self){
+		if(down != nil){
+			[down cancel];
+			[down release];
+		}
+	}
+	
+	[shipPreDS release];
+	[shipAttrDS release];
+	
 	[super dealloc];
 }
 
@@ -46,6 +60,11 @@
 	if((self = [super initWithWindowNibName:@"ShipDetails"])){
 		ship = [type retain];
 		character = [ch retain];
+		down = nil;
+		
+
+		shipAttrDS = [[ShipAttributeDatasource alloc]initWithShip:ship forCharacter:character];
+		shipPreDS = [[ShipPrerequisiteDatasource alloc]initWithShip:ship forCharacter:character];
 	}
 	return self;
 }
@@ -69,21 +88,58 @@
 	//[shipDescription sizeToFit];
 }
 
--(NSInteger) structureAttributes
+
+-(BOOL) displayImage
 {
-	/*
-	 items to check for
-	 
-	 Structure:
-	 Capacity (in invTypes table)
-	 Drone Capacity (283)
-	 Drone Bandwith (1271)
-	 Mass 
-	 Volume
-	 Inertia Modifier
-	 
-	 EM/EXP/KIN/THERM damage resist (113,111,109,110)
-	 */
+	NSString *imagePath = [[Config sharedInstance] pathForImageType:[ship typeID]];
+	
+	NSFileManager *fm = [NSFileManager defaultManager];
+		
+	if(![fm fileExistsAtPath:[imagePath stringByDeletingLastPathComponent]]){
+		[fm createDirectoryAtPath:[imagePath stringByDeletingLastPathComponent]
+	  withIntermediateDirectories:YES
+					   attributes:nil
+							error:NULL];
+	}
+	
+	if([fm fileExistsAtPath:imagePath]){
+		NSImage *image = [[NSImage alloc]initWithContentsOfFile:imagePath];
+		[shipView setImage:image];
+		[image release];
+		return YES;
+	}
+	
+	return NO;
+}
+
+/*test to see if the image already exists.  fetch it if not*/
+-(void) testImage
+{
+	if([self displayImage]){
+		return;
+	}
+	
+	NSString *imageUrl = [[Config sharedInstance] urlForImageType:[ship typeID]] ;
+	NSString *filePath = [[Config sharedInstance] pathForImageType:[ship typeID]];
+	
+	NSLog(@"Downloading %@ to %@",imageUrl,filePath);
+	
+	/*image does not exist. download it and display it when it's done.*/
+	NSURL *url = [NSURL URLWithString:imageUrl];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	NSURLDownload *download = [[NSURLDownload alloc]initWithRequest:request delegate:self];
+	[download setDestination:filePath allowOverwrite:NO];
+	
+	down = download;
+}
+
+-(void) addAttribute:(NSInteger)attr toArray:(NSMutableArray*)ary
+{
+	CCPTypeAttribute *ta = [ship attributeForID:attr];
+	
+	if(ta != nil){
+		[ary addObject:ta];
+	}
 }
 
 #pragma mark Delegates
@@ -100,8 +156,13 @@
 	
 	[self setLabels];
 	
-	[shipPrerequisites setDataSource:self];
+	[shipPrerequisites setDataSource:shipPreDS];
 	[shipPrerequisites expandItem:nil expandChildren:YES];
+	
+	[shipAttributes setDataSource:shipAttrDS];
+	[shipAttributes expandItem:nil expandChildren:YES];
+	
+	[self testImage];
 }
 
 -(void) windowWillClose:(NSNotification*)sender
@@ -126,60 +187,10 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	return NO;
 }
 
--(NSInteger)outlineView:(NSOutlineView *)outlineView 
- numberOfChildrenOfItem:(id)item
-{
-	if(item == nil){
-		return [[ship prereqs]count];
-	}
-	
-	return [[[[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]]prerequisites]count];
-	
-	/*item should be a skill.  return all the dependicies of this skill*/
-}
-
-- (id)outlineView:(NSOutlineView *)outlineView 
-			child:(NSInteger)index 
-		   ofItem:(id)item
-{
-	if(item == nil){
-		return [[ship prereqs]objectAtIndex:index];
-	}
-	
-	return [[[[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]]prerequisites]objectAtIndex:index];
-}
 
 
-- (id)outlineView:(NSOutlineView *)outlineView 
-objectValueForTableColumn:(NSTableColumn *)tableColumn 
-		   byItem:(id)item
-{
-	NSString *textValue = [item roman];
-	
-	Skill *s = [[character st]skillForId:[item typeID]];
-	NSMutableAttributedString *str = [[[NSMutableAttributedString alloc]initWithString:textValue]autorelease];
-	
-	NSColor *color;
-	if(s == nil){
-		color = [NSColor redColor];
-	}else if([s skillLevel] < [item skillLevel]){
-		color = [NSColor orangeColor];
-	}else{
-		color = [NSColor blueColor];
-	}
-	[str addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[str length])];
-	return str;
-	
-	return nil;
-}
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView 
-   isItemExpandable:(id)item
-{
-	Skill *s = [[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]];
-	return [[s prerequisites]count] > 0;
-}
-
+#pragma mark prerequisites
 /*
  Armor:
  Armour amount (265)
@@ -214,7 +225,26 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
  
  */
  
+#pragma mark NSURLDownload delegate
 
+-(void) downloadDidFinish:(NSURLDownload *)download
+{
+	[self displayImage];
+	
+	@synchronized(self){
+		[down release];
+		down = nil;
+	}
+}
 
+-(void) download:(NSURLDownload *)download didFailWithError:(NSError *)error
+{
+	NSLog(@"Error downloading image (%@): %@",[[download request]URL], error);
+	
+	@synchronized(self){
+		[down release];
+		down = nil;
+	}
+}
 
 @end

@@ -23,6 +23,7 @@
 #import "macros.h"
 #import "Config.h"
 #import "Character.h"
+#import "GlobalData.h"
 
 @implementation SkillSearchCharacterDatasource
 
@@ -167,7 +168,9 @@
 	return YES;
 }
 
--(NSMenu*) outlineView:(NSOutlineView*)outlineView menuForTableColumnItem:(NSTableColumn*)column byItem:(id)item
+-(NSMenu*) outlineView:(NSOutlineView*)outlineView 
+menuForTableColumnItem:(NSTableColumn*)column 
+				byItem:(id)item
 {
 	if(![item isKindOfClass:[Skill class]]){
 		return nil;
@@ -180,11 +183,13 @@
 	if(s != nil){
 		//if the character has the skill, make the starting level the next one to train.
 		startingLevel = [s skillLevel];
+	}else{
+		s = [[[GlobalData sharedInstance]skillTree]skillForId:[item typeID]];
 	}
 	NSMenu *menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
 	NSMenuItem *menuItem;
 	
-	menuItem = [[NSMenuItem alloc]initWithTitle:@"Skill Information" action:@selector(skillInformation:) keyEquivalent:@""];
+	menuItem = [[NSMenuItem alloc]initWithTitle:[s skillName] action:@selector(skillInformation:) keyEquivalent:@""];
 	[menuItem setRepresentedObject:item];
 	[menu addItem:menuItem];
 	[menuItem release];
@@ -192,6 +197,8 @@
 	if(startingLevel > 4){
 		return menu;
 	}
+	
+	[menu addItem:[NSMenuItem separatorItem]];
 	
 	for(NSInteger i = startingLevel+1; i <= 5; i++){
 		SkillPair *sp = [[SkillPair alloc]initWithSkill:[item typeID] level:i];

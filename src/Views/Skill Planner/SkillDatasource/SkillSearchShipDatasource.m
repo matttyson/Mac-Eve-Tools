@@ -53,18 +53,13 @@
 -(id)initWithCategory:(NSInteger)cat
 {
 	if(self = [self init]){
-		NSString *path = [[Config sharedInstance]itemDBFallbackPath];
+		NSString *path = [[Config sharedInstance]itemDBPath];
 		
 		if(![[NSFileManager defaultManager]
 			 fileExistsAtPath:path])
 		{
-			path = [[Config sharedInstance] itemDBPath];
-			if(![[NSFileManager defaultManager]
-				 fileExistsAtPath:path]){
-					
-				[self autorelease];
-				return nil;
-			}
+			[self autorelease];
+			return nil;
 		}
 		
 		database = [[CCPDatabase alloc]initWithPath:path];

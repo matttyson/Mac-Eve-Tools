@@ -35,6 +35,10 @@
 
 -(CCPDatabase*) initWithPath:(NSString*)dbpath;
 
+//Database version
+-(NSInteger) dbVersion;
+-(NSString*) dbName;
+
 -(CCPCategory*) category:(NSInteger)categoryID;
 /*return all categories*/
 -(NSArray*) categoriesInDB;
@@ -63,7 +67,7 @@
 -(NSDictionary*) typeAttributesForTypeID:(NSInteger)typeID;
 
 
-/*given the typeID, return a ship object*/
--(METShip*) shipForTypeID:(NSInteger)typeID;
+// Return all the attributes for a type of a particular group
+-(NSArray*) attributeForType:(NSInteger)typeID groupBy:(enum AttributeTypeGroups)group;
 
 @end

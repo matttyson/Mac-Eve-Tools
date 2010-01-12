@@ -241,6 +241,29 @@ enum StatusImageState
 };
 typedef enum StatusImageState StatusImageState;
 
+enum ImageSize
+{
+	_16 = 16,
+	_32 = 32,
+	_64 = 64,
+	_128 = 128,
+	_256 = 256
+};
+typedef enum ImageSize ImageSize;
+
+enum AttributeTypeGroups
+{
+	Drones = 1,
+	Structure = 2,
+	Armour = 3, 
+	Shield = 4,
+	Cap = 5,
+	Targeting = 6,
+	Propulsion = 7,
+	Other = 8,
+	Fitting = 9
+};
+typedef enum AttributeTypeGroups AttributeTypeGroups;
 /*
  macros for sqlite. we use NSIntegers which are defined as longs and therefore change size depending on what platform we are building for
  may need to look at changing this if we ever store anything that could go > MAX_INT. but nothing does at the moment (14/6/09)

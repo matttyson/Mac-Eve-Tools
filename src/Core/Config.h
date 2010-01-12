@@ -39,6 +39,9 @@
 	NSString *updateFeedUrl;
 	NSString *dbUpdateUrl;
 	NSString *dbSQLUrl;
+	NSString *imageUrl;
+	
+	NSInteger databaseMinimumVersion;
 	
 	BOOL batchUpdateCharacters;
 	BOOL autoUpdate;
@@ -55,12 +58,15 @@
 @property (nonatomic, readonly) NSString* updateFeedUrl;
 @property (nonatomic, readonly) NSString* dbUpdateUrl;
 @property (nonatomic, readonly) NSString* dbSQLUrl;
+@property (nonatomic, readonly) NSString* imageUrl;
 @property (nonatomic, readonly) NSString* picurl;
 @property (nonatomic, readonly) NSString* rootPath;
 
 @property (nonatomic, readonly) NSString* itemDBPath;
 
 @property (nonatomic, readonly) NSArray* accounts;
+
+@property (nonatomic, readonly) NSInteger databaseMinimumVersion;
 
 +(Config*) sharedInstance;
 
@@ -111,9 +117,19 @@
 
 -(void) setSubmitSystemInformation:(BOOL)status;
 
--(NSString*) itemDBFallbackPath;
+//-(NSString*) itemDBFallbackPath;
 
 /*return a list of all the active characters  (CharacterTemplate)*/
 -(NSArray*) activeCharacters;
+
+
+-(NSInteger) databaseVersion;
+-(BOOL) databaseUpToDate;
+
+/*functions for ship and icon graphics*/
+
+-(NSString*) pathForImageType:(NSInteger)typeID;
+-(NSString*) urlForImageType:(NSInteger)typeID;
+
 
 @end

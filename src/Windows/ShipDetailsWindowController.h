@@ -23,6 +23,9 @@
 @class CCPType;
 @class Character;
 
+@class ShipPrerequisiteDatasource;
+@class ShipAttributeDatasource;
+
 @interface ShipDetailsWindowController : NSWindowController  <NSOutlineViewDataSource>{
 	IBOutlet NSImageView *shipView;
 	IBOutlet NSTextField *shipName;
@@ -30,7 +33,7 @@
 	//IBOutlet NSTextField *shipDescription;
 	IBOutlet NSTextView *shipDescription;
 	
-	IBOutlet NSTableView *shipAttributes;
+	IBOutlet NSOutlineView *shipAttributes;
 	
 	IBOutlet NSTableView *shipFitting;
 	
@@ -38,6 +41,11 @@
 		
 	CCPType *ship;
 	Character *character;
+	
+	ShipPrerequisiteDatasource *shipPreDS;
+	ShipAttributeDatasource *shipAttrDS;
+	
+	NSURLDownload *down;
 }
 
 

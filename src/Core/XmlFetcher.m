@@ -105,9 +105,9 @@
 	BOOL rc = [data writeToFile:file atomically:NO];
 	
 	if(!rc){
-		NSLog(@"Failed to write XML document %@",file);
+		NSLog(@"Failed to write file %@",file);
 	}else{
-		NSLog(@"Wrote %d bytes to %@",[data length],file);
+		NSLog(@"Wrote %lu bytes to %@",[data length],file);
 	}
 	
 	return rc;
@@ -196,5 +196,8 @@
 	
 	return YES;
 }
+
+
+
 
 @end

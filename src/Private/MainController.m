@@ -290,7 +290,12 @@ downloadLabel:
 		[lc close];
 		[lc release];
 	}
-	
+	/*
+	if(![cfg databaseUpToDate]){
+		/need to download the database
+		[dbManager performCheck];
+	}
+	*/
 	//Init the skill tree from XML
 	SkillTree *tree = [[GlobalData sharedInstance]skillTree];
 	if(tree == nil){
@@ -649,7 +654,6 @@ downloadLabel:
 	[updater checkForUpdates:[self window]];
 #endif
 }
-
 
 -(void) newDatabaseAvailable:(DBManager*)manager status:(BOOL)status
 {

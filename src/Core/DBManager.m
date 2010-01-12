@@ -248,6 +248,16 @@
 	[fetcher release];
 }
 
+-(void) performSilentCheck
+{
+	Config *cfg = [Config sharedInstance];
+	NSString *url = [NSString stringWithString:[cfg dbUpdateUrl]];
+	
+	XmlFetcher *fetcher = [[XmlFetcher alloc]initWithDelegate:self];
+	NSString *path = [Config buildPathSingle:DBUPDATE_DEFN];
+	[fetcher saveXmlDocument:url docName:UPDATE_FILE savePath:path];
+	[fetcher release];
+}
 
 -(void) downloadUpdate
 {

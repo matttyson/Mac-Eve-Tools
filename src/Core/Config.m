@@ -24,6 +24,8 @@
 #import "XmlHelpers.h"
 #import "CharacterTemplate.h"
 
+#import "CCPDatabase.h"
+
 #import <libxml/parser.h>
 #import <libxml/tree.h>
 
@@ -44,6 +46,8 @@
 @synthesize picurl;
 @synthesize itemDBPath;
 @synthesize accounts;
+@synthesize imageUrl;
+@synthesize databaseMinimumVersion;
 
 static Config *cfg = nil;
 
@@ -66,6 +70,7 @@ static Config *cfg = nil;
 		cfg->apiurl = @"http://api.eve-online.com";
 		cfg->picurl = @"http://img.eve.is/serv.asp?s=256"; //append &c=charID to get the avatar picture
 		cfg->rootPath = [[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath]retain];
+		cfg->itemDBPath = [[cfg->rootPath stringByAppendingFormat:@"/database.sqlite"] retain];
 		
 		cfg->accounts = [[NSMutableArray alloc]init]; /*array of Account objects */
 		
@@ -82,14 +87,20 @@ static Config *cfg = nil;
 		cfg->updateFeedUrl = @"http://mtyson.id.au/MacEveApi-appcast.xml";
 		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml";
 		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/database.sql.bz2";
+		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
+		
+		cfg->databaseMinimumVersion = 2;
 	}
 	return cfg;
 }
 
+/*
 -(NSString*) itemDBFallbackPath
 {
 	return [NSString stringWithFormat:@"%@/database.sqlite",cfg->rootPath];
 }
+ */
+
 -(void) setSubmitSystemInformation:(BOOL)status
 {
 	submitSystemInformation = status;
@@ -362,6 +373,35 @@ static Config *cfg = nil;
 	return YES;
 }
 
+-(NSInteger) databaseVersion
+{
+	NSString *path = [self itemDBPath];
+	
+	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
+		return 0;
+	}
+	
+	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:path];
+	
+	NSInteger version = [db dbVersion];
+	
+	[db release];
+	
+	return version;
+
+}
+
+-(BOOL) databaseUpToDate
+{
+	NSInteger version = [self databaseVersion];
+	
+	if(version >= [self databaseMinimumVersion]){
+		return YES;
+	}
+	
+	return NO;
+}
+
 -(BOOL) requisiteFilesExist
 {
 	NSString *path = [Config filePath:XMLAPI_SKILL_TREE,nil];
@@ -420,6 +460,31 @@ static Config *cfg = nil;
 	}
 	
 	return ary;
+}
+
+-(NSString*) pathForImageType:(NSInteger)typeID
+{
+	NSMutableString *url = [NSString stringWithFormat:@"%@/images/types/256_256/%ld.png",rootPath,typeID];
+	
+	return url;
+}
+
+-(NSString*) urlForImageType:(NSInteger)typeID
+{
+	NSMutableString *url = [NSMutableString stringWithString:imageUrl];
+	
+	[url appendFormat:@"/types/256_256/%ld.png",typeID];
+	
+	return url;
+}
+
+-(NSString*) urlForIcon:(NSString*)icon size:(enum ImageSize)size
+{
+	NSMutableString *url = [NSString stringWithString:imageUrl];
+	
+	[url appendFormat:@"/icons/%d_%d/%s.png",(int)size,(int)size,icon];
+	
+	return url;
 }
 
 

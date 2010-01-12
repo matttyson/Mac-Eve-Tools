@@ -48,6 +48,36 @@
 	[super dealloc];
 }
 
+-(NSInteger) dbVersion
+{
+	const char query[] =
+		"SELECT versionNum FROM version;";
+	
+	sqlite3_stmt *read_stmt;
+	NSInteger version = -1;
+	
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query, (int)sizeof(query), &read_stmt, NULL);
+	
+	if(rc != SQLITE_OK){
+		return -1;
+	}
+	
+	if(sqlite3_step(read_stmt) == SQLITE_ROW){
+		version = sqlite3_column_nsint(read_stmt,0);
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return version;
+}
+
+-(NSString*) dbName
+{
+	return nil;
+}
+
 -(CCPCategory*) category:(NSInteger)categoryID
 {
 	const char query[] = 
@@ -369,7 +399,7 @@
 		"WHERE at.attributeID = ta.attributeID "
 		"AND un.unitID = at.unitID "
 		"AND ta.typeID = ?;";
-	
+
 	sqlite3_stmt *read_stmt;
 	int rc;
 	
@@ -407,7 +437,7 @@
 		
 		NSNumber *attrNum = [NSNumber numberWithInteger:attributeID];
 		
-		CCPTypeAttribute *ta = [CCPTypeAttribute createTypeAttribute:attrNum
+		CCPTypeAttribute *ta = [CCPTypeAttribute createTypeAttribute:attributeID
 															dispName:dispName 
 														 unitDisplay:unitDisp
 														   graphicId:graphicID 
@@ -426,8 +456,81 @@
 {
 	CCPType *shipType = [self type:typeID];
 	NSDictionary *typeAttr = [self typeAttributesForTypeID:typeID];
+}
+
+-(NSArray*) attributeForType:(NSInteger)typeID groupBy:(enum AttributeTypeGroups)group
+{
+	const char query[] =
+	/*
+		"SELECT at.graphicID, at.displayName, ta.valueInt, "
+			"ta.valueFloat, at.attributeID, un.displayName "
+		"FROM metAttributeTypes at, dgmTypeAttributes ta, eveUnits un "
+		"WHERE at.attributeID = ta.attributeID "
+		"AND at.unitID = un.unitID "
+		"AND typeID = ? "
+		"AND at.displayType = ?;";*/
 	
+	"SELECT at.graphicID, COALESCE(at.displayName,at.attributeName), ta.valueInt, "
+		"ta.valueFloat, at.attributeID, un.displayName "
+	"FROM dgmTypeAttributes ta, metAttributeTypes at LEFT OUTER JOIN eveUnits un ON at.unitID = un.unitID "
+	"WHERE at.attributeID = ta.attributeID "
+	"AND typeID = ? "
+	"AND at.displayType = ?;";
 	
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db, query, (int)sizeof(query), &read_stmt, NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: query error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,typeID);
+	sqlite3_bind_nsint(read_stmt,2,group);
+	
+	NSMutableArray *attributes = [[[NSMutableArray alloc]init]autorelease];
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger graphicID = sqlite3_column_nsint(read_stmt,0);
+		NSString *displayName = sqlite3_column_nsstr(read_stmt,1);
+		NSInteger attrID = sqlite3_column_nsint(read_stmt,4);
+		NSString *unitDisplay = sqlite3_column_nsstr(read_stmt,5);
+		
+		NSInteger vInt;
+		
+		if(sqlite3_column_type(read_stmt,2) == SQLITE_NULL){
+			vInt = NSIntegerMax;
+		}else{
+			vInt = sqlite3_column_nsint(read_stmt,2);
+		}
+		
+		CGFloat vFloat;
+		
+		if(sqlite3_column_type(read_stmt, 3) == SQLITE_NULL){
+			vFloat = CGFLOAT_MAX;
+		}else{
+			vFloat = (CGFloat) sqlite3_column_double(read_stmt, 3);
+		}
+		
+		CCPTypeAttribute *ta = [CCPTypeAttribute createTypeAttribute:attrID
+															dispName:displayName 
+														 unitDisplay:unitDisplay
+														   graphicId:graphicID 
+															valueInt:vInt 
+														  valueFloat:vFloat];
+		
+		//[attributes setObject:ta forKey:[NSNumber numberWithInteger:attrID]];
+		[attributes addObject:ta];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	if([attributes count] == 0){
+		return nil;
+	}
+	
+	return attributes;
 }
 
 //select ta.*,at.attributeName from dgmTypeAttributes ta INNER JOIN dgmAttributeTypes at ON ta.attributeID = at.attributeID where typeID = 17636;

@@ -41,6 +41,8 @@
 
 @synthesize attributes;
 
+@synthesize database;
+
 -(CCPType*) initWithType:(NSInteger)tID
 				   group:(NSInteger)gID
 				 graphic:(NSInteger)grID

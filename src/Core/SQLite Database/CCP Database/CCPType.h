@@ -64,6 +64,8 @@
 
 @property (readonly,nonatomic) NSDictionary* attributes;
 
+@property (readonly,nonatomic) CCPDatabase* database;
+
 -(NSInteger) metaGroupID;
 -(NSInteger) parentTypeID;
 -(NSInteger) metaLevel;

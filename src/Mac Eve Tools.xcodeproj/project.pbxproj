@@ -29,6 +29,9 @@
 		C911FE9C107820D5000D88E2 /* Certificate.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FE9B107820D5000D88E2 /* Certificate.m */; };
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
+		C930ED2C10F80B09006753D6 /* ShipPrerequisiteDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED2B10F80B09006753D6 /* ShipPrerequisiteDatasource.m */; };
+		C930ED2F10F80B1A006753D6 /* ShipFittingDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */; };
+		C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */; };
 		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
 		C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */; };
 		C964CB6E10F43D2E00F735E9 /* ShipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */; };
@@ -171,6 +174,12 @@
 		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
 		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
+		C930ED2A10F80B09006753D6 /* ShipPrerequisiteDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipPrerequisiteDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipPrerequisiteDatasource.h"; sourceTree = "<group>"; };
+		C930ED2B10F80B09006753D6 /* ShipPrerequisiteDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipPrerequisiteDatasource.m; path = "../Views/Skill Planner/SkillDatasource/ShipPrerequisiteDatasource.m"; sourceTree = "<group>"; };
+		C930ED2D10F80B1A006753D6 /* ShipFittingDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipFittingDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipFittingDatasource.h"; sourceTree = "<group>"; };
+		C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipFittingDatasource.m; path = "../Views/Skill Planner/SkillDatasource/ShipFittingDatasource.m"; sourceTree = "<group>"; };
+		C930ED3010F80B2D006753D6 /* ShipAttributeDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipAttributeDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipAttributeDatasource.h"; sourceTree = "<group>"; };
+		C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipAttributeDatasource.m; path = "../Views/Skill Planner/SkillDatasource/ShipAttributeDatasource.m"; sourceTree = "<group>"; };
 		C93815E3109E8FEF002C9B16 /* MTSkillButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillButtonCell.h; sourceTree = "<group>"; };
 		C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSkillButtonCell.m; sourceTree = "<group>"; };
 		C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPTypeAttribute.h; sourceTree = "<group>"; };
@@ -459,6 +468,19 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		C99F735310F9465A00C6191D /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				C930ED2A10F80B09006753D6 /* ShipPrerequisiteDatasource.h */,
+				C930ED2B10F80B09006753D6 /* ShipPrerequisiteDatasource.m */,
+				C930ED2D10F80B1A006753D6 /* ShipFittingDatasource.h */,
+				C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */,
+				C930ED3010F80B2D006753D6 /* ShipAttributeDatasource.h */,
+				C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */,
+			);
+			name = Datasource;
+			sourceTree = "<group>";
+		};
 		C9F5147F1056719D00654F6D /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +747,7 @@
 		C9FF477D10550BA60044BBAC /* Windows */ = {
 			isa = PBXGroup;
 			children = (
+				C99F735310F9465A00C6191D /* Datasource */,
 				C9FF477E10550BA60044BBAC /* ShipDetailsWindowController.h */,
 				C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */,
 				C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */,
@@ -906,6 +929,9 @@
 				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
 				C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */,
 				C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */,
+				C930ED2C10F80B09006753D6 /* ShipPrerequisiteDatasource.m in Sources */,
+				C930ED2F10F80B1A006753D6 /* ShipFittingDatasource.m in Sources */,
+				C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
