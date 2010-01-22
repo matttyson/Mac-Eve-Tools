@@ -1,3 +1,8 @@
+Release 16.5 (22/01/2010)
+	Ship details window.  provide detailed info on all ships
+		requires new database.
+	Database updated
+
 Release 16.3 (21/12/2009)
 	Add option to increase skill level directly from plan (right click)
 	Misc bug fixes.

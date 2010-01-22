@@ -290,12 +290,7 @@ downloadLabel:
 		[lc close];
 		[lc release];
 	}
-	/*
-	if(![cfg databaseUpToDate]){
-		/need to download the database
-		[dbManager performCheck];
-	}
-	*/
+	
 	//Init the skill tree from XML
 	SkillTree *tree = [[GlobalData sharedInstance]skillTree];
 	if(tree == nil){
@@ -357,6 +352,10 @@ downloadLabel:
 	[dbManager setDelegate:self];
 	if([dbManager databaseReadyToBuild]){
 		[dbManager buildDatabase:[self window]];
+	}else{
+		if(![cfg databaseUpToDate]){
+			[dbManager performCheck];
+		}
 	}
 	
 #ifdef HAVE_SPARKLE

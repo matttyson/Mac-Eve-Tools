@@ -226,6 +226,8 @@
 		currentVersion = strtol(results[1],NULL,10);
 	}
 	
+	NSLog(@"Database current version: %ld",currentVersion);
+	
 	sqlite3_free_table(results);
 	sqlite3_close(db);
 	
@@ -238,17 +240,6 @@
 }
 
 -(void) performCheck
-{
-	Config *cfg = [Config sharedInstance];
-	NSString *url = [NSString stringWithString:[cfg dbUpdateUrl]];
-	
-	XmlFetcher *fetcher = [[XmlFetcher alloc]initWithDelegate:self];
-	NSString *path = [Config buildPathSingle:DBUPDATE_DEFN];
-	[fetcher saveXmlDocument:url docName:UPDATE_FILE savePath:path];
-	[fetcher release];
-}
-
--(void) performSilentCheck
 {
 	Config *cfg = [Config sharedInstance];
 	NSString *url = [NSString stringWithString:[cfg dbUpdateUrl]];

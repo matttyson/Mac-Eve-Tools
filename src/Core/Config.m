@@ -91,6 +91,7 @@ static Config *cfg = nil;
 		
 		cfg->databaseMinimumVersion = 2;
 	}
+	//not a leak.
 	return cfg;
 }
 
