@@ -508,7 +508,10 @@
 	[skillRemovePanel orderOut:sender];
 }
 
-/*this is for importing a plan*/
+/*
+ this is for importing a plan
+ It only seems to work if the plan view is active.
+ */
 -(void) importSheetDidEnd:(NSWindow *)sheet 
 			   returnCode:(NSInteger)returnCode 
 			  contextInfo:(NSString *)filePath

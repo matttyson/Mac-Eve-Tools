@@ -94,7 +94,9 @@ static GlobalData *_privateData = nil;
 		_privateData->skillTree = st;
 	}
 	
+	//Not a leak.
 	return _privateData;
+	
 }
 
 @end

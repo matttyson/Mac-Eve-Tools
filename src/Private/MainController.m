@@ -338,11 +338,16 @@ downloadLabel:
 	[viewControllers addObject:mvc];
 	[(NSObject*)mvc release];
 	
+	/*
+	 
+	Menu Item for importing evemon plans.  This doesn't work properly yet and shouldn't be included.
+	 
 	id<METPluggableView> view = [viewControllers objectAtIndex:1];
 	NSMenuItem *menuItem = [view menuItems];
 	if(menuItem != nil){
 		[[NSApp mainMenu]insertItem:menuItem atIndex:1];
 	}
+	*/
 		
 	[[self window] makeKeyAndOrderFront:self];
 	[[self window] makeMainWindow];

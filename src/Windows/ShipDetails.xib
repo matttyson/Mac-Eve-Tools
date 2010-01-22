@@ -305,7 +305,7 @@
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSScrollView" id="497435081">
 												<reference key="NSNextResponder" ref="946958623"/>
-												<int key="NSvFlags">4364</int>
+												<int key="NSvFlags">4370</int>
 												<object class="NSMutableArray" key="NSSubviews">
 													<bool key="EncodedWithXMLCoder">YES</bool>
 													<object class="NSClipView" id="729049330">
@@ -371,7 +371,7 @@
 																	</object>
 																	<object class="NSTableColumn" id="627809242">
 																		<string key="NSIdentifier">ATTR_VALUE</string>
-																		<double key="NSWidth">191</double>
+																		<double key="NSWidth">207</double>
 																		<double key="NSMinWidth">10</double>
 																		<double key="NSMaxWidth">3.4028234663852886e+38</double>
 																		<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -445,7 +445,6 @@
 														<int key="NSvFlags">-2147483392</int>
 														<string key="NSFrame">{{1, 293}, {482, 15}}</string>
 														<reference key="NSSuperview" ref="497435081"/>
-														<bool key="NSEnabled">YES</bool>
 														<int key="NSsFlags">1</int>
 														<reference key="NSTarget" ref="497435081"/>
 														<string key="NSAction">_doScroller:</string>
@@ -455,7 +454,7 @@
 												<string key="NSFrame">{{2, 2}, {419, 309}}</string>
 												<reference key="NSSuperview" ref="946958623"/>
 												<reference key="NSNextKeyView" ref="729049330"/>
-												<int key="NSsFlags">690</int>
+												<int key="NSsFlags">562</int>
 												<reference key="NSVScroller" ref="69735575"/>
 												<reference key="NSHScroller" ref="398858289"/>
 												<reference key="NSContentView" ref="729049330"/>

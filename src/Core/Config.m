@@ -167,7 +167,8 @@ static Config *cfg = nil;
 
 +(NSString*) buildPathSingle:(NSString*)file
 {
-	return [NSString stringWithFormat:@"%@/%@",cfg->rootPath,file];
+	Config *cfg = [Config sharedInstance];
+	return [NSString stringWithFormat:@"%@/%@",[cfg rootPath],file];
 }
 
 
