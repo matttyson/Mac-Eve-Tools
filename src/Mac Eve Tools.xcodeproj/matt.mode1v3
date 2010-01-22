@@ -290,14 +290,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>14</integer>
-									<integer>13</integer>
+									<integer>101</integer>
+									<integer>97</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {311, 807}}</string>
+							<string>{{0, 1301}, {311, 807}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -329,14 +328,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MainController.m</string>
+								<string>Mac_Eve_Tools-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -344,11 +341,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MainController.m</string>
+										<string>Mac_Eve_Tools-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C92C3E411109300300372D8A</string>
+										<string>C92C3E63110930BC00372D8A</string>
 										<key>history</key>
 										<array>
 											<string>C9E642571063429F00DF6A5C</string>
@@ -445,7 +442,6 @@
 											<string>C964CA4F10DF006B00F735E9</string>
 											<string>C964CA7B10DF0C5F00F735E9</string>
 											<string>C964CA8310DF0D4B00F735E9</string>
-											<string>C964CABE10F4136200F735E9</string>
 											<string>C964CABF10F4136200F735E9</string>
 											<string>C964CAC010F4136200F735E9</string>
 											<string>C964CAC110F4136200F735E9</string>
@@ -509,14 +505,15 @@
 											<string>C92C3DEA1109281100372D8A</string>
 											<string>C92C3DEC1109281100372D8A</string>
 											<string>C92C3E1211092EA800372D8A</string>
-											<string>C92C3E1311092EA800372D8A</string>
 											<string>C92C3E1411092EA800372D8A</string>
 											<string>C92C3E1511092EA800372D8A</string>
 											<string>C92C3E1611092EA800372D8A</string>
 											<string>C92C3E1811092EA800372D8A</string>
 											<string>C92C3E1911092EA800372D8A</string>
 											<string>C92C3E2B11092F9900372D8A</string>
-											<string>C92C3E2C11092F9900372D8A</string>
+											<string>C92C3E4B1109307500372D8A</string>
+											<string>C92C3E4C1109307500372D8A</string>
+											<string>C92C3E5A110930A000372D8A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -714,7 +711,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C92C3E421109300300372D8A</string>
+		<string>C92C3E64110930BC00372D8A</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>C92C3DD71107E29400372D8A</string>
 		<string>C92C3DD81107E29400372D8A</string>
