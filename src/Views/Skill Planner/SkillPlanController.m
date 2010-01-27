@@ -26,6 +26,7 @@
 /*datasources*/
 #import "SkillSearchCharacterDatasource.h"
 #import "SkillSearchShipDatasource.h"
+#import "SkillSearchCertDatasource.h"
 
 #import "METInstance.h"
 
@@ -154,6 +155,11 @@
 	skillShipDatasource = [[SkillSearchShipDatasource alloc]initWithCategory:DB_CATEGORY_SHIP];
 	if(skillShipDatasource != nil){
 		[skillSearchView addDatasource:skillShipDatasource];
+	}
+	
+	skillCertDatasource = [[SkillSearchCertDatasource alloc]init];
+	if(skillSearchView != nil){
+		[skillSearchView addDatasource:skillCertDatasource];
 	}
 	
 	[skillView2 setDelegate:self];

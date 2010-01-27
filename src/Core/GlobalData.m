@@ -21,6 +21,7 @@
 
 
 #import "SkillTree.h"
+#import "CertTree.h"
 #import "Config.h"
 #import "macros.h"
 
@@ -28,6 +29,7 @@
 
 @synthesize skillTree;
 @synthesize dateFormatter;
+@synthesize certTree;
 
 static GlobalData *_privateData = nil;
 
@@ -38,7 +40,23 @@ static GlobalData *_privateData = nil;
 	NSFileManager *fm = [NSFileManager defaultManager];
 	
 	if([fm fileExistsAtPath:path]){
-		SkillTree *tree = [[SkillTree alloc]initWithXml:path];
+		SkillTree *tree = [[[SkillTree alloc]initWithXml:path]autorelease];
+		if(tree == nil){
+			NSLog(@"Skill tree parse error");
+			return nil;
+		}
+		return tree;
+	}
+	NSLog(@"Could not read %@",path);
+	return nil;
+}
+
++(CertTree*) buildCertTree
+{
+	NSString *path = [Config filePath:XMLAPI_CERT_TREE,nil];
+	
+	if([[NSFileManager defaultManager]fileExistsAtPath:path]){
+		CertTree *tree = [[[CertTree alloc]initWithXml:path]autorelease];
 		if(tree == nil){
 			NSLog(@"Skill tree parse error");
 			return nil;
@@ -77,9 +95,15 @@ static GlobalData *_privateData = nil;
 	if(_privateData == nil)
 	{	
 		SkillTree *st = [GlobalData buildSkillTree];
+		CertTree *ct = [GlobalData buildCertTree];
 		
 		if(st == nil){
-			NSLog(@"Error: SkillTree xml file does not exist");
+			NSLog(@"Error: Failed to construct skill tree");
+			return nil;
+		}
+		
+		if(ct == nil){
+			NSLog(@"Error: Failed to construct cert tree");
 			return nil;
 		}
 		
@@ -91,7 +115,8 @@ static GlobalData *_privateData = nil;
 		[_privateData->dateFormatter setDateStyle:NSDateFormatterShortStyle];
 		[_privateData->dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		
-		_privateData->skillTree = st;
+		_privateData->skillTree = [st retain];
+		_privateData->certTree = [ct retain];
 	}
 	
 	//Not a leak.

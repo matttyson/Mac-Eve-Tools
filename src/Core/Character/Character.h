@@ -57,6 +57,8 @@
 	
 	NSDate *cacheExpiry;
 	
+	NSMutableSet *ownedCerts;//Certs that have been awarded to this character.
+	
 	NSInteger updateProgress;
 		
 	NSInteger baseAttributes[ATTR_TOTAL]; //base attribute levels before modification
@@ -178,6 +180,9 @@
 -(NSInteger) currentSPForTrainingSkill;
 -(SkillPair*) currentlyTrainingSkill;
 -(NSDate*) skillTrainingFinishDate;
+
+/*return YES if this Character has been awarded this cert.*/
+-(BOOL) hasCert:(NSInteger)certID;
 
 @property (readonly,nonatomic) NSImage* portrait;
 @property (readonly,nonatomic) NSUInteger characterId;

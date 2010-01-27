@@ -62,7 +62,7 @@
 		character = [ch retain];
 		down = nil;
 		
-
+		//I think the compiler is on crack.  the warning given here makes no sense.
 		shipAttrDS = [[ShipAttributeDatasource alloc]initWithShip:ship forCharacter:character];
 		shipPreDS = [[ShipPrerequisiteDatasource alloc]initWithShip:ship forCharacter:character];
 	}

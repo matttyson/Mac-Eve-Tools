@@ -189,7 +189,7 @@ menuForTableColumnItem:(NSTableColumn*)column
 	NSMenu *menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
 	NSMenuItem *menuItem;
 	
-	menuItem = [[NSMenuItem alloc]initWithTitle:[s skillName] action:@selector(skillInformation:) keyEquivalent:@""];
+	menuItem = [[NSMenuItem alloc]initWithTitle:[s skillName] action:@selector(displaySkillWindow:) keyEquivalent:@""];
 	[menuItem setRepresentedObject:item];
 	[menu addItem:menuItem];
 	[menuItem release];

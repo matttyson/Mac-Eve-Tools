@@ -21,6 +21,7 @@
 #import "Config.h"
 #import "SkillDetailsWindowController.h"
 #import "ShipDetailsWindowController.h"
+#import "CertDetailsWindowController.h"
 #import "SkillPair.h"
 
 @interface SkillSearchView (SkillSearchViewPrivate)
@@ -158,7 +159,9 @@
 //	[skillList reloadItem:nil reloadChildren:YES];
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView 
+shouldEditTableColumn:(NSTableColumn *)tableColumn 
+			   item:(id)item
 {
 	return NO;
 }
@@ -174,17 +177,10 @@
 	}
 }
 
-
-
 -(void) selectDefaultGroup
 {
 	[skillSearchCategories setSelectedSegment:0];
 	[self skillSearchCategoriesClick:skillSearchCategories];
-}
-
--(void) displayShipWindow:(id)sender
-{
-	[ShipDetailsWindowController displayShip:[sender representedObject] forCharacter:[delegate character]];
 }
 
 /*pop up the skill window*/
@@ -203,17 +199,12 @@
 	}
 }
 
--(void) planViewDoubleClick:(id)sender
+-(void) displayShipWindow:(id)sender
 {
-	NSInteger row = [skillList selectedRow];
-	if(row == -1){
-		return;
-	}
-	
-	[self displayItemAtRow:row];
+	[ShipDetailsWindowController displayShip:[sender representedObject] forCharacter:[delegate character]];
 }
 
--(void) skillInformation:(id)sender
+-(void) displaySkillWindow:(id)sender
 {
 	id item = [sender representedObject];
 	NSInteger row = [skillList rowForItem:item];
@@ -224,6 +215,24 @@
 	
 	[self displayItemAtRow:row];
 }
+
+-(void) displayCertWindow:(id)sender
+{
+	[CertDetailsWindowController displayWindowForCert:[sender representedObject]
+											character:[delegate character]];
+}
+
+-(void) planViewDoubleClick:(id)sender
+{
+	NSInteger row = [skillList selectedRow];
+	if(row == -1){
+		return;
+	}
+	
+	[self displayItemAtRow:row];
+}
+
+
 
 -(void) skillTreeSingleClick:(id)sender
 {

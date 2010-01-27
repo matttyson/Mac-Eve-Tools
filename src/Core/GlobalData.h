@@ -35,13 +35,16 @@
  */
 
 @class SkillTree;
+@class CertTree;
 
 @interface GlobalData : NSObject {
 	SkillTree *skillTree;
+	CertTree *certTree;
 	NSDateFormatter *dateFormatter;
 }
 
 @property (readonly,nonatomic) SkillTree* skillTree;
+@property (readonly,nonatomic) CertTree* certTree;
 @property (readonly,nonatomic) NSDateFormatter* dateFormatter;
 
 +(GlobalData*) sharedInstance;

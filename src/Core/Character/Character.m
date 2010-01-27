@@ -54,6 +54,7 @@
 	[portrait release];
 	[trainingQueue release];
 	[trainingSkill release];
+	[ownedCerts release];
 	
 	for(NSInteger i = 0; i < CHAR_ERROR_TOTAL;i++){
 		if(errorMessage[i] == nil){
@@ -78,6 +79,8 @@
 		
 		db = [[CharacterDatabase alloc]initWithPath:[path stringByAppendingString:@"/database.sqlite"]];
 		portrait = [[NSImage alloc]initWithContentsOfFile:[path stringByAppendingString:@"/portrait.jpg"]];
+		
+		ownedCerts = [[NSMutableSet alloc]init];
 		
 		BOOL rc = [self parseCharacterXml:path];
 		if(!rc){
@@ -452,6 +455,11 @@
 	return [self trainingTimeInSeconds:[self trainingSkill] 
 							 fromLevel:toLevel - 1
 							   toLevel:toLevel];
+}
+
+-(BOOL) hasCert:(NSInteger)certID
+{
+	return [ownedCerts containsObject:[NSNumber numberWithInteger:certID]];
 }
 
 

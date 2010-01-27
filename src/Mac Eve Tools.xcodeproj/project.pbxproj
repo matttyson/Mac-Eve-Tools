@@ -35,6 +35,14 @@
 		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
 		C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */; };
 		C964CB6E10F43D2E00F735E9 /* ShipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */; };
+		C9661A6F110D12F400FA9B72 /* Cert.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A6E110D12F400FA9B72 /* Cert.m */; };
+		C9661A72110D16C100FA9B72 /* CertClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A71110D16C100FA9B72 /* CertClass.m */; };
+		C9661A75110D183D00FA9B72 /* CertCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A74110D183D00FA9B72 /* CertCategory.m */; };
+		C9661A78110D1C2700FA9B72 /* CertTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A77110D1C2700FA9B72 /* CertTree.m */; };
+		C9661B81110D3E6200FA9B72 /* CertPair.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661B80110D3E6200FA9B72 /* CertPair.m */; };
+		C9661CC5110D6F7800FA9B72 /* SkillSearchCertDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661CC4110D6F7800FA9B72 /* SkillSearchCertDatasource.m */; };
+		C9661E36110FC05F00FA9B72 /* CertDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9661E35110FC05F00FA9B72 /* CertDetails.xib */; };
+		C9661E39110FC07200FA9B72 /* CertDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661E38110FC07200FA9B72 /* CertDetailsWindowController.m */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C979E0071069B05400457530 /* SkillPlannerConfig.xib */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
@@ -185,6 +193,21 @@
 		C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPTypeAttribute.h; sourceTree = "<group>"; };
 		C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPTypeAttribute.m; sourceTree = "<group>"; };
 		C964CB6D10F43D2E00F735E9 /* ShipDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipDetails.xib; sourceTree = "<group>"; };
+		C9661A6D110D12F400FA9B72 /* Cert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cert.h; sourceTree = "<group>"; };
+		C9661A6E110D12F400FA9B72 /* Cert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cert.m; sourceTree = "<group>"; };
+		C9661A70110D16C100FA9B72 /* CertClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertClass.h; sourceTree = "<group>"; };
+		C9661A71110D16C100FA9B72 /* CertClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertClass.m; sourceTree = "<group>"; };
+		C9661A73110D183D00FA9B72 /* CertCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertCategory.h; sourceTree = "<group>"; };
+		C9661A74110D183D00FA9B72 /* CertCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertCategory.m; sourceTree = "<group>"; };
+		C9661A76110D1C2700FA9B72 /* CertTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertTree.h; sourceTree = "<group>"; };
+		C9661A77110D1C2700FA9B72 /* CertTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertTree.m; sourceTree = "<group>"; };
+		C9661B7F110D3E6200FA9B72 /* CertPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertPair.h; sourceTree = "<group>"; };
+		C9661B80110D3E6200FA9B72 /* CertPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertPair.m; sourceTree = "<group>"; };
+		C9661CC3110D6F7800FA9B72 /* SkillSearchCertDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillSearchCertDatasource.h; sourceTree = "<group>"; };
+		C9661CC4110D6F7800FA9B72 /* SkillSearchCertDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillSearchCertDatasource.m; sourceTree = "<group>"; };
+		C9661E35110FC05F00FA9B72 /* CertDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CertDetails.xib; sourceTree = "<group>"; };
+		C9661E37110FC07200FA9B72 /* CertDetailsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertDetailsWindowController.h; sourceTree = "<group>"; };
+		C9661E38110FC07200FA9B72 /* CertDetailsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertDetailsWindowController.m; sourceTree = "<group>"; };
 		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
 		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
 		C979E0071069B05400457530 /* SkillPlannerConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillPlannerConfig.xib; sourceTree = "<group>"; };
@@ -454,6 +477,23 @@
 			path = Certificates;
 			sourceTree = "<group>";
 		};
+		C9661A6B110D12EB00FA9B72 /* Certs */ = {
+			isa = PBXGroup;
+			children = (
+				C9661A6D110D12F400FA9B72 /* Cert.h */,
+				C9661A6E110D12F400FA9B72 /* Cert.m */,
+				C9661A70110D16C100FA9B72 /* CertClass.h */,
+				C9661A71110D16C100FA9B72 /* CertClass.m */,
+				C9661A73110D183D00FA9B72 /* CertCategory.h */,
+				C9661A74110D183D00FA9B72 /* CertCategory.m */,
+				C9661A76110D1C2700FA9B72 /* CertTree.h */,
+				C9661A77110D1C2700FA9B72 /* CertTree.m */,
+				C9661B7F110D3E6200FA9B72 /* CertPair.h */,
+				C9661B80110D3E6200FA9B72 /* CertPair.m */,
+			);
+			path = Certs;
+			sourceTree = "<group>";
+		};
 		C979E0011069AA0300457530 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +561,7 @@
 		C9FF46EC10550BA50044BBAC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C9661A6B110D12EB00FA9B72 /* Certs */,
 				C9FF472210550BA50044BBAC /* Skills */,
 				C9FF473110550BA60044BBAC /* SQLite Database */,
 				C9FF470010550BA50044BBAC /* Controls */,
@@ -740,6 +781,8 @@
 				C9FF477510550BA60044BBAC /* SkillSearchCharacterDatasource.m */,
 				C9FF477610550BA60044BBAC /* SkillSearchShipDatasource.h */,
 				C9FF477710550BA60044BBAC /* SkillSearchShipDatasource.m */,
+				C9661CC3110D6F7800FA9B72 /* SkillSearchCertDatasource.h */,
+				C9661CC4110D6F7800FA9B72 /* SkillSearchCertDatasource.m */,
 			);
 			path = SkillDatasource;
 			sourceTree = "<group>";
@@ -754,6 +797,9 @@
 				C9FF478110550BA60044BBAC /* SkillDetailsWindowController.h */,
 				C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */,
 				C9FF478010550BA60044BBAC /* SkillDetails.xib */,
+				C9661E37110FC07200FA9B72 /* CertDetailsWindowController.h */,
+				C9661E38110FC07200FA9B72 /* CertDetailsWindowController.m */,
+				C9661E35110FC05F00FA9B72 /* CertDetails.xib */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -829,6 +875,7 @@
 				C9AC24281056886F0031D591 /* Loading.xib in Resources */,
 				C979E0081069B05400457530 /* SkillPlannerConfig.xib in Resources */,
 				C964CB6E10F43D2E00F735E9 /* ShipDetails.xib in Resources */,
+				C9661E36110FC05F00FA9B72 /* CertDetails.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +979,13 @@
 				C930ED2C10F80B09006753D6 /* ShipPrerequisiteDatasource.m in Sources */,
 				C930ED2F10F80B1A006753D6 /* ShipFittingDatasource.m in Sources */,
 				C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */,
+				C9661A6F110D12F400FA9B72 /* Cert.m in Sources */,
+				C9661A72110D16C100FA9B72 /* CertClass.m in Sources */,
+				C9661A75110D183D00FA9B72 /* CertCategory.m in Sources */,
+				C9661A78110D1C2700FA9B72 /* CertTree.m in Sources */,
+				C9661B81110D3E6200FA9B72 /* CertPair.m in Sources */,
+				C9661CC5110D6F7800FA9B72 /* SkillSearchCertDatasource.m in Sources */,
+				C9661E39110FC07200FA9B72 /* CertDetailsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,7 +1054,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.4;
+				CURRENT_PROJECT_VERSION = 16.5;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = MACEVEAPI_DEBUG;
@@ -1028,7 +1082,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.4;
+				CURRENT_PROJECT_VERSION = 16.5;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_SPARKLE;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1056,7 +1110,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.4;
+				CURRENT_PROJECT_VERSION = 16.5;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

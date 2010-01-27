@@ -412,6 +412,11 @@ static Config *cfg = nil;
 	if(![fm fileExistsAtPath:path]){
 		return NO;
 	}
+
+	path = [Config filePath:XMLAPI_CERT_TREE,nil];
+	if(![fm fileExistsAtPath:path]){
+		return NO;
+	}
 	
 	return YES;
 }

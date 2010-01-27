@@ -55,18 +55,16 @@
 }
  */
 
--(BOOL) doSomething:(id)ptr
+-(BOOL) getFile:(NSString*)document
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	NSString *file = [Config filePath:XMLAPI_SKILL_TREE,nil];
-	
-	BOOL rc = YES;
-	
-	[progress startAnimation:self];
+	NSString *file = [Config filePath:document,nil];
+	BOOL rc = NO;
+
 	
 	if(![fm fileExistsAtPath:file]){
 		XmlFetcher *f = [[XmlFetcher alloc]init];
-		NSString *url = [Config getApiUrl:XMLAPI_SKILL_TREE accountID:nil apiKey:nil charId:nil];
+		NSString *url = [Config getApiUrl:document accountID:nil apiKey:nil charId:nil];
 		NSLog(@"Downloading %@",url);
 		[textActionDescription setStringValue:url];
 		[textActionDescription sizeToFit];
@@ -74,6 +72,19 @@
 		rc = [f saveXmlDocument:url savePath:file];
 		[f release];
 	}
+	
+	return rc;
+}
+
+-(BOOL) doSomething:(id)ptr
+{	
+	
+	BOOL rc = YES;
+	
+	[progress startAnimation:self];
+	
+	rc = [self getFile:XMLAPI_SKILL_TREE];
+	rc = [self getFile:XMLAPI_CERT_TREE];
 	
 	if(!rc){
 		NSLog(@"Downloading data failed!");

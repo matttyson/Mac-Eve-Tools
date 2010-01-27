@@ -164,6 +164,25 @@
 }
 */
 
+-(BOOL) parseCertList:(xmlNode*)rowset
+{
+	xmlNode *cur_node;
+	for(cur_node = rowset->children;
+		cur_node != NULL;
+		cur_node = cur_node->next)
+	{
+		if(cur_node->type != XML_ELEMENT_NODE){
+			continue;
+		}
+		
+		NSString *certID = findAttribute(cur_node,(xmlChar*)"certificateID");
+		
+		[ownedCerts addObject:[NSNumber numberWithInteger:[certID integerValue]]];
+	}
+	
+	return YES;
+}
+
 
 /*
  Build the SkillTree Object for the Character Skill Rowset.
@@ -429,6 +448,8 @@
 			if(xmlStrcmp(rowset_name,(xmlChar*)"skills") == 0){
 				/*process the skills for the character here.*/
 				[self buildSkillTree:cur_node];
+			}else if(xmlStrcmp(rowset_name,(xmlChar*)"certificates") == 0){
+				[self parseCertList:cur_node];
 			}
 			
 			xmlFree(rowset_name);
