@@ -171,7 +171,9 @@
 	return nil;
 }
 
--(NSMenu*) outlineView:(NSOutlineView*)outlineView menuForTableColumnItem:(NSTableColumn*)column byItem:(id)item
+-(NSMenu*) outlineView:(NSOutlineView*)outlineView 
+menuForTableColumnItem:(NSTableColumn*)column 
+				byItem:(id)item
 {
 	if(![item isKindOfClass:[CCPType class]]){
 		return nil;
@@ -217,7 +219,9 @@
 
 #pragma mark drag and drop support
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pboard
+- (BOOL)outlineView:(NSOutlineView *)outlineView 
+		 writeItems:(NSArray *)items 
+	   toPasteboard:(NSPasteboard *)pboard
 {	
 	NSInteger skillLevel = 0;
 		
@@ -228,6 +232,8 @@
 	for(CCPType *type in items){
 		if([type isKindOfClass:[CCPType class]]){
 			[array addObjectsFromArray:[type prereqs]];
+		}else{
+			return NO;
 		}
 	}
 	
