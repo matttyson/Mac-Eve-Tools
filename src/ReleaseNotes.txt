@@ -1,4 +1,10 @@
-Release 16.5 ()
+Release 16.6 ()
+	Fixed a bug in displaying the skill details window
+	 from the skill plan.
+	Provide training time estimate in the ship and cert
+	 popup windows 
+	 
+Release 16.5 (27/01/2010)
 	Added certificate support to the skill planner.
 
 Release 16.4 (22/01/2010)
