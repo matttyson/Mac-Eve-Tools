@@ -30,6 +30,9 @@
 #import "ShipPrerequisiteDatasource.h"
 #import "ShipAttributeDatasource.h"
 
+#import "SkillPlan.h"
+#import "Helpers.h"
+
 @implementation ShipDetailsWindowController
 
 -(void)awakeFromNib
@@ -82,12 +85,7 @@
 	[shipName sizeToFit];
 	
 	[shipDescription setString:[ship typeDescription]];
-	
-	CCPTypeAttribute *ta = [ship attributeForID:479];
-	//[shipDescription setStringValue:[ship typeDescription]];
-	//[shipDescription sizeToFit];
 }
-
 
 -(BOOL) displayImage
 {
@@ -142,6 +140,33 @@
 	}
 }
 
+-(void) calculateTimeToTrain
+{
+	//Normally skill plans should be created using the character object, but we don't
+	//want to save this plan
+	SkillPlan *plan = [[SkillPlan alloc]initWithName:@"--TEST--" character:character];
+	[plan addSkillArrayToPlan:[ship prereqs]];
+	
+	NSInteger timeToTrain = [plan trainingTime];
+	
+	[plan release];
+	
+	if(timeToTrain == 0){
+		//Can use this ship now.
+		[trainingTime setStringValue:
+		 [NSString stringWithFormat:@"%@ can fly this ship",
+		  [character characterName]]];
+	}else{
+		NSString *timeToTrainString = stringTrainingTime(timeToTrain);
+		
+		[trainingTime setStringValue:
+		 [NSString stringWithFormat:@"%@ could fly this ship in %@",
+		  [character characterName],timeToTrainString]];
+	}
+	
+	[miniPortrait setImage:[character portrait]];
+}
+
 #pragma mark Delegates
 
 -(void) windowDidLoad
@@ -154,15 +179,17 @@
 	 name:NSWindowWillCloseNotification
 	 object:[self window]];
 	
+	[self testImage];
+	
 	[self setLabels];
+	
+	[self calculateTimeToTrain];
 	
 	[shipPrerequisites setDataSource:shipPreDS];
 	[shipPrerequisites expandItem:nil expandChildren:YES];
 	
 	[shipAttributes setDataSource:shipAttrDS];
 	[shipAttributes expandItem:nil expandChildren:YES];
-	
-	[self testImage];
 }
 
 -(void) windowWillClose:(NSNotification*)sender

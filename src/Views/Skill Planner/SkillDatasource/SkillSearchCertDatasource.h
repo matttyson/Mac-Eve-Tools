@@ -18,6 +18,9 @@
 	Character *character;
 	CertTree *certs;
 	NSDictionary *characterSkills;
+	
+	NSString *searchString;
+	NSMutableArray *searchObjects;
 }
 
 @end

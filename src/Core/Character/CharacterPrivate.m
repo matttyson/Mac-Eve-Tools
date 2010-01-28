@@ -204,12 +204,12 @@
 	xmlNode *cur_node;
 	SkillTree *master = [[GlobalData sharedInstance]skillTree];
 	
-	if(st != nil){
-		[st release];
-		st = nil;
+	if(skillTree != nil){
+		[skillTree release];
+		skillTree = nil;
 	}
 	
-	st = [[SkillTree alloc]init];
+	skillTree = [[SkillTree alloc]init];
 	
 	for(cur_node = rowset->children;
 		cur_node != NULL;
@@ -243,14 +243,14 @@
 		[s setSkillLevel:[level integerValue]];
 		
 		SkillGroup *sg;
-		if((sg = [st groupForId:[s groupID]]) == nil){ /*If the skill group does not exist*/
+		if((sg = [skillTree groupForId:[s groupID]]) == nil){ /*If the skill group does not exist*/
 			SkillGroup *masterGroup = [master groupForId:[s groupID]];
 			assert(masterGroup != nil);
 			sg = [[SkillGroup alloc]initWithDetails:[masterGroup groupName] group:[masterGroup groupID]];
-			[st addSkillGroup:sg]; /*add the skill group to the tree*/
+			[skillTree addSkillGroup:sg]; /*add the skill group to the tree*/
 			[sg autorelease];
 		}
-		[st addSkill:s toGroup:[s groupID]];
+		[skillTree addSkill:s toGroup:[s groupID]];
 		[s release];
 	}
 	
@@ -483,54 +483,54 @@
 	Skill *skill;
 	/*Analytical mind. type 3377. +1 int*/
 	
-	skill = [st skillForIdInteger:3377];
+	skill = [skillTree skillForIdInteger:3377];
 	if(skill != nil){
 		learningTotals[ATTR_INTELLIGENCE] += [skill skillLevel];
 	}
 	/*Logic. type 12376. +1 int*/
-	skill = [st skillForIdInteger:12376];
+	skill = [skillTree skillForIdInteger:12376];
 	if(skill != nil){
 		learningTotals[ATTR_INTELLIGENCE] += [skill skillLevel];
 	}
 	/*Spatial Awareness. type 3379. +1 perc*/
-	skill = [st skillForIdInteger:3379];
+	skill = [skillTree skillForIdInteger:3379];
 	if(skill != nil){
 		learningTotals[ATTR_PERCEPTION] += [skill skillLevel];
 	}
 	/*Clarity. type 12387. +1 perc*/
-	skill = [st skillForIdInteger:12387];
+	skill = [skillTree skillForIdInteger:12387];
 	if(skill != nil){
 		learningTotals[ATTR_PERCEPTION] += [skill skillLevel];
 	}
 	
 	/*Instant Recall. 3378.  +1 mem*/
-	skill = [st skillForIdInteger:3378];
+	skill = [skillTree skillForIdInteger:3378];
 	if(skill != nil){
 		learningTotals[ATTR_MEMORY] += [skill skillLevel];
 	}
 	/*Eidetic Memory. type 12385. +1 mem*/
-	skill = [st skillForIdInteger:12385];
+	skill = [skillTree skillForIdInteger:12385];
 	if(skill != nil){
 		learningTotals[ATTR_MEMORY] += [skill skillLevel];
 	}
 	
 	/*Empathy. type 3376. +1 chr*/
-	skill = [st skillForIdInteger:3376];
+	skill = [skillTree skillForIdInteger:3376];
 	if(skill != nil){
 		learningTotals[ATTR_CHARISMA] += [skill skillLevel];
 	}
 	/*Presence. type 12383. +1 chr*/
-	skill = [st skillForIdInteger:12383];
+	skill = [skillTree skillForIdInteger:12383];
 	if(skill != nil){
 		learningTotals[ATTR_CHARISMA] += [skill skillLevel];
 	}
 	/*Iron Will. 3375. +1 will*/
-	skill = [st skillForIdInteger:3375];
+	skill = [skillTree skillForIdInteger:3375];
 	if(skill != nil){
 		learningTotals[ATTR_WILLPOWER] += [skill skillLevel];
 	}
 	/*Focus. type 12386. +1 will*/
-	skill = [st skillForIdInteger:12386];
+	skill = [skillTree skillForIdInteger:12386];
 	if(skill != nil){
 		learningTotals[ATTR_WILLPOWER] += [skill skillLevel];
 	}

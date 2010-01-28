@@ -37,7 +37,7 @@
 
 #pragma mark initialisers
 
-@synthesize st;
+@synthesize skillTree;
 @synthesize characterId;
 @synthesize characterName;
 @synthesize portrait;
@@ -47,7 +47,7 @@
 {
 	[characterName release];
 	[data release];
-	[st release];
+	[skillTree release];
 	[db closeDatabase];
 	[db release];
 	[skillPlans release];
@@ -116,17 +116,17 @@
 
 -(NSInteger) skillsAtV
 {
-	return [st skillsAtV];
+	return [skillTree skillsAtV];
 }
 
 -(NSInteger) skillPointTotal
 {
-	return [st skillPointTotal];
+	return [skillTree skillPointTotal];
 }
 
 -(NSInteger) skillsKnown
 {
-	return [st skillCount];
+	return [skillTree skillCount];
 }
 
 -(NSString*) stringForKey:(NSString*)key
@@ -168,7 +168,7 @@
 		return 0;
 	}
 	
-	Skill *s = [st skillForId:typeID];
+	Skill *s = [skillTree skillForId:typeID];
 	
 	NSInteger currentSkillPoints = 0;
 	NSInteger skillRank = 0;
@@ -338,13 +338,13 @@
 
 -(NSDictionary*) skillSet
 {
-	return [st skillSet];
+	return [skillTree skillSet];
 }
 
 /*in practice this is only used from say level 1->2 2->3 etc*/
 -(CGFloat) percentCompleted:(NSNumber*)typeID fromLevel:(NSInteger)fromLevel toLevel:(NSInteger)toLevel
 {
-	Skill *s = [st skillForId:typeID];
+	Skill *s = [skillTree skillForId:typeID];
 	if(s == nil){
 		return 0.0;
 	}
@@ -396,7 +396,7 @@
 	}
 	
 	/*Learning. type 3374. +2% per level to all skills*/
-	NSInteger level = [[st skillForIdInteger:3374] skillLevel];
+	NSInteger level = [[skillTree skillForIdInteger:3374] skillLevel];
 	CGFloat bonus = (1.0+(0.02 * (level + learningBonus)));
 	
 	for(NSInteger i = 0;i < ATTR_TOTAL; i++){

@@ -231,7 +231,7 @@ menuForTableColumnItem:(NSTableColumn*)column
 	[str appendFormat:@"\n\nAttributes: %@/%@\n",
 		strForAttrCode([item primaryAttr]),strForAttrCode([item secondaryAttr])];
 	
-	NSInteger skillLevel = [[[character st]skillForId:[item typeID]]skillLevel];
+	NSInteger skillLevel = [[[character skillTree]skillForId:[item typeID]]skillLevel];
 	[str appendFormat:@"Training Time: %@\n\n",stringTrainingTime([character trainingTimeInSeconds:[item typeID]
 																	fromLevel:skillLevel toLevel:skillLevel+1])];
 	[str appendString:[item skillDescription]];

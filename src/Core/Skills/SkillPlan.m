@@ -616,7 +616,7 @@ static NSDictionary *masterSkillSet = nil;;
 
 -(NSInteger) purgeCompletedSkills
 {
-	SkillTree *st = [character st];
+	SkillTree *st = [character skillTree];
 	NSMutableIndexSet *index = [[NSMutableIndexSet alloc]init];
 	
 	NSInteger i = 0;

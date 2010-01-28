@@ -37,6 +37,8 @@
 
 -(void) setSkill:(Skill*)s forCharacter:(Character*)c
 {
+	[self doesNotRecognizeSelector:_cmd];
+/*	
 	if(skill != nil){
 		[skill release];
 	}
@@ -46,28 +48,43 @@
 		[character release];
 	}
 	character = [c retain];
+ */
+}
+
+
+-(id) initWithSkill:(Skill*)sk forCharacter:(Character*)ch
+{
+	if(self = [super initWithWindowNibName:@"SkillDetails"]){
+		skill = [sk retain];
+		character = [ch retain];
+	}
+	return self;
 }
 
 +(void) displayWindowForSkill:(Skill*)s forCharacter:(Character*)c
 {
 	/*Not a leak*/
-	SkillDetailsWindowController *wc = [[SkillDetailsWindowController alloc]init];
-	[wc setSkill:s forCharacter:c];
+	SkillDetailsWindowController *wc = [[SkillDetailsWindowController alloc]
+										 initWithSkill:s forCharacter:c];
+	//[wc setSkill:s forCharacter:c];
 	[[wc window]makeKeyAndOrderFront:nil];
 }
 
 +(void) displayWindowForTypeID:(NSNumber*)tID forCharacter:(Character*)c
 {
-	Skill *s = [[[GlobalData sharedInstance]skillTree] skillForId:tID];
+	Skill *s;
+	
+	s = [[c skillTree]skillForId:tID];
+	if(s == nil){
+		s = [[[GlobalData sharedInstance]skillTree] skillForId:tID];
+	}		
+	
 	[SkillDetailsWindowController displayWindowForSkill:s forCharacter:c];
 }
 
 -(id) init
 {
-	if(self = [super initWithWindowNibName:@"SkillDetails"]){
-		
-	}
-	return self;
+	[self doesNotRecognizeSelector:_cmd];
 }
 
 -(void) dealloc
@@ -297,7 +314,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	}
 	
 	/*if the character has the skill use blue text, otherwise red. green is too hard to read.*/
-	Skill *s = [[character st]skillForId:[pair typeID]];
+	Skill *s = [[character skillTree]skillForId:[pair typeID]];
 	NSMutableAttributedString *str = [[[NSMutableAttributedString alloc]initWithString:textValue]autorelease];
 	 
 	NSColor *color;

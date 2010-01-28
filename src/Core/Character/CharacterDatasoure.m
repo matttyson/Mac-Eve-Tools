@@ -51,16 +51,16 @@
 
 -(id) outlineView:(NSOutlineView*)outlineView child:(NSInteger)index ofItem:(id)item
 {
-	return [st outlineView:outlineView child:index ofItem:item]; 
+	return [skillTree outlineView:outlineView child:index ofItem:item]; 
 }
 -(NSInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
-	return [st outlineView:outlineView numberOfChildrenOfItem:item];
+	return [skillTree outlineView:outlineView numberOfChildrenOfItem:item];
 }
 
 -(BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
-	return [st outlineView:outlineView isItemExpandable:item];
+	return [skillTree outlineView:outlineView isItemExpandable:item];
 }
 -(id) outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {

@@ -64,7 +64,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 {
 	NSString *textValue = [item roman];
 	
-	Skill *s = [[character st]skillForId:[(SkillPair*)item typeID]];
+	Skill *s = [[character skillTree]skillForId:[(SkillPair*)item typeID]];
 	NSMutableAttributedString *str = [[[NSMutableAttributedString alloc]initWithString:textValue]autorelease];
 	
 	NSColor *color;

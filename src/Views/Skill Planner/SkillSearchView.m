@@ -189,13 +189,16 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	id item = [skillList itemAtRow:row];
 	
 	if([item isKindOfClass:[Skill class]]){
+		/*
 		Skill *s = [[((Character*)[delegate character])st]skillForId:[item typeID]]; //ignore this warning
 		
-		/*Not a leak*/
 		SkillDetailsWindowController *wc = [[SkillDetailsWindowController alloc]init];
 		[wc setSkill:s ? s : item forCharacter:[delegate character]];
 		[[wc window]makeKeyAndOrderFront:self];
 		return;
+		 */
+		[SkillDetailsWindowController displayWindowForTypeID:[item typeID] 
+												forCharacter:[delegate character]];
 	}
 }
 

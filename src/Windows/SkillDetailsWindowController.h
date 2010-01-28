@@ -54,6 +54,6 @@
 +(void) displayWindowForTypeID:(NSNumber*)s forCharacter:(Character*)c;
 +(void) displayWindowForSkill:(Skill*)s forCharacter:(Character*)c;
 
--(void) setSkill:(Skill*)s forCharacter:(Character*)c;
+//-(void) setSkill:(Skill*)s forCharacter:(Character*)c;
 
 @end

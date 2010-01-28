@@ -17,19 +17,25 @@
 
 #import "GlobalData.h"
 
+#import "SkillPlan.h"
+#import "Helpers.h"
+
 #import <assert.h>
 
 @implementation SkillSearchCertDatasource
 
 -(void)dealloc
 {
-	
+	[searchObjects release];
+	[searchString release];
+	[super dealloc];
 }
 
 -(SkillSearchCertDatasource*) init
 {
 	if((self = [super init])){
 		certs = [[GlobalData sharedInstance]certTree];
+		searchObjects = [[NSMutableArray alloc]init];
 	}
 	return self;
 }
@@ -55,7 +61,26 @@
 
 -(void) skillSearchFilter:(id)sender
 {
+	/*
+	NSString *searchValue = [[sender cell]stringValue];
 	
+	if([searchValue length] == 0){
+		[searchString release];
+		searchString = nil;
+		[searchObjects removeAllObjects];
+		return;
+	}
+	
+	[searchObjects removeAllObjects];
+	[searchString release];
+	searchString = [searchValue retain];
+	
+	NSDictionary *allCerts = [certs allCerts];
+	
+	for(Cert *c in allCerts){
+		
+	}
+	*/
 }
 
 

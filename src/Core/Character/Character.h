@@ -44,7 +44,7 @@
 	NSString *characterName;
 		
 	NSMutableDictionary *data; /*generic key value data*/
-	SkillTree *st; /*The skills that this character has.*/
+	SkillTree *skillTree; /*The skills that this character has.*/
 		
 	SkillPlan *trainingQueue; //Skills that are in the current training queue.
 	NSMutableArray *skillPlans;
@@ -188,7 +188,7 @@
 @property (readonly,nonatomic) NSUInteger characterId;
 @property (readonly,nonatomic) NSString* characterName;
 
-@property (readonly,nonatomic) SkillTree* st;
+@property (readonly,nonatomic) SkillTree* skillTree;
 @property (readonly,nonatomic) SkillPlan* trainingQueue;
 
 @end

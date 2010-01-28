@@ -14,7 +14,11 @@
 #import "CertPair.h"
 #import "SkillPair.h"
 #import "GlobalData.h"
+#import "SkillPlan.h"
+#import "Helpers.h"
+
 #import "assert.h"
+
 
 @implementation CertDetailsWindowController
 
@@ -64,6 +68,38 @@
 	[self autorelease];
 }
 
+-(void) calculateTimeToTrain
+{
+	//Normally skill plans should be created using the character object, but we don't
+	//want to save this plan
+	
+	NSString *text;
+	
+	[miniPortrait setImage:[character portrait]];
+	
+	if([character hasCert:[cert certID]]){
+		text = [NSString stringWithFormat:@"%@ has this certificate",[character characterName]];
+	}else {
+		SkillPlan *plan = [[SkillPlan alloc]initWithName:@"--TEST--" character:character];
+		[plan addSkillArrayToPlan:[cert certChainPrereqs]];
+		
+		NSInteger timeToTrain = [plan trainingTime];
+		
+		[plan release];
+		
+		if(timeToTrain == 0){
+			text = [NSString stringWithFormat:@"%@ has not claimed this certificate",
+					[character characterName]];
+		}else{
+			NSString *timeToTrainString = stringTrainingTime(timeToTrain);
+			text = [NSString stringWithFormat:@"%@ could have this certificate in %@",
+					[character characterName],timeToTrainString];
+		}
+	}
+	
+	[trainingTime setStringValue:text];
+}
+
 -(void) windowDidLoad
 {
 	[[NSNotificationCenter defaultCenter] 
@@ -72,11 +108,11 @@
 	 name:NSWindowWillCloseNotification
 	 object:[self window]];
 	
+	[self calculateTimeToTrain];
 	[self setLabels];
 	[self setDatasource];
 	[[self window]setTitle:[cert fullCertName]];
 }
-
 
 
 #pragma mark OutlineView datasource methods.
@@ -165,7 +201,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	
 	if([item isKindOfClass:[SkillPair class]]){
 		
-		Skill *s = [[character st]skillForId:[(SkillPair*)item typeID]];
+		Skill *s = [[character skillTree]skillForId:[(SkillPair*)item typeID]];
 		
 		NSColor *colour;
 		if(s == nil){

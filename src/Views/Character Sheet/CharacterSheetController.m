@@ -218,7 +218,7 @@
 		[titleRemaining setHidden:YES];
 		[titleRate setHidden:YES];
 	}
-	trainingSkill = [[character st]skillForId:[character trainingSkill]];
+	trainingSkill = [[character skillTree]skillForId:[character trainingSkill]];
 }
 
 -(void) characterDidUpdate:(Character*)character didSucceed:(BOOL)success docPath:(NSString*)docPath

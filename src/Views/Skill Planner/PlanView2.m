@@ -588,7 +588,7 @@
 		return;
 	}
 	
-	[SkillDetailsWindowController displayWindowForSkill:s forCharacter:character];
+	[SkillDetailsWindowController displayWindowForTypeID:[s typeID] forCharacter:character];
 }
 
 -(void) setCharacter:(Character*)c

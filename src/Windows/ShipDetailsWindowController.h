@@ -46,6 +46,9 @@
 	ShipAttributeDatasource *shipAttrDS;
 	
 	NSURLDownload *down;
+	
+	IBOutlet NSImageView *miniPortrait;
+	IBOutlet NSTextField *trainingTime;
 }
 
 

@@ -245,6 +245,11 @@
 	return YES;
 }
 
+-(NSDictionary*) allCerts
+{
+	return allCerts;
+}
+
 -(CertTree*) initWithXml:(NSString*)xmlPath
 {
 	if((self = [super init])){

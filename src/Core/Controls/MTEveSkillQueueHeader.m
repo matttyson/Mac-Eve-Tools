@@ -186,7 +186,7 @@
 	
 	NSInteger count = [plan skillCount];
 	
-	SkillTree *st = [character st];
+	SkillTree *st = [character skillTree];
 	
 	NSRect drawArea = bounds;
 	
@@ -452,7 +452,7 @@
 		NSNumber *typeID = [pair typeID];
 		NSInteger skillLevel = [pair skillLevel];
 		
-		[cell setSkill:[[character st]skillForId:typeID]];
+		[cell setSkill:[[character skillTree]skillForId:typeID]];
 		[cell setPair:pair];
 		
 		NSInteger trainTime = [character trainingTimeInSeconds:typeID 
@@ -469,7 +469,7 @@
 			[cell setPercentCompleted:progress];
 		}else{
 			
-			Skill *s = [[character st]skillForId:typeID];
+			Skill *s = [[character skillTree]skillForId:typeID];
 			if(s == nil){
 				[cell setPercentCompleted:0];
 			}else{

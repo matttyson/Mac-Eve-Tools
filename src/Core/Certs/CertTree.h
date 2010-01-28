@@ -24,4 +24,6 @@
 
 -(Cert*) certForID:(NSInteger)certID;
 
+-(NSDictionary*) allCerts;
+
 @end
