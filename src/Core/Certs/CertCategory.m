@@ -14,6 +14,7 @@
 
 @synthesize catName;
 @synthesize categoryID;
+@synthesize classArray;
 
 -(void)dealloc
 {

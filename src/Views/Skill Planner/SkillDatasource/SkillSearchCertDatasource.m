@@ -26,16 +26,28 @@
 
 -(void)dealloc
 {
-	[searchObjects release];
+	[foundSearchObjects release];
+	[certClasses release];
 	[searchString release];
 	[super dealloc];
+}
+
+-(void) buildCertClassArray
+{
+	NSInteger catCount = [certs catCount];
+	
+	for(NSInteger i = 0; i < catCount; i++){
+		[certClasses addObjectsFromArray:[[certs catAtIndex:i]classArray]];
+	}
 }
 
 -(SkillSearchCertDatasource*) init
 {
 	if((self = [super init])){
 		certs = [[GlobalData sharedInstance]certTree];
-		searchObjects = [[NSMutableArray alloc]init];
+		foundSearchObjects = [[NSMutableArray alloc]init];
+		certClasses = [[NSMutableArray alloc]init];
+		[self buildCertClassArray];
 	}
 	return self;
 }
@@ -61,26 +73,26 @@
 
 -(void) skillSearchFilter:(id)sender
 {
-	/*
+	
 	NSString *searchValue = [[sender cell]stringValue];
 	
 	if([searchValue length] == 0){
 		[searchString release];
 		searchString = nil;
-		[searchObjects removeAllObjects];
+		[foundSearchObjects removeAllObjects];
 		return;
 	}
 	
-	[searchObjects removeAllObjects];
+	[foundSearchObjects removeAllObjects];
 	[searchString release];
 	searchString = [searchValue retain];
 	
-	NSDictionary *allCerts = [certs allCerts];
-	
-	for(Cert *c in allCerts){
-		
+	for(CertClass *c in certClasses){
+		NSRange r = [[c certClassName]rangeOfString:searchValue options:NSCaseInsensitiveSearch];
+		if(r.location != NSNotFound){
+			[foundSearchObjects addObject:c];
+		}
 	}
-	*/
 }
 
 
@@ -90,6 +102,9 @@
   numberOfChildrenOfItem:(id)item
 {
 	if(item == nil){
+		if(searchString != NULL){
+			return [foundSearchObjects count];
+		}
 		return [certs catCount];
 	}
 	
@@ -111,6 +126,9 @@
 		   ofItem:(id)item
 {
 	if(item == nil){
+		if([foundSearchObjects count] > 0){
+			return [foundSearchObjects objectAtIndex:index];
+		}
 		return [certs catAtIndex:index];
 	}
 	

@@ -19,7 +19,7 @@
 
 @property (readonly,nonatomic) NSInteger categoryID;
 @property (readonly,nonatomic) NSString* catName;
-
+@property (readonly,nonatomic) NSArray* classArray;
 
 -(NSInteger) classCount;
 -(CertClass*) classAtIndex:(NSInteger)index;

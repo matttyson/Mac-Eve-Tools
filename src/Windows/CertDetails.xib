@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="10"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -90,7 +90,7 @@
 						</object>
 						<object class="NSScrollView" id="918923114">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">4370</int>
+							<int key="NSvFlags">4402</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSClipView" id="626625189">
@@ -248,7 +248,7 @@
 						</object>
 						<object class="NSImageView" id="699997076">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">296</int>
 							<object class="NSMutableSet" key="NSDragTypes">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSArray" key="set.sortedObjects">
@@ -281,7 +281,7 @@
 						</object>
 						<object class="NSTextField" id="63119258">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">266</int>
+							<int key="NSvFlags">298</int>
 							<string key="NSFrame">{{73, 321}, {352, 48}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
@@ -517,10 +517,10 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{613, 86}, {442, 513}}</string>
+					<string>{{183, 81}, {442, 513}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{613, 86}, {442, 513}}</string>
+					<string>{{183, 81}, {442, 513}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>

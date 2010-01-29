@@ -226,6 +226,7 @@
 		
 		[self repositionButton];
 	}
+	
 	[self displayPlanByPlanId:[plan planId]];
 }
 							

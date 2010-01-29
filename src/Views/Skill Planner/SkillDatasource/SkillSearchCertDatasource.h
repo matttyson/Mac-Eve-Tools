@@ -20,7 +20,8 @@
 	NSDictionary *characterSkills;
 	
 	NSString *searchString;
-	NSMutableArray *searchObjects;
+	NSMutableArray *foundSearchObjects;
+	NSMutableArray *certClasses;
 }
 
 @end
