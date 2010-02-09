@@ -12,6 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="371"/>
+			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1094,10 +1096,10 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 					</object>
 				</object>
-				<string key="NSWindowContentMaxSize">{560, 555}</string>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<string key="NSWindowContentMinSize">{717, 596}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1251,6 +1253,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{1033, 601}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMinSize">{717, 679}</string>
@@ -3388,8 +3391,6 @@
 					<string>781.IBPluginDependency</string>
 					<string>781.IBWindowTemplateEditedContentRect</string>
 					<string>781.NSWindowTemplate.visibleAtLaunch</string>
-					<string>781.windowTemplate.maxSize</string>
-					<string>781.windowTemplate.minSize</string>
 					<string>782.IBPluginDependency</string>
 					<string>783.IBPluginDependency</string>
 					<string>784.IBPluginDependency</string>
@@ -3403,8 +3404,6 @@
 					<string>798.IBPluginDependency</string>
 					<string>798.IBWindowTemplateEditedContentRect</string>
 					<string>798.NSWindowTemplate.visibleAtLaunch</string>
-					<string>798.windowTemplate.maxSize</string>
-					<string>798.windowTemplate.minSize</string>
 					<string>799.IBPluginDependency</string>
 					<string>80.IBPluginDependency</string>
 					<string>80.ImportedFromIB2</string>
@@ -3424,8 +3423,6 @@
 					<string>825.IBPluginDependency</string>
 					<string>825.IBWindowTemplateEditedContentRect</string>
 					<string>825.NSWindowTemplate.visibleAtLaunch</string>
-					<string>825.windowTemplate.maxSize</string>
-					<string>825.windowTemplate.minSize</string>
 					<string>826.IBPluginDependency</string>
 					<string>827.IBPluginDependency</string>
 					<string>828.IBPluginDependency</string>
@@ -3647,8 +3644,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{490, 579}, {397, 122}}</string>
 					<boolean value="NO"/>
-					<string>{1.79769e+308, 1.79769e+308}</string>
-					<string>{0, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3662,8 +3657,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{480, 528}, {544, 81}}</string>
 					<boolean value="NO"/>
-					<string>{1.79769e+308, 1.79769e+308}</string>
-					<string>{0, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -3683,8 +3676,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{262, 312}, {405, 209}}</string>
 					<boolean value="NO"/>
-					<string>{1.79769e+308, 1.79769e+308}</string>
-					<string>{0, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
