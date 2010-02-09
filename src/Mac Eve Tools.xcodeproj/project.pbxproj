@@ -94,6 +94,7 @@
 		C9D902FF11211BF40047B2C2 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902FE11211BF40047B2C2 /* Loading.xib */; };
 		C9D9030211211C020047B2C2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D9030111211C020047B2C2 /* MainMenu.xib */; };
 		C9D9031F11211E9C0047B2C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9D9031E11211E9C0047B2C2 /* Localizable.strings */; };
+		C9D90334112121BC0047B2C2 /* PreferencesAccountMaster.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */; };
 		C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4EC8105A0883009192BC /* CharacterTemplate.m */; };
 		C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4F4F105A16BD009192BC /* GenericDownloadOperation.m */; };
 		C9F5143E10566CA200654F6D /* CharacterSheetPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F5143D10566CA200654F6D /* CharacterSheetPlugin.m */; };
@@ -161,7 +162,6 @@
 		C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475410550BA60044BBAC /* AccountViewController.m */; };
 		C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475610550BA60044BBAC /* GeneralSettingsController.m */; };
 		C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475910550BA60044BBAC /* PreferenceController.m */; };
-		C9FF47B710550BA60044BBAC /* PreferencesAccountMaster.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */; };
 		C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF476910550BA60044BBAC /* CharacterSheetController.m */; };
 		C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477010550BA60044BBAC /* PlanView2.m */; };
 		C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477310550BA60044BBAC /* PlanView2Datasource.m */; };
@@ -302,6 +302,7 @@
 		C9D9030311211C080047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C9D9031C11211E950047B2C2 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C9D9032011211EA30047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C9D90335112121C20047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferencesAccountMaster.xib; sourceTree = "<group>"; };
 		C9EB4EC7105A0883009192BC /* CharacterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTemplate.h; sourceTree = "<group>"; };
 		C9EB4EC8105A0883009192BC /* CharacterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTemplate.m; sourceTree = "<group>"; };
 		C9EB4F4E105A16BD009192BC /* GenericDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDownloadOperation.h; sourceTree = "<group>"; };
@@ -424,7 +425,7 @@
 		C9FF475810550BA60044BBAC /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		C9FF475910550BA60044BBAC /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		C9FF475A10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
-		C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesAccountMaster.xib; sourceTree = "<group>"; };
+		C9FF475B10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesAccountMaster.xib; sourceTree = "<group>"; };
 		C9FF475C10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesGeneral.xib; sourceTree = "<group>"; };
 		C9FF476710550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/CharacterSheet.xib; sourceTree = "<group>"; };
 		C9FF476810550BA60044BBAC /* CharacterSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSheetController.h; sourceTree = "<group>"; };
@@ -857,7 +858,7 @@
 				C9FF475810550BA60044BBAC /* PreferenceController.h */,
 				C9FF475910550BA60044BBAC /* PreferenceController.m */,
 				C9D902EA11211ADD0047B2C2 /* Preferences.xib */,
-				C9FF475B10550BA60044BBAC /* PreferencesAccountMaster.xib */,
+				C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */,
 				C9D902ED11211AE80047B2C2 /* PreferencesGeneral.xib */,
 				C95067A9111954CE0082D727 /* DatabaseViewController.h */,
 				C95067AA111954CE0082D727 /* DatabaseViewController.m */,
@@ -997,7 +998,7 @@
 				C9FF4570105508950044BBAC /* yellow.tiff in Resources */,
 				C9D902E811211AC70047B2C2 /* PreferenceAccount.xib in Resources */,
 				C9D902EB11211ADD0047B2C2 /* Preferences.xib in Resources */,
-				C9FF47B710550BA60044BBAC /* PreferencesAccountMaster.xib in Resources */,
+				C9D90334112121BC0047B2C2 /* PreferencesAccountMaster.xib in Resources */,
 				C9D902EE11211AE80047B2C2 /* PreferencesGeneral.xib in Resources */,
 				C95066EE1118FB7A0082D727 /* CharacterSheet.xib in Resources */,
 				C9D902E011211A720047B2C2 /* SkillPlan.xib in Resources */,
@@ -1303,6 +1304,15 @@
 				C9D9032011211EA30047B2C2 /* German */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9FF475B10550BA60044BBAC /* English */,
+				C9D90335112121C20047B2C2 /* German */,
+			);
+			name = PreferencesAccountMaster.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
