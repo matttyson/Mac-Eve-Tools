@@ -20,9 +20,11 @@
 #import <Cocoa/Cocoa.h>
 
 #import "METPluggableView.h"
-#import "MTCountdown.h"
 #import "MTEveSkillQueueHeader.h"
 #import "METInstance.h"
+
+#import "MTCountdown.h"
+#import "MTImageView.h"
 
 @class Character;
 @class Skill;
@@ -31,7 +33,7 @@
 	<METPluggableView,NSOutlineViewDelegate> {
 	/*character stuff*/
 	IBOutlet NSOutlineView *skillTree;
-	IBOutlet NSImageView *portrait;
+	IBOutlet MTImageView *portrait;
 	
 	IBOutlet NSTextField *charName;
 	IBOutlet NSTextField *charIsk;

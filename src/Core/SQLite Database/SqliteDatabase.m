@@ -26,12 +26,19 @@
 -(SqliteDatabase*) initWithPath:(NSString*)dbPath
 {
 	if(self = [super init]){
+		
 		databasePath = [dbPath retain];
+		path = strdup([dbPath fileSystemRepresentation]);
+		pathLength = strlen(path);
+		/*
 		pathLength = [dbPath length] * 2;
 		path = malloc(pathLength);
 		if(![databasePath getCString:path maxLength:pathLength encoding:NSUTF8StringEncoding]){
 			NSLog(@"couldn't allocate path for %@",databasePath);
 		}
+		*/
+		
+		
 	}
 	return self;
 }
@@ -50,6 +57,7 @@
 {	
 	if(db != NULL){
 		int rc;
+				
 		if((rc = sqlite3_close(db)) != SQLITE_OK){
 			NSLog(@"%@ error: (%d) %s",[self className],rc,sqlite3_errmsg(db));
 		}

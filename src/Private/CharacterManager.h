@@ -105,6 +105,8 @@ enum CharacterSortMode
 
 -(NSArray*) allCharacters;
 
+/*deletes the portrait of the current character.*/
+-(void) deletePortrait;
 
 /*
 	Refresh all characters.

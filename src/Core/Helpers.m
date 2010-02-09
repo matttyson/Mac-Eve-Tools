@@ -179,8 +179,54 @@ NSString* sqlite3_column_nsstr(void *stmt, int col)
 			return newString;
 		}
 		
-		newString = [NSString stringWithString:@"If you can see this then this is a bug, please report it."];
+		newString = [NSString stringWithString:@"If you can see this, then this is a bug. please report it."];
 		return newString;
 	}
 }
 
+NSString* languageForId(enum DatabaseLanguage lang)
+{
+	NSString *str;
+	
+	switch(lang){
+		case l_EN:
+			str = NSLocalizedString(@"English",@"english language");
+			break;
+		case l_DE:
+			str = NSLocalizedString(@"German",@"german language");
+			break;
+		case l_RU:
+			str = NSLocalizedString(@"Russian",@"russian language");
+			break;
+		default:
+			str = NSLocalizedString(@"Invalid selection",@"invalid language choice error message");
+			break;
+	}
+	
+	return str;
+}
+
+static const char *langCode[] = {NULL,"DE","RU"};
+
+const char* langCodeForId(enum DatabaseLanguage lang)
+{
+	return langCode[lang];
+	/*
+	const char *code;
+	switch(lang){
+		case l_EN:
+			code = NULL;
+			break;
+		case l_DE:
+			code = "DE";
+			break;
+		case l_RU:
+			code = "RU";
+			break;
+		default:
+			code = NULL;
+			break;
+	}	
+	return code;
+	 */
+}

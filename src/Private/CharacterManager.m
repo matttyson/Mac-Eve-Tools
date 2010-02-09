@@ -421,6 +421,29 @@
 	return [characterDictionary allValues];
 }
 
+-(void) deletePortrait
+{
+	Character *c = [self characterAtIndex:currentCharacter];
+	
+//	NSString *path = [Config charDirectoryPath: character:[template characterId]];
+	NSString *path;
+	path = [path stringByAppendingFormat:@"/portrait.jpg"];
+	
+	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
+		return;
+	}
+	
+	NSLog(@"Deleting portrait %@",path);
+	
+	[[NSFileManager defaultManager]removeItemAtPath:path error:NULL];
+
+	[NSAlert alertWithMessageText:NSLocalizedString(@"Portrait will be refeched on character update",) 
+					defaultButton:NSLocalizedString(@"OK",)
+				  alternateButton:nil
+					  otherButton:nil
+		informativeTextWithFormat:nil];
+}
+
 #pragma mark Outlineview methods
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView

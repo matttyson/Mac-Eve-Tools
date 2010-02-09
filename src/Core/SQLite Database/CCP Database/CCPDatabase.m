@@ -29,15 +29,21 @@
 #import "macros.h"
 #import "SkillPair.h"
 
+#import "Config.h"
+
 #import <sqlite3.h>
 
 
 @implementation CCPDatabase
 
+@synthesize lang;
+
 -(CCPDatabase*) initWithPath:(NSString*)dbpath
 {
 	if(self = [super initWithPath:dbpath]){
 		[self openDatabase];
+		tran_stmt = NULL;
+		lang = [[Config sharedInstance]dbLanguage];
 	}
 	return self;
 }
@@ -46,6 +52,16 @@
 {
 	[self closeDatabase];
 	[super dealloc];
+}
+
+-(void) closeDatabase
+{
+	if(tran_stmt != NULL){
+		sqlite3_finalize(tran_stmt);
+		tran_stmt = NULL;
+	}
+	
+	[super closeDatabase];
 }
 
 -(NSInteger) dbVersion
@@ -75,7 +91,24 @@
 
 -(NSString*) dbName
 {
-	return nil;
+	const char query[] = 
+		"SELECT versionName FROM version;";
+	sqlite3_stmt *read_stmt;
+	int rc;
+	NSString *result = @"N/A";
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		return result;
+	}
+	
+	if(sqlite3_step(read_stmt) == SQLITE_ROW){
+		result = sqlite3_column_nsstr(read_stmt,0);
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return result;
 }
 
 -(CCPCategory*) category:(NSInteger)categoryID
@@ -134,13 +167,14 @@
 	return 0;
 }
 
+
 -(CCPGroup*) group:(NSInteger)groupID
 {
 	const char query[] = "SELECT groupID, categoryID, groupName, graphicID FROM invGroups WHERE groupID = ?;";
 	sqlite3_stmt *read_stmt;
 	CCPGroup *group = nil;
 	int rc;
-
+	
 	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
 	if(rc != SQLITE_OK){
 		NSLog(@"%s: sqlite error\n",__func__);
@@ -156,7 +190,6 @@
 		
 		groupID = sqlite3_column_nsint(read_stmt,0);
 		categoryID = sqlite3_column_nsint(read_stmt,1);
-		//str = sqlite3_column_text(read_stmt,2);
 		groupName = sqlite3_column_nsstr(read_stmt,2);
 		graphicID = sqlite3_column_nsint(read_stmt,3);
 		
@@ -173,6 +206,36 @@
 	return group;
 }
 
+-(NSString*) translation:(NSInteger)keyID 
+			   forColumn:(NSInteger)columnID
+				fallback:(NSString*)fallback
+{
+	const char query[] = 
+		"SELECT text "
+		"FROM trnTranslations "
+		"WHERE tcID = ? AND keyID = ? AND languageID = ?;";
+	NSString *result = nil;
+	
+	if(tran_stmt == NULL){
+		sqlite3_prepare_v2(db,query,(int)sizeof(query),&tran_stmt,NULL);
+	}
+	
+	sqlite3_bind_nsint(tran_stmt,1,columnID);
+	sqlite3_bind_nsint(tran_stmt,2,keyID);
+	sqlite3_bind_text(tran_stmt,3, langCodeForId(lang),2, NULL);
+	
+	int rc = sqlite3_step(tran_stmt);
+	if((rc == SQLITE_DONE) || (rc == SQLITE_ROW)){
+		result = sqlite3_column_nsstr(tran_stmt,0); //returns an empty string on failure.
+	}else{
+		NSLog(@"Sqlite error - %s",__func__);
+	}
+	
+	sqlite3_reset(tran_stmt);
+	sqlite3_clear_bindings(tran_stmt);
+	
+	return [result length] > 0 ? result : fallback;
+}
 
 -(NSArray*) groupsInCategory:(NSInteger)categoryID
 {
@@ -201,6 +264,11 @@
 		groupID = sqlite3_column_nsint(read_stmt,0);
 		categoryID = sqlite3_column_nsint(read_stmt,1);
 		groupName = sqlite3_column_nsstr(read_stmt,2);
+		
+		if(lang != l_EN){
+			groupName = [self translation:groupID forColumn:TRN_GROUP_NAME fallback:groupName];
+		}
+		
 		graphicID = sqlite3_column_nsint(read_stmt,3);
 		
 		group = [[CCPGroup alloc]initWithGroup:groupID
@@ -252,6 +320,16 @@
 	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
 	
 	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		
+		NSInteger typeID = sqlite3_column_nsint(read_stmt,0);
+		NSString *description = sqlite3_column_nsstr(read_stmt,11);
+		NSString *typeName = sqlite3_column_nsstr(read_stmt,10);
+		
+		if(lang != l_EN){
+			description = [self translation:typeID forColumn:TRN_TYPE_DESCRIPTION fallback:description];
+			typeName = [self translation:typeID forColumn:TRN_TYPE_NAME fallback:typeName];
+		}
+		
 		CCPType *type = [[CCPType alloc]
 						 initWithType:sqlite3_column_nsint(read_stmt,0)
 						 group:sqlite3_column_nsint(read_stmt,1)
@@ -263,12 +341,9 @@
 						 volume:sqlite3_column_double(read_stmt,7)
 						 capacity:sqlite3_column_double(read_stmt,8)
 						 basePrice:sqlite3_column_double(read_stmt,9)
-						 typeName:sqlite3_column_nsstr(read_stmt,10)
-						 typeDesc:sqlite3_column_nsstr(read_stmt,11)
+						 typeName:typeName
+						 typeDesc:description
 						 database:self];
-		if([type typeID] == 23915){
-			NSLog(@"hi");
-		}
 		
 		[array addObject:type];
 		[type release];		

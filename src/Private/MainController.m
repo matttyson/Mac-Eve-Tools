@@ -327,12 +327,6 @@ downloadLabel:
 	[viewControllers addObject:mvc];
 	[(NSObject*)mvc release];
 	
-	mvc = [[SkillPlanController alloc]init];
-	[mvc view];//trigger the awakeFromNib
-	[mvc setInstance:self];
-	[viewControllers addObject:mvc];
-	[(NSObject*)mvc release];
-	
 	/*
 	 
 	Menu Item for importing evemon plans.  This doesn't work properly yet and shouldn't be included.
@@ -345,10 +339,9 @@ downloadLabel:
 	*/
 		
 	[[self window] makeKeyAndOrderFront:self];
-	[[self window] makeMainWindow];
-	[[self window] setDelegate:self];
-	[NSApp setDelegate:self];
 	
+	
+	/*because of the threading and preloading the skill planner will awake early*/
 	[dbManager setDelegate:self];
 	if([dbManager databaseReadyToBuild]){
 		[dbManager buildDatabase:[self window]];
@@ -358,6 +351,17 @@ downloadLabel:
 		}
 	}
 	
+	mvc = [[SkillPlanController alloc]init];
+	[mvc view];//trigger the awakeFromNib
+	[mvc setInstance:self];
+	[viewControllers addObject:mvc];
+	[(NSObject*)mvc release];
+	
+	
+	[[self window] makeMainWindow];
+	[[self window] setDelegate:self];
+	[NSApp setDelegate:self];
+		
 #ifdef HAVE_SPARKLE
 	SUUpdater *updater = [SUUpdater sharedUpdater];
 	[updater setAutomaticallyChecksForUpdates:NO];

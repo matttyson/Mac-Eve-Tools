@@ -19,6 +19,9 @@
 #import <Cocoa/Cocoa.h>
 
 #import "SqliteDatabase.h"
+#import "macros.h"
+
+#import <sqlite3.h>
 
 @class CCPCategory;
 @class CCPGroup;
@@ -26,12 +29,15 @@
 @class METShip;
 
 @interface CCPDatabase : SqliteDatabase {
-	
+	sqlite3_stmt *tran_stmt;
+	enum DatabaseLanguage lang;
 }
 
 /*
 	-1, nil or NO will be returned on error
  */
+
+@property (readwrite,nonatomic,assign) enum DatabaseLanguage lang;
 
 -(CCPDatabase*) initWithPath:(NSString*)dbpath;
 

@@ -31,9 +31,9 @@
 	PreferenceController *pc;
 }
 
-@property (assign) PreferenceController* pc;
+@property (nonatomic,assign) PreferenceController* pc;
 
-@property (retain) NSManagedObjectContext *managedObjectContext;
-@property (readonly) NSString* name;
+@property (nonatomic,retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic,readonly) NSString* name;
 
 @end

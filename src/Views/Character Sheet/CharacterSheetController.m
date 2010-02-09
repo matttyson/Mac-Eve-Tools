@@ -401,7 +401,15 @@
 	MTEveSkillCell *cell = [[skillTree tableColumnWithIdentifier:COL_SKILL_NAME]dataCell];
 	[cell setTarget:self];
 	
-	[queueHeader setHidden:YES];	
+	[queueHeader setHidden:YES];
+	
+	[portrait setDelegate:self];
+	[portrait setSelector:@selector(deleteCurrentPortrait:)];
+}
+
+-(void) deleteCurrentPortrait:(id)notUsed
+{
+	NSLog(@"delete portrait");
 }
 
 -(void) skillTreeDoubleClick:(id)sender

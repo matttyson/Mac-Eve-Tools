@@ -85,11 +85,12 @@ static Config *cfg = nil;
 		cfg->batchUpdateCharacters = NO;
 		
 		cfg->updateFeedUrl = @"http://mtyson.id.au/MacEveApi-appcast.xml";
-		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml";
-		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/database.sql.bz2";
+#warning NORELEASE language change testing
+		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/beta/MacEveApi-database.xml";
+		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/beta/database.sql.bz2";
 		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
 		
-		cfg->databaseMinimumVersion = 2;
+		cfg->databaseMinimumVersion = 3;
 	}
 	//not a leak.
 	return cfg;
@@ -494,6 +495,16 @@ static Config *cfg = nil;
 	return url;
 }
 
+-(enum DatabaseLanguage) dbLanguage
+{
+	/*if no key is set, zero is the default, which is english.*/
+	return [[NSUserDefaults standardUserDefaults]integerForKey:UD_DATABASE_LANG];
+
+}
+-(void) setDbLanguage:(enum DatabaseLanguage)lang
+{
+	[[NSUserDefaults standardUserDefaults]setInteger:lang forKey:UD_DATABASE_LANG];
+}
 
 @end
 

@@ -187,8 +187,15 @@ enum AttributeType {
 #define DB_CATEGORY_MODULE 7
 #define DB_CATEGORY_CHARGE 8
 
-#define SKILL_PLAN_CONFIG @"skill_plan_config"
+/* Translation Columns */
 
+#define TRN_TYPE_DESCRIPTION 33
+#define TRN_TYPE_NAME 8
+#define TRN_GROUP_NAME 7
+
+/*NSUserDefault keys*/
+#define SKILL_PLAN_CONFIG @"skill_plan_config"
+#define UD_DATABASE_LANG @"ud_db_lang"
 
 enum CCPRace
 {
@@ -265,6 +272,16 @@ enum AttributeTypeGroups
 	Fitting = 9
 };
 typedef enum AttributeTypeGroups AttributeTypeGroups;
+
+
+/*Don't fuck with these values unless you're special*/
+enum DatabaseLanguage
+{
+	l_EN = 0,
+	l_DE = 1,
+	l_RU = 2
+};
+typedef enum DatabaseLanguage DatabaseLanguage;
 /*
  macros for sqlite. we use NSIntegers which are defined as longs and therefore change size depending on what platform we are building for
  may need to look at changing this if we ever store anything that could go > MAX_INT. but nothing does at the moment (14/6/09)

@@ -445,7 +445,7 @@
 		goto _finish_cleanup;
 	}
 	
-	[self logProgressThread:@"Verifying tarball"];
+	[self logProgressThread:NSLocalizedString(@"Verifying tarball",@"database verification process")];
 	[self progressThread:1.0];
 	
 	SHA1_Init(&digest_ctx);
@@ -505,10 +505,9 @@
 	}
 	SHA1_Final(sha_digest,&digest_ctx);
 	
-	fflush(fout);
-	
-	//[self logProgressThread:@"Tarball extracted"];
-	
+	//close the uncompressed output file
+	fclose(fout);
+		
 	b64_ntop(sha_digest,SHA_DIGEST_LENGTH,(char*)buffer,MEGABYTE);
 	
 	if(![sha1_dec isEqualToString:[NSString stringWithUTF8String:(char*)buffer]]){
@@ -522,10 +521,14 @@
 		goto _finish_cleanup;
 	}
 	
+	free(buffer);
+	
 	BZ2_bzReadClose(&bzerror,compress);
 	fclose(fin);
 	
-	[self logProgressThread:@"Tarball extracted and verified"];
+	[self logProgressThread:
+	 NSLocalizedString(@"Tarball extracted and verified",)
+	 ];
 	[self progressThread:4.0];
 	
 	str = [Config buildPathSingle:DATABASE_SQLITE_TMP];
@@ -533,69 +536,29 @@
 	[[NSFileManager defaultManager] 
 	 removeItemAtPath:str error:nil];
 	
-	rc = sqlite3_open([str fileSystemRepresentation],&db);
-	if(rc != SQLITE_OK){
-		/*bleh*/
-		free(buffer);
-		fclose(fout);
-		goto _finish_cleanup;
-	}
-	
-	fseek(fout,0L,SEEK_SET);
-	
-	[self logProgressThread:@"Building Database"];
+	[self logProgressThread:NSLocalizedString(@"Building Database",)];
 	[self progressThread:5.0];
-	
-	while(read_query((char*)buffer,MEGABYTE,fout) != 0L){
-		rc = sqlite3_exec(db,(char*)buffer,NULL,NULL,&error);
-		if(rc != SQLITE_OK){
-			NSLog(@"SQLITE Error: %s:",error);
-			sqlite3_free(error);
-			sqlite3_close(db);
-			error = NULL;
-			//[delegate newDatabaseBuilt:self status:NO];
-		}
-	}
-	
-	fclose(fout);
-	sqlite3_close(db);
-	
-	[self logProgressThread:@"Database built"];
-	[self logProgressThread:@"Verifiying database"];
-	[self progressThread:6.0];
-	
-	/*verify the new database built correctly*/
-	
+
 	/*
-	fin = fopen([str fileSystemRepresentation],"rb");
-	SHA1_Init(&digest_ctx);
-	while ((len = fread(buffer,1,MEGABYTE,fin))) {
-		SHA1_Update(&digest_ctx,buffer,len);
-	}
-	SHA1_Final(sha_digest,&digest_ctx);
+	 fork and exec sqlite to build the database.
+	 the old approach used C code to read the file and manually
+	 read the queries and build the DB, which was slow and crap.
+	 */
+	NSTask *task = [[NSTask alloc]init];
+	[task setLaunchPath:@"/usr/bin/sqlite3"];
+
+	NSArray *args = [NSArray arrayWithObjects:
+					 @"-init",
+					 [Config buildPathSingle:DATABASE_SQL],
+					 str,
+					 @".quit",nil];
 	
-	fclose(fin);
+	[task setArguments:args];
+	[task launch];
+	[task waitUntilExit];
+	[task release];
 	
-	b64_ntop(sha_digest,SHA_DIGEST_LENGTH,buffer,MEGABYTE);
-	if(![sha1_database isEqualToString:[NSString stringWithUTF8String:buffer]]){
-		NSLog(@"SHA1 database hashing failed ('%@' != '%s')",sha1_database,buffer);
-		[self logProgressThread:@"Database verification failed"];
-		[[NSFileManager defaultManager] 
-		 removeItemAtPath:str error:nil];
-		str = [Config buildPathSingle:DBUPDATE_DEFN];
-		[[NSFileManager defaultManager] 
-		 removeItemAtPath:str error:nil];
-		str = [Config buildPathSingle:DATABASE_SQL];
-		[[NSFileManager defaultManager] 
-		 removeItemAtPath:str error:nil];
-		free(buffer);
-		goto _finish_cleanup;
-	}
-	[self logProgressThread:@"Database verification succeeded"];
-	*/
 	[self progressThread:7.0];
-	
-	free(buffer);
 	
 	NSLog(@"Database successfully built!");
 	
@@ -612,7 +575,9 @@
 	 toPath:str2 
 	 error:NULL];
 	
-	[self logProgressThread:@"All done!"];
+	[self logProgressThread:NSLocalizedString(@"All done!  Please Restart.",
+											  @"Database construction complete")
+	 ];
 	
 	status = YES;
 	
@@ -652,7 +617,7 @@ _finish_cleanup:
 	[progressIndicator setMinValue:0.0];
 	[progressIndicator setMaxValue:7.0];
 	[progressIndicator setDoubleValue:0.0];
-	[title setStringValue:@"Building database"];
+	[title setStringValue:NSLocalizedString(@"Building database",@"database constuction start")];
 	
 	[NSApp beginSheet:progressPanel
 	   modalForWindow:object

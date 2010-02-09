@@ -19,6 +19,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#include "macros.h"
+
 /*return a roman numeral string for a number. eg @"3" returns @"III" */
 NSString* romanForString(NSString *value);
 NSString* romanForInteger(NSInteger value);
@@ -54,3 +56,6 @@ NSString* stringTrainingTime(NSInteger trainingTime);
 CGFloat skillPercentCompleted(NSInteger startingPoints, NSInteger finishingPoints, NSInteger currentPoints);
 
 NSString* sqlite3_column_nsstr(void *stmt, int col);
+
+NSString* languageForId(enum DatabaseLanguage lang);
+const char* langCodeForId(enum DatabaseLanguage lang);

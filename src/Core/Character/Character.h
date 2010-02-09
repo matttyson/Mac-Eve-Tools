@@ -133,12 +133,13 @@
 /*sp per hour for the currently training skill*/
 -(NSInteger) spPerHour;
 
--(NSDictionary*) skillSet; /*get the rurrent skill set*/
+-(NSDictionary*) skillSet; /*get the current skill set*/
 
 /*Skill plan methods*/
 -(NSInteger) skillPlanCount;
 
 -(SkillPlan*) createSkillPlan:(NSString*)planName;
+
 //This is messy, remove the redundant ones and have a single method
 -(void) removeSkillPlan:(SkillPlan*)plan;
 -(void) removeSkillPlanById:(NSInteger)planId;

@@ -78,7 +78,9 @@
 	[miniPortrait setImage:[character portrait]];
 	
 	if([character hasCert:[cert certID]]){
-		text = [NSString stringWithFormat:@"%@ has this certificate",[character characterName]];
+		text = [NSString stringWithFormat:
+				NSLocalizedString(@"%@ has this certificate",@"<@CharacterName> has this cert"),
+				[character characterName]];
 	}else {
 		SkillPlan *plan = [[SkillPlan alloc]initWithName:@"--TEST--" character:character];
 		[plan addSkillArrayToPlan:[cert certChainPrereqs]];
@@ -88,11 +90,13 @@
 		[plan release];
 		
 		if(timeToTrain == 0){
-			text = [NSString stringWithFormat:@"%@ has not claimed this certificate",
+			text = [NSString stringWithFormat:
+					NSLocalizedString(@"%@ has not claimed this certificate",@"<@CharacterName> has not claimed this cert"),
 					[character characterName]];
 		}else{
 			NSString *timeToTrainString = stringTrainingTime(timeToTrain);
-			text = [NSString stringWithFormat:@"%@ could have this certificate in %@",
+			text = [NSString stringWithFormat:
+					NSLocalizedString(@"%@ could have this certificate in %@",@"<@CharacterName"),
 					[character characterName],timeToTrainString];
 		}
 	}

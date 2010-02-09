@@ -86,6 +86,7 @@
 		if(!rc){
 			NSLog(@"Failed to parse character sheet");
 		}
+		
 		/*if there are no XML sheets in path, then the character cannot be created*/
 	}
 	

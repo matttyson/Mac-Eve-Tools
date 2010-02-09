@@ -154,13 +154,15 @@
 	if(timeToTrain == 0){
 		//Can use this ship now.
 		[trainingTime setStringValue:
-		 [NSString stringWithFormat:@"%@ can fly this ship",
+		 [NSString stringWithFormat:
+		  NSLocalizedString(@"%@ can fly this ship",@"<@CharacterName>"),
 		  [character characterName]]];
 	}else{
 		NSString *timeToTrainString = stringTrainingTime(timeToTrain);
 		
 		[trainingTime setStringValue:
-		 [NSString stringWithFormat:@"%@ could fly this ship in %@",
+		 [NSString stringWithFormat:
+		  NSLocalizedString(@"%@ could fly this ship in %@",@"<@CharacterName>"),
 		  [character characterName],timeToTrainString]];
 	}
 	

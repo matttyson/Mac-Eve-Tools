@@ -21,6 +21,7 @@
 
 #import "SkillTree.h"
 #import "Account.h"
+#import "macros.h"
 
 @interface Config : NSObject {
 	NSString *apiurl;
@@ -131,5 +132,7 @@
 -(NSString*) pathForImageType:(NSInteger)typeID;
 -(NSString*) urlForImageType:(NSInteger)typeID;
 
+-(enum DatabaseLanguage) dbLanguage;
+-(void) setDbLanguage:(enum DatabaseLanguage)lang;
 
 @end

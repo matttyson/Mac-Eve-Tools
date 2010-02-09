@@ -22,6 +22,7 @@
 #import "AccountViewController.h"
 #import "AccountOverviewController.h"
 #import "GeneralSettingsController.h"
+#import "DatabaseViewController.h"
 
 #import "SkillPlanConfig.h"
 
@@ -96,18 +97,23 @@
 		viewControllers = [[NSMutableArray alloc]init];
 		
 		vc = [[AccountOverviewController alloc]init];
-		[viewControllers addObject:vc];
 		[vc setPc:self];
+		[viewControllers addObject:vc];
 		[vc release];
 		
 		vc = [[GeneralSettingsController alloc]init];
-		[viewControllers addObject:vc];
 		[vc setPc:self];
+		[viewControllers addObject:vc];
 		[vc release];
 		
 		vc = [[SkillPlanConfig alloc]init];
-		[viewControllers addObject:vc];
 		[vc setPc:self];
+		[viewControllers addObject:vc];
+		[vc release];
+		
+		vc = [[DatabaseViewController alloc]init];
+		[vc setPc:self];
+		[viewControllers addObject:vc];
 		[vc release];
 	}
 	
