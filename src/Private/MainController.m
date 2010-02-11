@@ -31,7 +31,6 @@
 #import "ServerMonitor.h"
 #import "EvemonXmlPlanIO.h"
 #import "SkillPlan.h"
-#import "LoaderController.h"
 #import "METPluggableView.h"
 #import "CharacterManager.h"
 
@@ -254,7 +253,49 @@
 }
 
 
-/*called once the program has finished loading*/
+/*
+ check to see if the current database is the right version,
+ Download a new version if required.
+ */
+-(void) databaseReadyToCheck:(NSNotification *)notification
+{
+	DBManager *manager = [[[DBManager alloc]init]autorelease];
+	
+	if(![manager dbVersionCheck:[[Config sharedInstance] databaseMinimumVersion]]){
+		[manager checkForUpdate2];
+		[[NSNotificationCenter defaultCenter]addObserver:self 
+												selector:@selector(databaseReadyToBuild:)
+													name:NOTE_DATABASE_DOWNLOAD_COMPLETE
+												  object:nil];
+	}else{
+		/*database version is current - launch app normally*/
+		[self performSelector:@selector(launchAppFinal:) withObject:nil];
+	}	
+}
+
+/*
+ check to see if there is a database ready to be built.
+ this should be called automaticlly by the databaseReadyToCheck notification.
+ */
+-(void) databaseReadyToBuild:(NSNotification*)notification
+{
+	[[NSNotificationCenter defaultCenter]removeObserver:self
+												   name:NOTE_DATABASE_DOWNLOAD_COMPLETE
+												 object:nil];
+	
+	DBManager *manager = [[[DBManager alloc]init]autorelease];
+	
+	//check to see if there is a new database ready to be built
+	if([manager databaseReadyToBuild]){
+		//Yes there is.  Build it.
+		[manager buildDatabase2:@selector(launchAppFinal:) obj:self];
+	}else{
+		/*this shouldn't happen*/
+		[self performSelector:@selector(launchAppFinal:) withObject:nil];
+	}
+}
+
+/*called once the program has finished loading, but before the window appears.*/
 -(void) appIsActive:(NSNotification*)notification
 {
 	/*event will not happen again, no need to listen for it*/
@@ -262,63 +303,34 @@
 		removeObserver:self
 		name:NSApplicationDidBecomeActiveNotification
 	 object:NSApp];
-
+	
 	xmlInitParser(); //Init libxml2
-////////////// ---- THIS BLOCK MUST EXECUTE BEFORE ANY OTHER CODE ---- \\\\\\\\\\\\\\\\
-	
-	//init the config system.
-	Config *cfg = [Config sharedInstance];
-	//read the config file off disk.
-	[cfg readConfig];
-	
+
 	/*
-	 Check required files exists.
-	 Rewrite this to be less crap.
-	 
-	 We should probably host the XML file and keep version numbers, currently
-	 we have no way of knowing if the XML is out of date.
+	 The 'Requisite Files' thing no longer applies.
+	 The Database is now a mandatory download
+	 Mac Eve Tools cannot function without it.
 	 */
-downloadLabel:
 	
-	if(![cfg requisiteFilesExist]){
-		LoaderController *lc = [[LoaderController alloc]initWithWindowNibName:@"Loading"];
-		[[lc window]center];
-		[[lc window]makeKeyAndOrderFront:self];
-		
-		[lc doSomething:self];
-		
-		[lc close];
-		[lc release];
-	}
+	[self databaseReadyToCheck:nil];
+}
+
+/*
+ Launch the application proper, display the window to the user.
+ */
+-(void) launchAppFinal:(id)obj
+{	
 	
-	//Init the skill tree from XML
-	SkillTree *tree = [[GlobalData sharedInstance]skillTree];
-	if(tree == nil){
-		/*this means the skill tree failed to build, we must exit*/
-		NSLog(@"Error building skill tree - can't start");
-		
-		NSString *path = [Config filePath:XMLAPI_SKILL_TREE,nil];
-		NSString *errmsg = [NSString stringWithFormat:@"Failed to parse:\n%@\nProgram cannot start",path];
-		NSInteger result = NSRunAlertPanel(@"Data error",
-										   errmsg,
-										   @"Retry",
-										   @"Quit",nil);
-		
-		switch (result) {
-			case NSAlertAlternateReturn:
-				[NSApp terminate:self];
-				break;
-			case NSAlertDefaultReturn:
-				[[NSFileManager defaultManager]removeItemAtPath:path error:NULL];
-				goto downloadLabel;
-				break;
-			default:
-				break;
-		}
-	}	
-////////////// ---- BLOCK END ---- \\\\\\\\\\\\\\\\
+	Config *cfg = [Config sharedInstance];
+	
+	////////////// ---- THIS BLOCK MUST EXECUTE BEFORE ANY OTHER CODE ---- \\\\\\\\\\\\\\\\
+	[[GlobalData sharedInstance]skillTree];
+	[[GlobalData sharedInstance]certTree];
+	////////////// ---- BLOCK END ---- \\\\\\\\\\\\\\\\
 	
 	/*init the views that will be used by this window*/
+	
+	[[self window] makeKeyAndOrderFront:self];
 	
 	id<METPluggableView> mvc;
 	mvc = [[CharacterSheetController alloc]init];
@@ -337,19 +349,9 @@ downloadLabel:
 		[[NSApp mainMenu]insertItem:menuItem atIndex:1];
 	}
 	*/
-		
-	[[self window] makeKeyAndOrderFront:self];
-	
 	
 	/*because of the threading and preloading the skill planner will awake early*/
-	[dbManager setDelegate:self];
-	if([dbManager databaseReadyToBuild]){
-		[dbManager buildDatabase:[self window]];
-	}else{
-		if(![cfg databaseUpToDate]){
-			[dbManager performCheck];
-		}
-	}
+
 	
 	mvc = [[SkillPlanController alloc]init];
 	[mvc view];//trigger the awakeFromNib
@@ -375,13 +377,14 @@ downloadLabel:
 			modalDelegate:nil
 		   didEndSelector:NULL
 			  contextInfo:NULL];
-	}else{
+	}
 #ifdef HAVE_SPARKLE
+	else{
 		if([cfg autoUpdate]){
 			[[SUUpdater sharedUpdater]checkForUpdatesInBackground];
 		}
-#endif
 	}
+#endif
 	
 	//Set the character sheet as the active view.
 	mvc = [viewControllers objectAtIndex:VIEW_CHARSHEET];
@@ -679,7 +682,7 @@ downloadLabel:
 	
 	switch (result) {
 		case NSAlertDefaultReturn:
-			[dbManager downloadDatabase:[self window]];
+		//	[dbManager downloadDatabase:[self window]];
 			break;
 		default:
 			break;
@@ -688,7 +691,7 @@ downloadLabel:
 
 -(IBAction) checkForDatabase:(id)sender
 {
-	[dbManager performCheck];
+	//[dbManager performCheck];
 }
 
 -(void) serverStatusUpdate:(NSNotification*)notification

@@ -60,9 +60,7 @@
 	id<METPluggableView> currentController;
 	
 	Character *currentCharacter;
-	
-	IBOutlet DBManager *dbManager;
-	
+		
 	IBOutlet NSTextField *serverName;
 	IBOutlet NSImageView *serverStatus;
 	

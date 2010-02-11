@@ -437,7 +437,7 @@
 	
 	[[NSFileManager defaultManager]removeItemAtPath:path error:NULL];
 
-	[NSAlert alertWithMessageText:NSLocalizedString(@"Portrait will be refeched on character update",) 
+	[NSAlert alertWithMessageText:NSLocalizedString(@"Portrait will be refetched on character update",) 
 					defaultButton:NSLocalizedString(@"OK",)
 				  alternateButton:nil
 					  otherButton:nil
