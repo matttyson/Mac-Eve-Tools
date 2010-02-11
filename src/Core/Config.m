@@ -90,7 +90,9 @@ static Config *cfg = nil;
 		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/beta/database.sql.bz2";
 		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
 		
-		cfg->databaseMinimumVersion = 3;
+		cfg->databaseMinimumVersion = 4;
+		
+		[cfg readConfig];
 	}
 	//not a leak.
 	return cfg;

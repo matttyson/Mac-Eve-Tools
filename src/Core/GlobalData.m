@@ -25,6 +25,8 @@
 #import "Config.h"
 #import "macros.h"
 
+#import "CCPDatabase.h"
+
 @implementation GlobalData
 
 @synthesize skillTree;
@@ -35,6 +37,7 @@ static GlobalData *_privateData = nil;
 
 +(SkillTree*) buildSkillTree
 {
+	/*
 	NSString *path = [Config filePath:XMLAPI_SKILL_TREE,nil];
 	
 	NSFileManager *fm = [NSFileManager defaultManager];
@@ -49,10 +52,20 @@ static GlobalData *_privateData = nil;
 	}
 	NSLog(@"Could not read %@",path);
 	return nil;
+	 */
+	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
+	
+	SkillTree *tree = [db buildSkillTree];
+	
+	[db release];
+	
+	
+	return tree;
 }
 
 +(CertTree*) buildCertTree
 {
+	/*
 	NSString *path = [Config filePath:XMLAPI_CERT_TREE,nil];
 	
 	if([[NSFileManager defaultManager]fileExistsAtPath:path]){
@@ -65,6 +78,14 @@ static GlobalData *_privateData = nil;
 	}
 	NSLog(@"Could not read %@",path);
 	return nil;
+ */
+	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
+	
+	CertTree *tree = [db buildCertTree];
+	
+	[db release];
+	
+	return tree;
 }
 
 /*not that this will ever be called*/

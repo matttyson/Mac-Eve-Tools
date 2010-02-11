@@ -32,7 +32,7 @@
 @end
 
 
-@interface DBManager : NSObject {
+@interface DBManager : NSWindowController {
 	NSInteger availableVersion;
 	
 	NSString *sha1_bzip;
@@ -49,22 +49,44 @@
 	IBOutlet NSTextField *title;
 	
 	NSURLResponse *downloadResponse;
-	NSUInteger bytesReceived;
+	long long bytesReceived;
+	
+	SEL appStartSelector;
+	id appStartObject;
 }
 
 -(NSInteger) currentVersion;
 -(NSInteger) availableVersion;
 
+//----blocking methods to use on startup----//
+//Perform a blocking check to see if the DB exists.
+//-(BOOL) dbFileExists;
+
+//Perform a check to see if the version is correct
+-(BOOL) dbVersionCheck:(NSInteger)minVersion;
+
+//----end----//
+
+
+/*
+ display the modal window and build the database*
+ 
+ */
+-(void)buildDatabase2:(SEL)callBackFunc obj:(id)object;
+/*returns immediately, signals when done*/
+-(void)checkForUpdate2;
+
+
 /*returns YES if there is a new database waiting to be installed.*/
 -(BOOL) databaseReadyToBuild;
-/*display the modal window and build the database*/
--(void) buildDatabase:(id)sender;
+
+
 
 /*kick off a database version check*/
--(void) performCheck;
+-(void) checkForUpdate;
 
 /*download the update*/
--(void) downloadDatabase:(id)object;
+//-(void) downloadDatabase:(id)object;
 
 -(void) setDelegate:(id<DBManagerDelegate>)del;
 -(id<DBManagerDelegate>) delegate;

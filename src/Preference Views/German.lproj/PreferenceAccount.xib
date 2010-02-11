@@ -88,7 +88,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="14031555">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Account Name</string>
+							<string key="NSContents">Accountname</string>
 							<reference key="NSSupport" ref="330524282"/>
 							<reference key="NSControlView" ref="114248664"/>
 							<object class="NSColor" key="NSBackgroundColor" id="254769152">
@@ -183,7 +183,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="269897021">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Characters</string>
+							<string key="NSContents">Charakter</string>
 							<reference key="NSSupport" ref="330524282"/>
 							<reference key="NSControlView" ref="679815630"/>
 							<reference key="NSBackgroundColor" ref="254769152"/>
@@ -325,7 +325,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 												<object class="NSTableHeaderCell" key="NSHeaderCell">
 													<int key="NSCellFlags">75628096</int>
 													<int key="NSCellFlags2">2048</int>
-													<string key="NSContents">Active</string>
+													<string key="NSContents">Aktiv</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="455047291"/>
 													<reference key="NSTextColor" ref="841380105"/>

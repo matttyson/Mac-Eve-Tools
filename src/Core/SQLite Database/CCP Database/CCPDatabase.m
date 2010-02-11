@@ -31,6 +31,13 @@
 
 #import "Config.h"
 
+
+#import "CertTree.h"
+#import "CertPair.h"
+#import "Cert.h"
+#import "CertClass.h"
+#import "CertCategory.h"
+
 #import <sqlite3.h>
 
 
@@ -609,5 +616,412 @@
 }
 
 //select ta.*,at.attributeName from dgmTypeAttributes ta INNER JOIN dgmAttributeTypes at ON ta.attributeID = at.attributeID where typeID = 17636;
+
+#pragma mark Certs
+
+/*return an array of skill prerequisites*/
+-(NSArray*) privateCertSkillPrereqs:(NSInteger)certID
+{
+	const char query[] =
+		"SELECT parentTypeID, parentLevel "
+		"FROM crtRelationships "
+		"WHERE childID = ? "
+		"AND parentTypeID IS NOT NULL;";
+	sqlite3_stmt *read_stmt;
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	int rc;
+	
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,certID);
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger skillID;
+		NSInteger skillLevel;
+		
+		skillID = sqlite3_column_nsint(read_stmt,0);
+		skillLevel = sqlite3_column_nsint(read_stmt,1);
+		
+		SkillPair *pair = [[SkillPair alloc]initWithSkill:[NSNumber numberWithInteger:skillID]
+													level:skillLevel];
+		
+		[array addObject:pair];
+		
+		[pair release];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	if([array count] == 0){
+		return nil;
+	}
+	
+	return array;
+}
+
+/*return an array of certificate prerequistes*/
+-(NSArray*) privateCertCertPrereqs:(NSInteger)certID
+{
+	const char query[] =
+	/*
+		"SELECT parentID "
+		"FROM crtRelationships "
+		"WHERE childID = ? "
+		"AND parentTypeID IS NULL;";
+	*/
+		"SELECT parentID, "
+			"(SELECT grade FROM crtCertificates "
+			"WHERE certificateID = parentID) AS grade "
+		"FROM crtRelationships "
+		"WHERE childID = ? "
+		"AND parentTypeID IS NULL;";
+	
+	sqlite3_stmt *read_stmt;
+	
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,certID);
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger pCertID;
+		NSInteger certGrade;
+		
+		pCertID = sqlite3_column_nsint(read_stmt,0);
+		certGrade = sqlite3_column_nsint(read_stmt,1);
+		
+		CertPair *cp = [CertPair createCertPair:pCertID certGrade:certGrade];
+		
+		[array addObject:cp];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	if([array count] == 0){
+		return nil;
+	}
+	
+	return array;
+}
+
+/*return an array of certs beloning to the classID*/
+-(NSArray*) privateParseCert:(NSInteger)certClassID 
+				   certClass:(CertClass*)parent
+					certDict:(NSMutableDictionary*)allCerts
+{
+	const char query[] = 
+		"SELECT certificateID,grade,description "
+		"FROM crtCertificates "
+		"WHERE classID = ? "
+		"ORDER BY grade;";
+	
+	sqlite3_stmt *read_stmt;
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,certClassID);
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger certID;
+		NSInteger certGrade;
+		NSString  *certDesc;
+		NSArray *skillArray;
+		NSArray *certArray;
+		
+		certID = sqlite3_column_nsint(read_stmt,0);
+		certGrade = sqlite3_column_nsint(read_stmt,1);
+
+		certDesc = sqlite3_column_nsstr(read_stmt,2);
+		
+		if(lang != l_EN){
+			certDesc = [self translation:certID 
+							   forColumn:TRN_CRTCRT_DESCRIPTION 
+								fallback:certDesc];
+		}
+		
+		skillArray = [self privateCertSkillPrereqs:certID];
+		certArray = [self privateCertCertPrereqs:certID];
+		
+		Cert *c = [Cert createCert:certID
+							 grade:certGrade
+							  text:certDesc 
+						  skillPre:skillArray 
+						   certPre:certArray 
+						 certClass:parent];
+		
+		[array addObject:c];
+		
+		[allCerts setObject:c forKey:[NSNumber numberWithInteger:certID]];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return array;	
+}
+
+/*return an array of CertClass objects for a given category*/
+-(NSArray*) privateParseCertClass:(NSInteger)catID 
+						 certDict:(NSMutableDictionary*)allCerts
+{
+	const char query[] = 
+		"SELECT cla.classID,cla.className "
+		"FROM crtClasses cla, crtCertificates crt, crtCategories cat "
+		"WHERE cla.classID = crt.classID "
+		"AND cat.categoryID = crt.categoryID "
+		"AND cat.categoryID = ? "
+		"GROUP BY cla.classID;";
+	
+	
+	sqlite3_stmt *read_stmt;
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db, query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,catID);
+	
+	while( (rc = sqlite3_step(read_stmt)) == SQLITE_ROW){
+		NSString *className;
+		NSInteger classID;
+		
+		classID = sqlite3_column_nsint(read_stmt,0);
+		className = sqlite3_column_nsstr(read_stmt,1);
+		
+		if(lang != l_EN){
+			className = [self translation:classID
+								forColumn:TRN_CRTCLS_NAME 
+								 fallback:className];
+		}
+		
+		CertClass *cc = [CertClass createCertClass:classID
+											  desc:className];
+		
+		NSArray *certArray = [self privateParseCert:classID certClass:cc certDict:allCerts];
+		
+		[cc setCertArray:certArray];
+		
+		[array addObject:cc];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return array;
+}
+
+/*
+	return an array of certificate categories.
+	this will be filled out completly;
+ */
+-(NSArray*) privateParseCertCategories:(NSMutableDictionary*)dict;
+{
+	const char query[] = 
+		"SELECT categoryID,categoryName "
+		"FROM crtCategories";
+	sqlite3_stmt *read_stmt;
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db, query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger catID;
+		NSString *catName;
+		
+		catID = sqlite3_column_nsint(read_stmt,0);
+		catName = sqlite3_column_nsstr(read_stmt,1);
+		
+		if(lang != l_EN){
+			catName = [self translation:catID
+							  forColumn:TRN_CRTCAT_NAME
+							   fallback:catName];
+		}
+		
+		NSArray *certClassArray = [self privateParseCertClass:catID certDict:dict];
+		
+		CertCategory *ccat = [CertCategory createCertCategory:catID
+														 name:catName 
+													   cClass:certClassArray];
+		
+		[array addObject:ccat];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return array;
+}
+
+-(CertTree*) buildCertTree
+{
+	NSMutableDictionary *dict = [[[NSMutableDictionary alloc]init]autorelease];
+	NSArray *catArray = [self privateParseCertCategories:dict];
+	
+	return [CertTree createCertTree:catArray certDict:dict];
+}
+
+#pragma mark Skills
+
+
+
+/*returns an array of skills beloning to a particular group*/
+-(BOOL) privateParseSkillGroup:(NSInteger)groupID 
+						 group:(SkillGroup*)skillGroup
+						  tree:(SkillTree*)skillTree
+{
+	const char skill_query[] = 
+		"SELECT typeID, typeName, description "
+		"FROM invTypes "
+		"WHERE groupID = ? "
+		"ORDER BY typeName;";
+	
+	const char attr_query[] = 
+		"SELECT attributeID, COALESCE(valueInt,valueFloat) AS value "
+		"FROM dgmTypeAttributes "
+		"WHERE typeID = ? "
+		"AND attributeID IN (180,181,275) "
+		"ORDER BY attributeID;";
+	
+	sqlite3_stmt *skill_stmt;
+	sqlite3_stmt *attr_stmt;
+	NSMutableArray *array;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,skill_query,(int)sizeof(skill_query),&skill_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return NO;
+	}
+	
+	rc = sqlite3_prepare_v2(db,attr_query,(int)sizeof(attr_query),&attr_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		sqlite3_finalize(skill_stmt);
+		return NO;
+	}
+	
+	sqlite3_bind_nsint(skill_stmt,1,groupID);
+	
+	while(sqlite3_step(skill_stmt) == SQLITE_ROW){
+		NSInteger typeID;
+		NSString *typeName;
+		NSString *desc;
+		
+		NSInteger primary;
+		NSInteger secondary;
+		NSInteger rank;
+		
+		typeID = sqlite3_column_nsint(skill_stmt,0);
+		typeName = sqlite3_column_nsstr(skill_stmt,1);
+		desc = sqlite3_column_nsstr(skill_stmt,2);
+		
+		if(lang != l_EN){
+			typeName = [self translation:typeID 
+							   forColumn:TRN_TYPE_NAME 
+								fallback:typeName];
+			
+			desc = [self translation:typeID
+						   forColumn:TRN_TYPE_DESCRIPTION 
+							fallback:desc];
+		}
+		
+		
+		sqlite3_bind_nsint(attr_stmt,1,typeID);
+		
+		sqlite3_step(attr_stmt);
+		primary = sqlite3_column_nsint(attr_stmt,1);
+		sqlite3_step(attr_stmt);
+		secondary = sqlite3_column_nsint(attr_stmt,1);
+		sqlite3_step(attr_stmt);
+		rank = sqlite3_column_nsint(attr_stmt,1);
+		
+		sqlite3_reset(attr_stmt);
+		sqlite3_clear_bindings(attr_stmt);
+		
+		Skill *s = [[Skill alloc]initWithDetails:typeName 
+										   group:[NSNumber numberWithInteger:groupID]
+											type:[NSNumber numberWithInteger:typeID]];
+		[s setSkillRank:rank];
+		[s setPrimaryAttr:attrCodeForDBInt(primary)];
+		[s setSecondaryAttr:attrCodeForDBInt(secondary)];
+		[s setSkillDescription:desc];
+		
+		NSArray *pre = [self prereqForType:typeID];
+		[s addPrerequisteArray:pre];
+		
+		[skillTree addSkill:s toGroup:[NSNumber numberWithInteger:groupID]];
+		
+		[s release];
+	}
+	
+	sqlite3_finalize(attr_stmt);
+	sqlite3_finalize(skill_stmt);
+	
+	return YES;
+}
+
+-(SkillTree*) buildSkillTree
+{
+	const char query[] =
+		"SELECT groupID, groupName "
+		"FROM invGroups "
+		"WHERE categoryID = 16 " 
+		"ORDER BY groupName;";
+	
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	SkillTree *st = [[[SkillTree alloc]init]autorelease];
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger groupID;
+		NSString *groupName;
+		
+		groupID = sqlite3_column_nsint(read_stmt,0);
+		groupName = sqlite3_column_nsstr(read_stmt,1);
+		
+		SkillGroup *sg = [[SkillGroup alloc]initWithDetails:groupName
+													  group:[NSNumber numberWithInteger:groupID]];
+		[st addSkillGroup:sg];
+		
+		[sg release];
+		
+		[self privateParseSkillGroup:groupID group:sg tree:st];
+		
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return st;
+}
 
 @end

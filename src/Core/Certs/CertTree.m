@@ -44,6 +44,7 @@
 													level:[level integerValue]];
 		
 		[array addObject:pair];
+		[pair release];
 	}
 	
 	if([array count] == 0){
@@ -130,7 +131,6 @@
 		
 		[array addObject:c];
 		
-		[c release];
 	}
 	
 	[array sortUsingSelector:@selector(gradeComparitor:)];
@@ -279,6 +279,24 @@
 -(Cert*) certForID:(NSInteger)certID
 {
 	return [allCerts objectForKey:[NSNumber numberWithInteger:certID]];
+}
+
+-(CertTree*) initWithCats:(NSArray*)certCats 
+				  andDict:(NSDictionary*)dict
+{
+	if((self = [super init])){
+		certCategories = [certCats retain];
+		allCerts = [dict retain];
+	}
+	return self;
+}
+
++(CertTree*) createCertTree:(NSArray*)certCats 
+				   certDict:(NSDictionary*)certs
+{
+	CertTree *tree = [[CertTree alloc]initWithCats:certCats andDict:certs];
+	[tree autorelease];
+	return tree;
 }
 
 @end

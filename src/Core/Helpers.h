@@ -31,6 +31,7 @@ NSString* romanForInteger(NSInteger value);
  */
 NSInteger attrCodeForString(NSString *str);
 NSString* strForAttrCode(NSInteger code);
+NSInteger attrCodeForDBInt(NSInteger dbcode);
 
 BOOL createDirectory(NSString *path);
 

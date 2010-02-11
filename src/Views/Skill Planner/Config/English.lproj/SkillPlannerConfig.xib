@@ -46,7 +46,7 @@
 					<object class="NSButton" id="486418464">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{201, 174}, {151, 32}}</string>
+						<string key="NSFrame">{{201, 118}, {151, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="782893653">
@@ -70,12 +70,12 @@
 					<object class="NSTextField" id="444318122">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{204, 210}, {196, 17}}</string>
+						<string key="NSFrame">{{204, 155}, {259, 40}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="208015314">
-							<int key="NSCellFlags">68288064</int>
-							<int key="NSCellFlags2">272630784</int>
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">272629760</int>
 							<string key="NSContents">Requires restart to take effect.</string>
 							<reference key="NSSupport" ref="380479023"/>
 							<reference key="NSControlView" ref="444318122"/>
@@ -102,12 +102,12 @@
 					<object class="NSTextField" id="1023732788">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{204, 235}, {249, 17}}</string>
+						<string key="NSFrame">{{204, 212}, {259, 40}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="507731980">
-							<int key="NSCellFlags">68288064</int>
-							<int key="NSCellFlags2">272630784</int>
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">272629760</int>
 							<string key="NSContents">Click and drag the columns to reorder.</string>
 							<reference key="NSSupport" ref="380479023"/>
 							<reference key="NSControlView" ref="1023732788"/>
@@ -660,7 +660,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1269,7 +1269,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../../../Mac Eve Tools.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../../../Mac Eve Tools.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

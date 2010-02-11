@@ -363,7 +363,7 @@
 		[cell setTarget:self];
 		
 		NSTableColumn *col = [[NSTableColumn alloc]initWithIdentifier:@"SKILL_QUEUE"];
-		[[col headerCell]setStringValue:@"Training Queue"];
+		[[col headerCell]setStringValue:NSLocalizedString(@"Training Queue",@"Cell header for the training queue on the character sheet.")];
 		[col setDataCell:cell];
 		[col setMaxWidth:500.0];
 		[col setWidth:[scrollView frame].size.width];

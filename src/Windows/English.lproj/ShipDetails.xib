@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -41,7 +41,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, -19}, {464, 529}}</string>
+				<string key="NSWindowRect">{{196, -19}, {492, 540}}</string>
 				<int key="NSWTFlags">-529006592</int>
 				<string key="NSWindowTitle">Ship Details</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -67,7 +67,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{17, 384}, {128, 128}}</string>
+							<string key="NSFrame">{{17, 395}, {128, 128}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="727956016">
@@ -83,7 +83,7 @@
 						<object class="NSTextField" id="1133135">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{147, 492}, {38, 17}}</string>
+							<string key="NSFrame">{{147, 503}, {38, 17}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="128332763">
@@ -119,7 +119,7 @@
 						<object class="NSTabView" id="904668487">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">18</int>
-							<string key="NSFrame">{{13, 10}, {438, 360}}</string>
+							<string key="NSFrame">{{13, 10}, {466, 371}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<object class="NSMutableArray" key="NSTabViewItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -143,7 +143,7 @@
 															<object class="NSTextView" id="13503430">
 																<reference key="NSNextResponder" ref="65993828"/>
 																<int key="NSvFlags">2322</int>
-																<string key="NSFrameSize">{406, 56}</string>
+																<string key="NSFrameSize">{434, 67}</string>
 																<reference key="NSSuperview" ref="65993828"/>
 																<object class="NSTextContainer" key="NSTextContainer" id="133977596">
 																	<object class="NSLayoutManager" key="NSLayoutManager">
@@ -181,7 +181,7 @@
 																		<nil key="NSDelegate"/>
 																	</object>
 																	<reference key="NSTextView" ref="13503430"/>
-																	<double key="NSWidth">406</double>
+																	<double key="NSWidth">434</double>
 																	<int key="NSTCFlags">1</int>
 																</object>
 																<object class="NSTextViewSharedData" key="NSSharedData">
@@ -245,7 +245,7 @@
 																<nil key="NSDelegate"/>
 															</object>
 														</object>
-														<string key="NSFrameSize">{406, 305}</string>
+														<string key="NSFrameSize">{434, 316}</string>
 														<reference key="NSSuperview" ref="813959463"/>
 														<reference key="NSNextKeyView" ref="13503430"/>
 														<reference key="NSDocView" ref="13503430"/>
@@ -280,7 +280,7 @@
 														<double key="NSPercent">0.94565218687057495</double>
 													</object>
 												</object>
-												<string key="NSFrame">{{9, 6}, {406, 305}}</string>
+												<string key="NSFrame">{{9, 6}, {434, 316}}</string>
 												<reference key="NSSuperview" ref="709894243"/>
 												<reference key="NSNextKeyView" ref="65993828"/>
 												<int key="NSsFlags">528</int>
@@ -289,7 +289,7 @@
 												<reference key="NSContentView" ref="65993828"/>
 											</object>
 										</object>
-										<string key="NSFrame">{{10, 33}, {418, 314}}</string>
+										<string key="NSFrame">{{10, 33}, {446, 325}}</string>
 										<reference key="NSSuperview" ref="904668487"/>
 									</object>
 									<string key="NSLabel">Description</string>
@@ -611,7 +611,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{150, 384}, {48, 48}}</string>
+							<string key="NSFrame">{{150, 395}, {48, 48}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="678752507">
@@ -627,7 +627,7 @@
 						<object class="NSTextField" id="686623937">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{203, 384}, {244, 48}}</string>
+							<string key="NSFrame">{{203, 395}, {272, 48}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="877366891">
@@ -645,7 +645,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{464, 529}</string>
+					<string key="NSFrameSize">{492, 540}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -1065,10 +1065,10 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{568, 424}, {464, 529}}</string>
+					<string>{{170, 413}, {492, 540}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{568, 424}, {464, 529}}</string>
+					<string>{{170, 413}, {492, 540}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -1706,7 +1706,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../Mac Eve Tools.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../Mac Eve Tools.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

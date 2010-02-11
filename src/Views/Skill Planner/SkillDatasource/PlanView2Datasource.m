@@ -214,7 +214,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		
 		[menu addItem:[NSMenuItem separatorItem]];
 		
-		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Remove %@ %@",[s skillName],
+		item = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:
+												 NSLocalizedString(@"Remove %@ %@",@"Remove <SkillName> <SkillLevel>"),[s skillName],
 															 romanForInteger([sp skillLevel])]
 													 action:@selector(removeSkillFromPlan:)
 											  keyEquivalent:@""];
@@ -235,7 +236,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		if(queuedMax < 5){
 			for(NSInteger i = queuedMax + 1; i <= 5; i++){
 				item = [[NSMenuItem alloc]initWithTitle:
-						[NSString stringWithFormat:@"Train to level %@",romanForInteger(i) ]
+						[NSString stringWithFormat:
+						 NSLocalizedString(@"Train to level %@",@"Train skill to level"),romanForInteger(i) ]
 												 action:@selector(trainSkillToLevel:)
 										  keyEquivalent:@""];
 				
@@ -264,14 +266,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		
 		[menu addItem:[NSMenuItem separatorItem]];
 		 
-		item = [[NSMenuItem alloc]initWithTitle:@"Delete"//[NSString stringWithFormat:@"Remove plan \"%@\"",[skillPlan planName]]
+		item = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Delete",@"Delete a skill plan")
 													action:@selector(removeSkillPlanFromOverview:)
 											  keyEquivalent:@""];
 		[item setRepresentedObject:planRow];
 		[menu addItem:item];
 		[item release];
 		
-		item = [[NSMenuItem alloc]initWithTitle:@"Rename"//[NSString stringWithFormat:@"Rename plan \"%@\"",[skillPlan planName]]
+		item = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Rename",@"Rename a skill plan")
 										 action:@selector(renameSkillPlan:) 
 								  keyEquivalent:@""];
 		[item setRepresentedObject:planRow];

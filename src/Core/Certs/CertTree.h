@@ -20,10 +20,12 @@
 -(NSInteger) catCount;
 -(CertCategory*) catAtIndex:(NSInteger)index;
 
+-(Cert*) certForID:(NSInteger)certID;
+-(NSDictionary*) allCerts;
+
+/*old xml parsing method*/
 -(CertTree*) initWithXml:(NSString*)xmlPath;
 
--(Cert*) certForID:(NSInteger)certID;
-
--(NSDictionary*) allCerts;
++(CertTree*) createCertTree:(NSArray*)certCats certDict:(NSDictionary*)certs;
 
 @end

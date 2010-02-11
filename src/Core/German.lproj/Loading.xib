@@ -42,7 +42,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{703, 532}, {471, 81}}</string>
 				<int key="NSWTFlags">1677721600</int>
-				<string key="NSWindowTitle">Updating</string>
+				<string key="NSWindowTitle">Update</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -70,7 +70,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="439648348">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Downloading:</string>
+								<string key="NSContents">Download:</string>
 								<object class="NSFont" key="NSSupport" id="510962776">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>

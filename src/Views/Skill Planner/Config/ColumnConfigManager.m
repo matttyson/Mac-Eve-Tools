@@ -50,49 +50,49 @@
 	PlannerColumn *col;
 	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Skill Name" 
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Skill Name",@"Skill plan column header")
 								  identifier:COL_PLAN_SKILLNAME 
 									  status:YES
 									   width:175.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Training Time"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Training Time",@"Skill plan column header")
 								  identifier:COL_PLAN_TRAINING_TIME
 									  status:YES
 									   width:95.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Running Total"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Running Total",@"Skill plan column header")
 								  identifier:COL_PLAN_TRAINING_TTD
 									  status:NO
 									   width:90.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"SP/Hr"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"SP/Hr",@"Skill plan column header")
 								  identifier:COL_PLAN_SPHR
 									  status:NO
 									   width:50.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Start Date"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Start Date",@"Skill plan column header")
 								  identifier:COL_PLAN_CALSTART
 									  status:YES
 									   width:125.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Finish Date"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Finish Date",@"Skill plan column header")
 								  identifier:COL_PLAN_CALFINISH
 									  status:NO
 									   width:125.0f];
 	[array addObject:col];
 	[col release];
 	
-	col = [[PlannerColumn alloc]initWithName:@"Progress"
+	col = [[PlannerColumn alloc]initWithName:NSLocalizedString(@"Progress",@"Skill plan column header")
 								  identifier:COL_PLAN_PERCENT
 									  status:YES
 									   width:50.0f];

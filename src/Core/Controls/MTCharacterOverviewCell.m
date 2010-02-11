@@ -185,7 +185,8 @@
 		[astr drawInRect:drawRect];
 		
 		//Queue
-		str = [NSString stringWithFormat:@"%ld skills queued (%@)",queueLength,
+		str = [NSString stringWithFormat:
+			   NSLocalizedString(@"%ld skills queued (%@)",@"Character selection menu. keep translation short."),queueLength,
 			   stringTrainingTime(queueTimeLeft)];
 		astr = [[[NSMutableAttributedString alloc]initWithString:str]autorelease];
 		drawPoint.y = 64.0;

@@ -12,7 +12,6 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="107"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,7 +38,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="1005">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -295,7 +294,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="261422570">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Charisma</string>
+											<string key="NSContents">Ausstrahlung</string>
 											<reference key="NSSupport" ref="24"/>
 											<reference key="NSControlView" ref="920440331"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -311,7 +310,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="67881622">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Balance:</string>
+											<string key="NSContents">Kontostand:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="715539491"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -327,7 +326,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="67807761">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Remaining:</string>
+											<string key="NSContents">Restzeit:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="699990047"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -360,7 +359,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="866975648">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Intelligence</string>
+											<string key="NSContents">Intelligenz</string>
 											<reference key="NSSupport" ref="24"/>
 											<reference key="NSControlView" ref="225774843"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -393,7 +392,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="752260108">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Perception</string>
+											<string key="NSContents">Auffassungsgabe</string>
 											<reference key="NSSupport" ref="24"/>
 											<reference key="NSControlView" ref="447755520"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -409,7 +408,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="663987312">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Known Skills:</string>
+											<string key="NSContents">Bekannte Skills:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="123646683"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -513,7 +512,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="920002462">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Memory</string>
+											<string key="NSContents">Gedächtnis</string>
 											<reference key="NSSupport" ref="24"/>
 											<reference key="NSControlView" ref="751906684"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -546,7 +545,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="202860871">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Willpower</string>
+											<string key="NSContents">Willenskraft</string>
 											<reference key="NSSupport" ref="24"/>
 											<reference key="NSControlView" ref="1039347806"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -583,7 +582,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="278368205">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Skill Points:</string>
+											<string key="NSContents">Skill-Punkte:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="755704150"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -644,7 +643,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="1005843165">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Training Rate:</string>
+											<string key="NSContents">Trainingsrate:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="1049045319"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -677,7 +676,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="867725853">
 											<int key="NSCellFlags">68288064</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Clone SP:</string>
+											<string key="NSContents">Klon SP:</string>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="319029344"/>
 											<reference key="NSBackgroundColor" ref="524344585"/>
@@ -756,7 +755,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{780, 579}</string>
-				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</object>

@@ -48,6 +48,7 @@
 
 -(NSArray*) prerequisites;
 -(void) addPrerequiste:(NSNumber*)skillTypeID level:(NSInteger)level;
+-(void) addPrerequisteArray:(NSArray*)pre;
 
 -(NSString*) description;
 

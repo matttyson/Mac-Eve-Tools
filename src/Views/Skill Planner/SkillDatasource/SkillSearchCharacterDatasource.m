@@ -42,7 +42,6 @@
 
 -(void) dealloc
 {
-	NSLog(@"%@ dealloc",[self className]);
 	[st release];
 	[characterSkills release];
 	[searchSkills release];
@@ -52,7 +51,7 @@
 
 -(NSString*) skillSearchName
 {
-	return @"Skills";
+	return NSLocalizedString(@"Skills",@"Skill picker for skill planner. Keep the translation short.");
 }
 
 -(void) setSkillTree:(SkillTree*)tree

@@ -42,7 +42,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{505, 459}, {737, 463}}</string>
 				<int key="NSWTFlags">-469762048</int>
-				<string key="NSWindowTitle">Preferences</string>
+				<string key="NSWindowTitle">Einstellungen</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -60,7 +60,7 @@
 							<object class="NSButtonCell" key="NSCell" id="39648162">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Close</string>
+								<string key="NSContents">Schließen</string>
 								<object class="NSFont" key="NSSupport" id="279821460">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>

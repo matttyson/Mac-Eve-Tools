@@ -149,7 +149,8 @@
 	[charKnownSkills sizeToFit];
 	
 	NSString *formattedSP = [SPFormatter stringFromNumber:[NSNumber numberWithInteger:charPoints]];
-	NSString *headerCell = [NSString stringWithFormat:@"Current skills: %ld  (skill points %@)",
+	NSString *headerCell = [NSString stringWithFormat:
+							NSLocalizedString(@"Current skills: %ld  (skill points %@)",@"Cell header for skill sheet"),
 			[character skillsKnown],formattedSP];
 	[[[[skillTree tableColumns]objectAtIndex:0]headerCell]setStringValue:headerCell];
 }
@@ -164,7 +165,7 @@
 	
 	if(isTraining == 0){
 		/*not training.*/
-		[charTraining setStringValue:@"Not Training"];
+		[charTraining setStringValue:NSLocalizedString(@"Not Training",@"Character is not training any skills")];
 		[charTraining sizeToFit];
 		[timeRemaining deactivate];
 		[trainingRate setObjectValue:nil];

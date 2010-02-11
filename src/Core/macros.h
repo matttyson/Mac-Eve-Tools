@@ -168,8 +168,7 @@ enum AttributeType {
 
 /*Notifications*/
 
-#define CHARACTER_BEGINNING_UPDATE_NOTIFICATION @"MTCharacterBeganUpdate"
-#define CHARACTER_FINISHED_UPDATE_NOTIFICATION @"MTCharacterFinishedUpdate"
+#define NOTE_DATABASE_DOWNLOAD_COMPLETE @"databaseDownloadCompleted"
 
 /*
  the character sheet has finished updating. skill plans may or may not have
@@ -186,12 +185,18 @@ enum AttributeType {
 #define DB_CATEGORY_SHIP 6
 #define DB_CATEGORY_MODULE 7
 #define DB_CATEGORY_CHARGE 8
+#define DB_CATEGORY_SKILL 16
 
 /* Translation Columns */
 
 #define TRN_TYPE_DESCRIPTION 33
 #define TRN_TYPE_NAME 8
 #define TRN_GROUP_NAME 7
+
+#define TRN_CRTCRT_DESCRIPTION 107
+#define TRN_CRTCLS_NAME 106
+#define TRN_CRTCAT_NAME 105
+
 
 /*NSUserDefault keys*/
 #define SKILL_PLAN_CONFIG @"skill_plan_config"
@@ -305,13 +310,13 @@ typedef enum DatabaseLanguage DatabaseLanguage;
  */
 
 #ifdef __LP64__
-#define xround(x) round(x)
-#define xfloor(x) floor(x)
-#define xceil(x) ceil(x)
+#define xround(x) round((x))
+#define xfloor(x) floor((x))
+#define xceil(x) ceil((x))
 #else
-#define xround(x) roundf(x)
-#define xfloor(x) floorf(x)
-#define xceil(x) ceilf(x)
+#define xround(x) roundf((x))
+#define xfloor(x) floorf((x))
+#define xceil(x) ceilf((x))
 #endif
 
 ///http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=<userid>&apiKey=<apikey>&characterID=<characterID>

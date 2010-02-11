@@ -30,6 +30,8 @@
 #import <sqlite3.h>
 #import <openssl/sha.h>
 
+#import "CCPDatabase.h"
+
 #define DATABASE_BZ2_FILE @"database.sql.bz2"
 #define UPDATE_FILE @"MacEveApi-database.xml"
 
@@ -57,20 +59,21 @@
 -(void) logProgress:(NSString*)progressMessage;
 -(void) logProgressThread:(NSString*)progressMessage;
 
--(NSString*) buildString:(NSString*)str;
 -(void) closeWindow:(id)object;
+-(void) showCloseButton:(id)object;
 
 @end
 
 @implementation DBManager (DBManagerPrivate)
 
--(NSString*) buildString:(NSString*)str
+
+-(void) closeWindow:(id)object
 {
-	return nil;
+	[[self window]close];
 }
 
 /*allow the user to close the window*/
--(void) closeWindow:(id)object
+-(void) showCloseButton:(id)object
 {
 	[closeButton setEnabled:YES];
 }
@@ -103,17 +106,23 @@
 							waitUntilDone:NO];
 }
 
--(void) xmlDocumentFinished:(BOOL)status xmlPath:(NSString*)path xmlDocName:(NSString*)docName
+-(void) xmlDocumentFinished:(BOOL)status 
+					xmlPath:(NSString*)path 
+				 xmlDocName:(NSString*)docName
 {
 	if([docName isEqualToString:UPDATE_FILE]){
 		/*parse the file, determine if there is a new version available*/
 		[self parseDBXmlVersion:path];
 		BOOL update = (availableVersion > [self currentVersion]);
-		[delegate newDatabaseAvailable:self status:update];
+		if(delegate != nil){
+			[delegate newDatabaseAvailable:self status:update];
+		}
 	}
 }
 
--(void) xmlDidFailWithError:(NSError*)xmlErrorMessage xmlPath:(NSString*)path xmlDocName:(NSString*)docName
+-(void) xmlDidFailWithError:(NSError*)xmlErrorMessage 
+					xmlPath:(NSString*)path 
+				 xmlDocName:(NSString*)docName
 {
 	NSLog(@"Connection failed! (%@)",[xmlErrorMessage localizedDescription]);
 	
@@ -175,7 +184,7 @@
 
 -(DBManager*) init
 {
-	if(self = [super init]){
+	if(self = [super initWithWindowNibName:@"DatabaseUpdate"]){
 		availableVersion = -1;
 	}
 	return self;
@@ -239,7 +248,7 @@
 	return availableVersion;
 }
 
--(void) performCheck
+-(void) checkForUpdate
 {
 	Config *cfg = [Config sharedInstance];
 	NSString *url = [NSString stringWithString:[cfg dbUpdateUrl]];
@@ -278,47 +287,6 @@
 	return NO;
 }
 
--(void) downloadDatabase:(id)object
-{
-	[progressIndicator setMinValue:0.0];
-	[progressIndicator setMaxValue:100.0];
-	[progressIndicator setDoubleValue:0.0];
-	[title setStringValue:@"Downloading database"];
-	
-	[NSApp beginSheet:progressPanel
-	   modalForWindow:object
-		modalDelegate:nil
-	   didEndSelector:NULL
-		  contextInfo:NULL];
-	
-	
-	//NSString *savePath = @"/Library/Application Support/MacEveApi";
-	NSString *savePath = [[Config sharedInstance]rootPath];
-	if(![[NSFileManager defaultManager] fileExistsAtPath:savePath]){
-		
-		/*Directory does not exist. create it.*/
-		[[NSFileManager defaultManager]
-		 createDirectoryAtPath:savePath 
-		 withIntermediateDirectories:YES
-		 attributes:nil 
-		 error:NULL];
-		
-	}
-	
-	NSURL *url = [NSURL URLWithString:[[Config sharedInstance]dbSQLUrl]];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	NSURLDownload *download = [[NSURLDownload alloc]initWithRequest:request delegate:self];
-	
-	if(!download){
-		[self logProgress:@"Error creating connection!"];
-		[self closeWindow:nil];
-	}else{
-		NSString *dest = [Config filePath:DATABASE_SQL_BZ2,nil];
-		[download setDestination:dest allowOverwrite:YES];
-		[download setDeletesFileUponFailure:YES];
-	}
-}
-
 -(void) setDelegate:(id)del
 {
 	delegate = del;
@@ -353,7 +321,12 @@
 	[downloadResponse release];
 	downloadResponse = nil;
 	[download release];
-	[self closeWindow:nil];
+	 
+	NSNotification *not = [NSNotification notificationWithName:NOTE_DATABASE_DOWNLOAD_COMPLETE object:nil];
+	[[NSNotificationCenter defaultCenter]postNotification:not];
+	
+	[[self window]close];
+	[self autorelease];
 }
 
 - (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response
@@ -515,7 +488,6 @@
 		NSLog(@"SHA1 sql hashing failed ('%@' != '%s')",sha1_dec,buffer);
 		[self logProgressThread:@"SQL verification failed"];
 		fclose(fin);
-		fclose(fout);
 		free(buffer);
 		//[delegate newDatabaseBuilt:self status:NO];
 		goto _finish_cleanup;
@@ -578,7 +550,7 @@
 	[self logProgressThread:NSLocalizedString(@"All done!  Please Restart.",
 											  @"Database construction complete")
 	 ];
-	
+		
 	status = YES;
 	
 _finish_cleanup:
@@ -598,34 +570,119 @@ _finish_cleanup:
 	return status;
 }
 
--(void) threadBuildDatabase:(id)object
+-(void) threadBuildDatabase:(NSCondition*)sig
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
 	//NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	
 	[self privateBuildDatabase];
+		
+	//Database has been built.  close the window
 	
 	[self performSelectorOnMainThread:@selector(closeWindow:) 
-						   withObject:object 
-						waitUntilDone:NO];
+						   withObject:nil 
+						waitUntilDone:YES];
+	
+	//Notifiy the app it may continue its next stage of execution.
 	
 	[pool drain];
+	
+	[appStartObject performSelectorOnMainThread:appStartSelector
+									 withObject:nil
+								  waitUntilDone:NO];
+	
+	[appStartObject release];
+	appStartObject = nil;
+	
+	[self release]; //destroy object.
 }
 
--(void) buildDatabase:(id)object
+-(void)buildDatabase2:(SEL)callBackFunc obj:(id)object
 {
+	[[self window]makeKeyAndOrderFront:nil];
+
+	// Perform on main thread.
 	[progressIndicator setMinValue:0.0];
 	[progressIndicator setMaxValue:7.0];
 	[progressIndicator setDoubleValue:0.0];
-	[title setStringValue:NSLocalizedString(@"Building database",@"database constuction start")];
+	[title setStringValue:NSLocalizedString(@"Building Database",
+											@"database constuction start")];
+		
+	// open window on main thread.
 	
-	[NSApp beginSheet:progressPanel
-	   modalForWindow:object
-		modalDelegate:nil
-	   didEndSelector:NULL
-		  contextInfo:NULL];
+	[self retain]; //retain object. thread function will release it.
 	
-	[NSThread detachNewThreadSelector:@selector(threadBuildDatabase:) toTarget:self withObject:nil];
+	appStartSelector = callBackFunc;
+	appStartObject = [object retain];
+	
+	[NSThread detachNewThreadSelector:@selector(threadBuildDatabase:) 
+							 toTarget:self 
+						   withObject:nil];
+	
+}
+
+-(void) downloadDatabase
+{
+	NSString *savePath = [[Config sharedInstance]rootPath];
+	if(![[NSFileManager defaultManager] fileExistsAtPath:savePath]){
+		
+		/*Directory does not exist. create it.*/
+		[[NSFileManager defaultManager]
+		 createDirectoryAtPath:savePath 
+		 withIntermediateDirectories:YES
+		 attributes:nil 
+		 error:NULL];
+		
+	}
+	
+	[self checkForUpdate];
+	
+	NSURL *url = [NSURL URLWithString:[[Config sharedInstance]dbSQLUrl]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	NSURLDownload *download = [[NSURLDownload alloc]initWithRequest:request delegate:self];
+	
+	if(download == nil){
+		[self logProgress:@"Error creating connection!"];
+		[self showCloseButton:nil];
+	}else{
+		NSString *dest = [Config filePath:DATABASE_SQL_BZ2,nil];
+		[download setDestination:dest allowOverwrite:YES];
+		[download setDeletesFileUponFailure:YES];
+	}
+}
+
+
+-(void)checkForUpdate2
+{
+	/*call from main thread*/	
+	[progressIndicator setMinValue:0.0];
+	[progressIndicator setMaxValue:100.0];
+	[progressIndicator setDoubleValue:0.0];
+	[title setStringValue:NSLocalizedString(@"Downloading database",@"download new database export")];
+
+	[[self window]makeKeyAndOrderFront:nil];
+	
+	[self retain];
+	
+	[self downloadDatabase];
+}
+
+-(BOOL) dbVersionCheck:(NSInteger)minVersion
+{
+	NSString *path = [[Config sharedInstance]itemDBPath];
+	
+	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
+		NSLog(@"Database does not exist!");
+		return NO;
+	}
+	
+	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:path];
+	
+	BOOL status = [db dbVersion] >= minVersion;
+	
+	[db release];
+	
+	return status;
 }
 
 

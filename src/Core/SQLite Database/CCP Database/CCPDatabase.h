@@ -27,9 +27,11 @@
 @class CCPGroup;
 @class CCPType;
 @class METShip;
+@class CertTree;
+@class SkillTree;
 
 @interface CCPDatabase : SqliteDatabase {
-	sqlite3_stmt *tran_stmt;
+	sqlite3_stmt *tran_stmt; //translation prepared statment
 	enum DatabaseLanguage lang;
 }
 
@@ -75,5 +77,8 @@
 
 // Return all the attributes for a type of a particular group
 -(NSArray*) attributeForType:(NSInteger)typeID groupBy:(enum AttributeTypeGroups)group;
+
+-(CertTree*) buildCertTree;
+-(SkillTree*) buildSkillTree;
 
 @end

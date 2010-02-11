@@ -379,6 +379,8 @@
 		[skillGroupArray release];
 		skillGroupArray = nil;
 	}
+	
+	/* add all the skills to the gobal array?*/
 }
 
 
@@ -394,9 +396,11 @@
 		NSLog(@"Skill Group %@ does not exist",groupID);
 		return NO;
 	}
+	
 	[sg addSkill:skill];
 	[skills setObject:skill forKey:[skill typeID]];
 	skillPointTotal = 0;
+	
 	if(skillSet != nil){
 		[skillSet release];
 		skillSet = nil;

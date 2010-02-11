@@ -54,7 +54,7 @@
 
 -(NSString*) skillSearchName
 {
-	return @"Certs";
+	return NSLocalizedString(@"Certs",@"Certifacte picker for skill planner.  Keep the translation short.");
 }
 
 -(void) setCharacter:(Character*)skills

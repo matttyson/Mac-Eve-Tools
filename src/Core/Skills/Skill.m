@@ -119,6 +119,11 @@
 	[p release];
 }
 
+-(void) addPrerequisteArray:(NSArray*)pre
+{
+	[skillPrereqs addObjectsFromArray:pre];
+}
+
 -(NSComparisonResult) sortByName:(Skill*)skill
 {
 	return [skillName localizedCompare:skill->skillName];

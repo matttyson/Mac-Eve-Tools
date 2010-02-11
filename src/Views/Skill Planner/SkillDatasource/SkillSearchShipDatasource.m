@@ -76,7 +76,7 @@
 
 -(NSString*) skillSearchName
 {
-	return [category categoryName];
+	return NSLocalizedString(@"Ships",@"Ship picker for skill planner.  Keep the translation short.");
 }
 
 -(void) skillSearchFilter:(id)sender

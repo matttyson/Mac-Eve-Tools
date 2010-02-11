@@ -67,7 +67,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="557431204">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Search</string>
+							<string key="NSContents">Suche</string>
 							<object class="NSFont" key="NSSupport" id="828115954">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -351,7 +351,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 410}, {320, 100}}</string>
 				<int key="NSWTFlags">-469762048</int>
-				<string key="NSWindowTitle">New Plan</string>
+				<string key="NSWindowTitle">Neuer Plan</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -391,7 +391,7 @@
 							<object class="NSButtonCell" key="NSCell" id="1067746059">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Cancel</string>
+								<string key="NSContents">Abbrechen</string>
 								<reference key="NSSupport" ref="828115954"/>
 								<reference key="NSControlView" ref="797247895"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -411,7 +411,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="965632911">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Plan Name</string>
+								<string key="NSContents">Planname</string>
 								<reference key="NSSupport" ref="828115954"/>
 								<reference key="NSControlView" ref="35740986"/>
 								<reference key="NSBackgroundColor" ref="623893764"/>
@@ -451,7 +451,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 388}, {293, 122}}</string>
 				<int key="NSWTFlags">-469762048</int>
-				<string key="NSWindowTitle">Skill Remove</string>
+				<string key="NSWindowTitle">Skill entfernen</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -469,7 +469,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="77204968">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">The following skills will be removed:</string>
+								<string key="NSContents">Folgende Skills werden entfernt:</string>
 								<reference key="NSSupport" ref="828115954"/>
 								<reference key="NSControlView" ref="247615805"/>
 								<reference key="NSBackgroundColor" ref="623893764"/>
@@ -501,7 +501,7 @@
 							<object class="NSButtonCell" key="NSCell" id="800710518">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Cancel</string>
+								<string key="NSContents">Abbrechen</string>
 								<reference key="NSSupport" ref="828115954"/>
 								<reference key="NSControlView" ref="791322357"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -522,7 +522,7 @@
 							<object class="NSButtonCell" key="NSCell" id="827137746">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Remove</string>
+								<string key="NSContents">Entfernen</string>
 								<reference key="NSSupport" ref="828115954"/>
 								<reference key="NSControlView" ref="39379220"/>
 								<int key="NSTag">1</int>
@@ -608,7 +608,7 @@
 							<object class="NSMutableArray" key="NSSegmentImages">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSSegmentItem">
-									<string key="NSSegmentItemLabel">Overview</string>
+									<string key="NSSegmentItemLabel">Übersicht</string>
 									<int key="NSSegmentItemTag">-1</int>
 									<bool key="NSSegmentItemSelected">YES</bool>
 									<int key="NSSegmentItemImageScaling">0</int>

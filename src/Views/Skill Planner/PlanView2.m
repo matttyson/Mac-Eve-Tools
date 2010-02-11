@@ -398,19 +398,19 @@
 	
 	col = [[NSTableColumn alloc]initWithIdentifier:COL_POV_NAME];
 	[col setWidth:270.0];
-	[[col headerCell]setStringValue:@"Plan Name"];
+	[[col headerCell]setStringValue:NSLocalizedString(@"Plan Name",@"Column header for skill plan overview")];
 	[overviewColumns addObject:col];
 	[col release];
 	
 	col = [[NSTableColumn alloc]initWithIdentifier:COL_POV_SKILLCOUNT];
 	[col setWidth:90.0];
-	[[col headerCell]setStringValue:@"Skill Count"];
+	[[col headerCell]setStringValue:NSLocalizedString(@"Skill Count",@"Column header for skill plan overview")];
 	[overviewColumns addObject:col];
 	[col release];
 
 	col = [[NSTableColumn alloc]initWithIdentifier:COL_POV_TIMELEFT];
 	[col setWidth:160.0];
-	[[col headerCell]setStringValue:@"Training Time"];
+	[[col headerCell]setStringValue:NSLocalizedString(@"Training Time",@"Column header for skill plan overview")];
 	[overviewColumns addObject:col];
 	[col release];
 }

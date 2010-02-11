@@ -41,7 +41,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, -3}, {442, 513}}</string>
+				<string key="NSWindowRect">{{196, -3}, {492, 540}}</string>
 				<int key="NSWTFlags">-529006592</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -55,7 +55,7 @@
 						<object class="NSTextField" id="717460477">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">282</int>
-							<string key="NSFrame">{{17, 371}, {408, 135}}</string>
+							<string key="NSFrame">{{17, 390}, {458, 142}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="932792876">
@@ -101,13 +101,13 @@
 										<object class="NSOutlineView" id="42258361">
 											<reference key="NSNextResponder" ref="626625189"/>
 											<int key="NSvFlags">4352</int>
-											<string key="NSFrameSize">{400, 279}</string>
+											<string key="NSFrameSize">{450, 295}</string>
 											<reference key="NSSuperview" ref="626625189"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="304607609">
 												<reference key="NSNextResponder" ref="48168063"/>
 												<int key="NSvFlags">256</int>
-												<string key="NSFrameSize">{400, 17}</string>
+												<string key="NSFrameSize">{450, 17}</string>
 												<reference key="NSSuperview" ref="48168063"/>
 												<reference key="NSTableView" ref="42258361"/>
 											</object>
@@ -120,7 +120,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="164992497">
-													<double key="NSWidth">397</double>
+													<double key="NSWidth">447</double>
 													<double key="NSMinWidth">16</double>
 													<double key="NSMaxWidth">1000</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -193,7 +193,7 @@
 											<int key="NSTableViewDraggingDestinationStyle">0</int>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 17}, {400, 279}}</string>
+									<string key="NSFrame">{{1, 17}, {450, 295}}</string>
 									<reference key="NSSuperview" ref="918923114"/>
 									<reference key="NSNextKeyView" ref="42258361"/>
 									<reference key="NSDocView" ref="42258361"/>
@@ -226,7 +226,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<reference ref="304607609"/>
 									</object>
-									<string key="NSFrame">{{1, 0}, {400, 17}}</string>
+									<string key="NSFrame">{{1, 0}, {450, 17}}</string>
 									<reference key="NSSuperview" ref="918923114"/>
 									<reference key="NSNextKeyView" ref="304607609"/>
 									<reference key="NSDocView" ref="304607609"/>
@@ -235,7 +235,7 @@
 								</object>
 								<reference ref="768812743"/>
 							</object>
-							<string key="NSFrame">{{20, 20}, {402, 297}}</string>
+							<string key="NSFrame">{{20, 20}, {452, 313}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSNextKeyView" ref="626625189"/>
 							<int key="NSsFlags">562</int>
@@ -261,7 +261,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{20, 321}, {48, 48}}</string>
+							<string key="NSFrame">{{20, 339}, {48, 48}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="594131775">
@@ -282,7 +282,7 @@
 						<object class="NSTextField" id="63119258">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">298</int>
-							<string key="NSFrame">{{73, 321}, {352, 48}}</string>
+							<string key="NSFrame">{{73, 339}, {402, 48}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="1005097610">
@@ -296,7 +296,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{442, 513}</string>
+					<string key="NSFrameSize">{492, 540}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -517,10 +517,10 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{183, 81}, {442, 513}}</string>
+					<string>{{119, 251}, {492, 540}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{183, 81}, {442, 513}}</string>
+					<string>{{119, 251}, {492, 540}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -1110,7 +1110,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../Mac Eve Tools.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../Mac Eve Tools.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

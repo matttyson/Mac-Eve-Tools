@@ -245,7 +245,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			
 		}else if([[aTableColumn identifier]isEqualToString:SD_FROM_NOW]){
 			if([skill skillLevel] > rowIndex){
-				return @"Already Trained";
+				return NSLocalizedString(@"Already Trained",@"skill details window. skill Already Trained to level x");
 			}
 			NSInteger time = 0;
 			

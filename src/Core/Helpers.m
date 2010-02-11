@@ -63,6 +63,38 @@ NSInteger attrCodeForString(NSString *str)
 	return -1;
 }
 
+NSInteger attrCodeForDBInt(NSInteger dbcode)
+{
+	/*
+	 database 
+	 164 - charisma
+	 165 - intelligence
+	 155 - memory
+	 167 - perception
+	 168 - willpower
+	 */
+	NSInteger code = 0;
+	
+	switch (dbcode) {
+		case 164:
+			code = ATTR_CHARISMA;
+			break;
+		case 165:
+			code = ATTR_INTELLIGENCE;
+			break;
+		case 166:
+			code = ATTR_MEMORY;
+			break;
+		case 167:
+			code = ATTR_PERCEPTION;
+			break;
+		case 168:
+			code = ATTR_WILLPOWER;
+			break;
+	}
+	return code;
+}
+
 NSString *strForAttrCode(NSInteger code)
 {
 	switch(code)
