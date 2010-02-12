@@ -16,14 +16,6 @@
 
 @implementation ShipAttributeDatasource
 
--(void)dealloc
-{
-	[ship release];
-	[character release];
-	[attributes release];
-	[super dealloc];
-}
-
 -(void) addAttribute:(NSArray*)attrType groupName:(NSString*)groupName
 {
 	if(attrType != nil){
@@ -64,13 +56,20 @@
 	[self addAttribute:attrType groupName:@"Other"];
 }
 
+-(void)dealloc
+{
+	[ship release];
+	[character release];
+	[attributes release];
+	[super dealloc];
+}
+
 -(ShipAttributeDatasource*) initWithShip:(CCPType*)type forCharacter:(Character*)ch
 {
 	if(self = [super init]){
 		ship = [type retain];
 		character = [ch retain];
 		db = [ship database]; //not retained. do not release.
-		
 		
 		[self loadAttributes];
 	}

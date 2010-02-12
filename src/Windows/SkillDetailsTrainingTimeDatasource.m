@@ -64,12 +64,6 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		NSInteger time = 0;
 		
 		for(NSInteger i = 0; i <= rowIndex; i++){
-			/*
-			 time += [character trainingTimeInSeconds:[skill typeID]
-			 fromLevel:i
-			 toLevel:i+1
-			 accountForTrainingSkill:NO];
-			 */
 			
 			NSInteger rank = [skill skillRank];
 			NSInteger primaryAttr = [skill primaryAttr];

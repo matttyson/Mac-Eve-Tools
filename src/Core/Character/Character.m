@@ -463,6 +463,5 @@
 	return [ownedCerts containsObject:[NSNumber numberWithInteger:certID]];
 }
 
-
 @end
 

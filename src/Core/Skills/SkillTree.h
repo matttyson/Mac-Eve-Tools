@@ -44,7 +44,6 @@
 }
 
 
--(SkillTree*) initWithXml:(NSString*)xmlPath;
 -(SkillTree*) init;
 
 /*returns a skill object for the skill id number*/

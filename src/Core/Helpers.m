@@ -185,6 +185,11 @@ NSString* stringTrainingTime2(NSInteger trainingTime , enum TrainingTimeFields t
 	if(sec > 0 && (ttf & TTF_Seconds)){
 		[str appendFormat:@"%lds",sec];
 	}
+	
+	if(!(ttf & TTF_Seconds)){
+		return [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	}
+	
 	return str;
 }
 

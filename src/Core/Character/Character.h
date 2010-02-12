@@ -57,7 +57,7 @@
 	
 	NSDate *cacheExpiry;
 	
-	NSMutableSet *ownedCerts;//Certs that have been awarded to this character.
+	NSMutableSet *ownedCerts;//Certs that have been awarded to this character. NSNumber certID.
 	
 	NSInteger updateProgress;
 		

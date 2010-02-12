@@ -423,10 +423,10 @@
 
 -(void) deletePortrait
 {
+/*
 	Character *c = [self characterAtIndex:currentCharacter];
 	
-//	NSString *path = [Config charDirectoryPath: character:[template characterId]];
-	NSString *path;
+	//NSString *path = [Config charDirectoryPath:[temp :[template characterId]];
 	path = [path stringByAppendingFormat:@"/portrait.jpg"];
 	
 	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
@@ -442,6 +442,7 @@
 				  alternateButton:nil
 					  otherButton:nil
 		informativeTextWithFormat:nil];
+*/
 }
 
 #pragma mark Outlineview methods

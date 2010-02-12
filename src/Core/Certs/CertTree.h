@@ -23,9 +23,6 @@
 -(Cert*) certForID:(NSInteger)certID;
 -(NSDictionary*) allCerts;
 
-/*old xml parsing method*/
--(CertTree*) initWithXml:(NSString*)xmlPath;
-
 +(CertTree*) createCertTree:(NSArray*)certCats certDict:(NSDictionary*)certs;
 
 @end

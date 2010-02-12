@@ -138,6 +138,7 @@
 {
 	return skillPointsForLevel(level,skillRank);
 }
+
 -(NSInteger) totalSkillPointsForLevel:(NSInteger)level
 {
 	return totalSkillPointsForLevel(level,skillRank);
