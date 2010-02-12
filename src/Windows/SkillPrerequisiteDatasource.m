@@ -23,6 +23,8 @@
 	if((self = [super init])){
 		skills = [s retain];
 		character = [ch retain];
+		
+		tree = [[GlobalData sharedInstance]skillTree];
 	}
 	return self;
 }
@@ -41,7 +43,7 @@
 		return [skills count];
 	}
 	
-	return [[[[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]]prerequisites]count];
+	return [[[tree skillForId:[item typeID]]prerequisites]count];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView 
@@ -52,7 +54,7 @@
 		return [skills objectAtIndex:index];
 	}
 	
-	return [[[[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]]prerequisites]objectAtIndex:index];
+	return [[[tree skillForId:[item typeID]]prerequisites]objectAtIndex:index];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView 
@@ -82,6 +84,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	}else{
 		color = [NSColor blueColor];
 	}
+	
 	[str addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[str length])];
 	return str;
 }
@@ -89,7 +92,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 - (BOOL)outlineView:(NSOutlineView *)outlineView 
    isItemExpandable:(id)item
 {
-	Skill *s = [[[GlobalData sharedInstance]skillTree] skillForId:[item typeID]];
+	Skill *s = [tree skillForId:[item typeID]];
 	return [[s prerequisites]count] > 0;
 }
 

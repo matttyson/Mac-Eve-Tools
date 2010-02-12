@@ -38,7 +38,6 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
-		C930ED2F10F80B1A006753D6 /* ShipFittingDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */; };
 		C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */; };
 		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
 		C94A94E51124F94600352F49 /* SkillDetailsPointsDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A94E41124F94600352F49 /* SkillDetailsPointsDatasource.m */; };
@@ -192,8 +191,6 @@
 		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
 		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
-		C930ED2D10F80B1A006753D6 /* ShipFittingDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipFittingDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipFittingDatasource.h"; sourceTree = "<group>"; };
-		C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipFittingDatasource.m; path = "../Views/Skill Planner/SkillDatasource/ShipFittingDatasource.m"; sourceTree = "<group>"; };
 		C930ED3010F80B2D006753D6 /* ShipAttributeDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipAttributeDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipAttributeDatasource.h"; sourceTree = "<group>"; };
 		C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipAttributeDatasource.m; path = "../Views/Skill Planner/SkillDatasource/ShipAttributeDatasource.m"; sourceTree = "<group>"; };
 		C93815E3109E8FEF002C9B16 /* MTSkillButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSkillButtonCell.h; sourceTree = "<group>"; };
@@ -558,8 +555,6 @@
 		C99F735310F9465A00C6191D /* Datasource */ = {
 			isa = PBXGroup;
 			children = (
-				C930ED2D10F80B1A006753D6 /* ShipFittingDatasource.h */,
-				C930ED2E10F80B1A006753D6 /* ShipFittingDatasource.m */,
 				C930ED3010F80B2D006753D6 /* ShipAttributeDatasource.h */,
 				C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */,
 				C94A94E31124F94600352F49 /* SkillDetailsPointsDatasource.h */,
@@ -1091,7 +1086,6 @@
 				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
 				C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */,
 				C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */,
-				C930ED2F10F80B1A006753D6 /* ShipFittingDatasource.m in Sources */,
 				C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */,
 				C9661A6F110D12F400FA9B72 /* Cert.m in Sources */,
 				C9661A72110D16C100FA9B72 /* CertClass.m in Sources */,

@@ -9,6 +9,8 @@
 #import "Cert.h"
 #import "GlobalData.h"
 #import "CertPair.h"
+#import "CertTree.h"
+#import "CertClass.h"
 
 @implementation Cert
 

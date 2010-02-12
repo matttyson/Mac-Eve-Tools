@@ -12,6 +12,7 @@
 #import "Cert.h"
 #import "CertClass.h"
 #import "CertPair.h"
+#import "CertTree.h"
 #import "SkillPair.h"
 #import "GlobalData.h"
 #import "SkillPlan.h"
