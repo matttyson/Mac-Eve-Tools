@@ -23,7 +23,6 @@
 #import "XmlFetcher.h"
 
 #import "bsd-base64.h"
-#import "read_query.h"
 
 #import <libxml/tree.h>
 #import <bzlib.h>
@@ -192,16 +191,16 @@
 
 -(void) dealloc
 {
-	if(sha1_dec != NULL){
+	if(sha1_dec != nil){
 		[sha1_dec release];
 	}
-	if(sha1_bzip != NULL){
+	if(sha1_bzip != nil){
 		[sha1_bzip release];
 	}
-	if(file != NULL){
+	if(file != nil){
 		[file release];
 	}
-	if(sha1_database != NULL){
+	if(sha1_database != nil){
 		[sha1_database release];
 	}
 	[super dealloc];
@@ -248,6 +247,10 @@
 	return availableVersion;
 }
 
+/*
+	Check to see if a database update exists.
+	Call the delegate if one does exist.
+ */
 -(void) checkForUpdate
 {
 	Config *cfg = [Config sharedInstance];

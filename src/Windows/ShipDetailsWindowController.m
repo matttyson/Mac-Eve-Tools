@@ -27,7 +27,7 @@
 
 #import "METShip.h"
 
-#import "ShipPrerequisiteDatasource.h"
+#import "SkillPrerequisiteDatasource.h"
 #import "ShipAttributeDatasource.h"
 
 #import "SkillPlan.h"
@@ -67,7 +67,7 @@
 		
 		//I think the compiler is on crack.  the warning given here makes no sense.
 		shipAttrDS = [[ShipAttributeDatasource alloc]initWithShip:ship forCharacter:character];
-		shipPreDS = [[ShipPrerequisiteDatasource alloc]initWithShip:ship forCharacter:character];
+		shipPreDS = [[SkillPrerequisiteDatasource alloc]initWithSkill:[ship prereqs] forCharacter:character];
 	}
 	return self;
 }

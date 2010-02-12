@@ -25,6 +25,10 @@
 #import "macros.h"
 #import "SkillPair.h"
 
+#import "SkillDetailsTrainingTimeDatasource.h"
+#import "SkillDetailsPointsDatasource.h"
+#import "SkillPrerequisiteDatasource.h"
+
 @implementation SkillDetailsWindowController
 
 //@synthesize character;
@@ -93,6 +97,10 @@
 	[skillPoints setDataSource:nil];
 	[skillTrainingTimes setDataSource:nil];
 	
+	[skillPointsDs release];
+	[skillTrainDs release];
+	[skillPreDs release];
+	
 	[skill release];
 	[character release];
 	[super dealloc];
@@ -144,9 +152,16 @@
 
 -(void) setDatasource
 {
-	[skillPrerequisites setDataSource:self];
-	[skillPoints setDataSource:self];
-	[skillTrainingTimes setDataSource:self];
+
+	skillPreDs = [[SkillPrerequisiteDatasource alloc]initWithSkill:[NSArray arrayWithObject:skill] 
+													  forCharacter:character];
+	[skillPrerequisites setDataSource:skillPreDs];
+	
+	skillTrainDs = [[SkillDetailsTrainingTimeDatasource alloc]initWithSkill:skill forCharacter:character];
+	[skillTrainingTimes setDataSource:skillTrainDs];
+
+	skillPointsDs = [[SkillDetailsPointsDatasource alloc]initWithSkill:skill];
+	[skillPoints setDataSource:skillPointsDs];
 }
 
 -(void) windowDidLoad
@@ -173,96 +188,13 @@
 	
 }
 
-/*table view datasource methods*/
+/*delegate methods to prevent editing*/
 - (BOOL)tableView:(NSTableView *)aTableView 
 shouldEditTableColumn:(NSTableColumn *)aTableColumn 
 			  row:(NSInteger)rowIndex
 {
 	return NO;
 }
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
-{
-	if(aTableView == skillPoints){
-		return 5;
-	}else if(aTableView == skillTrainingTimes){
-		return 5;
-	}
-	return 0;
-}
-
-- (id)tableView:(NSTableView *)aTableView 
-objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-			row:(NSInteger)rowIndex
-{
-	if(aTableView == skillPoints){
-		if([[aTableColumn identifier]isEqualToString:SD_LEVEL]){
-			return [NSNumber numberWithInteger:rowIndex + 1];
-		}else if([[aTableColumn identifier]isEqualToString:SD_SP_LEVEL]){
-			return [NSNumber numberWithInteger:[skill totalSkillPointsForLevel:rowIndex + 1]];
-		}else if([[aTableColumn identifier]isEqualToString:SD_SP_DIFF]){
-			return [NSNumber numberWithInteger:
-					[skill totalSkillPointsForLevel:rowIndex+1] - 
-					[skill totalSkillPointsForLevel:rowIndex]];
-		}
-	}else if(aTableView == skillTrainingTimes){
-		if([[aTableColumn identifier]isEqualToString:SD_LEVEL]){
-			return [NSNumber numberWithInteger:rowIndex + 1];
-		}else if([[aTableColumn identifier]isEqualToString:SD_TIME]){
-			
-			NSInteger rank = [skill skillRank];
-			NSInteger primaryAttr = [skill primaryAttr];
-			NSInteger secondaryAttr = [skill secondaryAttr];
-			
-			NSInteger totalForLevel = 
-				totalSkillPointsForLevel(rowIndex+1,rank) - totalSkillPointsForLevel(rowIndex,rank);
-			
-			NSInteger seconds = [character trainingTimeInSeconds:primaryAttr secondary:secondaryAttr skillPoints:totalForLevel];
-			
-			return stringTrainingTime(seconds);
-			
-		}else if([[aTableColumn identifier]isEqualToString:SD_TOTAL]){
-			NSInteger time = 0;
-			
-			for(NSInteger i = 0; i <= rowIndex; i++){
-				/*
-				time += [character trainingTimeInSeconds:[skill typeID]
-									fromLevel:i
-									toLevel:i+1
-					accountForTrainingSkill:NO];
-				 */
-				
-				NSInteger rank = [skill skillRank];
-				NSInteger primaryAttr = [skill primaryAttr];
-				NSInteger secondaryAttr = [skill secondaryAttr];
-				
-				NSInteger totalForLevel = 
-				totalSkillPointsForLevel(i+1,rank) - totalSkillPointsForLevel(i,rank);
-				
-				time += [character trainingTimeInSeconds:primaryAttr secondary:secondaryAttr skillPoints:totalForLevel];
-			}
-			return stringTrainingTime(time);
-			
-		}else if([[aTableColumn identifier]isEqualToString:SD_FROM_NOW]){
-			if([skill skillLevel] > rowIndex){
-				return NSLocalizedString(@"Already Trained",@"skill details window. skill Already Trained to level x");
-			}
-			NSInteger time = 0;
-			
-			for(NSInteger i = [skill skillLevel]; i < rowIndex+1; i++){
-				time += [character trainingTimeInSeconds:[skill typeID]
-											   fromLevel:i
-												 toLevel:i+1
-								 accountForTrainingSkill:YES];
-			}
-			return stringTrainingTime(time);
-			
-		}
-	}
-	return nil;
-}
-/*outline view*/
-
 - (BOOL)outlineView:(NSOutlineView *)outlineView 
 shouldEditTableColumn:(NSTableColumn *)tableColumn 
 			   item:(id)item
@@ -270,17 +202,11 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	return NO;
 }
 
-/*
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
-{
-	return NO;
-}
-*/
+
 - (NSInteger)outlineView:(NSOutlineView *)outlineView 
   numberOfChildrenOfItem:(id)item
 {
 	if(item == nil){
-		//return [[skill prerequisites]count];
 		return 1;
 	}
 	
@@ -313,7 +239,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 		textValue = [item roman];
 	}
 	
-	/*if the character has the skill use blue text, otherwise red. green is too hard to read.*/
+	//if the character has the skill use blue text, otherwise red. green is too hard to read.
 	Skill *s = [[character skillTree]skillForId:[pair typeID]];
 	NSMutableAttributedString *str = [[[NSMutableAttributedString alloc]initWithString:textValue]autorelease];
 	 

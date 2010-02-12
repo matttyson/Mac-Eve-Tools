@@ -23,7 +23,7 @@
 @class CCPType;
 @class Character;
 
-@class ShipPrerequisiteDatasource;
+@class SkillPrerequisiteDatasource;
 @class ShipAttributeDatasource;
 
 @interface ShipDetailsWindowController : NSWindowController  <NSOutlineViewDataSource>{
@@ -42,7 +42,7 @@
 	CCPType *ship;
 	Character *character;
 	
-	ShipPrerequisiteDatasource *shipPreDS;
+	SkillPrerequisiteDatasource *shipPreDS;
 	ShipAttributeDatasource *shipAttrDS;
 	
 	NSURLDownload *down;

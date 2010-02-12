@@ -22,8 +22,12 @@
 @class Skill;
 @class Character;
 
+@class SkillDetailsPointsDatasource;
+@class SkillDetailsTrainingTimeDatasource;
+@class SkillPrerequisiteDatasource;
+
 @interface SkillDetailsWindowController : NSWindowController 
-	<NSTableViewDataSource,	NSOutlineViewDataSource, NSOutlineViewDelegate, NSTableViewDelegate> 
+	<NSOutlineViewDelegate, NSTableViewDelegate> 
 {
 	IBOutlet NSTextField *skillName;
 	IBOutlet NSTextField *skillRank;
@@ -42,6 +46,10 @@
 	IBOutlet NSOutlineView *skillPrerequisites;
 	IBOutlet NSTableView *skillPoints;
 	IBOutlet NSTableView *skillTrainingTimes;
+	
+	SkillDetailsPointsDatasource *skillPointsDs;
+	SkillDetailsTrainingTimeDatasource *skillTrainDs;
+	SkillPrerequisiteDatasource *skillPreDs;
 	
 	Skill *skill;
 	Character *character;

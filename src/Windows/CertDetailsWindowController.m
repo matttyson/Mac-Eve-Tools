@@ -121,6 +121,14 @@
 
 #pragma mark OutlineView datasource methods.
 
+/*
+ The cert prerequisite datasource is a special case, as it does cert 
+ prerequisites as well as skill prerequisites.
+ 
+ This could maybe be folded in to the SkillPrerequisiteDatasource, by
+ ignoring the cert prereqs if none are given.
+ */
+
 -(NSInteger)outlineView:(NSOutlineView *)outlineView 
   numberOfChildrenOfItem:(id)item
 {
