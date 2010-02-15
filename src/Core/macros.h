@@ -313,10 +313,12 @@ typedef enum DatabaseLanguage DatabaseLanguage;
 #define xround(x) round((x))
 #define xfloor(x) floor((x))
 #define xceil(x) ceil((x))
+#define xlround(x) lround((x))
 #else
 #define xround(x) roundf((x))
 #define xfloor(x) floorf((x))
 #define xceil(x) ceilf((x))
+#define xlround(x) lroundf((x))
 #endif
 
 ///http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=<userid>&apiKey=<apikey>&characterID=<characterID>

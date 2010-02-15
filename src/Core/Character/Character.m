@@ -148,15 +148,23 @@
 	return [[self stringForKey:key]integerValue];
 }
 
--(NSInteger) trainingTimeInSeconds:(NSInteger)primary secondary:(NSInteger)secondary skillPoints:(NSInteger)skillPoints
+-(NSInteger) trainingTimeInSeconds:(NSInteger)primary 
+						 secondary:(NSInteger)secondary 
+					   skillPoints:(NSInteger)skillPoints
 {
-	CGFloat spPerSecond = (((attributeTotals[primary]) + ((attributeTotals[secondary]) / 2.0)) / 60.0);
-	return (NSInteger) (skillPoints / spPerSecond);
+	CGFloat spPerSecond = ((((CGFloat)attributeTotals[primary]) + (((CGFloat)attributeTotals[secondary]) / 2.0)) / 60.0);
+	CGFloat trainingTime = ((CGFloat)skillPoints / spPerSecond);
+	return xlround(trainingTime);
 }
 
--(NSInteger) trainingTimeInSeconds:(NSNumber*)typeID fromLevel:(NSInteger)fromLevel toLevel:(NSInteger)toLevel
+-(NSInteger) trainingTimeInSeconds:(NSNumber*)typeID 
+						 fromLevel:(NSInteger)fromLevel 
+						   toLevel:(NSInteger)toLevel
 {
-	NSInteger time = [self trainingTimeInSeconds:typeID fromLevel:fromLevel toLevel:toLevel accountForTrainingSkill:YES];
+	NSInteger time = [self trainingTimeInSeconds:typeID 
+									   fromLevel:fromLevel 
+										 toLevel:toLevel 
+						 accountForTrainingSkill:YES];
 	return MAX(time,0);
 }
 
