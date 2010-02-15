@@ -146,18 +146,19 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 					NSInteger currentSP = [character currentSPForTrainingSkill];
 					NSInteger startSP = totalSkillPointsForLevel([sp skillLevel]-1,[s skillRank]);
 					NSInteger finishSP = totalSkillPointsForLevel([sp skillLevel],[s skillRank]);
-					NSInteger percentCompleted = 
+					CGFloat percentCompleted = 
 					skillPercentCompleted(startSP,
 										  finishSP,
 										  currentSP) * 100.0;
-					return [NSString stringWithFormat:@"%ld%%",percentCompleted];
+					long int intPercent = xlround(percentCompleted);
+					return [NSString stringWithFormat:@"%ld%%",intPercent];
 				}
 			}
 		}
 		CGFloat percentCompleted = [character percentCompleted:[sp typeID]
 													 fromLevel:[sp skillLevel]-1 
 													   toLevel:[sp skillLevel]];
-		NSInteger intPercent = xlround(percentCompleted * 100.0);
+		long int intPercent = xlround(percentCompleted * 100.0);
 		return [NSString stringWithFormat:@"%ld%%",intPercent];
 	}
 	return nil;
