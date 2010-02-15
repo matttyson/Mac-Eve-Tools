@@ -157,7 +157,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		CGFloat percentCompleted = [character percentCompleted:[sp typeID]
 													 fromLevel:[sp skillLevel]-1 
 													   toLevel:[sp skillLevel]];
-		NSInteger intPercent = percentCompleted * 100.0;
+		NSInteger intPercent = xlround(percentCompleted * 100.0);
 		return [NSString stringWithFormat:@"%ld%%",intPercent];
 	}
 	return nil;
