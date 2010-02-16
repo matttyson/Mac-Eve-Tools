@@ -214,7 +214,7 @@
 		[[segmentedButton cell]selectSegmentWithTag:[plan planId]];
 		
 		NSMenu *menu = [[NSMenu alloc]initWithTitle:@"Close"];
-		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Close" 
+		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Close",@"Close a skill plan") 
 													 action:@selector(closePlan:) 
 											  keyEquivalent:@""];
 		
@@ -254,7 +254,9 @@
 -(void)toobarMessageForPlan:(SkillPlan*)plan
 {
 	NSString *trainingTime = stringTrainingTime([plan trainingTime]);
-	NSString *message = [NSString stringWithFormat:@"%ld skills planned. Total training time: %@",
+	NSString *message = [NSString stringWithFormat:
+						 NSLocalizedString(@"%ld skills planned. Total training time: %@",
+										   @"Bottom toolbar text. Shows plan training time"),
 						 [plan skillCount],trainingTime];
 	[delegate setToolbarMessage:message];
 }

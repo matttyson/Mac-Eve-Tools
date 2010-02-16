@@ -212,7 +212,7 @@ menuForTableColumnItem:(NSTableColumn*)column
 	
 	NSArray *pre = [item certChainPrereqs];
 	
-	menuItem = [[NSMenuItem alloc]initWithTitle:@"Add to plan"
+	menuItem = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Add to plan",@"add a certificate to the skill plan")
 										 action:@selector(menuAddSkillClick:)
 								  keyEquivalent:@""];
 	[menuItem setRepresentedObject:pre];

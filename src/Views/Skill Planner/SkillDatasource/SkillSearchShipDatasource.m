@@ -195,7 +195,10 @@ menuForTableColumnItem:(NSTableColumn*)column
 	
 	[menu addItem:[NSMenuItem separatorItem]];
 	
-	menuItem = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:@"Add %@ to plan",[item typeName]] 
+	menuItem = [[NSMenuItem alloc]initWithTitle:[NSString stringWithFormat:
+												 NSLocalizedString(@"Add %@ to plan",
+																   @"add a ship to the skill plan"),
+												 [item typeName]] 
 									 action:@selector(menuAddSkillClick:) 
 							  keyEquivalent:@""];
 	

@@ -65,19 +65,19 @@ enum AttributeType {
 
 #define ATTR_INTELLIGENCE 0
 #define ATTR_INTELLIGENCE_STR @"intelligence"
-#define ATTR_INTELLIGENCE_STR_UPPER @"Intelligence"
+#define ATTR_INTELLIGENCE_STR_UPPER NSLocalizedString(@"Intelligence",@"int attribute")
 #define ATTR_MEMORY 1
 #define ATTR_MEMORY_STR @"memory"
-#define ATTR_MEMORY_STR_UPPER @"Memory"
+#define ATTR_MEMORY_STR_UPPER NSLocalizedString(@"Memory",@"memory attribute")
 #define ATTR_CHARISMA 2
 #define ATTR_CHARISMA_STR @"charisma"
-#define ATTR_CHARISMA_STR_UPPER @"Charisma"
+#define ATTR_CHARISMA_STR_UPPER NSLocalizedString(@"Charisma","charisma attribute")
 #define ATTR_PERCEPTION 3
 #define ATTR_PERCEPTION_STR @"perception"
-#define ATTR_PERCEPTION_STR_UPPER @"Perception"
+#define ATTR_PERCEPTION_STR_UPPER NSLocalizedString(@"Perception",@"perception attribute")
 #define ATTR_WILLPOWER 4
 #define ATTR_WILLPOWER_STR @"willpower"
-#define ATTR_WILLPOWER_STR_UPPER @"Willpower"
+#define ATTR_WILLPOWER_STR_UPPER NSLocalizedString(@"Willpower",@"willpower attribute")
 
 #define ATTR_TOTAL 5
 

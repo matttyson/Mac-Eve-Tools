@@ -201,7 +201,9 @@ menuForTableColumnItem:(NSTableColumn*)column
 	
 	for(NSInteger i = startingLevel+1; i <= 5; i++){
 		SkillPair *sp = [[SkillPair alloc]initWithSkill:[item typeID] level:i];
-		NSString *title = [NSString stringWithFormat:@"Train to level %ld",i];
+		NSString *title = [NSString stringWithFormat:
+						   NSLocalizedString(@"Train to level %@"
+											 ,@"Train skill to level"),romanForInteger(i)];
 		menuItem = [[NSMenuItem alloc]initWithTitle:title action:@selector(menuAddSkillClick:) keyEquivalent:@""];
 		[menuItem setRepresentedObject:sp];
 		[sp release];

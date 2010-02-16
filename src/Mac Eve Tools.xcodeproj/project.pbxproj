@@ -270,7 +270,7 @@
 		C9D9030011211BFA0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = Core/German.lproj/Loading.xib; sourceTree = SOURCE_ROOT; };
 		C9D9030311211C080047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C9D9031C11211E950047B2C2 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C9D9032011211EA30047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C9D9032011211EA30047B2C2 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C9D90335112121C20047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferencesAccountMaster.xib; sourceTree = "<group>"; };
 		C9EB4EC7105A0883009192BC /* CharacterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTemplate.h; sourceTree = "<group>"; };
 		C9EB4EC8105A0883009192BC /* CharacterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTemplate.m; sourceTree = "<group>"; };
