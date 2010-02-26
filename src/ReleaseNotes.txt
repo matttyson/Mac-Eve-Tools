@@ -1,3 +1,9 @@
+Release 16.7
+	German translation provied by Cyllena
+	All skill and certificate information now comes from
+		the database.  German and Russian language 
+		support from the database. (see preference screen)
+
 Release 16.6 (29/01/2010)
 	Fixed a bug in displaying the skill details window
 	 from the skill plan.
