@@ -16,7 +16,9 @@
 
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent
 {
+	/*
 	NSMenu *menu = nil;
+	
 	if([theEvent type] == NSRightMouseDown){
 		menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
 		
@@ -31,6 +33,8 @@
 	}
 	
 	return menu;
+	 */
+	return nil;
 }
 
 @end
