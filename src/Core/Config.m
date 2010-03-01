@@ -85,9 +85,9 @@ static Config *cfg = nil;
 		cfg->batchUpdateCharacters = NO;
 		
 		cfg->updateFeedUrl = @"http://mtyson.id.au/MacEveApi-appcast.xml";
-#warning NORELEASE language change testing
-		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/beta/MacEveApi-database.xml";
-		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/beta/database.sql.bz2";
+		
+		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml";
+		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/database.sql.bz2";
 		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
 		
 		cfg->databaseMinimumVersion = 4;
