@@ -27,7 +27,6 @@
 @class SkillPrerequisiteDatasource;
 
 @interface SkillDetailsWindowController : NSWindowController 
-	<NSOutlineViewDelegate, NSTableViewDelegate> 
 {
 	IBOutlet NSTextField *skillName;
 	IBOutlet NSTextField *skillRank;

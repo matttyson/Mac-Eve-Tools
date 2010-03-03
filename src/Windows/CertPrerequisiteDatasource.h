@@ -18,6 +18,6 @@
 }
 
 -(CertPrerequisiteDatasource*) initWithCert:(Cert*)c
-										 forCharacter:(Character*)ch;
+							   forCharacter:(Character*)ch;
 
 @end
