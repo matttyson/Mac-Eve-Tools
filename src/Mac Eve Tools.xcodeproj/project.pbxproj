@@ -56,6 +56,7 @@
 		C9721EEA1121291D00035782 /* CharacterSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9721EE91121291D00035782 /* CharacterSheet.xib */; };
 		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
+		C9824497113E180900D410A0 /* CertPrerequisiteDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */; };
 		C993CEC51123FA200084BFFD /* DatabaseUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = C993CEC41123FA200084BFFD /* DatabaseUpdate.xib */; };
 		C9D9028A112116270047B2C2 /* SkillDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D90289112116270047B2C2 /* SkillDetails.xib */; };
 		C9D902D31121194A0047B2C2 /* CertDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902D21121194A0047B2C2 /* CertDetails.xib */; };
@@ -230,6 +231,8 @@
 		C979E0071069B05400457530 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SkillPlannerConfig.xib; sourceTree = "<group>"; };
 		C979E00B1069C42700457530 /* PlannerColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerColumn.h; sourceTree = "<group>"; };
 		C979E00C1069C42700457530 /* PlannerColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerColumn.m; sourceTree = "<group>"; };
+		C9824495113E180900D410A0 /* CertPrerequisiteDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertPrerequisiteDatasource.h; sourceTree = "<group>"; };
+		C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertPrerequisiteDatasource.m; sourceTree = "<group>"; };
 		C98937761123A900006057C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DatabaseUpdate.xib; sourceTree = "<group>"; };
 		C993CEC61123FA250084BFFD /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/DatabaseUpdate.xib; sourceTree = "<group>"; };
 		C9AC24271056886F0031D591 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Core/English.lproj/Loading.xib; sourceTree = SOURCE_ROOT; };
@@ -563,6 +566,8 @@
 				C94A94EF1124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m */,
 				C94A951D1124FF9100352F49 /* SkillPrerequisiteDatasource.h */,
 				C94A951E1124FF9100352F49 /* SkillPrerequisiteDatasource.m */,
+				C9824495113E180900D410A0 /* CertPrerequisiteDatasource.h */,
+				C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */,
 			);
 			name = Datasource;
 			sourceTree = "<group>";
@@ -1099,6 +1104,7 @@
 				C94A94E51124F94600352F49 /* SkillDetailsPointsDatasource.m in Sources */,
 				C94A94F01124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m in Sources */,
 				C94A951F1124FF9100352F49 /* SkillPrerequisiteDatasource.m in Sources */,
+				C9824497113E180900D410A0 /* CertPrerequisiteDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,7 +1308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.6;
+				CURRENT_PROJECT_VERSION = 16.7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = MACEVEAPI_DEBUG;
@@ -1331,7 +1337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.6;
+				CURRENT_PROJECT_VERSION = 16.7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_SPARKLE;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1359,7 +1365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.6;
+				CURRENT_PROJECT_VERSION = 16.7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

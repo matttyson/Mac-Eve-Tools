@@ -12,7 +12,9 @@
 @class Cert;
 @class Character;
 
-@interface CertDetailsWindowController : NSWindowController <NSOutlineViewDataSource> {
+@class CertPrerequisiteDatasource;
+
+@interface CertDetailsWindowController : NSWindowController {
 
 	IBOutlet NSOutlineView *certPrerequisites;
 	IBOutlet NSTextField *certDescription;
@@ -22,6 +24,8 @@
 	
 	Cert *cert;
 	Character *character;
+	
+	CertPrerequisiteDatasource *certDS;
 }
 
 +(void) displayWindowForCert:(Cert*)cer character:(Character*)ch;

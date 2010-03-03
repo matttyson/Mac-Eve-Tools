@@ -33,7 +33,7 @@ enum SkillPlanMode{
 
 @protocol PlanView2Delegate
 
-/*called when you want to update the */
+/*called when you want to update the plan on screen */
 -(void) refreshPlanView;
 
 @end

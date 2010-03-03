@@ -98,7 +98,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			row:(NSInteger)rowIndex
 {
 	SkillPlan *skillPlan;
-	/*Skill plan Overview datasource methods*/
+	/*Fetch the skill plan we are displaying*/
 	if(mode == SPMode_overview){
 		skillPlan = [character skillPlanAtIndex:rowIndex];
 	}else{

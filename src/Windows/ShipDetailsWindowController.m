@@ -52,6 +52,9 @@
 		}
 	}
 	
+	[shipPrerequisites setDataSource:nil];
+	[shipAttributes setDataSource:nil];
+	
 	[shipPreDS release];
 	[shipAttrDS release];
 	

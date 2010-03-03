@@ -22,14 +22,14 @@
 #import "macros.h"
 
 @interface ServerMonitor : NSObject {
-	ServerStatus status;
+	enum ServerStatus status;
 	NSInteger numPlayers;
 	
 	NSMutableData *xmlData;
 	NSTimer *timer;
 }
 
-@property (nonatomic,readonly) ServerStatus status;
+@property (nonatomic,readonly) enum ServerStatus status;
 @property (nonatomic,readonly) NSInteger numPlayers;
 
 -(void) checkServerStatus;
