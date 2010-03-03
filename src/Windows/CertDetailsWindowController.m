@@ -104,7 +104,7 @@
 		}else{
 			NSString *timeToTrainString = stringTrainingTime(timeToTrain);
 			text = [NSString stringWithFormat:
-					NSLocalizedString(@"%@ could have this certificate in %@",@"<@CharacterName"),
+					NSLocalizedString(@"%@ could have this certificate in %@",@"<@CharacterName> could have this cert"),
 					[character characterName],timeToTrainString];
 		}
 	}
@@ -125,8 +125,5 @@
 	[self setDatasource];
 	[[self window]setTitle:[cert fullCertName]];
 }
-
-
-#pragma mark OutlineView datasource methods.
 
 @end
