@@ -1353,6 +1353,7 @@
 					"-lcrypto",
 					"-lbz2",
 					"-lsqlite3",
+					"-lz",
 				);
 				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
 				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";
@@ -1380,6 +1381,7 @@
 					"-lcrypto",
 					"-lbz2",
 					"-lsqlite3",
+					"-lz",
 				);
 				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
 				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";
@@ -1407,6 +1409,7 @@
 					"-lcrypto",
 					"-lbz2",
 					"-lsqlite3",
+					"-lz",
 				);
 				PER_ARCH_CFLAGS_i386 = "-fsingle-precision-constant";
 				PER_ARCH_CFLAGS_ppc = "-fsingle-precision-constant";

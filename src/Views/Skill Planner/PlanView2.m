@@ -562,11 +562,11 @@
 	if(!rc){
 		NSLog(@"Failed to read plan!");
 		[character removeSkillPlan:plan];
-	}else{
-		//If we are in overview mode, reload the datasource
-		if([pvDatasource mode] == SPMode_overview){
-			[self refreshPlanView];
-		}
+	}
+	
+	//If we are in overview mode, reload the datasource
+	if([pvDatasource mode] == SPMode_overview){
+		[self refreshPlanView];
 	}
 }
 

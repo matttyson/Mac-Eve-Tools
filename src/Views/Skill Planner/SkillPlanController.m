@@ -246,14 +246,14 @@
 	[item setTarget:self];
 	[menu addItem:item];
 	[item release];
-	
+	/*
 	item = [[NSMenuItem alloc]initWithTitle:@"Export Plan"
 									 action:@selector(exportEvemonPlan:) 
 							  keyEquivalent:@""];
 	[item setTarget:self];
 	[menu addItem:item];
 	[item release];
-	
+	*/
 	return topLevel;
 }
 
@@ -307,6 +307,7 @@
 	[op setCanChooseDirectories:NO];
 	[op setCanChooseFiles:YES];
 	[op setAllowsMultipleSelection:NO];
+	[op setAllowedFileTypes:[NSArray arrayWithObjects:@"emp",@"xml",nil]];
 	[op runModal];
 	
 	if([[op URLs]count] == 0){

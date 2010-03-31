@@ -23,69 +23,8 @@
 #import <libxml/parser.h>
 #import <libxml/SAX2.h>
 
-/*
-enum evemonParserState
-{
-	
-};
+#import "zlib.h"
 
-struct evemonParserData
-{
-	
-};
-
-void endDocument(void *ctx)
-{
-	
-}
-
-void startDocument(void *ctx)
-{
-	
-}
-
-void startElement(void *ctx, const xmlChar *name, const xmlChar **attrs)
-{
-	const xmlChar *att;
-	NSLog(@"%s",name);
-	
-	if(attrs != NULL){
-		for(att = *attrs++; att != NULL; att = *attrs++){
-			NSLog(@"%s",att);
-		}
-	}
-}
-
-void endElement(void *ctx, const xmlChar *name)
-{
-	NSLog(@"%s",name);
-}
-
-void attribute(void *ctx, const xmlChar *name, const xmlChar *value)
-{
-	NSLog(@"%s - %s",name,value);
-}
-
-void error(void *ctx, const char *msg, ...)
-{
-	NSLog(@"%s",msg);
-}
- 
- xmlSAXHandler handle;
- memset(&handle,0,sizeof(xmlSAXHandler));
- 
- handle.startDocument = startDocument;
- handle.endDocument = endDocument;
- handle.startElement = startElement;
- handle.endElement = endElement;
- handle.error = error;
- handle.initialized = XML_SAX2_MAGIC;
- 
- char *filename = "/Users/matt/programming/evemon/Flammard - Guns.xml";
- int result = xmlSAXUserParseFile(&handle,NULL,filename);
- 
- 
-*/
 
 #import "XmlHelpers.h"
 #import "GlobalData.h"
@@ -109,7 +48,7 @@ void error(void *ctx, const char *msg, ...)
 	//st is not retained. do not release it.
 	[super dealloc];
 }
-
+/*
 -(BOOL) privateParseEntry:(xmlNode*)node intoPlan:(SkillPlan*)plan
 {
 	NSInteger skillLevel = 0;
@@ -148,7 +87,6 @@ void error(void *ctx, const char *msg, ...)
 	if(root_node == NULL){
 		return NO;
 	}
-	/*root node should be plan*/
 	
 	xmlNode *entries = findChildNode(root_node,(xmlChar*)"Entries");
 	
@@ -170,9 +108,96 @@ void error(void *ctx, const char *msg, ...)
 	}
 	return YES;
 }
+*/
+
+-(BOOL) readEntry:(xmlNode*)node intoPlan:(SkillPlan*)plan
+{
+	NSInteger skillID;
+	NSInteger skillLevel;
+	
+	NSString *str;
+	
+	str = findAttribute(node,(xmlChar*)"skillID");
+	skillID = [str integerValue];
+	
+	str = findAttribute(node,(xmlChar*)"level");
+	skillLevel = [str integerValue];
+	
+	[plan addSkillToPlan:[NSNumber numberWithInteger:skillID] level:skillLevel];
+	
+	return YES;
+}
+
+-(BOOL) readXmlData:(xmlDoc*)doc intoPlan:(SkillPlan*)plan
+{
+	xmlNode *root_node = xmlDocGetRootElement(doc);
+	if(root_node == NULL){
+		return NO;
+	}
+	
+	for(xmlNode *cur_node = root_node->children;
+		cur_node != NULL;
+		cur_node = cur_node->next)
+	{
+		if(cur_node->type != XML_ELEMENT_NODE){
+			continue;
+		}
+		
+		if(xmlStrcmp(cur_node->name,(xmlChar*)"entry") == 0){
+			[self readEntry:cur_node intoPlan:plan];
+		}
+	}
+	
+	return [plan skillCount] > 0;
+}
+
+-(BOOL) readCompressed:(NSString*)filePath intoPlan:(SkillPlan*)plan
+{
+#define CHUNK 16384
+	
+	gzFile *file;
+	
+	file = gzopen([filePath fileSystemRepresentation], "rb");
+	if(file == NULL){
+		NSLog(@"Failed to open '%@'",filePath);
+		return NO;
+	}
+
+	char *buffer = malloc(CHUNK);
+	int bytesRead;
+	NSMutableData *data = [[NSMutableData alloc]init];
+	
+	while( (bytesRead = gzread(file,buffer,CHUNK)) != 0){
+		[data appendBytes:buffer length:bytesRead];
+	}
+	
+	free(buffer);
+	gzclose(file);
+	
+	
+	xmlDoc *doc = xmlReadMemory([data bytes],[data length],NULL,NULL,0);
+	
+	[data release];
+	
+	if(doc == NULL){
+		NSLog(@"Failed to read XML data");
+		return NO;
+	}
+	
+	BOOL rc = [self readXmlData:doc intoPlan:plan];
+	
+	if(rc){
+		[plan savePlan];
+	}
+	xmlFreeDoc(doc);
+	
+	return rc;
+	
+}
+
 
 /*read the skill plan into the character.*/
--(BOOL) read:(NSString*)filePath intoPlan:(SkillPlan*)plan
+-(BOOL) readXml:(NSString*)filePath intoPlan:(SkillPlan*)plan
 {
 	if(filePath == nil){
 		return NO;
@@ -185,15 +210,29 @@ void error(void *ctx, const char *msg, ...)
 		return NO;
 	}
 	
-	BOOL rc = [self privateParseXml:doc intoPlan:plan];
+	BOOL rc = [self readXmlData:doc intoPlan:plan];
+
+	xmlFreeDoc(doc);
 	
 	if(rc){
 		[plan savePlan];
 	}
 	
-	xmlFreeDoc(doc);
 	
 	return rc;
+}
+
+-(BOOL) read:(NSString*)filePath intoPlan:(SkillPlan*)plan
+{
+	if([[filePath pathExtension]caseInsensitiveCompare:@"emp"] == NSOrderedSame){
+		return [self readCompressed:filePath intoPlan:plan];
+	}else if([[filePath pathExtension]caseInsensitiveCompare:@"xml"] == NSOrderedSame){
+		return [self readXml:filePath intoPlan:plan];
+	}else{
+		NSLog(@"Unknown file %@",filePath);
+	}
+	
+	return NO;
 }
 
 /*
