@@ -135,6 +135,11 @@
 		return NO;
 	}
 	
+	NSString *planName = findAttribute(root_node,(xmlChar*)"name");
+	if(planName != nil){
+		[plan setPlanName:planName];
+	}
+	
 	for(xmlNode *cur_node = root_node->children;
 		cur_node != NULL;
 		cur_node = cur_node->next)
@@ -162,18 +167,24 @@
 		NSLog(@"Failed to open '%@'",filePath);
 		return NO;
 	}
-
+	
 	char *buffer = malloc(CHUNK);
+	
+	if(buffer == NULL){
+		NSLog(@"Failed to malloc %d bytes",CHUNK);
+		gzclose(file);
+		return NO;
+	}
+	
 	int bytesRead;
 	NSMutableData *data = [[NSMutableData alloc]init];
 	
-	while( (bytesRead = gzread(file,buffer,CHUNK)) != 0){
+	while( (bytesRead = gzread(file,buffer,CHUNK)) > 0){
 		[data appendBytes:buffer length:bytesRead];
 	}
 	
 	free(buffer);
 	gzclose(file);
-	
 	
 	xmlDoc *doc = xmlReadMemory([data bytes],[data length],NULL,NULL,0);
 	
@@ -185,14 +196,15 @@
 	}
 	
 	BOOL rc = [self readXmlData:doc intoPlan:plan];
+
+	xmlFreeDoc(doc);
 	
 	if(rc){
 		[plan savePlan];
 	}
-	xmlFreeDoc(doc);
 	
 	return rc;
-	
+#undef CHUNK
 }
 
 

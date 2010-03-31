@@ -42,7 +42,9 @@
 @interface Character : NSObject <NSOutlineViewDataSource> {
 	NSUInteger characterId; /*char id. this + acct ID can be used to determine the URL for the sheet*/
 	NSString *characterName;
-		
+	
+	NSString *characterFilePath; //The location of the character's data dir on disk
+	
 	NSMutableDictionary *data; /*generic key value data*/
 	SkillTree *skillTree; /*The skills that this character has.*/
 		
@@ -99,6 +101,8 @@
 -(NSInteger) skillPointTotal;
 -(NSInteger) skillsAtV;
 -(NSInteger) skillsKnown;
+
+-(void) deletePortrait;
 
 /*the number of skill points per hour the character trains. see macros.h for skill types*/
 

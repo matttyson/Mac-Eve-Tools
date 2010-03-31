@@ -55,6 +55,7 @@
 	[trainingQueue release];
 	[trainingSkill release];
 	[ownedCerts release];
+	[characterFilePath release];
 	
 	for(NSInteger i = 0; i < CHAR_ERROR_TOTAL;i++){
 		if(errorMessage[i] == nil){
@@ -77,6 +78,8 @@
 	if((self = [super init])){
 		data = [[NSMutableDictionary alloc]init];
 		
+		characterFilePath = [path retain];
+		
 		db = [[CharacterDatabase alloc]initWithPath:[path stringByAppendingString:@"/database.sqlite"]];
 		portrait = [[NSImage alloc]initWithContentsOfFile:[path stringByAppendingString:@"/portrait.jpg"]];
 		
@@ -94,6 +97,17 @@
 }
 
 #pragma mark methods
+
+-(void) deletePortrait
+{
+	NSString *portraitPath = [characterFilePath stringByAppendingString:@"/portrait.jpg"];
+
+	NSFileManager *fm = [NSFileManager defaultManager];
+	
+	if([fm fileExistsAtPath:portraitPath]){
+		[fm removeItemAtPath:portraitPath error:NULL];
+	}
+}
 
 -(BOOL) charSheetError
 {

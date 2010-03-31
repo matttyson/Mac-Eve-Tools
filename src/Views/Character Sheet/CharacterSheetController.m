@@ -406,11 +406,34 @@
 	
 	[portrait setDelegate:self];
 	[portrait setSelector:@selector(deleteCurrentPortrait:)];
+	
+	NSMenu *portraitMenu = [[NSMenu alloc]initWithTitle:@"Delete Portrait"];
+	NSMenuItem *menuItem = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Delete Portrait",)
+													 action:@selector(deleteCurrentPortrait:)
+											  keyEquivalent:@""];
+	[menuItem setTarget:self];
+	[portraitMenu addItem:menuItem];
+	
+	[menuItem release];
+	[portrait setMenu:portraitMenu];
+	[portraitMenu release];
+	
 }
 
 -(void) deleteCurrentPortrait:(id)notUsed
 {
 	NSLog(@"delete portrait");
+	[currentCharacter deletePortrait];
+	NSAlert *alert = [[NSAlert alloc]init];
+	[alert setMessageText:
+	 NSLocalizedString(@"Portrait Deleted",
+					   @"The character portrait has been deleted")];
+	[alert setInformativeText:
+	 NSLocalizedString(@"The portrait will be updated when the character is next refreshed",
+					   @"")];
+	[alert addButtonWithTitle:@"OK"];
+	[alert runModal];
+	[alert release];
 }
 
 -(void) skillTreeDoubleClick:(id)sender

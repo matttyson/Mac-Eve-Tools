@@ -28,15 +28,15 @@
 
 -(void)calculateOriginalTrainingTime
 {
-	origTrainTimeInt = [attrQueue calculateTrainingTimeForCharacter:character];
-	NSString *str = stringTrainingTime(origTrainTimeInt);
+	origTrainTimeSeconds = [attrQueue calculateTrainingTimeForCharacter:character];
+	NSString *str = stringTrainingTime(origTrainTimeSeconds);
 	[origTrainTime setStringValue:str];
 	[origTrainTime sizeToFit];
 }
 
 -(void)calculateTrainingDifference
 {
-	NSInteger diff = origTrainTimeInt - newTrainTimeInt;
+	NSInteger diff = origTrainTimeSeconds - newTrainTimeSeconds;
 	NSString *str = stringTrainingTime(diff);
 	[diffTrainTime setStringValue:str];
 	[diffTrainTime sizeToFit];
@@ -46,8 +46,8 @@
 {
 	NSInteger trainingTime = [attrQueue calculateTrainingTimeForCharacter:character];
 	
-	newTrainTimeInt = trainingTime;
-	NSString *str = stringTrainingTime(newTrainTimeInt);
+	newTrainTimeSeconds = trainingTime;
+	NSString *str = stringTrainingTime(newTrainTimeSeconds);
 	[newTrainTime setStringValue:str];
 	[newTrainTime sizeToFit];
 	
@@ -56,8 +56,8 @@
 
 -(void)setAttrValues
 {
-	origTrainTimeInt = 0;
-	newTrainTimeInt = 0;
+	origTrainTimeSeconds = 0;
+	newTrainTimeSeconds = 0;
 	
 	intelligence = [character attributeValue:ATTR_INTELLIGENCE];
 	perception = [character attributeValue:ATTR_PERCEPTION];
@@ -140,7 +140,9 @@
 	[self calculateOriginalTrainingTime];
 }
 
--(void)sheetDidEnd:(NSWindow *)theSheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+-(void)sheetDidEnd:(NSWindow *)theSheet 
+		returnCode:(NSInteger)returnCode 
+	   contextInfo:(void *)contextInfo;
 {
 	[theSheet orderOut:self];
 }
@@ -165,6 +167,10 @@
 	[origTrainTime setStringValue:@""];
 	[newTrainTime setStringValue:@""];
 	[diffTrainTime setStringValue:@""];
+	
+	character = nil;
+	plan = nil;
+	
 	[NSApp endSheet:sheet];
 }
 

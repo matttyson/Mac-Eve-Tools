@@ -48,13 +48,11 @@
 	NSInteger willpower;
 	NSInteger memory;
 	
-	NSInteger origTrainTimeInt;
-	NSInteger newTrainTimeInt;
+	NSInteger origTrainTimeSeconds;
+	NSInteger newTrainTimeSeconds;
 	
 	IBOutlet NSButton *closeButton;
 	IBOutlet NSPanel *sheet;
-	
-	NSArray *skillTotals;
 	
 	Character *character;
 	SkillPlan *plan;

@@ -13,13 +13,30 @@
 
 @synthesize selector;
 @synthesize delegate;
+@synthesize menu;
+
+-(MTImageView*)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if(self){
+		menu = nil;
+		delegate = nil;
+	}
+	
+	return self;
+}
+
+-(void)dealloc
+{
+	[menu release];
+	[super dealloc];
+}
 
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent
 {
-	/*
-	NSMenu *menu = nil;
 	
 	if([theEvent type] == NSRightMouseDown){
+		/*
 		menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
 		
 		
@@ -30,10 +47,10 @@
 		
 		[menu addItem:item];
 		[item release];
+		 /*/
+		return menu;
 	}
 	
-	return menu;
-	 */
 	return nil;
 }
 
