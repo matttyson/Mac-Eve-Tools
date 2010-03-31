@@ -17,8 +17,7 @@
 @interface CCPTypeAttribute : NSObject {
 	NSInteger attributeID;
 	
-	//NSString attributeName;
-	//NSString attributeDesc;
+	NSString *attributeName;
 	
 	NSString *displayName;
 	NSString *unitDisplay;
@@ -27,6 +26,8 @@
 	
 	NSInteger valueInt;
 	CGFloat valueFloat;
+	
+	BOOL isInt;
 }
 
 +(CCPTypeAttribute*) createTypeAttribute:(NSInteger)attributeId 
@@ -38,8 +39,7 @@
 
 @property (readonly,nonatomic) NSInteger attributeID;
 
-//@property (readonly,nonatomic) NSString* attributeName;
-//@property (readonly,nonatomic) NSString* attributeDesc;
+@property (readonly,nonatomic) NSString* attributeName;
 
 @property (readonly,nonatomic) NSString* displayName;
 @property (readonly,nonatomic) NSString* unitDisplay;

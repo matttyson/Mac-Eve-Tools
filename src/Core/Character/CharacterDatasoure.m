@@ -38,11 +38,15 @@
 
 /*prevent editing of the cells*/
 
-- (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+- (BOOL)tableView:(NSTableView *)aTableView 
+shouldEditTableColumn:(NSTableColumn *)aTableColumn 
+			  row:(NSInteger)rowIndex
 {
 	return NO;
 }
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView 
+shouldEditTableColumn:(NSTableColumn *)tableColumn 
+			   item:(id)item
 {
 	return NO;
 }

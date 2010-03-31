@@ -345,6 +345,16 @@
 	return [NSString stringWithFormat:@"%2.2f",(double)attributeTotals[attr]];
 }
 
+-(NSInteger) attributeValue:(NSInteger)attr
+{
+	return baseAttributes[attr] + implantAttributes[attr] + learningTotals[attr] + tempBonuses[attr];
+}
+
+-(CGFloat) learningBonus
+{
+	return 0.02 * learningBonus;
+}
+
 -(NSDictionary*) skillSet
 {
 	return [skillTree skillSet];
@@ -385,6 +395,7 @@
 {
 	memset(tempBonuses,0,sizeof(tempBonuses));
 	learningBonus = 0;
+	[self processAttributeSkills];
 }
 
 -(void) modifyAttribute:(NSInteger)attribute  byLevel:(NSInteger) level
@@ -392,9 +403,19 @@
 	tempBonuses[attribute] += level;
 }
 
+-(void) setAttribute:(NSInteger)attribute toLevel:(NSInteger)level
+{
+	tempBonuses[attribute] = level;
+}
+
 -(void) modifyLearning:(NSInteger)level
 {
 	learningBonus += level;
+}
+
+-(void) setLearning:(NSInteger)level
+{
+	learningBonus = level;
 }
 
 /*perform the final total*/

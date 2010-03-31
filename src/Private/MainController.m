@@ -637,8 +637,23 @@
 	}
 	
 	id<METPluggableView> mvc = [viewControllers objectAtIndex:[sender tag]];
+	
+	NSMenuItem *item;
+	
+	//Check to see if the current controller has a menu item.
+	item = [currentController menuItems];
+	if(item != nil){
+		[[NSApp mainMenu]removeItemAtIndex:1];
+	}
+	
 	[self setStatusMessage:nil imageState:StatusHidden time:0];//clear any toolbar message.
 	[self setAsActiveView:mvc];
+	
+	//	remove the old one(if it exists) add the new one.
+	item = [mvc menuItems];
+	if(item != nil){
+		[[NSApp mainMenu]insertItem:item atIndex:1];
+	}
 }
 
 -(IBAction) viewSelectorClick:(id)sender
@@ -646,6 +661,11 @@
 	NSMenuItem *item = [sender selectedItem];
 	
 	id<METPluggableView> mvc = [item representedObject];
+	
+	
+
+
+
 	
 	[self setAsActiveView:mvc];
 }

@@ -37,48 +37,17 @@ static GlobalData *_privateData = nil;
 
 +(SkillTree*) buildSkillTree
 {
-	/*
-	NSString *path = [Config filePath:XMLAPI_SKILL_TREE,nil];
-	
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	if([fm fileExistsAtPath:path]){
-		SkillTree *tree = [[[SkillTree alloc]initWithXml:path]autorelease];
-		if(tree == nil){
-			NSLog(@"Skill tree parse error");
-			return nil;
-		}
-		return tree;
-	}
-	NSLog(@"Could not read %@",path);
-	return nil;
-	 */
 	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
 	
 	SkillTree *tree = [db buildSkillTree];
 	
 	[db release];
 	
-	
 	return tree;
 }
 
 +(CertTree*) buildCertTree
 {
-	/*
-	NSString *path = [Config filePath:XMLAPI_CERT_TREE,nil];
-	
-	if([[NSFileManager defaultManager]fileExistsAtPath:path]){
-		CertTree *tree = [[[CertTree alloc]initWithXml:path]autorelease];
-		if(tree == nil){
-			NSLog(@"Skill tree parse error");
-			return nil;
-		}
-		return tree;
-	}
-	NSLog(@"Could not read %@",path);
-	return nil;
- */
 	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
 	
 	CertTree *tree = [db buildCertTree];
@@ -92,6 +61,7 @@ static GlobalData *_privateData = nil;
 -(void)dealloc
 {
 	[skillTree release];
+	[certTree release];
 	[dateFormatter release];
 	[super dealloc];
 }

@@ -13,7 +13,7 @@
 
 @synthesize attributeID;
 
-//@synthesize attributeName;
+@synthesize attributeName;
 //@synthesize attributeDesc;
 
 @synthesize displayName;
@@ -35,6 +35,7 @@
 {
 	[displayName release];
 	[unitDisplay release];
+	[attributeName release];
 	[super dealloc];
 }
 

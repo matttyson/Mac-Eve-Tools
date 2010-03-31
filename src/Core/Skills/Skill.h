@@ -19,6 +19,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class SkillAttribute;
 
 @interface Skill : NSObject <NSCopying> {
 	NSString *skillName;
@@ -39,7 +40,8 @@
 	/*internal references*/
 	NSNumber* typeID; /*typeID is the unique skill identifier*/
 	NSNumber* groupID; /*groupID is the skill group that this skill belongs to*/
-	NSDictionary *bonuses;
+	
+	NSMutableDictionary *attributes;
 }
 
 -(Skill*) initWithDetails:(NSString*)name group:(NSNumber*)skillGroupID type:(NSNumber*)skillTypeID;
@@ -55,10 +57,10 @@
 -(NSInteger) skillPointsForLevel:(NSInteger)level;
 -(NSInteger) totalSkillPointsForLevel:(NSInteger)level;
 
--(void) addBonus:(NSString*)bonusName bonusValue:(NSString*)value;
--(NSString*) getBonus:(NSString*)bonusName;
-
 -(CGFloat) percentCompleted:(NSInteger)fromLevel toLevel:(NSInteger)toLevel;
+
+-(void) addAttribute:(SkillAttribute*)attr;
+-(SkillAttribute*) attributeForID:(NSInteger)attributeID;
 
 @property (readonly, nonatomic) NSString* skillName;
 @property (readonly, nonatomic) NSNumber* typeID;

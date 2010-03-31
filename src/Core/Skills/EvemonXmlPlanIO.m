@@ -190,10 +190,26 @@ void error(void *ctx, const char *msg, ...)
 	if(rc){
 		[plan savePlan];
 	}
-	 
+	
 	xmlFreeDoc(doc);
 	
 	return rc;
 }
 
+/*
+-(NSURL*) getFilePath
+{
+	NSOpenPanel *op = [NSOpenPanel openPanel];
+	[op setCanChooseDirectories:NO];
+	[op setCanChooseFiles:YES];
+	[op setAllowsMultipleSelection:NO];
+	[op runModal];
+	
+	if([[op URLs]count] == 0){
+		return nil;
+	}
+	
+	return [[op URLs]objectAtIndex:0];
+}
+*/
 @end

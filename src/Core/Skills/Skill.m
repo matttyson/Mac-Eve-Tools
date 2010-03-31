@@ -19,6 +19,7 @@
 
 #import "Skill.h"
 #import "SkillPair.h"
+#import "SkillAttribute.h"
 
 #import "Helpers.h"
 
@@ -41,7 +42,8 @@
 	[skillName release];
 	[skillDescription release];
 	[skillPrereqs release];
-	[bonuses release];
+//	[bonuses release];
+	[attributes release];
 	[super dealloc];
 }
 
@@ -49,7 +51,7 @@
 {
 	if(self = [super init]){
 		skillPrereqs = [[NSMutableArray alloc]init];
-		bonuses = [[NSMutableDictionary alloc]init];
+		attributes = [[NSMutableDictionary alloc]init];
 	}
 	
 	return self;
@@ -97,7 +99,10 @@
 		sg->typeID = [self->typeID retain];
 		sg->groupID = [self->groupID retain];
 		
-		sg->bonuses = [self->bonuses retain];
+		/*this maybe should be copied instead of retained, 
+		 however it shouldn't actually ever be changed outside 
+		 of the loading routines*/
+		sg->attributes = [self->attributes retain];
 	}
 	return sg;
 	
@@ -144,14 +149,16 @@
 	return totalSkillPointsForLevel(level,skillRank);
 }
 
--(void) addBonus:(NSString*)bonusName bonusValue:(NSString*)value
+-(void) addAttribute:(SkillAttribute*)attr
 {
-	[bonuses setValue:value forKey:bonusName];
+	NSNumber *key = [NSNumber numberWithInteger:[attr attributeID]];
+	[attributes setObject:attr forKey:key];
 }
 
--(NSString*) getBonus:(NSString*)bonusName
+-(SkillAttribute*) attributeForID:(NSInteger)attributeID
 {
-	return [bonuses valueForKey:bonusName];
+	NSNumber *key = [NSNumber numberWithInteger:attributeID];
+	return [attributes objectForKey:key];
 }
 
 -(CGFloat) percentCompleted:(NSInteger)fromLevel toLevel:(NSInteger)toLevel

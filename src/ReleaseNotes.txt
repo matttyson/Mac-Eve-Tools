@@ -1,3 +1,6 @@
+Release 16.8
+	Fixed learning skills not adjusting training times.
+
 Release 16.7 (01/03/2010)
 	German translation provied by Cyllena
 	All skill and certificate information now comes from

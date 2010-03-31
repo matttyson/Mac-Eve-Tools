@@ -27,10 +27,12 @@
 
 #import "Helpers.h"
 #import "macros.h"
+
 #import "SkillPair.h"
 
 #import "Config.h"
 
+#import "SkillAttribute.h"
 
 #import "CertTree.h"
 #import "CertPair.h"
@@ -898,15 +900,26 @@
 		"WHERE groupID = ? "
 		"ORDER BY typeName;";
 	
-	const char attr_query[] = 
+	//Find the primary and secondary skill attributes.
+	const char skill_attr_query[] = 
 		"SELECT attributeID, COALESCE(valueInt,valueFloat) AS value "
 		"FROM dgmTypeAttributes "
 		"WHERE typeID = ? "
 		"AND attributeID IN (180,181,275) "
 		"ORDER BY attributeID;";
 	
+	//Fetch all the attributes.
+	const char attr_query[] =
+		"SELECT ta.attributeID, at.attributeName, ta.valueInt, ta.valueFloat "
+		"FROM dgmAttributeTypes at INNER JOIN dgmTypeAttributes ta "
+		"ON at.attributeID = ta.attributeID "
+		"WHERE ta.typeID = ?;";
+	
+	
 	sqlite3_stmt *skill_stmt;
+	sqlite3_stmt *skillattr_stmt;
 	sqlite3_stmt *attr_stmt;
+	
 	NSMutableArray *array;
 	int rc;
 	
@@ -916,9 +929,17 @@
 		return NO;
 	}
 	
-	rc = sqlite3_prepare_v2(db,attr_query,(int)sizeof(attr_query),&attr_stmt,NULL);
+	rc = sqlite3_prepare_v2(db,skill_attr_query,(int)sizeof(skill_attr_query),&skillattr_stmt,NULL);
 	if(rc != SQLITE_OK){
 		NSLog(@"%s: Query error",__func__);
+		sqlite3_finalize(skillattr_stmt);
+		return NO;
+	}
+	
+	rc = sqlite3_prepare_v2(db, attr_query, (int)sizeof(attr_query), &attr_stmt, NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		sqlite3_finalize(skillattr_stmt);
 		sqlite3_finalize(skill_stmt);
 		return NO;
 	}
@@ -948,18 +969,27 @@
 							fallback:desc];
 		}
 		
+		/*Get the basic stuff like primary and secondary attributes*/
 		
-		sqlite3_bind_nsint(attr_stmt,1,typeID);
+		sqlite3_bind_nsint(skillattr_stmt,1,typeID);
 		
-		sqlite3_step(attr_stmt);
-		primary = sqlite3_column_nsint(attr_stmt,1);
-		sqlite3_step(attr_stmt);
-		secondary = sqlite3_column_nsint(attr_stmt,1);
-		sqlite3_step(attr_stmt);
-		rank = sqlite3_column_nsint(attr_stmt,1);
+		sqlite3_step(skillattr_stmt);
+		primary = sqlite3_column_nsint(skillattr_stmt,1);
+		sqlite3_step(skillattr_stmt);
+		secondary = sqlite3_column_nsint(skillattr_stmt,1);
+		sqlite3_step(skillattr_stmt);
+		rank = sqlite3_column_nsint(skillattr_stmt,1);
 		
-		sqlite3_reset(attr_stmt);
-		sqlite3_clear_bindings(attr_stmt);
+		sqlite3_reset(skillattr_stmt);
+		sqlite3_clear_bindings(skillattr_stmt);
+
+		
+		/*
+		 
+		 Get all the skill attributes for this skill.
+		 */
+		
+	
 		
 		Skill *s = [[Skill alloc]initWithDetails:typeName 
 										   group:[NSNumber numberWithInteger:groupID]
@@ -974,11 +1004,43 @@
 		
 		[skillTree addSkill:s toGroup:[NSNumber numberWithInteger:groupID]];
 		
+		//load all the attributes for this skill
+		sqlite3_bind_nsint(attr_stmt,1,typeID);
+		
+		while(sqlite3_step(attr_stmt) == SQLITE_ROW){
+			NSInteger attributeID = sqlite3_column_nsint(attr_stmt,0);
+			
+			NSInteger valueInt = NSIntegerMax;
+			CGFloat valueFloat = CGFLOAT_MAX;
+			BOOL isInt;
+			if(sqlite3_column_type(attr_stmt,2) == SQLITE_NULL){
+				//type is an int
+				valueInt = sqlite3_column_nsint(attr_stmt,2);
+				isInt = YES;
+			}else{
+				valueFloat = (CGFloat) sqlite3_column_double(attr_stmt, 3);
+				isInt = NO;
+			}
+			
+			SkillAttribute *attr = [[SkillAttribute alloc]initWithAttributeID:attributeID
+																	 intValue:valueInt 
+																   floatValue:valueFloat
+																	  valType:isInt];
+			
+			[s addAttribute:attr];
+			[attr release];
+			
+		}
+		sqlite3_reset(attr_stmt);
+		sqlite3_clear_bindings(attr_stmt);
+		//done loading all attributes for this skill
+		
 		[s release];
 	}
 	
-	sqlite3_finalize(attr_stmt);
+	sqlite3_finalize(skillattr_stmt);
 	sqlite3_finalize(skill_stmt);
+	sqlite3_finalize(attr_stmt);
 	
 	return YES;
 }

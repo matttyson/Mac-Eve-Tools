@@ -21,6 +21,7 @@
 
 #import "METInstance.h"
 #import "PlanView2Datasource.h"
+#import "AttributeModifierController.h"
 
 @class SkillPlan;
 
@@ -52,6 +53,7 @@
 @interface PlanView2 : NSView <NSTableViewDelegate,PlanView2Delegate> {
 	IBOutlet NSButton *plusButton;
 	IBOutlet NSButton *minusButton;
+	IBOutlet NSButton *attributeModifierButton;
 	
 	IBOutlet NSSegmentedControl *segmentedButton;
 	IBOutlet NSTableView *tableView;
@@ -61,6 +63,9 @@
 	
 	IBOutlet NSPanel *skillRemovePanel;
 	IBOutlet NSTextField *planSkillList;
+	
+	IBOutlet AttributeModifierController *attributeModifier;
+	IBOutlet NSPanel *attributeModifierPanel;
 	
 	NSRect basePanelSize;
 	
@@ -82,6 +87,8 @@
 -(IBAction) segmentedButtonClick:(id)sender;
 -(IBAction) planButtonClick:(id)sender;
 -(IBAction) antiPlanButtonClick:(id)sender;
+
+-(IBAction) attributeModifierButtonClick:(id)sender;
 
 -(void) addSkillArrayToActivePlan:(NSArray*)skillArray;
 

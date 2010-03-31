@@ -107,6 +107,8 @@ enum AttributeType {
 #define COL_PLAN_TRAINING_TIME @"TRAININGTIME"
 #define COL_PLAN_TRAINING_TTD @"TIMETODATE"
 #define COL_PLAN_BUTTONS @"BUTTONS"
+#define COL_PLAN_ATTRIBUTES @"ATTRIBUTES"
+#define COL_PLAN_POINTS COL_SKILL_POINTS
 
 
 /*XML Documents we are interested in downloading*/
@@ -159,12 +161,14 @@ enum AttributeType {
 
 /*bonuses*/
 
-#define BONUS_LEARNING @"learningBonus"
-#define BONUS_INTELLIGENCE @"intelligenceBonus"
-#define BONUS_CHARISMA @"charismaBonus"
-#define BONUS_PERCEPTION @"perceptionBonus"
-#define BONUS_WILLPOWER @"willpowerBonus"
-#define BONUS_MEMORY @"memoryBonus"
+/*These magic numbers are the attribute IDs as they appear in the
+ CCP database export*/
+#define BONUS_LEARNING 455
+#define BONUS_INTELLIGENCE 176
+#define BONUS_CHARISMA 175
+#define BONUS_PERCEPTION 178
+#define BONUS_WILLPOWER 179
+#define BONUS_MEMORY 177
 
 /*Notifications*/
 

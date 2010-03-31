@@ -91,6 +91,11 @@
 /*returns an attribute as a string for easy display*/
 -(NSString*) getAttributeString:(NSInteger)attr;
 
+/*returns the attribute without the learning bonus applied*/
+-(NSInteger) attributeValue:(NSInteger)attr;
+/*return the learning bounus value*/
+-(CGFloat) learningBonus;
+
 -(NSInteger) skillPointTotal;
 -(NSInteger) skillsAtV;
 -(NSInteger) skillsKnown;
@@ -163,7 +168,10 @@
 
 /*modify attribute by level - used for optimising a skill plan*/
 -(void) modifyAttribute:(NSInteger)attribute  byLevel:(NSInteger)level;
+-(void) setAttribute:(NSInteger)attribute toLevel:(NSInteger)level;
+
 -(void) modifyLearning:(NSInteger)level;
+-(void) setLearning:(NSInteger)level;
 -(void) resetTempAttrBonus; //reset the bonuses back to the normal levels.
 
 /*calculate the final attribute totals*/

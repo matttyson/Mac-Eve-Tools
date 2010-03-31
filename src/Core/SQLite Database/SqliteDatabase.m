@@ -30,17 +30,16 @@
 		databasePath = [dbPath retain];
 		path = strdup([dbPath fileSystemRepresentation]);
 		pathLength = strlen(path);
-		/*
-		pathLength = [dbPath length] * 2;
-		path = malloc(pathLength);
-		if(![databasePath getCString:path maxLength:pathLength encoding:NSUTF8StringEncoding]){
-			NSLog(@"couldn't allocate path for %@",databasePath);
-		}
-		*/
-		
-		
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[self closeDatabase];
+	free(path);
+	[databasePath release];
+	[super dealloc];
 }
 
 -(void) openDatabase
@@ -133,13 +132,6 @@
 		NSLog(@"SQL Error: %s",errmsg);
 		sqlite3_free(errmsg);
 	}
-}
-
--(void) dealloc
-{
-	free(path);
-	[databasePath release];
-	[super dealloc];
 }
 
 @end

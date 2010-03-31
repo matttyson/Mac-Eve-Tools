@@ -39,6 +39,8 @@
 
 #import "ColumnConfigManager.h"
 
+#import "AttributeModifierController.h"
+
 @interface PlanView2 (SkillView2Private)
 
 -(void) loadPlan:(SkillPlan*)planIndex;
@@ -272,12 +274,15 @@
 		[self switchColumns:overviewColumns];
 		[pvDatasource setMode:SPMode_overview];
 		[delegate setToolbarMessage:nil];
+		[attributeModifierButton setEnabled:NO];
 	}else if(currentTag == -1){ //if we are switching FROM the overview
 		[self switchColumns:skillPlanColumns];
 		[pvDatasource setMode:SPMode_plan];
 		[pvDatasource setPlanId:tag];
+		[attributeModifierButton setEnabled:YES];
 	}else{ // we are switching from plan A to plan B
 		[pvDatasource setPlanId:tag];
+		[attributeModifierButton setEnabled:YES];
 	}
 	
 	currentTag = tag;
@@ -461,6 +466,8 @@
 	[tableView setTarget:self];
 	[tableView setDoubleAction:@selector(rowDoubleClick:)];
 	
+	[attributeModifierButton setEnabled:NO];
+	
 	basePanelSize = [skillRemovePanel frame];
 }
 
@@ -497,6 +504,22 @@
 			*/
 			[self removeSkillsFromPlan:[tableView selectedRowIndexes]];
 		}
+	}
+}
+
+-(IBAction) attributeModifierButtonClick:(id)sender
+{
+	
+	if([pvDatasource mode] == SPMode_plan){
+		SkillPlan *plan = [character skillPlanById:[pvDatasource planId]];
+		
+		[attributeModifier setCharacter:character andPlan:plan];
+	
+		[NSApp beginSheet:attributeModifierPanel
+		   modalForWindow:[NSApp mainWindow]
+			modalDelegate:attributeModifier
+		   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+			  contextInfo:attributeModifierPanel];
 	}
 }
 
@@ -550,7 +573,7 @@
 -(void) performPlanImport:(NSString*)filePath
 {
 	[NSApp beginSheet:newPlan
-	   modalForWindow:[NSApp mainWindow]//[self window]
+	   modalForWindow:[NSApp mainWindow]
 		modalDelegate:self
 	   didEndSelector:@selector(importSheetDidEnd:returnCode:contextInfo:)
 		  contextInfo:[filePath retain]];

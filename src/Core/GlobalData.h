@@ -30,8 +30,6 @@
 	Certeficates.
 	CCP Database.
 	Date Formatting.
- 
- This is NOT for storing data, it is for app wide lookup purposes.
  */
 
 @class SkillTree;

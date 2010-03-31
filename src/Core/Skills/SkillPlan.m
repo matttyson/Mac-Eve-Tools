@@ -18,9 +18,11 @@
  */
 
 #import "GlobalData.h"
+
 #import "SkillTree.h"
 #import "SkillPlan.h"
 #import "SkillPair.h"
+
 #import "Helpers.h"
 #import "Character.h"
 
@@ -474,7 +476,9 @@ static NSDictionary *masterSkillSet = nil;;
 	return NO;
 }
 
--(void) constructAntiPlan2:(NSNumber*)typeID level:(NSInteger)skillLevel antiPlan:(NSMutableArray*)antiPlan
+-(void) constructAntiPlan2:(NSNumber*)typeID 
+					 level:(NSInteger)skillLevel 
+				  antiPlan:(NSMutableArray*)antiPlan
 {
 	/*
 	 remove any prereq from the plan that matches typeID and has a skillLevel higher than skillLevel
@@ -578,27 +582,26 @@ static NSDictionary *masterSkillSet = nil;;
 		 */
 		Skill *s = [st skillForId:[pair typeID]];
 		if([[s groupID]isEqualToNumber:learning]){
-			/*this is a learning skill. determine its type and apply the bonus*/			
-			if([s getBonus:BONUS_LEARNING] != nil){
+			
+			/*check to see what learning attribute bonus is applying here.*/
+			
+			if([s attributeForID:BONUS_LEARNING] != nil){
 				[character modifyLearning:1];
-			}else if([s getBonus:BONUS_INTELLIGENCE] != nil){
+			}else if([s attributeForID:BONUS_INTELLIGENCE] != nil){
 				[character modifyAttribute:ATTR_INTELLIGENCE byLevel:1];
-			}else if([s getBonus:BONUS_CHARISMA] != nil){
+			}else if([s attributeForID:BONUS_CHARISMA] != nil){
 				[character modifyAttribute:ATTR_CHARISMA byLevel:1];
-			}else if([s getBonus:BONUS_PERCEPTION] != nil){
+			}else if([s attributeForID:BONUS_PERCEPTION] != nil){
 				[character modifyAttribute:ATTR_PERCEPTION byLevel:1];
-			}else if([s getBonus:BONUS_WILLPOWER] != nil){
+			}else if([s attributeForID:BONUS_WILLPOWER] != nil){
 				[character modifyAttribute:ATTR_WILLPOWER byLevel:1];
-			}else if([s getBonus:BONUS_MEMORY] != nil){
+			}else if([s attributeForID:BONUS_MEMORY] != nil){
 				[character modifyAttribute:ATTR_MEMORY byLevel:1];
 			}
+			
 			[character processAttributeSkills]; //calculate the new attribute total
 		}
-		/*
-		if([[pair typeID]isEqualToNumber:[NSNumber numberWithInteger:3346]]){
-			NSLog(@"TrainingTime: %ld",trainingTime);
-		}
-		*/
+		
 		NSInteger spPerHour = [character spPerHour:[s primaryAttr] 
 										 secondary:[s secondaryAttr]];
 		

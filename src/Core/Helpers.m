@@ -162,6 +162,13 @@ NSString* stringTrainingTime(NSInteger trainingTime)
 
 NSString* stringTrainingTime2(NSInteger trainingTime , enum TrainingTimeFields ttf)
 {
+	NSMutableString *str = [[[NSMutableString alloc]init]autorelease];
+	
+	if(trainingTime < 0){
+		trainingTime = -trainingTime;
+		[str appendString:@"-"];
+	}
+	
 	NSInteger remain, days, hours , min, sec;
 	days = trainingTime / SEC_DAY;
 	remain = trainingTime - (days * SEC_DAY);
@@ -172,7 +179,6 @@ NSString* stringTrainingTime2(NSInteger trainingTime , enum TrainingTimeFields t
 	min = remain / SEC_MINUTE;
 	sec = remain - (min * SEC_MINUTE);
 	
-	NSMutableString *str = [[[NSMutableString alloc]init]autorelease];
 	if(days > 0 && (ttf & TTF_Days)){
 		[str appendFormat:@"%ldd ",days];
 	}

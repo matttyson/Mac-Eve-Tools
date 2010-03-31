@@ -40,10 +40,7 @@
 
 @implementation CharacterDatabase
 
-
-
-//const char existenceTest[] = "SELECT count(*) FROM sqlite_master WHERE tbl_name='master';";
-
+#define CURRENT_DB_VERSION 2
 
 -(BOOL) createDatabase
 {
@@ -66,7 +63,7 @@
 		return NO;
 	}
 	
-	strbuf = sqlite3_mprintf(populateMasterTable,1,"foo");
+	strbuf = sqlite3_mprintf(populateMasterTable,CURRENT_DB_VERSION,"");
 	rc = sqlite3_exec(db,strbuf,NULL,NULL,&errmsg);
 	sqlite3_free(strbuf);
 	
@@ -94,10 +91,8 @@
 	return YES;
 }
 
-#define CURRENT_DB_VERSION 2
-
-
--(BOOL) upgradeDatabaseFromVersion:(NSInteger)currentVersion toVersion:(NSInteger)toVersion
+-(BOOL) upgradeDatabaseFromVersion:(NSInteger)currentVersion 
+						 toVersion:(NSInteger)toVersion
 {
 	if(currentVersion == 1){
 		const char rename[] = "ALTER TABLE skill_plan_overview RENAME TO skill_plan_overview_old;";
