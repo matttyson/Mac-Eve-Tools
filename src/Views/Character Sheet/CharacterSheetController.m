@@ -403,10 +403,7 @@
 	[cell setTarget:self];
 	
 	[queueHeader setHidden:YES];
-	
-	[portrait setDelegate:self];
-	[portrait setSelector:@selector(deleteCurrentPortrait:)];
-	
+		
 	NSMenu *portraitMenu = [[NSMenu alloc]initWithTitle:@"Delete Portrait"];
 	NSMenuItem *menuItem = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Delete Portrait",)
 													 action:@selector(deleteCurrentPortrait:)
@@ -434,6 +431,7 @@
 	[alert addButtonWithTitle:@"OK"];
 	[alert runModal];
 	[alert release];
+	[portrait setImage:nil];
 }
 
 -(void) skillTreeDoubleClick:(id)sender

@@ -219,7 +219,7 @@
 		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Close",@"Close a skill plan") 
 													 action:@selector(closePlan:) 
 											  keyEquivalent:@""];
-		
+		[item setTarget:self];
 		[item setRepresentedObject:[NSNumber numberWithInteger:[plan planId]]];
 		[menu addItem:item];
 		[item release];
@@ -350,6 +350,8 @@
 	[tableView reloadData];
 	if([pvDatasource mode] == SPMode_plan){
 		[self toobarMessageForPlan:[pvDatasource currentPlan]];
+	}else{
+		[self repositionButton];
 	}
 }
 

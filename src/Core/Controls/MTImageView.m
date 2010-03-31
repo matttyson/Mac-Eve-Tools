@@ -11,8 +11,6 @@
 
 @implementation MTImageView
 
-@synthesize selector;
-@synthesize delegate;
 @synthesize menu;
 
 -(MTImageView*)initWithCoder:(NSCoder *)aDecoder
@@ -20,7 +18,6 @@
 	self = [super initWithCoder:aDecoder];
 	if(self){
 		menu = nil;
-		delegate = nil;
 	}
 	
 	return self;
@@ -36,18 +33,10 @@
 {
 	
 	if([theEvent type] == NSRightMouseDown){
-		/*
-		menu = [[[NSMenu alloc]initWithTitle:@"Menu"]autorelease];
-		
-		
-		NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Refresh Portrait",)
-													 action:selector
-											  keyEquivalent:@""];
-		[item setTarget:delegate];
-		
-		[menu addItem:item];
-		[item release];
-		 /*/
+		return menu;
+	}else if( ([theEvent type] == NSLeftMouseDown) && 
+			 ([theEvent modifierFlags] & NSControlKeyMask))
+	{
 		return menu;
 	}
 	

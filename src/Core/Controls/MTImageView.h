@@ -10,13 +10,9 @@
 
 
 @interface MTImageView : NSImageView {
-	SEL selector;
-	id delegate;
 	NSMenu *menu;
 }
 
 @property (nonatomic,readwrite,retain) NSMenu* menu;
-@property (nonatomic,readwrite,assign) SEL selector;
-@property (nonatomic,readwrite,assign) id delegate;
 
 @end
