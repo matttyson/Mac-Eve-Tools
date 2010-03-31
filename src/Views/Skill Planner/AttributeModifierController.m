@@ -175,6 +175,9 @@
 	if(newValue > 5){
 		newValue = 5;
 	}
+	if(newValue < 0){
+		newValue = 0;
+	}
 	
 	NSInteger modValue = newValue - learning;
 	
@@ -187,12 +190,23 @@
 	[self updateStringValues];
 }
 
+-(NSInteger) valueFromSender:(id)sender
+{
+	NSInteger value = [sender integerValue];
+	
+	if(value < 0){
+		value = 0;
+	}
+	return value;
+}
+
 -(IBAction) willpowerUpdate:(id)sender
 {
-	NSInteger modValue = [sender integerValue] - willpower;
+	NSInteger newValue = [self valueFromSender:sender];
+	NSInteger modValue = newValue - willpower;
 	
-	[wilStepper setIntegerValue:[sender integerValue]];
-	[wilField setIntegerValue:[sender integerValue]];
+	[wilStepper setIntegerValue:newValue];
+	[wilField setIntegerValue:newValue];
 	
 	[character setAttribute:ATTR_WILLPOWER toLevel:modValue];
 	[character processAttributeSkills];
@@ -202,10 +216,11 @@
 
 -(IBAction) intelligenceUpdate:(id)sender
 {
-	NSInteger modValue = [sender integerValue] - intelligence;
+	NSInteger newValue = [self valueFromSender:sender];
+	NSInteger modValue = newValue - intelligence;
 	
-	[intStepper setIntegerValue:[sender integerValue]];
-	[intField setIntegerValue:[sender integerValue]];
+	[intStepper setIntegerValue:newValue];
+	[intField setIntegerValue:newValue];
 	
 	[character setAttribute:ATTR_INTELLIGENCE toLevel:modValue];
 	[character processAttributeSkills];
@@ -215,10 +230,11 @@
 
 -(IBAction) charismaUpdate:(id)sender
 {
-	NSInteger modValue = [sender integerValue] - charisma;
+	NSInteger newValue = [self valueFromSender:sender];
+	NSInteger modValue = newValue - charisma;
 	
-	[chrStepper setIntegerValue:[sender integerValue]];
-	[chrField setIntegerValue:[sender integerValue]];
+	[chrStepper setIntegerValue:newValue];
+	[chrField setIntegerValue:newValue];
 	
 	[character setAttribute:ATTR_CHARISMA toLevel:modValue];
 	[character processAttributeSkills];
@@ -228,10 +244,11 @@
 
 -(IBAction) perceptionUpdate:(id)sender
 {
-	NSInteger modValue = [sender integerValue] - perception;
+	NSInteger newValue = [self valueFromSender:sender];
+	NSInteger modValue = newValue - perception;
 	
-	[perStepper setIntegerValue:[sender integerValue]];
-	[perField setIntegerValue:[sender integerValue]];
+	[perStepper setIntegerValue:newValue];
+	[perField setIntegerValue:newValue];
 	
 	[character setAttribute:ATTR_PERCEPTION toLevel:modValue];
 	[character processAttributeSkills];
@@ -241,10 +258,11 @@
 
 -(IBAction) memoryUpdate:(id)sender
 {
-	NSInteger modValue = [sender integerValue] - memory;
+	NSInteger newValue = [self valueFromSender:sender];
+	NSInteger modValue = newValue - memory;
 	
-	[memStepper setIntegerValue:[sender integerValue]];
-	[memField setIntegerValue:[sender integerValue]];
+	[memStepper setIntegerValue:newValue];
+	[memField setIntegerValue:newValue];
 	
 	[character setAttribute:ATTR_MEMORY toLevel:modValue];
 	[character processAttributeSkills];
