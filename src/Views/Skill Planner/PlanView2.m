@@ -562,6 +562,18 @@
 	if(!rc){
 		NSLog(@"Failed to read plan!");
 		[character removeSkillPlan:plan];
+
+		NSAlert *alert = [[NSAlert alloc]init];
+		[alert addButtonWithTitle:@"Ok"];
+		[alert setMessageText:
+		 NSLocalizedString(@"Error importing the plan",
+						   @"error message generated when the program can't parse a skill plan import")];
+		[alert setInformativeText:
+		 NSLocalizedString(@"The plan file couldn't be understood\r\nOr there were no skills to import",
+						   @"error message generated when the program can't parse a skill plan import")];
+		[alert runModal];
+		[alert release];
+		
 	}
 	
 	//If we are in overview mode, reload the datasource
