@@ -97,6 +97,7 @@
 
 //Import a plan at this path
 -(void) performPlanImport:(NSString*)filePath;
+-(void) performPlanExport:(NSString*)filePath;
 
 
 -(void) refreshPlanView;

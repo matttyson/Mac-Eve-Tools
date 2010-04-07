@@ -593,6 +593,43 @@
 		  contextInfo:[filePath retain]];
 }
 
+-(void) performPlanExport:(NSString*)filePath
+{
+	SkillPlan *plan;
+	if([pvDatasource mode] == SPMode_plan){
+		plan = [pvDatasource currentPlan];
+	}else{
+		NSAlert *alert = [[NSAlert alloc]init];
+		[alert addButtonWithTitle:@"Ok"];
+		[alert setMessageText:
+		 NSLocalizedString(@"Please open a skill plan first",
+						   @"Error message for when a user tries to export a skill plan without selecting a plan")];
+		[alert setInformativeText:
+		 NSLocalizedString(@"You must have a skill plan open in order to export it",
+						   @"Error message for when a user tries to export a skill plan without selecting a plan")];
+		[alert runModal];
+		[alert release];
+		 
+		return;
+	}
+	
+	NSString *proposedFileName = [NSString stringWithFormat:@"%@ - %@.emp",
+								  [character characterName],
+								  [plan planName]];
+	
+	NSSavePanel *sp = [NSSavePanel savePanel];
+	
+	[sp setAllowedFileTypes:[NSArray arrayWithObjects:@"emp",@"xml",nil]];
+	[sp setNameFieldStringValue:proposedFileName];
+	[sp setCanSelectHiddenExtension:YES];
+	
+	if([sp runModal] == NSFileHandlingPanelOKButton){
+		EvemonXmlPlanIO *pio = [[EvemonXmlPlanIO alloc]init];
+		BOOL rc = [pio write:plan toFile:[[sp URL]path]];
+		[pio release];
+	}
+}
+
 -(IBAction) segmentedButtonClick:(id)sender
 {
 	NSInteger tag = [[sender cell]tagForSegment:[sender selectedSegment]];

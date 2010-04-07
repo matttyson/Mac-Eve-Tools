@@ -41,12 +41,16 @@
 	IBOutlet NSTextField *newTrainTime;
 	IBOutlet NSTextField *diffTrainTime;
 	
+	IBOutlet NSTextField *totalAttributePoints;
+	
 	NSInteger learning;
 	NSInteger intelligence;
 	NSInteger perception;
 	NSInteger charisma;
 	NSInteger willpower;
 	NSInteger memory;
+	
+	NSInteger totalPoints;
 	
 	NSInteger origTrainTimeSeconds;
 	NSInteger newTrainTimeSeconds;

@@ -369,9 +369,8 @@
 	[self openDatabase];
 	
 	sqlite_int64 planId = [self createSkillPlan:planName];
-
+	
 	[self closeDatabase];
-
 	
 	if(planId == -1){
 		NSLog(@"Duplicate plan name %@",planName);

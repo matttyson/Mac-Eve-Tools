@@ -39,4 +39,6 @@
 /*write the given skillplan*/
 -(BOOL) write:(NSString*)filePath plan:(SkillPlan*)plan;
 
+-(BOOL) write:(SkillPlan*)plan toFile:(NSString*)filePath;
+
 @end

@@ -196,13 +196,32 @@
 	[self updateStringValues];
 }
 
+-(void) updateTotalAttributePoints
+{
+	totalPoints = intelligence + perception + charisma + willpower + memory;
+	
+	NSInteger allocatedPoints = 
+	[intStepper integerValue] + 
+	[perStepper integerValue] +
+	[chrStepper integerValue] +
+	[wilStepper integerValue] +
+	[memStepper integerValue];
+	
+	NSInteger pointDifference = totalPoints - allocatedPoints;
+	
+	[totalAttributePoints setIntegerValue:pointDifference];
+}
+
 -(NSInteger) valueFromSender:(id)sender
 {
 	NSInteger value = [sender integerValue];
 	
-	if(value < 0){
-		value = 0;
+	if(value < 5){
+		value = 5;
 	}
+	
+	//[self updateTotalAttributePoints];
+	
 	return value;
 }
 

@@ -246,14 +246,14 @@
 	[item setTarget:self];
 	[menu addItem:item];
 	[item release];
-	/*
+	
 	item = [[NSMenuItem alloc]initWithTitle:@"Export Plan"
 									 action:@selector(exportEvemonPlan:) 
 							  keyEquivalent:@""];
 	[item setTarget:self];
 	[menu addItem:item];
 	[item release];
-	*/
+	
 	return topLevel;
 }
 
@@ -331,7 +331,7 @@
 
 -(void) exportEvemonPlan:(id)sender
 {
-	
+	[skillView2 performPlanExport:@""];
 }
 
 -(void) setInstance:(id<METInstance>)instance
