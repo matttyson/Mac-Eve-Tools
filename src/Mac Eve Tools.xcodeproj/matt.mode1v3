@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>C9D6BD08116D59DF003D381E</string>
+						<string>C9D6BD27116D5E58003D381E</string>
 						<key>history</key>
 						<array>
 							<string>C9D6BB2D116C2309003D381E</string>
@@ -257,7 +257,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>C9D6BD09116D59DF003D381E</string>
+						<string>C9D6BD28116D5E58003D381E</string>
 						<key>history</key>
 						<array>
 							<string>C9D6BAC2116C1D0E003D381E</string>
@@ -376,15 +376,15 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>121</integer>
-									<integer>112</integer>
-									<integer>111</integer>
+									<integer>52</integer>
+									<integer>50</integer>
+									<integer>47</integer>
 									<integer>31</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1598}, {312, 828}}</string>
+							<string>{{0, 18}, {312, 828}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -405,7 +405,7 @@
 							<real>290</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>479 259 1366 887 0 0 1920 1178 </string>
+						<string>529 291 1366 887 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -421,7 +421,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SkillPlan.strings</string>
+								<string>EvemonXmlPlanIO.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -429,11 +429,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SkillPlan.strings</string>
+										<string>EvemonXmlPlanIO.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C9D6BD07116D59DF003D381E</string>
+										<string>C9D6BD26116D5E58003D381E</string>
 										<key>history</key>
 										<array>
 											<string>C95066D11117BC330082D727</string>
@@ -471,7 +471,6 @@
 											<string>C9721ED5112128ED00035782</string>
 											<string>C9721F1D11212DBD00035782</string>
 											<string>C9721F1E11212DBD00035782</string>
-											<string>C98934B111223030006057C8</string>
 											<string>C98934B711223030006057C8</string>
 											<string>C98934B811223030006057C8</string>
 											<string>C98934BB11223030006057C8</string>
@@ -502,7 +501,6 @@
 											<string>C94A965711254D7A00352F49</string>
 											<string>C94A965811254D7A00352F49</string>
 											<string>C99FEA37112A4E6900AA3055</string>
-											<string>C99FEA42112A4F9400AA3055</string>
 											<string>C99FEA5B112A516400AA3055</string>
 											<string>C99FEAD8112A5CEE00AA3055</string>
 											<string>C99FEB28113543F400AA3055</string>
@@ -581,7 +579,6 @@
 											<string>C915349A11633B90000F89DC</string>
 											<string>C915349B11633B90000F89DC</string>
 											<string>C91534CB1163562E000F89DC</string>
-											<string>C91534CC1163562E000F89DC</string>
 											<string>C91534CD1163562E000F89DC</string>
 											<string>C91534D5116C0DD4000F89DC</string>
 											<string>C91534DA116C0F41000F89DC</string>
@@ -595,13 +592,16 @@
 											<string>C9D6BBEF116C372E003D381E</string>
 											<string>C9D6BBF0116C372E003D381E</string>
 											<string>C9D6BC69116D4D9D003D381E</string>
-											<string>C9D6BC79116D4E62003D381E</string>
-											<string>C9D6BC8D116D521F003D381E</string>
-											<string>C9D6BCA0116D52FA003D381E</string>
 											<string>C9D6BCA1116D52FA003D381E</string>
 											<string>C9D6BCBB116D556B003D381E</string>
 											<string>C9D6BCBC116D556B003D381E</string>
-											<string>C9D6BCD6116D5666003D381E</string>
+											<string>C9D6BD0F116D5B8C003D381E</string>
+											<string>C9D6BD10116D5B8C003D381E</string>
+											<string>C9D6BD17116D5E29003D381E</string>
+											<string>C9D6BD18116D5E29003D381E</string>
+											<string>C9D6BD19116D5E29003D381E</string>
+											<string>C9D6BD1A116D5E29003D381E</string>
+											<string>C9D6BD1B116D5E29003D381E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -615,7 +615,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1032, 744}}</string>
 								<key>RubberWindowFrame</key>
-								<string>479 259 1366 887 0 0 1920 1178 </string>
+								<string>529 291 1366 887 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -635,7 +635,7 @@
 								<key>Frame</key>
 								<string>{{0, 749}, {1032, 97}}</string>
 								<key>RubberWindowFrame</key>
-								<string>479 259 1366 887 0 0 1920 1178 </string>
+								<string>529 291 1366 887 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -812,7 +812,7 @@
 		<string>/Users/matt/programming/Mac Eve Tools/src/Mac Eve Tools.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>479 259 1366 887 0 0 1920 1178 </string>
+	<string>529 291 1366 887 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -842,7 +842,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1111, 599}}</string>
 								<key>RubberWindowFrame</key>
-								<string>715 75 1111 908 0 0 1920 1178 </string>
+								<string>715 148 1111 908 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -868,7 +868,7 @@
 								<key>Frame</key>
 								<string>{{0, 604}, {1111, 263}}</string>
 								<key>RubberWindowFrame</key>
-								<string>715 75 1111 908 0 0 1920 1178 </string>
+								<string>715 148 1111 908 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -900,7 +900,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>715 75 1111 908 0 0 1920 1178 </string>
+			<string>715 148 1111 908 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>C9FF44DB105506B80044BBAC</string>
 			<key>WindowToolIsVisible</key>
