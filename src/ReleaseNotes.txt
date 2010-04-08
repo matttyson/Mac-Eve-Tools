@@ -1,7 +1,7 @@
 Release 16.8
 	Fixed learning skills not adjusting training times.
 	Attribute calculator.
-	Evemon EMP & XML skill plan importing restored.
+	Evemon EMP & XML skill plan importing and exporting.
 	Character portraits can be updated.
 
 Release 16.7 (01/03/2010)

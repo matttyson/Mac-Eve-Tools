@@ -30,15 +30,12 @@
 @class SkillPlan;
 @class Character;
 
-@interface PlanIO : NSObject {
-}
+@protocol PlanIO
 
 /*read the skill plan into the character.*/
 -(BOOL) read:(NSString*)filePath intoPlan:(SkillPlan*)plan;
 
 /*write the given skillplan*/
--(BOOL) write:(NSString*)filePath plan:(SkillPlan*)plan;
-
 -(BOOL) write:(SkillPlan*)plan toFile:(NSString*)filePath;
 
 @end

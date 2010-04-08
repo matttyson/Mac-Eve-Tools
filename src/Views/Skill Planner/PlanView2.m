@@ -555,11 +555,11 @@
 	}
 	
 	/*import the evemon plan*/
-	PlanIO *pio = [[EvemonXmlPlanIO alloc]init];
+	EvemonXmlPlanIO *pio = [[EvemonXmlPlanIO alloc]init];
 	
 	BOOL rc = [pio read:filePath intoPlan:plan];
 	
-	[PlanIO release];
+	[pio release];
 	
 	if(!rc){
 		NSLog(@"Failed to read plan!");

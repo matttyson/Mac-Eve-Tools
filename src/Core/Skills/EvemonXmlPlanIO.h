@@ -29,11 +29,14 @@
 @class SkillTree;
 @class Character;
 
-@interface EvemonXmlPlanIO : PlanIO {
+@interface EvemonXmlPlanIO : NSObject <PlanIO> {
 	SkillTree *st;
 }
 
+/*read the skill plan into the character.*/
+-(BOOL) read:(NSString*)filePath intoPlan:(SkillPlan*)plan;
 
+-(BOOL) write:(SkillPlan*)plan toFile:(NSString*)filePath;
 
 
 @end

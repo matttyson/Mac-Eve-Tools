@@ -308,17 +308,19 @@
 	[op setCanChooseFiles:YES];
 	[op setAllowsMultipleSelection:NO];
 	[op setAllowedFileTypes:[NSArray arrayWithObjects:@"emp",@"xml",nil]];
-	[op runModal];
+	
+	if([op runModal] == NSFileHandlingPanelCancelButton){
+		return;
+	}
 	
 	if([[op URLs]count] == 0){
 		return;
 	}
+	
 	NSURL *url = [[op URLs]objectAtIndex:0];
 	if(url == nil){
 		return;
 	}
-	
-	
 	
 	/*
 	 now we import the plan.

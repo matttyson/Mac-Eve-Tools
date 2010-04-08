@@ -118,7 +118,6 @@
 		C9FF479710550BA60044BBAC /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF471810550BA50044BBAC /* Helpers.m */; };
 		C9FF479B10550BA60044BBAC /* ServerMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472110550BA50044BBAC /* ServerMonitor.m */; };
 		C9FF479C10550BA60044BBAC /* EvemonXmlPlanIO.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */; };
-		C9FF479D10550BA60044BBAC /* PlanIO.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472610550BA50044BBAC /* PlanIO.m */; };
 		C9FF479E10550BA60044BBAC /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472810550BA50044BBAC /* Skill.m */; };
 		C9FF479F10550BA60044BBAC /* SkillGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472A10550BA50044BBAC /* SkillGroup.m */; };
 		C9FF47A010550BA60044BBAC /* SkillPair.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF472C10550BA50044BBAC /* SkillPair.m */; };
@@ -361,7 +360,6 @@
 		C9FF472310550BA50044BBAC /* EvemonXmlPlanIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvemonXmlPlanIO.h; sourceTree = "<group>"; };
 		C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvemonXmlPlanIO.m; sourceTree = "<group>"; };
 		C9FF472510550BA50044BBAC /* PlanIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanIO.h; sourceTree = "<group>"; };
-		C9FF472610550BA50044BBAC /* PlanIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanIO.m; sourceTree = "<group>"; };
 		C9FF472710550BA50044BBAC /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		C9FF472810550BA50044BBAC /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		C9FF472910550BA50044BBAC /* SkillGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillGroup.h; sourceTree = "<group>"; };
@@ -762,7 +760,6 @@
 				C9FF472310550BA50044BBAC /* EvemonXmlPlanIO.h */,
 				C9FF472410550BA50044BBAC /* EvemonXmlPlanIO.m */,
 				C9FF472510550BA50044BBAC /* PlanIO.h */,
-				C9FF472610550BA50044BBAC /* PlanIO.m */,
 				C9FF472710550BA50044BBAC /* Skill.h */,
 				C9FF472810550BA50044BBAC /* Skill.m */,
 				C9FF472910550BA50044BBAC /* SkillGroup.h */,
@@ -1068,7 +1065,6 @@
 				C9FF479710550BA60044BBAC /* Helpers.m in Sources */,
 				C9FF479B10550BA60044BBAC /* ServerMonitor.m in Sources */,
 				C9FF479C10550BA60044BBAC /* EvemonXmlPlanIO.m in Sources */,
-				C9FF479D10550BA60044BBAC /* PlanIO.m in Sources */,
 				C9FF479E10550BA60044BBAC /* Skill.m in Sources */,
 				C9FF479F10550BA60044BBAC /* SkillGroup.m in Sources */,
 				C9FF47A010550BA60044BBAC /* SkillPair.m in Sources */,
