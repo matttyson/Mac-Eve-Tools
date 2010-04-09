@@ -21,12 +21,7 @@
 
 @interface MTCountdown : NSTextField {
 	NSInteger realInterval;
-	
-	NSInteger days;
-	NSInteger hours;
-	NSInteger min;
-	NSInteger sec;
-	
+		
 	BOOL active;
 	BOOL complete;
 	
@@ -39,11 +34,10 @@
 
 -(void) drawRect:(NSRect)rect;
 
--(void) setInterval:(NSTimeInterval)inter;
-
--(void) activate;
--(void) deactivate;
+-(void) setInterval:(NSInteger)inter;
 
 -(void) setVisible:(BOOL)vis;
+
+-(void) tick;
 
 @end

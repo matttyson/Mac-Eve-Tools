@@ -65,15 +65,6 @@
 	return result;
 }
 
--(NSRect) rectForCountdown:(NSRect)bounds text:(NSAttributedString*)text
-{
-	NSSize textSize = [text size];
-	CGFloat descender = [self descenderOffsetForText:text];
-	NSRect result = NSMakeRect(bounds.size.width - textSize.width + VIEW_PADDING,
-							   bounds.origin.y + VIEW_PADDING + descender,
-							   textSize.width, textSize.height);
-	return result;
-}
 
 -(NSRect) rectForProgressBar:(NSRect)bounds aboveText:(NSAttributedString*)text
 {
@@ -240,6 +231,69 @@
 	[self shadeProgressBar:bounds];
 }
 
+-(void) drawStringEndingAtPoint:(const NSPoint*)endPoint 
+						   text:(NSAttributedString*)text
+{
+	NSSize textSize = [text size];
+	NSPoint startPoint = NSMakePoint(endPoint->x - textSize.width, endPoint->y);
+	NSRect area = NSMakeRect(endPoint->x - textSize.width, endPoint->y, textSize.width, textSize.height);
+	
+	[text drawInRect:area];
+}
+
+-(void) drawCountdown:(const NSPoint*)endPoint
+{
+	//NSString *str = stringTrainingTime2([plan trainingTime:YES],TTF_All);	
+	NSString *str = stringTrainingTime2(planTrainingTime, TTF_All);
+//	NSLog(@"%@",str);
+	NSAttributedString *astr = [[NSAttributedString alloc]initWithString:str];
+	
+	[self drawStringEndingAtPoint:endPoint text:astr];
+	
+	[astr release];
+}
+
+-(NSRect) getDrawFrame:(const NSRect*)rect
+{
+	NSRect newRect = NSMakeRect(0.0, 0.0, rect->size.width, rect->size.height);
+	
+	newRect.origin.x += 5.0;
+	newRect.size.width -= 10.0;
+	
+	return newRect;
+}
+
+-(void) tick
+{
+	planTrainingTime--;
+	/*
+	if([self lockFocusIfCanDraw]){
+		
+		NSRect frame = [self frame];
+		NSRect newRect = [self getDrawFrame:&frame];
+		
+		NSPoint textEndPoint = NSMakePoint(newRect.size.width, newRect.origin.y);
+	
+		[self drawCountdown:&textEndPoint];
+	
+		[self unlockFocus];
+		
+		//NSLog(@"TimeRemaining: %ld",planTrainingTime);
+	}
+	*/
+	[self setNeedsDisplay:YES];
+}
+
+-(NSInteger)timeRemaining
+{
+	return planTrainingTime;
+}
+
+-(void) setTimeRemaining:(NSInteger)timeRemaining
+{
+	planTrainingTime = timeRemaining;
+}
+
 - (void)drawRect:(NSRect)rect {
 	// Drawing code here.
 	if(plan == nil){
@@ -250,27 +304,16 @@
 		return;
 	}
 	
-	NSRect newRect = NSMakeRect(0.0, 0.0, rect.size.width, rect.size.height);
+	NSRect newRect = [self getDrawFrame:&rect];
 	
-	newRect.origin.x += 5.0;
-	newRect.size.width -= 10.0;
-	
-	/*FIXME TODO this may return a NULL string, which breaks everything*/
 	NSInteger trainingTime = [plan trainingTime:YES];
 	NSString *str;
 	NSMutableAttributedString *astr;
 	NSRect drawRect;
 	
-	if(trainingTime == 0){
-		//the skill queue has one skill in it, which has finished training
-		str = @"Completed";
-	}else{
-		str = stringTrainingTime2([plan trainingTime:YES],TTF_All);	
-		astr = [[[NSMutableAttributedString alloc]initWithString:str]autorelease];
-		drawRect = [self rectForCountdown:newRect text:astr];
-		if(NSContainsRect(rect, drawRect)){
-			[self drawText:drawRect text:astr];
-		}
+	if(trainingTime != 0){
+		NSPoint textEndPoint = NSMakePoint(newRect.size.width, newRect.origin.y);
+		[self drawCountdown:&textEndPoint];
 	}
 	
 	NSDateFormatter *f = [[[NSDateFormatter alloc]init]autorelease];
@@ -317,6 +360,7 @@
 		NSAttributedString *attr = [[[NSAttributedString alloc]initWithString:@"test"]autorelease];
 		NSRect temp = [self rectForFinishDate:frame text:attr];
 		temp = [self rectForHourMarks:frame progressRect:temp];
+		
 		/*This isn't right, it uses some hardcoded values which happen to work, fix later.*/
 		temp.size.height = frame.size.height - temp.origin.y - 29.0;
 		temp.size.width = frame.size.width - 7.0;
@@ -363,7 +407,8 @@
 		[cell setTarget:self];
 		
 		NSTableColumn *col = [[NSTableColumn alloc]initWithIdentifier:@"SKILL_QUEUE"];
-		[[col headerCell]setStringValue:NSLocalizedString(@"Training Queue",@"Cell header for the training queue on the character sheet.")];
+		[[col headerCell]setStringValue:NSLocalizedString(@"Training Queue",
+														  @"Cell header for the training queue on the character sheet.")];
 		[col setDataCell:cell];
 		[col setMaxWidth:500.0];
 		[col setWidth:[scrollView frame].size.width];
@@ -409,6 +454,8 @@
 	[skillPlanView noteNumberOfRowsChanged];
 	[skillPlanView reloadData];
 	[self setNeedsDisplay:YES];
+	
+	//planTrainingTime = [plan trainingTime:YES];
 }
 
 
@@ -479,8 +526,8 @@
 			}
 		}
 		/*calculate the start and finish times for the cell as percentages*/
-	//	NSInteger startLoc = 0;
-	//	NSInteger finishLoc = 0;
+		//NSInteger startLoc = 0;
+		//NSInteger finishLoc = 0;
 	}
 }
 

@@ -245,6 +245,10 @@
 	return rc;
 }
 
+
+/*
+	write a 
+ */
 -(NSData*) writeToBuffer:(SkillPlan*)plan
 {
 	xmlDoc *doc = xmlNewDoc((xmlChar*)"1.0");
@@ -275,6 +279,7 @@
 		xmlNewProp(skillNode,(xmlChar*)"skill",(xmlChar*)[[s skillName]UTF8String]);
 		
 		xmlNewProp(skillNode,(xmlChar*)"level",(xmlChar*)
+				   /*this is probably a crap way to do it*/
 				   [[[NSNumber numberWithInteger:[sp skillLevel]]descriptionWithLocale:nil]UTF8String]
 				   );
 		

@@ -112,6 +112,11 @@
 -(NSInteger) trainingTime;
 -(NSInteger) trainingTime:(BOOL)recalc;
 
+/*returns how long it will take to train the queue, from the given start date*/
+-(NSInteger) trainingTimeFromDate:(NSDate*)now;
+/*returns how long it will take to train the skill at the index, starting from the given start date*/
+-(NSInteger) trainingTimeOfSkillAtIndex:(NSInteger)skillIndex fromDate:(NSDate*)now;
+
 /*should be obvious*/
 -(void) savePlan;
 

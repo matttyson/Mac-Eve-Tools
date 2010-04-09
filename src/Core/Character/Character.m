@@ -166,8 +166,10 @@
 						 secondary:(NSInteger)secondary 
 					   skillPoints:(NSInteger)skillPoints
 {
-	CGFloat spPerSecond = ((((CGFloat)attributeTotals[primary]) + (((CGFloat)attributeTotals[secondary]) / 2.0)) / 60.0);
+	CGFloat spPerSecond = (((attributeTotals[primary]) + ((attributeTotals[secondary]) / 2.0)) / 60.0);
+	
 	CGFloat trainingTime = ((CGFloat)skillPoints / spPerSecond);
+	
 	return xlround(trainingTime);
 }
 

@@ -1,11 +1,11 @@
-Release 16.8
+Release 16.8 (08/04/2010)
 	Fixed learning skills not adjusting training times.
 	Attribute calculator.
 	Evemon EMP & XML skill plan importing and exporting.
 	Character portraits can be updated.
 
 Release 16.7 (01/03/2010)
-	German translation provied by Cyllena
+	German translation provied by eXeler0n
 	All skill and certificate information now comes from
 		the database.  German and Russian language 
 		support from the database. (see preference screen)

@@ -65,7 +65,13 @@
 	
 	Character *currentCharacter; /*the character we are displaying*/
 	Skill *trainingSkill;
+	
+	NSInteger trainingTimeOfCurrentSkill;
+	NSInteger trainingTimeOfCurrentQueue;
+		
 	id<METInstance> mainApp;
+		
+	NSTimer *secondTimer;
 }
 
 -(Character*) character;

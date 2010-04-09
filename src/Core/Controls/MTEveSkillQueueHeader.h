@@ -35,6 +35,8 @@
 	BOOL active;
 	
 	NSTimer *secondTimer;
+	
+	NSInteger planTrainingTime;
 }
 
 -(BOOL) hidden;
@@ -45,5 +47,10 @@
 
 -(Character*) character;
 -(void) setCharacter:(Character*)c;
+
+-(void) tick;
+
+-(NSInteger) timeRemaining;
+-(void) setTimeRemaining:(NSInteger)timeRemaining;
 
 @end

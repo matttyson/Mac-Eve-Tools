@@ -142,19 +142,6 @@ NSInteger totalSkillPointsForLevel(NSInteger skillLevel, NSInteger skillRank)
 	return (sp[skillLevel] * skillRank);
 }
 
-NSInteger spPerHour(NSInteger primary, NSInteger secondary)
-{
-	return ((primary / 100.0) + ((secondary / 100.0) / 2.0)) * 60.0;
-}
-
-NSInteger minutesTrainingTime(NSInteger skillLevel, NSInteger skillRank, NSInteger primary, NSInteger secondary)
-{
-	NSInteger skillPoints = skillPointsForLevel(skillLevel, skillRank);
-	NSInteger sphr = spPerHour(primary, secondary);
-	CGFloat spMin = sphr / 60.0;
-	return skillPoints / spMin;
-}
-
 NSString* stringTrainingTime(NSInteger trainingTime)
 {
 	return stringTrainingTime2(trainingTime,TTF_Days | TTF_Hours | TTF_Minutes);

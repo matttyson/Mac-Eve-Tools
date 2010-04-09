@@ -38,7 +38,7 @@
 	IBOutlet NSTableView *shipFitting;
 	
 	IBOutlet NSOutlineView *shipPrerequisites;
-		
+	
 	CCPType *ship;
 	Character *character;
 	

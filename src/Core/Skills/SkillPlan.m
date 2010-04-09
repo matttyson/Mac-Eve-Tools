@@ -699,6 +699,26 @@ static NSDictionary *masterSkillSet = nil;;
 	return planTrainingTime;
 }
 
+
+-(NSInteger) trainingTimeFromDate:(NSDate*)now
+{	
+	if([skillPlan count] == 0){
+		return 0;
+	}
+	
+	return (NSInteger) [[self skillTrainingFinish:[self skillCount]-1]timeIntervalSinceDate:now];
+}
+
+-(NSInteger) trainingTimeOfSkillAtIndex:(NSInteger)skillIndex fromDate:(NSDate*)now
+{
+	if([skillPlan count] == 0){
+		return 0;
+	}
+	
+	return (NSInteger) [[self skillTrainingFinish:skillIndex]timeIntervalSinceDate:now];
+}
+
+
 -(NSInteger) skillCount
 {
 	return [skillPlan count];

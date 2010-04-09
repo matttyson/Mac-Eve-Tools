@@ -74,7 +74,6 @@
 {
 	[trainingRate setObjectValue:nil];
 	[charTraining setObjectValue:nil];
-	[timeRemaining deactivate];
 	[timeRemaining setVisible:NO];
 	trainingSkill = nil;
 }
@@ -95,6 +94,7 @@
 	
 	[queueHeader setCharacter:character];
 	[queueHeader setSkillPlan:plan];
+	[queueHeader setTimeRemaining:trainingTimeOfCurrentQueue];
 	[queueHeader setNeedsDisplay:YES];
 }
 
@@ -167,7 +167,6 @@
 		/*not training.*/
 		[charTraining setStringValue:NSLocalizedString(@"Not Training",@"Character is not training any skills")];
 		[charTraining sizeToFit];
-		[timeRemaining deactivate];
 		[trainingRate setObjectValue:nil];
 		[timeRemaining setHidden:YES];
 		[trainingRate setHidden:YES];
@@ -196,14 +195,26 @@
 						  romanForString([character stringForKey:CHAR_TRAINING_LEVEL])];
 	[charTraining setStringValue:training];
 	[charTraining sizeToFit];
-	
+	/*
 	NSString *endTime = [NSString stringWithFormat:@"%@ +0000",[character stringForKey:CHAR_TRAINING_END]];
 	NSDate *finishDate = [NSDate dateWithString:endTime];
 	NSTimeInterval timeDiff = [finishDate timeIntervalSinceNow];
 	if(timeDiff > 0.0){
+
+	*/
+	
+//	NSInteger trainingTime = 0;
+	
+	if([[character trainingQueue]skillCount] > 0){
 		
-		[timeRemaining setInterval:timeDiff];
-		[timeRemaining activate];
+		/*
+		 this needs to be whatever the skill planner thinks it is to train a single skill, not what the XML sheet says
+		 The XML sheet sheet gives a different time to what the skill planner says and users will piss and moan if there
+		 is a difference between the two.
+		 */
+		
+		[timeRemaining setInterval:trainingTimeOfCurrentSkill];
+		[queueHeader setTimeRemaining:trainingTimeOfCurrentQueue];
 			
 		/*this needs the character sheet to calculate, and also needs the training sheet to know if it should be displayed*/
 		NSInteger sphr = [character spPerHour];
@@ -297,6 +308,16 @@
 	
 	currentCharacter = [c retain];
 	
+	SkillPlan *skillQueue = [c trainingQueue];
+		
+	if([skillQueue skillCount] > 0){
+		NSDate *now = [NSDate date];
+		trainingTimeOfCurrentSkill = [skillQueue trainingTimeOfSkillAtIndex:0 fromDate:now];
+		trainingTimeOfCurrentQueue = [skillQueue trainingTimeFromDate:now];
+	}else{
+		trainingTimeOfCurrentSkill = 0;
+		trainingTimeOfCurrentQueue = 0;
+	}
 	[self showCharDetails:currentCharacter];
 	[self showCharTrainingDetails:currentCharacter];
 	[self showCharTrainingQueue:currentCharacter];
@@ -307,7 +328,12 @@
 
 -(void) viewIsActive
 {
-	[queueHeader setNeedsDisplay:YES];
+	//user is looking at the charsheet. start the timer again.
+	secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+												   target:self
+												 selector:@selector(timerTick:)
+												 userInfo:nil
+												  repeats:YES];
 }
 
 /*window is now inactive, clear instance variables of datasources and stuff*/
@@ -324,6 +350,10 @@
 		[currentCharacter release];
 		currentCharacter = nil;
 	}
+	
+	//Stop the timer when the user is no longer looking at the charsheet
+	[secondTimer invalidate];
+	secondTimer = nil;
 }
 
 -(void) viewWillBeDeactivated
@@ -342,10 +372,7 @@
 	return nil;
 }
 
--(NSView*) view
-{
-	return [super view];
-}
+/////end protocol methods
 
 -(void) dealloc
 {
@@ -366,8 +393,6 @@
 
 -(void) awakeFromNib
 {
-	NSLog(@"Awoken from nib");
-	
 	/*Number formatter for the characters balance*/
 	NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
 	[f setFormatterBehavior:NSNumberFormatterBehavior10_4];
@@ -403,7 +428,8 @@
 	[cell setTarget:self];
 	
 	[queueHeader setHidden:YES];
-		
+	
+	/*the right-click ->delete popup menu for the character portrait.*/
 	NSMenu *portraitMenu = [[NSMenu alloc]initWithTitle:@"Delete Portrait"];
 	NSMenuItem *menuItem = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Delete Portrait",)
 													 action:@selector(deleteCurrentPortrait:)
@@ -415,6 +441,17 @@
 	[portrait setMenu:portraitMenu];
 	[portraitMenu release];
 	
+	//timeRemaining = nil;
+}
+
+/*
+	Called once every second to update the training time countdown
+	on the character sheet.
+ */
+-(void) timerTick:(NSTimer*)theTimer
+{
+	[queueHeader tick];
+	[timeRemaining tick];
 }
 
 -(void) deleteCurrentPortrait:(id)notUsed
@@ -520,6 +557,8 @@ willDisplayOutlineCell:(id)cell
 }
 
 
+/*delegate methods for the skill cell display*/
+
 - (void)outlineView:(NSOutlineView *)outlineView 
 	willDisplayCell:(id)cell 
 	 forTableColumn:(NSTableColumn *)tableColumn 
@@ -531,7 +570,8 @@ willDisplayOutlineCell:(id)cell
 				 item:item];
 }
 
-- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item
+- (CGFloat)outlineView:(NSOutlineView *)outlineView 
+	 heightOfRowByItem:(id)item
 {
 	if([item isKindOfClass:[Skill class]]){
 		return 36.0;
