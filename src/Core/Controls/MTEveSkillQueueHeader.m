@@ -266,21 +266,7 @@
 -(void) tick
 {
 	planTrainingTime--;
-	/*
-	if([self lockFocusIfCanDraw]){
-		
-		NSRect frame = [self frame];
-		NSRect newRect = [self getDrawFrame:&frame];
-		
-		NSPoint textEndPoint = NSMakePoint(newRect.size.width, newRect.origin.y);
-	
-		[self drawCountdown:&textEndPoint];
-	
-		[self unlockFocus];
-		
-		//NSLog(@"TimeRemaining: %ld",planTrainingTime);
-	}
-	*/
+
 	[self setNeedsDisplay:YES];
 }
 
@@ -316,16 +302,11 @@
 		[self drawCountdown:&textEndPoint];
 	}
 	
-	NSDateFormatter *f = [[[NSDateFormatter alloc]init]autorelease];
-	[f setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[f setDateStyle:NSDateFormatterFullStyle];
-	[f setTimeStyle:NSDateFormatterShortStyle];
-	
 	NSDate *finishDate = [plan skillTrainingFinish:[plan skillCount]-1];
 	if(trainingTime == 0){
 		str = @"Completed";
 	}else{
-		str = [f stringFromDate:finishDate];
+		str = [dFormat stringFromDate:finishDate];
 	}
 		
 	astr = [[[NSMutableAttributedString alloc]initWithString:str]autorelease];
@@ -353,74 +334,13 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
 		progressColor1 = [[NSColor colorWithDeviceRed:56.0/255.0 green:117.0/255.0 blue:215.0/255.0 alpha:1.0]retain];
 		progressColor2 = [[NSColor colorWithDeviceRed:20.0/255.0 green:61.0/255.0 blue:153.0/255.0 alpha:1.0]retain];
 		
-		NSAttributedString *attr = [[[NSAttributedString alloc]initWithString:@"test"]autorelease];
-		NSRect temp = [self rectForFinishDate:frame text:attr];
-		temp = [self rectForHourMarks:frame progressRect:temp];
-		
-		/*This isn't right, it uses some hardcoded values which happen to work, fix later.*/
-		temp.size.height = frame.size.height - temp.origin.y - 29.0;
-		temp.size.width = frame.size.width - 7.0;
-		temp.origin.y += 29.0;
-		temp.origin.x = 4.0;
-		
-		scrollView = [[NSScrollView alloc]initWithFrame:temp];
-		[scrollView setFocusRingType:NSFocusRingTypeNone];
-		[scrollView setHasVerticalScroller:YES];
-		[scrollView setHasHorizontalScroller:YES];
-		[scrollView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-		[scrollView setAutoresizesSubviews:YES];
-		[scrollView setAutohidesScrollers:YES];
-		
-		/*
-		 This should be removed and done seperatly, instead of one big frame.
-		 The skill queue progress bar should be one view, the NSTableView should be
-		 in a seperate class. not here
-		 */
-		skillPlanView = [[NSTableView alloc]initWithFrame:[scrollView frame]];
-		[skillPlanView setFocusRingType:NSFocusRingTypeNone];
-		[skillPlanView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-		[skillPlanView setAllowsColumnSelection:YES];		
-		[skillPlanView setDelegate:self];
-		[skillPlanView setDataSource:self];
-		[skillPlanView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
-		[skillPlanView setRowHeight:36.0];
-		
-		[scrollView setDocumentView:skillPlanView];
-		
-		[self addSubview:scrollView positioned:NSWindowAbove relativeTo:nil];
-		
-		MTEveSkillQueueCell *cell = [[MTEveSkillQueueCell alloc]init];
-		
-		[cell setMode:Mode_Skill];
-		[cell setTarget:self];
-		
-		NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
-		[f setFormatterBehavior:NSNumberFormatterBehavior10_4];
-		[f setNumberStyle:NSNumberFormatterDecimalStyle];
-		[cell setFormatter:f];
-		[f release];
-		
-		[cell setTarget:self];
-		
-		NSTableColumn *col = [[NSTableColumn alloc]initWithIdentifier:@"SKILL_QUEUE"];
-		[[col headerCell]setStringValue:NSLocalizedString(@"Training Queue",
-														  @"Cell header for the training queue on the character sheet.")];
-		[col setDataCell:cell];
-		[col setMaxWidth:500.0];
-		[col setWidth:[scrollView frame].size.width];
-		[col setEditable:NO];
-		[skillPlanView addTableColumn:col];
-		[col release];
-		[cell release];
-		
-		plan = nil;
-		character = nil;
-		
-		[scrollView setHidden:NO];
+		dFormat = [[NSDateFormatter alloc]init];
+		[dFormat setFormatterBehavior:NSDateFormatterBehavior10_4];
+		[dFormat setDateStyle:NSDateFormatterFullStyle];
+		[dFormat setTimeStyle:NSDateFormatterShortStyle];
 	}
 	return self;
 }
@@ -446,109 +366,30 @@
 
 -(void) setSkillPlan:(SkillPlan*)skillPlan
 {
+	
 	if(plan != nil){
 		[plan release];
 	}
 	
 	plan = [skillPlan retain];
-	[skillPlanView noteNumberOfRowsChanged];
-	[skillPlanView reloadData];
 	[self setNeedsDisplay:YES];
-	
-	//planTrainingTime = [plan trainingTime:YES];
-}
-
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
-{
-	if(plan == nil){
-		return 0;
-	}
-	if(character == nil){
-		return 0;
-	}
-	
-	return [plan skillCount];
-}
-
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
-{
-	return nil;
 }
 
 -(void) infoButtonAction:(NSTableView*)sender
 {
 	
 }
-
-- (void)tableView:(NSTableView *)aTableView 
-  willDisplayCell:(id)aCell 
-   forTableColumn:(NSTableColumn *)aTableColumn 
-			  row:(NSInteger)rowIndex
-{
-	if(plan == nil){
-		return;
-	}
-	if(character == nil){
-		return;
-	}
-	if([aCell isKindOfClass:[MTEveSkillQueueCell class]]){
-		MTEveSkillQueueCell *cell = aCell;
-		SkillPair *pair = [plan skillAtIndex:rowIndex];
-		
-		NSNumber *typeID = [pair typeID];
-		NSInteger skillLevel = [pair skillLevel];
-		
-		[cell setSkill:[[character skillTree]skillForId:typeID]];
-		[cell setPair:pair];
-		
-		NSInteger trainTime = [character trainingTimeInSeconds:typeID 
-													 fromLevel:skillLevel-1 
-													   toLevel:skillLevel 
-									   accountForTrainingSkill:YES];
-		[cell setTimeLeft:trainTime];
-		
-		if(rowIndex == 0){
-			//NSInteger points = [character currentSPForTrainingSkill];
-			//NSInteger pointsForLevel = totalSkillPointsForLevel(skillLevel, [[tree skillForId:typeID]skillRank]);
-			//CGFloat progress = ((CGFloat)points / (CGFloat)pointsForLevel);
-			CGFloat progress = [character percentCompleted:[pair typeID] fromLevel:skillLevel-1 toLevel:skillLevel];
-			[cell setPercentCompleted:progress];
-		}else{
-			
-			Skill *s = [[character skillTree]skillForId:typeID];
-			if(s == nil){
-				[cell setPercentCompleted:0];
-			}else{
-				[cell setPercentCompleted:
-					[character percentCompleted:typeID fromLevel:skillLevel-1 toLevel:skillLevel]
-				 ];
-			}
-		}
-		/*calculate the start and finish times for the cell as percentages*/
-		//NSInteger startLoc = 0;
-		//NSInteger finishLoc = 0;
-	}
-}
-
-- (BOOL)selectionShouldChangeInTableView:(NSTableView *)aTableView
-{
-	return NO;
-}
-
 -(void) dealloc
 {
 	[progressColor1 release];
 	[progressColor2 release];
-	[skillPlanView release];
-	[scrollView release];
+	[dFormat release];
 	[super dealloc];
 }
 
 -(void) hideTableView
 {
-	[skillPlanView setHidden:YES];
-	[skillPlanView display];
+
 }
 
 -(BOOL) hidden
@@ -559,8 +400,6 @@
 {
 	active = !hidden;
 	[super setHidden:hidden];
-	[scrollView setHidden:hidden];
-	[skillPlanView setHidden:hidden];
 }
 
 

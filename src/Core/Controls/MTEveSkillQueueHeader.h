@@ -29,14 +29,11 @@
 	NSColor *progressColor1;
 	NSColor *progressColor2;
 	
-	NSTableView *skillPlanView;
-	NSScrollView *scrollView;
-	
 	BOOL active;
 	
-	NSTimer *secondTimer;
-	
 	NSInteger planTrainingTime;
+	
+	NSDateFormatter *dFormat;
 }
 
 -(BOOL) hidden;

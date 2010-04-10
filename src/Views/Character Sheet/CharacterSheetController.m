@@ -29,6 +29,7 @@
 #import "SkillDetailsWindowController.h"
 #import "MTEveSkillCell.h"
 #import "MTEveSkillQueueHeader.h"
+#import "SkillQueueDatasource.h"
 
 #import "SkillPlan.h"
 
@@ -173,13 +174,13 @@
 		[queueHeader setHidden:YES];
 		[titleRate setHidden:YES];
 		[titleRemaining setHidden:YES];
+		[[skillQueueDisplay enclosingScrollView]setHidden:YES];
 		trainingSkill = nil;
+		
 		return;
 	}
 		
-	[queueHeader setHidden:NO];
-	[titleRate setHidden:NO];
-	[titleRemaining setHidden:NO];
+
 	
 	
 	NSString *typeID = [character stringForKey:CHAR_TRAINING_TYPEID];
@@ -195,26 +196,21 @@
 						  romanForString([character stringForKey:CHAR_TRAINING_LEVEL])];
 	[charTraining setStringValue:training];
 	[charTraining sizeToFit];
-	/*
-	NSString *endTime = [NSString stringWithFormat:@"%@ +0000",[character stringForKey:CHAR_TRAINING_END]];
-	NSDate *finishDate = [NSDate dateWithString:endTime];
-	NSTimeInterval timeDiff = [finishDate timeIntervalSinceNow];
-	if(timeDiff > 0.0){
-
-	*/
-	
-//	NSInteger trainingTime = 0;
 	
 	if([[character trainingQueue]skillCount] > 0){
 		
 		/*
-		 this needs to be whatever the skill planner thinks it is to train a single skill, not what the XML sheet says
+		 this needs to be whatever the skill planner thinks it is to train a single skill, not what the XML sheet says.
 		 The XML sheet sheet gives a different time to what the skill planner says and users will piss and moan if there
 		 is a difference between the two.
+		 
+		 we use the trainingTimeOfCurrentSkill / trainingTimeOfCurrentQueue variables to keep the training time
+		 exact across all displays so they are all consistent and tick down at the exact same speed.
 		 */
 		
 		[timeRemaining setInterval:trainingTimeOfCurrentSkill];
 		[queueHeader setTimeRemaining:trainingTimeOfCurrentQueue];
+		[skillQueueDatasource setFirstSkillCountdown:trainingTimeOfCurrentSkill];
 			
 		/*this needs the character sheet to calculate, and also needs the training sheet to know if it should be displayed*/
 		NSInteger sphr = [character spPerHour];
@@ -224,11 +220,11 @@
 		[timeRemaining setVisible:YES];
 		[timeRemaining setHidden:NO];
 		[trainingRate setHidden:NO];
-	}else{
-		[timeRemaining setHidden:YES];
-		[trainingRate setHidden:YES];
-		[titleRemaining setHidden:YES];
-		[titleRate setHidden:YES];
+		[skillQueueDisplay setHidden:NO];
+		[queueHeader setHidden:NO];
+		[titleRate setHidden:NO];
+		[titleRemaining setHidden:NO];
+		[[skillQueueDisplay enclosingScrollView]setHidden:NO];
 	}
 	trainingSkill = [[character skillTree]skillForId:[character trainingSkill]];
 }
@@ -318,6 +314,11 @@
 		trainingTimeOfCurrentSkill = 0;
 		trainingTimeOfCurrentQueue = 0;
 	}
+	
+	[skillQueueDatasource setCharacter:currentCharacter];
+	[skillQueueDatasource setPlan:skillQueue];
+	[skillQueueDisplay reloadData];
+	
 	[self showCharDetails:currentCharacter];
 	[self showCharTrainingDetails:currentCharacter];
 	[self showCharTrainingQueue:currentCharacter];
@@ -328,7 +329,7 @@
 
 -(void) viewIsActive
 {
-	//user is looking at the charsheet. start the timer again.
+	//user is looking at the charsheet. start the timer.
 	secondTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
 												   target:self
 												 selector:@selector(timerTick:)
@@ -414,6 +415,10 @@
 	[cloneSP setFormatter:f];
 	[f release];
 	
+	skillQueueDatasource = [[SkillQueueDatasource alloc]init];
+	[skillQueueDisplay setDataSource:skillQueueDatasource];
+	[skillQueueDisplay setDelegate:skillQueueDatasource];
+	
 	SPFormatter = [[NSNumberFormatter alloc]init];
 	[SPFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
 	[SPFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -426,8 +431,9 @@
 	/*set up the cell for drawing skills*/
 	MTEveSkillCell *cell = [[skillTree tableColumnWithIdentifier:COL_SKILL_NAME]dataCell];
 	[cell setTarget:self];
-	
-	[queueHeader setHidden:YES];
+
+//	[queueHeader setHidden:YES];
+//	[skillQueueDisplay setHidden:YES];
 	
 	/*the right-click ->delete popup menu for the character portrait.*/
 	NSMenu *portraitMenu = [[NSMenu alloc]initWithTitle:@"Delete Portrait"];
@@ -452,6 +458,8 @@
 {
 	[queueHeader tick];
 	[timeRemaining tick];
+	[skillQueueDatasource tick];
+	[skillQueueDisplay setNeedsDisplayInRect:[skillQueueDisplay frameOfCellAtColumn:0 row:0]];
 }
 
 -(void) deleteCurrentPortrait:(id)notUsed

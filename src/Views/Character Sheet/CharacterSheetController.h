@@ -28,6 +28,7 @@
 
 @class Character;
 @class Skill;
+@class SkillQueueDatasource;
 
 @interface CharacterSheetController : NSViewController 
 	<METPluggableView,NSOutlineViewDelegate> {
@@ -62,6 +63,9 @@
 	IBOutlet MTCountdown *timeRemaining;
 	
 	NSNumberFormatter *SPFormatter;
+		
+	IBOutlet NSTableView *skillQueueDisplay;
+	SkillQueueDatasource *skillQueueDatasource;
 	
 	Character *currentCharacter; /*the character we are displaying*/
 	Skill *trainingSkill;
