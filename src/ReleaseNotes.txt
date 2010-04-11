@@ -1,3 +1,6 @@
+Release 16.9 (11/04/2010)
+	The training queue now has a live countdown
+
 Release 16.8 (08/04/2010)
 	Fixed learning skills not adjusting training times.
 	Attribute calculator.
