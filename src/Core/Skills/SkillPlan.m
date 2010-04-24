@@ -706,7 +706,9 @@ static NSDictionary *masterSkillSet = nil;;
 		return 0;
 	}
 	
-	return (NSInteger) [[self skillTrainingFinish:[self skillCount]-1]timeIntervalSinceDate:now];
+	NSInteger time = (NSInteger) [[self skillTrainingFinish:[self skillCount]-1]timeIntervalSinceDate:now];
+	
+	return MAX(time,0);
 }
 
 -(NSInteger) trainingTimeOfSkillAtIndex:(NSInteger)skillIndex fromDate:(NSDate*)now
@@ -715,7 +717,9 @@ static NSDictionary *masterSkillSet = nil;;
 		return 0;
 	}
 	
-	return (NSInteger) [[self skillTrainingFinish:skillIndex]timeIntervalSinceDate:now];
+	NSInteger time = (NSInteger) [[self skillTrainingFinish:skillIndex]timeIntervalSinceDate:now];
+	
+	return MAX(time,0);
 }
 
 
@@ -828,17 +832,4 @@ static NSDictionary *masterSkillSet = nil;;
 	[self removeSkillArrayFromPlan:ary];
 }
 
-/*
--(id) copyWithZone:(NSZone)zone
-{
-	SkillPlan *plan;// = [super copyWithZone:zone];
-	
-	plan->skillDates = nil;
-	plan->spHrArray = nil;
-	plan->character = self->character;
-	plan->skillPlan = [self->skillPlan mutableCopy];
-	
-	return plan;	
-}
-*/
 @end

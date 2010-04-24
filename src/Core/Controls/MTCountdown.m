@@ -44,9 +44,7 @@
 
 -(void) setInterval:(NSInteger)inter
 {
-	if(inter > 0){
-		realInterval = (NSInteger) inter;
-	}
+	realInterval = MAX(inter,0);
 }
 
 -(void) drawRect:(NSRect)rect
