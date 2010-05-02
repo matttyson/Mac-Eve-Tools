@@ -124,7 +124,11 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_TRAINING_TIME]){
 		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]
 											 timeIntervalSinceDate:[skillPlan skillTrainingStart:rowIndex]];
-		return stringTrainingTime(trainingTime);
+		if(trainingTime == 0){
+			return NSLocalizedString(@"Complete",@"Skill planner. Training Time column.  Skill has finished training.");
+		}else{
+			return stringTrainingTime(trainingTime);
+		}
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_TRAINING_TTD]){
 		NSInteger trainingTime = (NSInteger)[[skillPlan skillTrainingFinish:rowIndex]
 											 timeIntervalSinceDate:[skillPlan skillTrainingStart:0]];
@@ -147,11 +151,11 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 					NSInteger startSP = totalSkillPointsForLevel([sp skillLevel]-1,[s skillRank]);
 					NSInteger finishSP = totalSkillPointsForLevel([sp skillLevel],[s skillRank]);
 					CGFloat percentCompleted = 
-					skillPercentCompleted(startSP,
-										  finishSP,
-										  currentSP) * 100.0;
+						skillPercentCompleted(startSP,
+											  finishSP,
+											  currentSP) * 100.0;
 					long int intPercent = xlround(percentCompleted);
-					return [NSString stringWithFormat:@"%ld%%",intPercent];
+					return [NSString stringWithFormat:@"%ld%%",MIN(intPercent,100l)];
 				}
 			}
 		}
@@ -159,7 +163,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 													 fromLevel:[sp skillLevel]-1 
 													   toLevel:[sp skillLevel]];
 		long int intPercent = xlround(percentCompleted * 100.0);
-		return [NSString stringWithFormat:@"%ld%%",intPercent];
+		
+		return [NSString stringWithFormat:@"%ld%%",MIN(intPercent,100l)];
 	}
 	return nil;
 }

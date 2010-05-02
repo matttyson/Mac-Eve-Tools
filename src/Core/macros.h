@@ -296,11 +296,11 @@ typedef enum DatabaseLanguage DatabaseLanguage;
  may need to look at changing this if we ever store anything that could go > MAX_INT. but nothing does at the moment (14/6/09)
  */
 #ifdef __LP64__
-#define sqlite3_column_nsint(x,y) sqlite3_column_int64((x),(y))
-#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int64((x),(y),(z))
+	#define sqlite3_column_nsint(x,y) sqlite3_column_int64((x),(y))
+	#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int64((x),(y),(z))
 #else
-#define sqlite3_column_nsint(x,y) sqlite3_column_int((x),(y))
-#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int((x),(y),(z))
+	#define sqlite3_column_nsint(x,y) sqlite3_column_int((x),(y))
+	#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int((x),(y),(z))
 #endif
 
 /*
@@ -311,18 +311,22 @@ typedef enum DatabaseLanguage DatabaseLanguage;
  floating point constants follow the same rule, these macros wrap to the
  proper function call for the type we are currently building for, to avoid
  compiler complaints.
+ 
+ the test is copied from CGBase.h where it sets CGFloat to float or double
  */
 
-#ifdef __LP64__
-#define xround(x) round((x))
-#define xfloor(x) floor((x))
-#define xceil(x) ceil((x))
-#define xlround(x) lround((x))
+#if defined(__LP64__) && __LP64__
+	#define xround(x) round((x))
+	#define xfloor(x) floor((x))
+	#define xceil(x) ceil((x))
+	#define xlround(x) lround((x))
+	#define xfabs(x) fabs((x))
 #else
-#define xround(x) roundf((x))
-#define xfloor(x) floorf((x))
-#define xceil(x) ceilf((x))
-#define xlround(x) lroundf((x))
+	#define xround(x) roundf((x))
+	#define xfloor(x) floorf((x))
+	#define xceil(x) ceilf((x))
+	#define xlround(x) lroundf((x))
+	#define xfabs(x) fabsf((x))
 #endif
 
 ///http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=<userid>&apiKey=<apikey>&characterID=<characterID>

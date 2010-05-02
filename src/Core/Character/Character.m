@@ -457,12 +457,14 @@
 	NSString *startTime = [NSString stringWithFormat:@"%@ +0000",[self stringForKey:CHAR_TRAINING_START]];
 	NSDate *startDate = [NSDate dateWithString:startTime];
 	
-	NSTimeInterval difference = [startDate timeIntervalSinceNow];//number of seconds since we started training
+	CGFloat difference = xfabs([startDate timeIntervalSinceNow]);//number of seconds since we started training
 	
 	/*now, get the current time, SP/hr and calculate the current SP.*/
 	NSInteger sphr = [self spPerHour];
 	
-	return (((CGFloat)-difference / 3600.0) * sphr) + startSP;
+	CGFloat currentSP = ((difference / 3600.0) * sphr) + startSP;
+	
+	return xround(currentSP);
 }
 
 -(BOOL) isTraining

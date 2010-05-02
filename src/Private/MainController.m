@@ -661,12 +661,7 @@
 	NSMenuItem *item = [sender selectedItem];
 	
 	id<METPluggableView> mvc = [item representedObject];
-	
-	
-
-
-
-	
+	 
 	[self setAsActiveView:mvc];
 }
 
