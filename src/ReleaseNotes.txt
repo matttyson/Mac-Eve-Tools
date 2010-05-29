@@ -1,3 +1,6 @@
+Release 16.10 (29/05/2010)
+	Tyrannis 1.0 Support.
+
 Release 16.9 (11/04/2010)
 	The training queue now has a live countdown
 

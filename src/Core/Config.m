@@ -90,7 +90,7 @@ static Config *cfg = nil;
 		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/database.sql.bz2";
 		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
 		
-		cfg->databaseMinimumVersion = 4;
+		cfg->databaseMinimumVersion = 5;
 		
 		[cfg readConfig];
 	}
