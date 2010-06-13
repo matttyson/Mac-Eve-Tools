@@ -1,3 +1,7 @@
+Release 16.11 (13/06/2010)
+	Tyrannis 1.0.1 Database
+	Dock icon thanks to leefur eelz.
+
 Release 16.10 (29/05/2010)
 	Tyrannis 1.0 Support.
 

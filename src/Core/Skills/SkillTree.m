@@ -82,6 +82,12 @@
 	return [skills objectForKey:skillID]; 
 }
 
+-(BOOL) skillExistsForId:(NSInteger)skillID
+{
+	Skill *s = [self skillForIdInteger:skillID];
+	return s == nil;
+}
+
 
 /*
  This is ineffiecent due to skills being keyed on TypeID and not skill name.

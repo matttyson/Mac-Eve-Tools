@@ -181,21 +181,21 @@
 	}
 		
 
+	if(trainingTimeOfCurrentSkill > 0){
+		NSString *typeID = [character stringForKey:CHAR_TRAINING_TYPEID];
+		NSNumber *key = [NSNumber numberWithInteger:[typeID integerValue]];
+		Skill *s = [[[GlobalData sharedInstance]skillTree] skillForId:key];
+		
+		if(s == nil){
+			NSLog(@"Skill was null for skill id %@",key);
+			return;
+		}
 	
-	
-	NSString *typeID = [character stringForKey:CHAR_TRAINING_TYPEID];
-	NSNumber *key = [NSNumber numberWithInteger:[typeID integerValue]];
-	Skill *s = [[[GlobalData sharedInstance]skillTree] skillForId:key];
-	
-	if(s == nil){
-		NSLog(@"Skill was null for skill id %@",key);
-		return;
+		NSString *training = [NSString stringWithFormat:@"%@ %@",[s skillName],
+							  romanForString([character stringForKey:CHAR_TRAINING_LEVEL])];
+		[charTraining setStringValue:training];
+		[charTraining sizeToFit];
 	}
-	
-	NSString *training = [NSString stringWithFormat:@"%@ %@",[s skillName],
-						  romanForString([character stringForKey:CHAR_TRAINING_LEVEL])];
-	[charTraining setStringValue:training];
-	[charTraining sizeToFit];
 	
 	if([[character trainingQueue]skillCount] > 0){
 		
@@ -213,6 +213,7 @@
 		[skillQueueDatasource setFirstSkillCountdown:trainingTimeOfCurrentSkill];
 			
 		/*this needs the character sheet to calculate, and also needs the training sheet to know if it should be displayed*/
+		if(trainingTimeOfCurrentSkill > 0){
 		NSInteger sphr = [character spPerHour];
 		[trainingRate setStringValue:[NSString stringWithFormat:@"%ld SP/hr",sphr]];
 		[trainingRate sizeToFit];
@@ -220,10 +221,11 @@
 		[timeRemaining setVisible:YES];
 		[timeRemaining setHidden:NO];
 		[trainingRate setHidden:NO];
-		[skillQueueDisplay setHidden:NO];
-		[queueHeader setHidden:NO];
 		[titleRate setHidden:NO];
 		[titleRemaining setHidden:NO];
+		}
+		[queueHeader setHidden:NO];
+		[skillQueueDisplay setHidden:NO];
 		[[skillQueueDisplay enclosingScrollView]setHidden:NO];
 	}
 	trainingSkill = [[character skillTree]skillForId:[character trainingSkill]];

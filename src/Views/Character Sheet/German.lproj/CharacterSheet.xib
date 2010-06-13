@@ -231,7 +231,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="709177090">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<object class="NSFont" key="NSSupport" id="24">
 												<string key="NSName">LucidaGrande</string>
@@ -257,7 +257,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="766698970">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="24"/>
 											<string key="NSPlaceholderString">per</string>
@@ -338,7 +338,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="674781074">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="24"/>
 											<string key="NSPlaceholderString">char</string>
@@ -371,7 +371,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="428632716">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="24"/>
 											<string key="NSPlaceholderString">mem</string>
@@ -420,7 +420,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="302366409">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">sp</string>
@@ -437,7 +437,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="156805174">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">train</string>
@@ -454,7 +454,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="936870506">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<object class="NSFont" key="NSSupport">
 												<string key="NSName">LucidaGrande</string>
@@ -475,7 +475,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="363590685">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">ks</string>
@@ -524,7 +524,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="106795577">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="24"/>
 											<string key="NSPlaceholderString">will</string>
@@ -557,7 +557,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="279791913">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<object class="NSFont" key="NSSupport">
 												<string key="NSName">LucidaGrande</string>
@@ -622,7 +622,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="681630358">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">bal</string>
@@ -655,7 +655,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="976652861">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">trate</string>
@@ -688,7 +688,7 @@
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="983214398">
 											<int key="NSCellFlags">68288064</int>
-											<int key="NSCellFlags2">272630784</int>
+											<int key="NSCellFlags2">272634880</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<string key="NSPlaceholderString">csp</string>
@@ -1147,7 +1147,6 @@
 							<reference ref="520752534"/>
 							<reference ref="216005183"/>
 							<reference ref="1049045319"/>
-							<reference ref="519407295"/>
 							<reference ref="568994033"/>
 							<reference ref="123646683"/>
 							<reference ref="319029344"/>
@@ -1155,6 +1154,7 @@
 							<reference ref="826603526"/>
 							<reference ref="473681318"/>
 							<reference ref="1069751759"/>
+							<reference ref="519407295"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -1495,20 +1495,6 @@
 						<reference key="parent" ref="1049045319"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">110</int>
-						<reference key="object" ref="519407295"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="976652861"/>
-						</object>
-						<reference key="parent" ref="1036844445"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">111</int>
-						<reference key="object" ref="976652861"/>
-						<reference key="parent" ref="519407295"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">113</int>
 						<reference key="object" ref="319029344"/>
 						<object class="NSMutableArray" key="children">
@@ -1598,6 +1584,20 @@
 						<int key="objectID">152</int>
 						<reference key="object" ref="1041065945"/>
 						<reference key="parent" ref="88244961"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">110</int>
+						<reference key="object" ref="519407295"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="976652861"/>
+						</object>
+						<reference key="parent" ref="1036844445"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">111</int>
+						<reference key="object" ref="976652861"/>
+						<reference key="parent" ref="519407295"/>
 					</object>
 				</object>
 			</object>
@@ -1689,7 +1689,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{27, 160}, {780, 579}}</string>
+					<string>{{548, 286}, {780, 579}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
