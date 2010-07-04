@@ -71,6 +71,7 @@
 -(Character*)init
 {
 	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 -(Character*) initWithPath:(NSString*)path
@@ -453,7 +454,15 @@
 -(NSInteger) currentSPForTrainingSkill
 {
 	/*get the start time, the finish time, start SP and calculate the current progress*/
-	NSInteger startSP = [self integerForKey:CHAR_TRAINING_STARTSP];
+	NSInteger typeID = [self integerForKey:CHAR_TRAINING_TYPEID];
+	
+	Skill *s = [skillTree skillForIdInteger:typeID];
+	
+	NSInteger charSheetSP = [s skillPoints]; // The amount of skill points the character sheet says we have.
+	NSInteger trainingSheetXP = [self integerForKey:CHAR_TRAINING_STARTSP];// the amount of skill points the SkillInTraining sheet says we have
+	
+	NSInteger startSP = MAX(charSheetSP, trainingSheetXP); //go with the largest
+	
 	NSString *startTime = [NSString stringWithFormat:@"%@ +0000",[self stringForKey:CHAR_TRAINING_START]];
 	NSDate *startDate = [NSDate dateWithString:startTime];
 	
