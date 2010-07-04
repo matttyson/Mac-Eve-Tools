@@ -198,7 +198,7 @@
 		return NO;
 	}
 	
-	xmlDoc *doc = xmlReadMemory([data bytes], [data length],NULL, NULL, 0);
+	xmlDoc *doc = xmlReadMemory([data bytes], (int)[data length],NULL, NULL, 0);
 	
 	if(doc == NULL){
 		NSLog(@"Failed to parse XML plan file");
@@ -314,7 +314,7 @@
 		return NO;
 	}
 	
-	rc = gzwrite(fp, [data bytes], [data length]);
+	rc = gzwrite(fp, [data bytes], (unsigned int)[data length]);
 	
 	if(rc != [data length]){
 		NSLog(@"error writing plan?");
