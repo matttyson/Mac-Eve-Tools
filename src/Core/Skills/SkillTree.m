@@ -70,6 +70,7 @@
 {
 	NSLog(@"Skill Tree from XML has been removed. use the DB Export");
 	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 -(Skill*) skillForIdInteger:(NSInteger)skillID
