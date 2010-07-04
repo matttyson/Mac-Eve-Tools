@@ -34,15 +34,20 @@
 
 @class SkillTree;
 @class CertTree;
+@class CCPDatabase;
 
 @interface GlobalData : NSObject {
 	SkillTree *skillTree;
 	CertTree *certTree;
+	
+	CCPDatabase *database;
+	
 	NSDateFormatter *dateFormatter;
 }
 
 @property (readonly,nonatomic) SkillTree* skillTree;
 @property (readonly,nonatomic) CertTree* certTree;
+@property (readonly,nonatomic) CCPDatabase* database;
 @property (readonly,nonatomic) NSDateFormatter* dateFormatter;
 
 +(GlobalData*) sharedInstance;

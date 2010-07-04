@@ -24,38 +24,17 @@
 #import "CertTree.h"
 #import "Config.h"
 #import "macros.h"
-
 #import "CCPDatabase.h"
+
 
 @implementation GlobalData
 
 @synthesize skillTree;
 @synthesize dateFormatter;
 @synthesize certTree;
+@synthesize database;
 
 static GlobalData *_privateData = nil;
-
-+(SkillTree*) buildSkillTree
-{
-	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
-	
-	SkillTree *tree = [db buildSkillTree];
-	
-	[db release];
-	
-	return tree;
-}
-
-+(CertTree*) buildCertTree
-{
-	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
-	
-	CertTree *tree = [db buildCertTree];
-	
-	[db release];
-	
-	return tree;
-}
 
 /*not that this will ever be called*/
 -(void)dealloc
@@ -85,8 +64,16 @@ static GlobalData *_privateData = nil;
 {
 	if(_privateData == nil)
 	{	
-		SkillTree *st = [GlobalData buildSkillTree];
-		CertTree *ct = [GlobalData buildCertTree];
+		CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
+		[db autorelease];
+		
+		if(db == nil){
+			NSLog(@"Error: Failed to init database");
+			return nil;
+		}
+		
+		SkillTree *st = [db buildSkillTree];
+		CertTree *ct = [db buildCertTree];
 		
 		if(st == nil){
 			NSLog(@"Error: Failed to construct skill tree");
@@ -100,6 +87,8 @@ static GlobalData *_privateData = nil;
 		
 		_privateData = [[GlobalData alloc]privateInit];
 		
+		_privateData->database = [db retain];
+		
 		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 		
 		_privateData->dateFormatter = [[NSDateFormatter alloc]init];
@@ -108,6 +97,7 @@ static GlobalData *_privateData = nil;
 		
 		_privateData->skillTree = [st retain];
 		_privateData->certTree = [ct retain];
+		
 	}
 	
 	//Not a leak.
