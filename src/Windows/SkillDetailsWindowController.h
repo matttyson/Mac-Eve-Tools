@@ -25,6 +25,7 @@
 @class SkillDetailsPointsDatasource;
 @class SkillDetailsTrainingTimeDatasource;
 @class SkillPrerequisiteDatasource;
+@class SkillEnablesTypeDatasource;
 
 @interface SkillDetailsWindowController : NSWindowController 
 <NSTableViewDelegate,NSOutlineViewDelegate>
@@ -46,10 +47,12 @@
 	IBOutlet NSOutlineView *skillPrerequisites;
 	IBOutlet NSTableView *skillPoints;
 	IBOutlet NSTableView *skillTrainingTimes;
+	IBOutlet NSOutlineView *skillEnables;
 	
 	SkillDetailsPointsDatasource *skillPointsDs;
 	SkillDetailsTrainingTimeDatasource *skillTrainDs;
 	SkillPrerequisiteDatasource *skillPreDs;
+	SkillEnablesTypeDatasource *skillEnableDs;
 	
 	Skill *skill;
 	Character *character;

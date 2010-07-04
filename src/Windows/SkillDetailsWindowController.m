@@ -28,6 +28,7 @@
 #import "SkillDetailsTrainingTimeDatasource.h"
 #import "SkillDetailsPointsDatasource.h"
 #import "SkillPrerequisiteDatasource.h"
+#import "SkillEnablesTypeDatasource.h"
 
 @implementation SkillDetailsWindowController
 
@@ -42,17 +43,6 @@
 -(void) setSkill:(Skill*)s forCharacter:(Character*)c
 {
 	[self doesNotRecognizeSelector:_cmd];
-/*	
-	if(skill != nil){
-		[skill release];
-	}
-	skill = [s retain];
-	
-	if(character != nil){
-		[character release];
-	}
-	character = [c retain];
- */
 }
 
 
@@ -89,6 +79,7 @@
 -(id) init
 {
 	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 -(void) dealloc
@@ -96,8 +87,10 @@
 	[skillPrerequisites setDataSource:nil];
 	[skillPoints setDataSource:nil];
 	[skillTrainingTimes setDataSource:nil];
+	[skillEnables setDataSource:nil];
 	
 	[skillPointsDs release];
+	[skillEnableDs release];
 	[skillTrainDs release];
 	[skillPreDs release];
 	
@@ -162,6 +155,10 @@
 
 	skillPointsDs = [[SkillDetailsPointsDatasource alloc]initWithSkill:skill];
 	[skillPoints setDataSource:skillPointsDs];
+	
+	NSInteger tID = [[skill typeID]integerValue];
+	skillEnableDs = [[SkillEnablesTypeDatasource alloc]initWithSkill:tID];
+	[skillEnables setDataSource:skillEnableDs];
 }
 
 -(void) windowDidLoad
