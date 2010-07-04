@@ -235,7 +235,7 @@
 						   text:(NSAttributedString*)text
 {
 	NSSize textSize = [text size];
-	NSPoint startPoint = NSMakePoint(endPoint->x - textSize.width, endPoint->y);
+	//NSPoint startPoint = NSMakePoint(endPoint->x - textSize.width, endPoint->y);
 	NSRect area = NSMakeRect(endPoint->x - textSize.width, endPoint->y, textSize.width, textSize.height);
 	
 	[text drawInRect:area];
@@ -292,7 +292,7 @@
 	
 	NSRect newRect = [self getDrawFrame:&rect];
 	
-	NSInteger trainingTime = [plan trainingTime:YES];
+	NSInteger trainingTime = planTrainingTime;
 	NSString *str;
 	NSMutableAttributedString *astr;
 	NSRect drawRect;
