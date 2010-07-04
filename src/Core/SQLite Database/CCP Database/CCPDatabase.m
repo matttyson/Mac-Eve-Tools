@@ -23,7 +23,10 @@
 #import "CCPType.h"
 #import "CCPTypeAttribute.h"
 
+#import "CCPAttributeData.h"
+
 #import "METShip.h"
+#import "METDependSkill.h"
 
 #import "Helpers.h"
 #import "macros.h"
@@ -39,6 +42,8 @@
 #import "Cert.h"
 #import "CertClass.h"
 #import "CertCategory.h"
+
+
 
 #import <sqlite3.h>
 
@@ -195,7 +200,6 @@
 	if(sqlite3_step(read_stmt) == SQLITE_ROW){
 		NSInteger groupID,categoryID,graphicID;
 		NSString *groupName;
-		const char *str;
 		
 		groupID = sqlite3_column_nsint(read_stmt,0);
 		categoryID = sqlite3_column_nsint(read_stmt,1);
@@ -309,25 +313,8 @@
 	return nil;
 }
 
--(NSArray*) typesInGroup:(NSInteger)groupID
+-(void) parseTypesResults:(NSMutableArray*)array sqliteReadStmt:(sqlite3_stmt*)read_stmt
 {
-	const char query[] = 
-		"SELECT typeID, groupID, graphicID, raceID, marketGroupID,radius, mass, volume, capacity,"
-		"basePrice, typeName, description FROM invTypes WHERE groupID = ? "
-		"ORDER BY typeName;";
-	sqlite3_stmt *read_stmt;
-	int rc;
-	
-	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
-	if(rc != SQLITE_OK){
-		NSLog(@"%s: sqlite error\n",__func__);
-		return nil;
-	}
-	
-	sqlite3_bind_nsint(read_stmt,1,groupID);
-	
-	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
-	
 	while(sqlite3_step(read_stmt) == SQLITE_ROW){
 		
 		NSInteger typeID = sqlite3_column_nsint(read_stmt,0);
@@ -357,6 +344,30 @@
 		[array addObject:type];
 		[type release];		
 	}
+}
+
+-(NSArray*) typesInGroup:(NSInteger)groupID
+{
+	const char query[] = 
+		"SELECT typeID, groupID, graphicID, raceID, marketGroupID,radius, mass, "
+		"volume, capacity,basePrice, typeName, description "
+		"FROM invTypes "
+		"WHERE groupID = ? "
+		"ORDER BY typeName;";
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: sqlite error\n",__func__);
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,groupID);
+	
+	NSMutableArray *array = [[[NSMutableArray alloc]init]autorelease];
+	
+	[self parseTypesResults:array sqliteReadStmt:read_stmt];
 	
 	sqlite3_finalize(read_stmt);
 	
@@ -1084,6 +1095,106 @@
 	sqlite3_finalize(read_stmt);
 	
 	return st;
+}
+
+-(NSMutableDictionary*) dependenciesForSkillByCategory:(NSInteger)typeID
+{
+	const char query[] = 
+		"SELECT invTypes.typeID, typeName, skillLevel, invCategories.categoryID, categoryName "
+		"FROM invTypes JOIN typePrerequisites ON (invTypes.typeID = typePrerequisites.typeID) "
+		"JOIN invGroups ON (invGroups.groupID = invTypes.groupID) "
+		"JOIN invCategories ON (invCategories.categoryID = invGroups.categoryID) "
+		"WHERE skillTypeID = ? "
+		"ORDER BY invCategories.categoryID, typeName;";
+	
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db, query, (int)sizeof(query), &read_stmt, NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error - %s",__func__,sqlite3_errmsg(db));
+		return nil;
+	}
+	
+	sqlite3_bind_nsint(read_stmt,1,typeID);
+	
+	NSInteger currentCategoryID = -1;
+	NSMutableArray *array = nil;
+	NSString *oldCatName = nil;
+	NSMutableDictionary *dict = [[[NSMutableDictionary alloc]init]autorelease];
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		NSInteger itemTypeID = sqlite3_column_nsint(read_stmt,0);
+		NSString *itemName = sqlite3_column_nsstr(read_stmt,1);
+		NSInteger itemSkillLevel = sqlite3_column_nsint(read_stmt,2);
+		NSInteger itemCategory = sqlite3_column_nsint(read_stmt,3);
+			
+		
+		METDependSkill *item = [[METDependSkill alloc]initWithData:itemTypeID 
+														  itemName:itemName 
+													   skillPreTID:typeID 
+													   skillPLevel:itemSkillLevel
+													  itemCategory:itemCategory];
+		
+		if(currentCategoryID != itemCategory){
+			if(array != nil){
+				//store the old array.
+				[dict setValue:array forKey:oldCatName];
+				[array release];
+				array = nil;
+			}
+			currentCategoryID = itemCategory;
+			array = [[NSMutableArray alloc]init];
+			oldCatName = sqlite3_column_nsstr(read_stmt, 4);
+		}
+		
+		[array addObject:item];
+		[item release];
+	}
+	
+	[dict setValue:array forKey:oldCatName];
+	[array release];
+	
+	return dict;
+}
+
+-(NSArray*) attributesForType:(NSInteger)typeID
+{
+	const char query[] = 
+		"SELECT attributeID, attributeName, COALESCE(valueFloat,valueInt) "
+		"FROM dgmTypeAttributes "
+		"JOIN dgmAttributeTypes USING(attributeID) "
+		"WHERE typeID = ?;";
+	
+	sqlite3_stmt *read_stmt;
+	int rc;
+	
+	rc = sqlite3_prepare_v2(db,query,(int)sizeof(query),&read_stmt,NULL);
+	if(rc != SQLITE_OK){
+		NSLog(@"%s: Query error",__func__);
+		return nil;
+	}
+	
+	NSMutableArray *attrArray = [[[NSMutableArray alloc]init]autorelease];
+	
+	sqlite3_bind_nsint(read_stmt,0,typeID);
+	
+	while(sqlite3_step(read_stmt) == SQLITE_ROW){
+		
+		NSInteger attrID = sqlite3_column_nsint(read_stmt,0);
+		NSString *attrName = sqlite3_column_nsstr(read_stmt,1);
+		CGFloat value = sqlite3_column_cgfloat(read_stmt,2);
+		
+		CCPAttributeData *attr = [[CCPAttributeData alloc]initWithValues:attrID value:value name:attrName];
+		
+		[attrArray addObject:attr];
+		
+		[attr release];
+	}
+	
+	sqlite3_finalize(read_stmt);
+	
+	return attrArray;
 }
 
 @end
