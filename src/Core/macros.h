@@ -97,6 +97,9 @@ enum AttributeType {
 #define COL_POV_SKILLCOUNT @"SKILLCOUNT"
 #define COL_POV_TIMELEFT @"TIMELEFT"
 
+/*colums for the skill dependant class*/
+#define COL_DEP_NAME @"DEPTYPENAME"
+#define COL_DEP_SKILLLEVEL @"DEPSKILLLEVEL"
 
 /*colums the skill plan view will respond to*/
 #define COL_PLAN_CALSTART @"CALSTART"
@@ -157,6 +160,11 @@ enum AttributeType {
 #define SKILL_LEARNING 3374
 #define SKILL_MEMORY 3377
 
+
+// Max counts
+
+#define COUNT_CATEGORY 32
+#define COUNT_GROUPS 826;
 
 
 /*bonuses*/
@@ -283,6 +291,20 @@ enum AttributeTypeGroups
 typedef enum AttributeTypeGroups AttributeTypeGroups;
 
 
+/*Slot type values for the ship fitter*/
+enum SlotType
+{
+	Slot_high,
+	Slot_med,
+	Slow_low,
+	Slot_rig_s,
+	Slot_rig_m,
+	Slot_rig_l,
+	Slot_rig_total, //Total number of rig slots (of all types)
+	Slot_subsystem
+};
+typedef enum SlotType SlotType;
+
 /*Don't fuck with these values unless you're special*/
 enum DatabaseLanguage
 {
@@ -298,9 +320,11 @@ typedef enum DatabaseLanguage DatabaseLanguage;
 #ifdef __LP64__
 	#define sqlite3_column_nsint(x,y) sqlite3_column_int64((x),(y))
 	#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int64((x),(y),(z))
+	#define sqlite3_column_cgfloat(x,y) sqlite3_column_double((x),(y))
 #else
 	#define sqlite3_column_nsint(x,y) sqlite3_column_int((x),(y))
 	#define sqlite3_bind_nsint(x,y,z) sqlite3_bind_int((x),(y),(z))
+	#define sqlite3_column_cgfloat(x,y) (CGFloat)sqlite3_column_double((x),(y))
 #endif
 
 /*
