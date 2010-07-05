@@ -14,7 +14,7 @@
 
 @implementation SkillEnablesTypeDatasource
 
--(SkillEnablesTypeDatasource*) initWithSkill:(NSInteger)typeID
+-(SkillEnablesTypeDatasource*) initWithSkillID:(NSInteger)typeID forCharacter:(Character*)ch
 {
 	if((self = [super init])){
 		skillTypeID = typeID;
@@ -30,6 +30,8 @@
 			
 			[enabledTypes getObjects:dependSkillArray andKeys:categoryNameArray];
 		}
+		
+		character = [ch retain];
 	}
 	return self;
 }
@@ -39,6 +41,8 @@
 	free(dependSkillArray);
 	free(categoryNameArray);
 	[enabledTypes release];
+	[character release];
+	
 	[super dealloc];
 }
 
@@ -88,7 +92,9 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 		   byItem:(id)item
 {
 	if([item isKindOfClass:[NSNumber class]]){
-		return categoryNameArray[[item integerValue]];
+		if([[tableColumn identifier]isEqualToString:COL_DEP_NAME]){
+			return categoryNameArray[[item integerValue]];
+		}
 	}
 	
 	if([item isKindOfClass:[METDependSkill class]]){
@@ -99,7 +105,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 		}
 	}
 	
-	return @"oops";
+	return nil;
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView 

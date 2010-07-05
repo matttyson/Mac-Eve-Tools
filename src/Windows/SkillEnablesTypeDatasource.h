@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class METDependSkill;
+@class Character;
 
 @interface SkillEnablesTypeDatasource : NSObject <NSOutlineViewDataSource> {
 	NSDictionary *enabledTypes;
@@ -18,9 +19,11 @@
 	
 	id *dependSkillArray;
 	id *categoryNameArray;
+	
+	Character *character;
 }
 
--(SkillEnablesTypeDatasource*) initWithSkill:(NSInteger)typeID;
+-(SkillEnablesTypeDatasource*) initWithSkillID:(NSInteger)typeID forCharacter:(Character*)ch;
 
 
 
