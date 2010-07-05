@@ -1,3 +1,8 @@
+Release 16.12 (05/07/2010)
+	Fixed incorrect training time display for currently training skill.
+	Add a display to the skill window that shows what is enabled
+		by training this skill.
+
 Release 16.11 (13/06/2010)
 	Tyrannis 1.0.1 Database
 	Dock icon thanks to leefur eelz.

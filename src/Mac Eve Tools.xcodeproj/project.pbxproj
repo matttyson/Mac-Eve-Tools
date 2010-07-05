@@ -39,12 +39,15 @@
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92067901161D837001BBE14 /* SkillAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C920678F1161D837001BBE14 /* SkillAttribute.m */; };
 		C92067B11162C792001BBE14 /* SkillPointAttributeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C92067B01162C792001BBE14 /* SkillPointAttributeQueue.m */; };
+		C926A9C511E0268200D16ECF /* CCPAttributeData.m in Sources */ = {isa = PBXBuildFile; fileRef = C926A9C411E0268200D16ECF /* CCPAttributeData.m */; };
 		C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EA237106DC26D00B57823 /* ColumnConfigManager.m */; };
 		C930ED3210F80B2D006753D6 /* ShipAttributeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C930ED3110F80B2D006753D6 /* ShipAttributeDatasource.m */; };
 		C93815E5109E8FEF002C9B16 /* MTSkillButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93815E4109E8FEF002C9B16 /* MTSkillButtonCell.m */; };
 		C94A94E51124F94600352F49 /* SkillDetailsPointsDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A94E41124F94600352F49 /* SkillDetailsPointsDatasource.m */; };
 		C94A94F01124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A94EF1124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m */; };
 		C94A951F1124FF9100352F49 /* SkillPrerequisiteDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A951E1124FF9100352F49 /* SkillPrerequisiteDatasource.m */; };
+		C94FAA4911E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94FAA4811E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m */; };
+		C94FAA5E11E04C4B00BDB8A6 /* METDependSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = C94FAA5D11E04C4B00BDB8A6 /* METDependSkill.m */; };
 		C950667D111799D60082D727 /* MTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C950667C111799D60082D727 /* MTImageView.m */; };
 		C95067AB111954CE0082D727 /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95067AA111954CE0082D727 /* DatabaseViewController.m */; };
 		C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */; };
@@ -61,7 +64,10 @@
 		C9824497113E180900D410A0 /* CertPrerequisiteDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */; };
 		C985427C11C466F9000E3B43 /* MET-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C985427B11C466F9000E3B43 /* MET-logo.png */; };
 		C985429E11C46898000E3B43 /* MET-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C985429D11C46898000E3B43 /* MET-icon.icns */; };
+		C985432A11C4A6E5000E3B43 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = C985432911C4A6E5000E3B43 /* Notes */; };
 		C9887872118D163600F87C2A /* ShipFitter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9887871118D163600F87C2A /* ShipFitter.m */; };
+		C98D005511CDC96D00EE050F /* ShipFitting.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D005411CDC96D00EE050F /* ShipFitting.m */; };
+		C98D005811CDCEF100EE050F /* FittingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D005711CDCEF100EE050F /* FittingObject.m */; };
 		C993CEC51123FA200084BFFD /* DatabaseUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = C993CEC41123FA200084BFFD /* DatabaseUpdate.xib */; };
 		C9BCF759116FEC0C009E269C /* SkillQueueDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BCF758116FEC0C009E269C /* SkillQueueDatasource.m */; };
 		C9D9028A112116270047B2C2 /* SkillDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D90289112116270047B2C2 /* SkillDetails.xib */; };
@@ -202,6 +208,8 @@
 		C920678F1161D837001BBE14 /* SkillAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillAttribute.m; sourceTree = "<group>"; };
 		C92067AF1162C792001BBE14 /* SkillPointAttributeQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPointAttributeQueue.h; sourceTree = "<group>"; };
 		C92067B01162C792001BBE14 /* SkillPointAttributeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPointAttributeQueue.m; sourceTree = "<group>"; };
+		C926A9C311E0268200D16ECF /* CCPAttributeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPAttributeData.h; sourceTree = "<group>"; };
+		C926A9C411E0268200D16ECF /* CCPAttributeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPAttributeData.m; sourceTree = "<group>"; };
 		C92EA236106DC26D00B57823 /* ColumnConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnConfigManager.h; sourceTree = "<group>"; };
 		C92EA237106DC26D00B57823 /* ColumnConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnConfigManager.m; sourceTree = "<group>"; };
 		C930ED3010F80B2D006753D6 /* ShipAttributeDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipAttributeDatasource.h; path = "../Views/Skill Planner/SkillDatasource/ShipAttributeDatasource.h"; sourceTree = "<group>"; };
@@ -214,6 +222,10 @@
 		C94A94EF1124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillDetailsTrainingTimeDatasource.m; sourceTree = "<group>"; };
 		C94A951D1124FF9100352F49 /* SkillPrerequisiteDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPrerequisiteDatasource.h; sourceTree = "<group>"; };
 		C94A951E1124FF9100352F49 /* SkillPrerequisiteDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPrerequisiteDatasource.m; sourceTree = "<group>"; };
+		C94FAA4711E0496E00BDB8A6 /* SkillEnablesTypeDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillEnablesTypeDatasource.h; sourceTree = "<group>"; };
+		C94FAA4811E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillEnablesTypeDatasource.m; sourceTree = "<group>"; };
+		C94FAA5C11E04C4B00BDB8A6 /* METDependSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDependSkill.h; sourceTree = "<group>"; };
+		C94FAA5D11E04C4B00BDB8A6 /* METDependSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDependSkill.m; sourceTree = "<group>"; };
 		C950667B111799D60082D727 /* MTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageView.h; sourceTree = "<group>"; };
 		C950667C111799D60082D727 /* MTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageView.m; sourceTree = "<group>"; };
 		C95067A9111954CE0082D727 /* DatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseViewController.h; sourceTree = "<group>"; };
@@ -247,9 +259,14 @@
 		C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertPrerequisiteDatasource.m; sourceTree = "<group>"; };
 		C985427B11C466F9000E3B43 /* MET-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MET-logo.png"; sourceTree = "<group>"; };
 		C985429D11C46898000E3B43 /* MET-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "MET-icon.icns"; sourceTree = "<group>"; };
+		C985432911C4A6E5000E3B43 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		C9887870118D163600F87C2A /* ShipFitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipFitter.h; sourceTree = "<group>"; };
 		C9887871118D163600F87C2A /* ShipFitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipFitter.m; sourceTree = "<group>"; };
 		C98937761123A900006057C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DatabaseUpdate.xib; sourceTree = "<group>"; };
+		C98D005311CDC96D00EE050F /* ShipFitting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipFitting.h; sourceTree = "<group>"; };
+		C98D005411CDC96D00EE050F /* ShipFitting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipFitting.m; sourceTree = "<group>"; };
+		C98D005611CDCEF100EE050F /* FittingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FittingObject.h; sourceTree = "<group>"; };
+		C98D005711CDCEF100EE050F /* FittingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FittingObject.m; sourceTree = "<group>"; };
 		C993CEC61123FA250084BFFD /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/DatabaseUpdate.xib; sourceTree = "<group>"; };
 		C9AC24271056886F0031D591 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Core/English.lproj/Loading.xib; sourceTree = SOURCE_ROOT; };
 		C9BCF757116FEC0C009E269C /* SkillQueueDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillQueueDatasource.h; sourceTree = "<group>"; };
@@ -585,6 +602,11 @@
 			children = (
 				C9887870118D163600F87C2A /* ShipFitter.h */,
 				C9887871118D163600F87C2A /* ShipFitter.m */,
+				C985432911C4A6E5000E3B43 /* Notes */,
+				C98D005311CDC96D00EE050F /* ShipFitting.h */,
+				C98D005411CDC96D00EE050F /* ShipFitting.m */,
+				C98D005611CDCEF100EE050F /* FittingObject.h */,
+				C98D005711CDCEF100EE050F /* FittingObject.m */,
 			);
 			path = Fitter;
 			sourceTree = "<group>";
@@ -602,6 +624,8 @@
 				C94A951E1124FF9100352F49 /* SkillPrerequisiteDatasource.m */,
 				C9824495113E180900D410A0 /* CertPrerequisiteDatasource.h */,
 				C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */,
+				C94FAA4711E0496E00BDB8A6 /* SkillEnablesTypeDatasource.h */,
+				C94FAA4811E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m */,
 			);
 			name = Datasource;
 			sourceTree = "<group>";
@@ -845,6 +869,10 @@
 				C9FF474410550BA60044BBAC /* METSubGroup.m */,
 				C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */,
 				C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */,
+				C926A9C311E0268200D16ECF /* CCPAttributeData.h */,
+				C926A9C411E0268200D16ECF /* CCPAttributeData.m */,
+				C94FAA5C11E04C4B00BDB8A6 /* METDependSkill.h */,
+				C94FAA5D11E04C4B00BDB8A6 /* METDependSkill.m */,
 			);
 			path = "CCP Database";
 			sourceTree = "<group>";
@@ -1038,6 +1066,7 @@
 				C993CEC51123FA200084BFFD /* DatabaseUpdate.xib in Resources */,
 				C985427C11C466F9000E3B43 /* MET-logo.png in Resources */,
 				C985429E11C46898000E3B43 /* MET-icon.icns in Resources */,
+				C985432A11C4A6E5000E3B43 /* Notes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,6 +1196,11 @@
 				C92067B11162C792001BBE14 /* SkillPointAttributeQueue.m in Sources */,
 				C9BCF759116FEC0C009E269C /* SkillQueueDatasource.m in Sources */,
 				C9887872118D163600F87C2A /* ShipFitter.m in Sources */,
+				C98D005511CDC96D00EE050F /* ShipFitting.m in Sources */,
+				C98D005811CDCEF100EE050F /* FittingObject.m in Sources */,
+				C926A9C511E0268200D16ECF /* CCPAttributeData.m in Sources */,
+				C94FAA4911E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m in Sources */,
+				C94FAA5E11E04C4B00BDB8A6 /* METDependSkill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1370,7 +1404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.11;
+				CURRENT_PROJECT_VERSION = 16.12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = MACEVEAPI_DEBUG;
@@ -1400,7 +1434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.11;
+				CURRENT_PROJECT_VERSION = 16.12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_SPARKLE;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1429,7 +1463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CURRENT_PROJECT_VERSION = 16.11;
+				CURRENT_PROJECT_VERSION = 16.12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
