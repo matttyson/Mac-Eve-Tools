@@ -1152,8 +1152,10 @@
 		[item release];
 	}
 	
-	[dict setValue:array forKey:oldCatName];
-	[array release];
+	if(array != nil){
+		[dict setValue:array forKey:oldCatName];
+		[array release];
+	}
 	
 	return dict;
 }
