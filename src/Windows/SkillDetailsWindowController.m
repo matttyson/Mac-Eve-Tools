@@ -156,8 +156,8 @@
 	skillPointsDs = [[SkillDetailsPointsDatasource alloc]initWithSkill:skill];
 	[skillPoints setDataSource:skillPointsDs];
 	
-	NSInteger tID = [[skill typeID]integerValue];
-	skillEnableDs = [[SkillEnablesTypeDatasource alloc]initWithSkill:tID];
+	skillEnableDs = [[SkillEnablesTypeDatasource alloc]initWithSkillID:[[skill typeID]integerValue] 
+														  forCharacter:character];
 	[skillEnables setDataSource:skillEnableDs];
 }
 
