@@ -24,6 +24,9 @@
 #import "CertDetailsWindowController.h"
 #import "SkillPair.h"
 
+#import "Cert.h"
+#import "CCPType.h"
+
 @interface SkillSearchView (SkillSearchViewPrivate)
 
 -(void) addSearchType:(id<SkillSearchDatasource>)data;
@@ -199,7 +202,12 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 		 */
 		[SkillDetailsWindowController displayWindowForTypeID:[item typeID] 
 												forCharacter:[delegate character]];
+	}else if([item isKindOfClass:[CCPType class]]){
+		[ShipDetailsWindowController displayShip:item forCharacter:[delegate character]];
+	}else if([item isKindOfClass:[Cert class]]){
+		[CertDetailsWindowController displayWindowForCert:item character:[delegate character]];
 	}
+
 }
 
 -(void) displayShipWindow:(id)sender
