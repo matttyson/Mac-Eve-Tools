@@ -225,9 +225,7 @@ menuForTableColumnItem:(NSTableColumn*)column
 - (BOOL)outlineView:(NSOutlineView *)outlineView 
 		 writeItems:(NSArray *)items 
 	   toPasteboard:(NSPasteboard *)pboard
-{	
-	NSInteger skillLevel = 0;
-		
+{			
 	NSMutableArray *array = [[NSMutableArray alloc]init];
 	
 	//FIXME: TODO: type could also be a CCPGroup item
