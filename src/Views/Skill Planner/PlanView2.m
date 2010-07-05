@@ -92,7 +92,7 @@
 	for(NSUInteger i = 0; i < rowsetCount; i++){
 		if([[segmentedButton cell]tagForSegment:i] == tag){
 			SkillPlan *plan = [character skillPlanById:tag];
-			if(plan = nil){
+			if(plan == nil){
 				return;
 			}
 			
