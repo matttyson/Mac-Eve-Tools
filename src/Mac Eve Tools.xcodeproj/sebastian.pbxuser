@@ -74,7 +74,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					10,
+					747,
 					20,
 					48,
 					43,
@@ -131,8 +131,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300446865;
-			PBXWorkspaceStateSaveDate = 300446865;
+			PBXPerProjectTemplateStateSaveDate = 300447080;
+			PBXWorkspaceStateSaveDate = 300447080;
 		};
 		perUserProjectItems = {
 			9E01FD7611E4FCF300192C1E = 9E01FD7611E4FCF300192C1E /* PBXBookmark */;
@@ -212,31 +212,15 @@
 			9ECC151C11D69348001762A4 = 9ECC151C11D69348001762A4 /* PBXTextBookmark */;
 			9EF3335711E79734002A3B7D = 9EF3335711E79734002A3B7D /* PBXTextBookmark */;
 			9EF333E411E84F6E002A3B7D = 9EF333E411E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333E511E84F6E002A3B7D = 9EF333E511E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333E711E84F6E002A3B7D = 9EF333E711E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333E911E84F6E002A3B7D = 9EF333E911E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333EB11E84F6E002A3B7D = 9EF333EB11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333ED11E84F6E002A3B7D = 9EF333ED11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333EF11E84F6E002A3B7D = 9EF333EF11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333F111E84F6E002A3B7D = 9EF333F111E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333F311E84F6E002A3B7D = 9EF333F311E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333F511E84F6E002A3B7D = 9EF333F511E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF333F711E84F6E002A3B7D = 9EF333F711E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF333F811E84F6E002A3B7D = 9EF333F811E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF333F911E84F6E002A3B7D = 9EF333F911E84F6E002A3B7D /* PBXBookmark */;
 			9EF333FB11E84F6E002A3B7D = 9EF333FB11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333FC11E84F6E002A3B7D = 9EF333FC11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333FF11E84F6E002A3B7D = 9EF333FF11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF3340111E84F6E002A3B7D = 9EF3340111E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF3340311E84F6E002A3B7D = 9EF3340311E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF3340511E84F6E002A3B7D = 9EF3340511E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340711E84F6E002A3B7D = 9EF3340711E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340811E84F6E002A3B7D = 9EF3340811E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340A11E84F6E002A3B7D = 9EF3340A11E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340B11E84F6E002A3B7D = 9EF3340B11E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340C11E84F6E002A3B7D = 9EF3340C11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF3340D11E84F6E002A3B7D = 9EF3340D11E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF3340F11E84F6E002A3B7D = 9EF3340F11E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3341111E84F6E002A3B7D = 9EF3341111E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3341611E84F6E002A3B7D = 9EF3341611E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3341711E84F6E002A3B7D = 9EF3341711E84F6E002A3B7D /* PBXTextBookmark */;
@@ -269,12 +253,12 @@
 			9EF3351811E87487002A3B7D = 9EF3351811E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351911E87487002A3B7D = 9EF3351911E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351A11E87487002A3B7D = 9EF3351A11E87487002A3B7D /* PBXTextBookmark */;
-			9EF3351B11E87487002A3B7D = 9EF3351B11E87487002A3B7D /* PBXTextBookmark */;
-			9EF3351C11E87487002A3B7D = 9EF3351C11E87487002A3B7D /* PBXTextBookmark */;
-			9EF3352811E874D9002A3B7D /* PBXTextBookmark */ = 9EF3352811E874D9002A3B7D /* PBXTextBookmark */;
-			9EF3352911E874D9002A3B7D /* PBXBookmark */ = 9EF3352911E874D9002A3B7D /* PBXBookmark */;
-			9EF3352A11E874D9002A3B7D /* PBXTextBookmark */ = 9EF3352A11E874D9002A3B7D /* PBXTextBookmark */;
-			9EF3353211E874DE002A3B7D /* PBXTextBookmark */ = 9EF3353211E874DE002A3B7D /* PBXTextBookmark */;
+			9EF3352811E874D9002A3B7D = 9EF3352811E874D9002A3B7D /* PBXTextBookmark */;
+			9EF3352911E874D9002A3B7D = 9EF3352911E874D9002A3B7D /* PBXBookmark */;
+			9EF3353911E87506002A3B7D = 9EF3353911E87506002A3B7D /* PBXTextBookmark */;
+			9EF3354A11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354A11E8759A002A3B7D /* PBXTextBookmark */;
+			9EF3354C11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354C11E8759A002A3B7D /* PBXTextBookmark */;
+			9EF3354D11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354D11E8759A002A3B7D /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9E41952111C4B63B003D2093 /* Source Control */;
 		userBuildSettings = {
@@ -1186,159 +1170,6 @@
 		vrLen = 529;
 		vrLoc = 0;
 	};
-	9EF333E511E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333E611E84F6E002A3B7D /* CCPDatabase.m.r130 */;
-		name = "CCPDatabase.m.r130: 8";
-		rLen = 0;
-		rLoc = 288;
-		rType = 0;
-		vrLen = 719;
-		vrLoc = 3990;
-	};
-	9EF333E611E84F6E002A3B7D /* CCPDatabase.m.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = CCPDatabase.m.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/SQLite Database/CCP Database/CCPDatabase.m.r130";
-		sourceTree = "<absolute>";
-	};
-	9EF333E711E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333E811E84F6E002A3B7D /* macros.h.r112 */;
-		name = "macros.h.r112: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 927;
-		vrLoc = 0;
-	};
-	9EF333E811E84F6E002A3B7D /* macros.h.r112 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = macros.h.r112;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/macros.h.r112";
-		sourceTree = "<absolute>";
-	};
-	9EF333E911E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333EA11E84F6E002A3B7D /* macros.h.r130 */;
-		name = "macros.h.r130: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 591;
-		vrLoc = 5051;
-	};
-	9EF333EA11E84F6E002A3B7D /* macros.h.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = macros.h.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/macros.h.r130";
-		sourceTree = "<absolute>";
-	};
-	9EF333EB11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333EC11E84F6E002A3B7D /* macros.h.mine */;
-		name = "macros.h.mine: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 673;
-		vrLoc = 4791;
-	};
-	9EF333EC11E84F6E002A3B7D /* macros.h.mine */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = macros.h.mine;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/macros.h.mine";
-		sourceTree = "<absolute>";
-	};
-	9EF333ED11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333EE11E84F6E002A3B7D /* SkillTree.m.r112 */;
-		name = "SkillTree.m.r112: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 634;
-		vrLoc = 1344;
-	};
-	9EF333EE11E84F6E002A3B7D /* SkillTree.m.r112 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = SkillTree.m.r112;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/Skills/SkillTree.m.r112";
-		sourceTree = "<absolute>";
-	};
-	9EF333EF11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333F011E84F6E002A3B7D /* SkillTree.m.r130 */;
-		name = "SkillTree.m.r130: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 603;
-		vrLoc = 1344;
-	};
-	9EF333F011E84F6E002A3B7D /* SkillTree.m.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = SkillTree.m.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/Skills/SkillTree.m.r130";
-		sourceTree = "<absolute>";
-	};
-	9EF333F111E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333F211E84F6E002A3B7D /* SkillTree.m.mine */;
-		name = "SkillTree.m.mine: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 558;
-		vrLoc = 1413;
-	};
-	9EF333F211E84F6E002A3B7D /* SkillTree.m.mine */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = SkillTree.m.mine;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/Skills/SkillTree.m.mine";
-		sourceTree = "<absolute>";
-	};
-	9EF333F311E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333F411E84F6E002A3B7D /* SkillSearchShipDatasource.m.r112 */;
-		name = "SkillSearchShipDatasource.m.r112: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 878;
-		vrLoc = 0;
-	};
-	9EF333F411E84F6E002A3B7D /* SkillSearchShipDatasource.m.r112 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = SkillSearchShipDatasource.m.r112;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Views/Skill Planner/SkillDatasource/SkillSearchShipDatasource.m.r112";
-		sourceTree = "<absolute>";
-	};
-	9EF333F511E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333F611E84F6E002A3B7D /* SkillSearchShipDatasource.m.r130 */;
-		name = "SkillSearchShipDatasource.m.r130: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 782;
-		vrLoc = 5190;
-	};
-	9EF333F611E84F6E002A3B7D /* SkillSearchShipDatasource.m.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = SkillSearchShipDatasource.m.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Views/Skill Planner/SkillDatasource/SkillSearchShipDatasource.m.r130";
-		sourceTree = "<absolute>";
-	};
 	9EF333F711E84F6E002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C9FF477710550BA60044BBAC /* SkillSearchShipDatasource.m */;
@@ -1379,91 +1210,6 @@
 		rType = 0;
 		vrLen = 792;
 		vrLoc = 4098;
-	};
-	9EF333FC11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF333FD11E84F6E002A3B7D /* Character.m.mine */;
-		name = "Character.m.mine: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 888;
-		vrLoc = 0;
-	};
-	9EF333FD11E84F6E002A3B7D /* Character.m.mine */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = Character.m.mine;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/Character/Character.m.mine";
-		sourceTree = "<absolute>";
-	};
-	9EF333FF11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3340011E84F6E002A3B7D /* CharacterSheet.xib.r130 */;
-		name = "CharacterSheet.xib.r130: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1334;
-		vrLoc = 0;
-	};
-	9EF3340011E84F6E002A3B7D /* CharacterSheet.xib.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = CharacterSheet.xib.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Views/Character Sheet/German.lproj/CharacterSheet.xib.r130";
-		sourceTree = "<absolute>";
-	};
-	9EF3340111E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3340211E84F6E002A3B7D /* CharacterSheet.xib.mine */;
-		name = "CharacterSheet.xib.mine: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1446;
-		vrLoc = 4275;
-	};
-	9EF3340211E84F6E002A3B7D /* CharacterSheet.xib.mine */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = CharacterSheet.xib.mine;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Views/Character Sheet/German.lproj/CharacterSheet.xib.mine";
-		sourceTree = "<absolute>";
-	};
-	9EF3340311E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3340411E84F6E002A3B7D /* GlobalData.m.r130 */;
-		name = "GlobalData.m.r130: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 634;
-		vrLoc = 1751;
-	};
-	9EF3340411E84F6E002A3B7D /* GlobalData.m.r130 */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = GlobalData.m.r130;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/GlobalData.m.r130";
-		sourceTree = "<absolute>";
-	};
-	9EF3340511E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3340611E84F6E002A3B7D /* GlobalData.m.mine */;
-		name = "GlobalData.m.mine: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 837;
-		vrLoc = 0;
-	};
-	9EF3340611E84F6E002A3B7D /* GlobalData.m.mine */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = file;
-		name = GlobalData.m.mine;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Core/GlobalData.m.mine";
-		sourceTree = "<absolute>";
 	};
 	9EF3340711E84F6E002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1514,38 +1260,6 @@
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 530;
-	};
-	9EF3340D11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3340E11E84F6E002A3B7D /* Diff BASE vs. Local — GlobalData.h */;
-		name = "Diff BASE vs. Local — GlobalData.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 979;
-		vrLoc = 0;
-	};
-	9EF3340E11E84F6E002A3B7D /* Diff BASE vs. Local — GlobalData.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		path = "Diff BASE vs. Local — GlobalData.h";
-		sourceTree = "<group>";
-	};
-	9EF3340F11E84F6E002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3341011E84F6E002A3B7D /* Diff BASE vs. Local — GlobalData.m */;
-		name = "Diff BASE vs. Local — GlobalData.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 369;
-		vrLoc = 3959;
-	};
-	9EF3341011E84F6E002A3B7D /* Diff BASE vs. Local — GlobalData.m */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.objc;
-		path = "Diff BASE vs. Local — GlobalData.m";
-		sourceTree = "<group>";
 	};
 	9EF3341111E84F6E002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1798,7 +1512,7 @@
 		fRef = C9F5148E1056721300654F6D /* MainController.m */;
 		name = "MainController.m: 798";
 		rLen = 0;
-		rLoc = 22302;
+		rLoc = 22303;
 		rType = 0;
 		vrLen = 811;
 		vrLoc = 22192;
@@ -1903,26 +1617,6 @@
 		vrLen = 1010;
 		vrLoc = 1930;
 	};
-	9EF3351B11E87487002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F514A01056725600654F6D /* CharacterManager.m */;
-		name = "CharacterManager.m: 90";
-		rLen = 0;
-		rLoc = 2250;
-		rType = 0;
-		vrLen = 1026;
-		vrLoc = 2001;
-	};
-	9EF3351C11E87487002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F514A01056725600654F6D /* CharacterManager.m */;
-		name = "CharacterManager.m: 82";
-		rLen = 0;
-		rLoc = 2048;
-		rType = 0;
-		vrLen = 247;
-		vrLoc = 2001;
-	};
 	9EF3352811E874D9002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C9F514A01056725600654F6D /* CharacterManager.m */;
@@ -1937,27 +1631,6 @@
 		isa = PBXBookmark;
 		fRef = 9EF3352F11E874D9002A3B7D /* sebastian.pbxuser */;
 	};
-	9EF3352A11E874D9002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3352B11E874D9002A3B7D /* sebastian.pbxuser */;
-		name = "sebastian.pbxuser: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 254;
-		vrLoc = 0;
-	};
-	9EF3352B11E874D9002A3B7D /* sebastian.pbxuser */ = {
-		isa = PBXFileReference;
-		name = sebastian.pbxuser;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {925, 37635}}";
-			sepNavSelRange = "{83882, 0}";
-			sepNavVisRange = "{0, 254}";
-		};
-	};
 	9EF3352F11E874D9002A3B7D /* sebastian.pbxuser */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = text;
@@ -1965,14 +1638,62 @@
 		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
 		sourceTree = "<absolute>";
 	};
-	9EF3353211E874DE002A3B7D /* PBXTextBookmark */ = {
+	9EF3353911E87506002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 9EF3352B11E874D9002A3B7D /* sebastian.pbxuser */;
-		name = "sebastian.pbxuser: 2861";
+		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
+		name = "sebastian.pbxuser: 2877";
 		rLen = 0;
-		rLoc = 83882;
+		rLoc = 84362;
 		rType = 0;
 		vrLen = 254;
+		vrLoc = 0;
+	};
+	9EF3353A11E87506002A3B7D /* sebastian.pbxuser */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = sebastian.pbxuser;
+		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {925, 33189}}";
+			sepNavSelRange = "{76400, 0}";
+			sepNavVisRange = "{0, 189}";
+		};
+	};
+	9EF3354A11E8759A002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9EF3354B11E8759A002A3B7D /* project.pbxproj */;
+		name = "project.pbxproj: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 89;
+		vrLoc = 0;
+	};
+	9EF3354B11E8759A002A3B7D /* project.pbxproj */ = {
+		isa = PBXFileReference;
+		name = project.pbxproj;
+		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/project.pbxproj";
+		sourceTree = "<absolute>";
+	};
+	9EF3354C11E8759A002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
+		name = "sebastian.pbxuser: 2558";
+		rLen = 0;
+		rLoc = 76400;
+		rType = 0;
+		vrLen = 189;
+		vrLoc = 0;
+	};
+	9EF3354D11E8759A002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
+		name = "sebastian.pbxuser: 2558";
+		rLen = 0;
+		rLoc = 76400;
+		rType = 0;
+		vrLen = 189;
 		vrLoc = 0;
 	};
 	C90FB55A10644F8600292067 /* METInstance.h */ = {
@@ -2303,9 +2024,9 @@
 	};
 	C9F5148E1056721300654F6D /* MainController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {925, 10920}}";
-			sepNavSelRange = "{22302, 0}";
-			sepNavVisRange = "{22192, 811}";
+			sepNavIntBoundsRect = "{{0, 0}, {925, 11180}}";
+			sepNavSelRange = "{4113, 0}";
+			sepNavVisRange = "{3682, 906}";
 			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
 		};
 	};
