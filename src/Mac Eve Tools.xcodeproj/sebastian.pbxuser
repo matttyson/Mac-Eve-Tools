@@ -15,7 +15,7 @@
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = 9E41951311C4B61D003D2093 /* Mac Eve Tools */;
 		activeTarget = 8D1107260486CEB800E47090 /* Mac Eve Tools */;
 		addToTargets = (
@@ -260,6 +260,7 @@
 			9EF3355C11E87631002A3B7D = 9EF3355C11E87631002A3B7D /* PBXTextBookmark */;
 			9EF3355D11E87631002A3B7D = 9EF3355D11E87631002A3B7D /* PBXTextBookmark */;
 			9EF335AF11E87742002A3B7D /* PBXTextBookmark */ = 9EF335AF11E87742002A3B7D /* PBXTextBookmark */;
+			9EF335BD11E8779D002A3B7D /* PBXTextBookmark */ = 9EF335BD11E8779D002A3B7D /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9E41952111C4B63B003D2093 /* Source Control */;
 		userBuildSettings = {
@@ -1690,6 +1691,16 @@
 		vrLen = 792;
 		vrLoc = 3682;
 	};
+	9EF335BD11E8779D002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C9F5148E1056721300654F6D /* MainController.m */;
+		name = "MainController.m: 152";
+		rLen = 0;
+		rLoc = 3688;
+		rType = 0;
+		vrLen = 687;
+		vrLoc = 3682;
+	};
 	C90FB55A10644F8600292067 /* METInstance.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1292, 505}}";
@@ -2019,7 +2030,7 @@
 	C9F5148E1056721300654F6D /* MainController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {925, 11102}}";
-			sepNavSelRange = "{4109, 4}";
+			sepNavSelRange = "{3688, 0}";
 			sepNavVisRange = "{3682, 792}";
 			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
 		};

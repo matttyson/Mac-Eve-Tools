@@ -48,6 +48,7 @@
 		9EF3339511E79B1A002A3B7D /* MBPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338711E79B19002A3B7D /* MBPreferencesController.m */; };
 		9EF3339611E79B1A002A3B7D /* NSTableViewCellExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338911E79B19002A3B7D /* NSTableViewCellExtended.m */; };
 		9EF3339711E79B1A002A3B7D /* SkillPlannerPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338B11E79B19002A3B7D /* SkillPlannerPrefViewController.m */; };
+		9EF335C811E87875002A3B7D /* databaseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF335C711E87875002A3B7D /* databaseIcon.png */; };
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92067901161D837001BBE14 /* SkillAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C920678F1161D837001BBE14 /* SkillAttribute.m */; };
 		C92067B11162C792001BBE14 /* SkillPointAttributeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C92067B01162C792001BBE14 /* SkillPointAttributeQueue.m */; };
@@ -223,6 +224,7 @@
 		9EF3338911E79B19002A3B7D /* NSTableViewCellExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTableViewCellExtended.m; sourceTree = "<group>"; };
 		9EF3338A11E79B19002A3B7D /* SkillPlannerPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlannerPrefViewController.h; sourceTree = "<group>"; };
 		9EF3338B11E79B19002A3B7D /* SkillPlannerPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlannerPrefViewController.m; sourceTree = "<group>"; };
+		9EF335C711E87875002A3B7D /* databaseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = databaseIcon.png; sourceTree = "<group>"; };
 		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
 		C911FED510782C50000D88E2 /* CharacterParseError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterParseError.h; sourceTree = "<group>"; };
 		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
@@ -729,6 +731,7 @@
 		C9FF455A105508950044BBAC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9EF335C711E87875002A3B7D /* databaseIcon.png */,
 				C9FF455B105508950044BBAC /* charsheet.png */,
 				C9FF455C105508950044BBAC /* darkgray.tiff */,
 				C9FF455D105508950044BBAC /* green.tiff */,
@@ -1057,6 +1060,7 @@
 				9EF3339111E79B1A002A3B7D /* DatabasePrefView.xib in Resources */,
 				9EF3339211E79B1A002A3B7D /* GeneralPrefView.xib in Resources */,
 				9EF3339311E79B1A002A3B7D /* SkillPlannerPrefView.xib in Resources */,
+				9EF335C811E87875002A3B7D /* databaseIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
