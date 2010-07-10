@@ -15,7 +15,7 @@
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = 9E41951311C4B61D003D2093 /* Mac Eve Tools */;
 		activeTarget = 8D1107260486CEB800E47090 /* Mac Eve Tools */;
 		addToTargets = (
@@ -131,14 +131,16 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300447525;
-			PBXWorkspaceStateSaveDate = 300447525;
+			PBXPerProjectTemplateStateSaveDate = 300448003;
+			PBXWorkspaceStateSaveDate = 300448003;
 		};
 		perUserProjectItems = {
 			9E01FD7611E4FCF300192C1E = 9E01FD7611E4FCF300192C1E /* PBXBookmark */;
 			9E01FE4711E6CDE000192C1E = 9E01FE4711E6CDE000192C1E /* PBXBookmark */;
 			9E01FE4811E6CDE000192C1E = 9E01FE4811E6CDE000192C1E /* PBXTextBookmark */;
 			9E01FE4C11E6CDE000192C1E = 9E01FE4C11E6CDE000192C1E /* PBXTextBookmark */;
+			9E060B1F11E8791400408E0C /* PBXBookmark */ = 9E060B1F11E8791400408E0C /* PBXBookmark */;
+			9E060B2011E8791400408E0C /* PBXTextBookmark */ = 9E060B2011E8791400408E0C /* PBXTextBookmark */;
 			9E139BAE11CE88A100A8D213 = 9E139BAE11CE88A100A8D213 /* PBXTextBookmark */;
 			9E139BC511CE8BCD00A8D213 = 9E139BC511CE8BCD00A8D213 /* PBXTextBookmark */;
 			9E139BC711CE8BCD00A8D213 = 9E139BC711CE8BCD00A8D213 /* PBXTextBookmark */;
@@ -214,7 +216,6 @@
 			9EF333E411E84F6E002A3B7D = 9EF333E411E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF333F711E84F6E002A3B7D = 9EF333F711E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF333F811E84F6E002A3B7D = 9EF333F811E84F6E002A3B7D /* PBXTextBookmark */;
-			9EF333F911E84F6E002A3B7D = 9EF333F911E84F6E002A3B7D /* PBXBookmark */;
 			9EF333FB11E84F6E002A3B7D = 9EF333FB11E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340711E84F6E002A3B7D = 9EF3340711E84F6E002A3B7D /* PBXTextBookmark */;
 			9EF3340811E84F6E002A3B7D = 9EF3340811E84F6E002A3B7D /* PBXTextBookmark */;
@@ -257,10 +258,10 @@
 			9EF3355911E87631002A3B7D = 9EF3355911E87631002A3B7D /* PBXTextBookmark */;
 			9EF3355A11E87631002A3B7D = 9EF3355A11E87631002A3B7D /* PBXBookmark */;
 			9EF3355B11E87631002A3B7D = 9EF3355B11E87631002A3B7D /* PBXBookmark */;
-			9EF3355C11E87631002A3B7D = 9EF3355C11E87631002A3B7D /* PBXTextBookmark */;
-			9EF3355D11E87631002A3B7D = 9EF3355D11E87631002A3B7D /* PBXTextBookmark */;
-			9EF335AF11E87742002A3B7D /* PBXTextBookmark */ = 9EF335AF11E87742002A3B7D /* PBXTextBookmark */;
-			9EF335BD11E8779D002A3B7D /* PBXTextBookmark */ = 9EF335BD11E8779D002A3B7D /* PBXTextBookmark */;
+			9EF335CF11E878E1002A3B7D = 9EF335CF11E878E1002A3B7D /* PBXTextBookmark */;
+			9EF335D011E878E1002A3B7D = 9EF335D011E878E1002A3B7D /* PBXBookmark */;
+			9EF335D211E878E1002A3B7D = 9EF335D211E878E1002A3B7D /* PBXBookmark */;
+			9EF335E511E878FA002A3B7D = 9EF335E511E878FA002A3B7D /* PBXBookmark */;
 		};
 		sourceControlManager = 9E41952111C4B63B003D2093 /* Source Control */;
 		userBuildSettings = {
@@ -302,6 +303,20 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 875;
+		vrLoc = 0;
+	};
+	9E060B1F11E8791400408E0C /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 9EF335C711E87875002A3B7D /* databaseIcon.png */;
+	};
+	9E060B2011E8791400408E0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
+		name = "sebastian.pbxuser: 2547";
+		rLen = 0;
+		rLoc = 76400;
+		rType = 0;
+		vrLen = 1170;
 		vrLoc = 0;
 	};
 	9E139BAE11CE88A100A8D213 /* PBXTextBookmark */ = {
@@ -1192,17 +1207,6 @@
 		vrLen = 897;
 		vrLoc = 0;
 	};
-	9EF333F911E84F6E002A3B7D /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 9EF333FA11E84F6E002A3B7D /* databaseIcon.png */;
-	};
-	9EF333FA11E84F6E002A3B7D /* databaseIcon.png */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = image.png;
-		name = databaseIcon.png;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/databaseIcon.png";
-		sourceTree = "<absolute>";
-	};
 	9EF333FB11E84F6E002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C9FF46F310550BA50044BBAC /* Character.m */;
@@ -1625,6 +1629,11 @@
 		name = sebastian.pbxuser;
 		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {925, 33319}}";
+			sepNavSelRange = "{76400, 0}";
+			sepNavVisRange = "{0, 1170}";
+		};
 	};
 	9EF3354A11E8759A002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1661,45 +1670,27 @@
 		isa = PBXBookmark;
 		fRef = C9FF4565105508950044BBAC /* yellow.tiff */;
 	};
-	9EF3355C11E87631002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F5148E1056721300654F6D /* MainController.m */;
-		name = "MainController.m: 167";
-		rLen = 4;
-		rLoc = 4109;
-		rType = 0;
-		vrLen = 905;
-		vrLoc = 3682;
-	};
-	9EF3355D11E87631002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F5148E1056721300654F6D /* MainController.m */;
-		name = "MainController.m: 167";
-		rLen = 4;
-		rLoc = 4109;
-		rType = 0;
-		vrLen = 792;
-		vrLoc = 3682;
-	};
-	9EF335AF11E87742002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F5148E1056721300654F6D /* MainController.m */;
-		name = "MainController.m: 167";
-		rLen = 4;
-		rLoc = 4109;
-		rType = 0;
-		vrLen = 792;
-		vrLoc = 3682;
-	};
-	9EF335BD11E8779D002A3B7D /* PBXTextBookmark */ = {
+	9EF335CF11E878E1002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C9F5148E1056721300654F6D /* MainController.m */;
 		name = "MainController.m: 152";
 		rLen = 0;
 		rLoc = 3688;
 		rType = 0;
-		vrLen = 687;
+		vrLen = 792;
 		vrLoc = 3682;
+	};
+	9EF335D011E878E1002A3B7D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = C9FF455B105508950044BBAC /* charsheet.png */;
+	};
+	9EF335D211E878E1002A3B7D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 9EF335C711E87875002A3B7D /* databaseIcon.png */;
+	};
+	9EF335E511E878FA002A3B7D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 9EF335C711E87875002A3B7D /* databaseIcon.png */;
 	};
 	C90FB55A10644F8600292067 /* METInstance.h */ = {
 		uiCtxt = {
