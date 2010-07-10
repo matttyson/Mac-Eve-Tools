@@ -2,17 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10D573</string>
-		<string key="IBDocument.InterfaceBuilderVersion">762</string>
+		<string key="IBDocument.SystemVersion">10F569</string>
+		<string key="IBDocument.InterfaceBuilderVersion">788</string>
 		<string key="IBDocument.AppKitVersion">1038.29</string>
-		<string key="IBDocument.HIToolboxVersion">460.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">762</string>
+			<string key="NS.object.0">788</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="107"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -56,7 +56,7 @@
 									<object class="NSOutlineView" id="477562983">
 										<reference key="NSNextResponder" ref="691541287"/>
 										<int key="NSvFlags">4370</int>
-										<string key="NSFrameSize">{390, 541}</string>
+										<string key="NSFrameSize">{390, 521}</string>
 										<reference key="NSSuperview" ref="691541287"/>
 										<int key="NSTag">2</int>
 										<bool key="NSEnabled">YES</bool>
@@ -91,7 +91,7 @@
 													</object>
 													<object class="NSColor" key="NSBackgroundColor">
 														<int key="NSColorSpace">3</int>
-														<bytes key="NSWhite">MC4zMzMzMzI5OQA</bytes>
+														<bytes key="NSWhite">MC4zMzMzMzI5ODU2AA</bytes>
 													</object>
 													<object class="NSColor" key="NSTextColor" id="353611397">
 														<int key="NSColorSpace">6</int>
@@ -119,7 +119,7 @@
 														<string key="NSColorName">controlBackgroundColor</string>
 														<object class="NSColor" key="NSColor" id="587184735">
 															<int key="NSColorSpace">3</int>
-															<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+															<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
 														</object>
 													</object>
 													<object class="NSColor" key="NSTextColor" id="194666949">
@@ -160,7 +160,7 @@
 										<bool key="NSOutlineViewIndentationMarkerFollowsCellKey">NO</bool>
 									</object>
 								</object>
-								<string key="NSFrame">{{1, 17}, {390, 541}}</string>
+								<string key="NSFrame">{{1, 17}, {390, 521}}</string>
 								<reference key="NSSuperview" ref="180869369"/>
 								<reference key="NSNextKeyView" ref="477562983"/>
 								<reference key="NSDocView" ref="477562983"/>
@@ -175,7 +175,7 @@
 								<reference key="NSTarget" ref="180869369"/>
 								<string key="NSAction">_doScroller:</string>
 								<double key="NSCurValue">37</double>
-								<double key="NSPercent">0.13909779999999999</double>
+								<double key="NSPercent">0.13909779489040375</double>
 							</object>
 							<object class="NSScroller" id="588140018">
 								<reference key="NSNextResponder" ref="180869369"/>
@@ -185,7 +185,7 @@
 								<int key="NSsFlags">1</int>
 								<reference key="NSTarget" ref="180869369"/>
 								<string key="NSAction">_doScroller:</string>
-								<double key="NSPercent">0.99724520000000005</double>
+								<double key="NSPercent">0.997245192527771</double>
 							</object>
 							<object class="NSClipView" id="1044196820">
 								<reference key="NSNextResponder" ref="180869369"/>
@@ -203,7 +203,7 @@
 							</object>
 							<reference ref="703498628"/>
 						</object>
-						<string key="NSFrame">{{368, 0}, {392, 559}}</string>
+						<string key="NSFrame">{{368, 20}, {392, 539}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSNextKeyView" ref="691541287"/>
 						<int key="NSsFlags">530</int>
@@ -722,7 +722,7 @@
 													<object class="NSTableView" id="413230945">
 														<reference key="NSNextResponder" ref="693095818"/>
 														<int key="NSvFlags">4352</int>
-														<string key="NSFrameSize">{327, 209}</string>
+														<string key="NSFrameSize">{327, 198}</string>
 														<reference key="NSSuperview" ref="693095818"/>
 														<bool key="NSEnabled">YES</bool>
 														<object class="_NSCornerView" key="NSCornerView">
@@ -763,10 +763,7 @@
 														</object>
 														<double key="NSIntercellSpacingWidth">3</double>
 														<double key="NSIntercellSpacingHeight">2</double>
-														<object class="NSColor" key="NSBackgroundColor" id="847797148">
-															<int key="NSColorSpace">3</int>
-															<bytes key="NSWhite">MQA</bytes>
-														</object>
+														<reference key="NSBackgroundColor" ref="768996471"/>
 														<reference key="NSGridColor" ref="563384072"/>
 														<double key="NSRowHeight">17</double>
 														<int key="NSTvFlags">1447034880</int>
@@ -779,7 +776,7 @@
 														<int key="NSTableViewDraggingDestinationStyle">0</int>
 													</object>
 												</object>
-												<string key="NSFrame">{{1, 1}, {327, 209}}</string>
+												<string key="NSFrame">{{1, 1}, {327, 198}}</string>
 												<reference key="NSSuperview" ref="1069751759"/>
 												<reference key="NSNextKeyView" ref="413230945"/>
 												<reference key="NSDocView" ref="413230945"/>
@@ -793,7 +790,7 @@
 												<reference key="NSSuperview" ref="1069751759"/>
 												<reference key="NSTarget" ref="1069751759"/>
 												<string key="NSAction">_doScroller:</string>
-												<double key="NSPercent">0.9925373134328358</double>
+												<double key="NSPercent">0.99253731966018677</double>
 											</object>
 											<object class="NSScroller" id="879103933">
 												<reference key="NSNextResponder" ref="1069751759"/>
@@ -803,10 +800,10 @@
 												<int key="NSsFlags">1</int>
 												<reference key="NSTarget" ref="1069751759"/>
 												<string key="NSAction">_doScroller:</string>
-												<double key="NSPercent">0.99692307692307691</double>
+												<double key="NSPercent">0.99692308902740479</double>
 											</object>
 										</object>
-										<string key="NSFrame">{{18, 25}, {329, 211}}</string>
+										<string key="NSFrame">{{18, 36}, {329, 200}}</string>
 										<reference key="NSSuperview" ref="198618724"/>
 										<reference key="NSNextKeyView" ref="693095818"/>
 										<int key="NSsFlags">562</int>
@@ -832,11 +829,14 @@
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">textBackgroundColor</string>
-								<reference key="NSColor" ref="847797148"/>
+								<object class="NSColor" key="NSColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+								</object>
 							</object>
 							<object class="NSColor" key="NSTextColor">
 								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MCAwLjgwMDAwMDAxAA</bytes>
+								<bytes key="NSWhite">MCAwLjgwMDAwMDAxMTkAA</bytes>
 							</object>
 						</object>
 						<reference key="NSContentView" ref="198618724"/>
@@ -1679,7 +1679,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{315, 249}, {780, 579}}</string>
+					<string>{{315, 177}, {780, 579}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
@@ -1835,6 +1835,125 @@
 							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>charChar</string>
+							<string>charInt</string>
+							<string>charIsk</string>
+							<string>charKnownSkills</string>
+							<string>charMem</string>
+							<string>charName</string>
+							<string>charPerc</string>
+							<string>charRace</string>
+							<string>charSP</string>
+							<string>charTraining</string>
+							<string>charUpdateButton</string>
+							<string>charWill</string>
+							<string>cloneSP</string>
+							<string>mainApp</string>
+							<string>portrait</string>
+							<string>queueHeader</string>
+							<string>skillQueueDisplay</string>
+							<string>skillTree</string>
+							<string>timeRemaining</string>
+							<string>titleRate</string>
+							<string>titleRemaining</string>
+							<string>trainingRate</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charChar</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charInt</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charIsk</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charKnownSkills</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charMem</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charName</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charPerc</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charRace</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charSP</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charTraining</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charUpdateButton</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">charWill</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">cloneSP</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">mainApp</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">portrait</string>
+								<string key="candidateClassName">MTImageView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">queueHeader</string>
+								<string key="candidateClassName">MTEveSkillQueueHeader</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">skillQueueDisplay</string>
+								<string key="candidateClassName">NSTableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">skillTree</string>
+								<string key="candidateClassName">NSOutlineView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">timeRemaining</string>
+								<string key="candidateClassName">MTCountdown</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">titleRate</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">titleRemaining</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">trainingRate</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -2382,6 +2501,13 @@
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">view</string>
 						<string key="NS.object.0">NSView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">view</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">view</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
