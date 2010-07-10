@@ -2,7 +2,7 @@
 //  AccountTableController.h
 //  Mac Eve Tools
 //
-//  Created by Sebastian on 19.06.10.
+//  Created by Sebastian Kruemling on 19.06.10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 

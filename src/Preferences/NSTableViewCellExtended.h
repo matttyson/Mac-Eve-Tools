@@ -2,7 +2,7 @@
 //  NSTableViewCellExtended.h
 //  Mac Eve Tools
 //
-//  Created by Sebastian on 20.06.10.
+//  Created by Sebastian Kruemling on 20.06.10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
