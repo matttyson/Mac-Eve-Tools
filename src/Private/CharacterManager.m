@@ -61,7 +61,7 @@
 -(NSOperation*) buildPortraitOperation:(CharacterTemplate*)template
 {
 	NSString *pictureUrl = [NSString stringWithFormat:@"%@&c=%@",
-							[[Config sharedInstance]picurl],
+							[[NSUserDefaults standardUserDefaults] stringForKey:UD_PICTURE_URL],
 							[template characterId]];
 	
 	GenericDownloadOperation *op;
@@ -102,6 +102,8 @@
 	[op setCharacterDirectory:characterDir];
 	
 	[op setXmlDoc:docPath];
+	
+	[apiUrl release];
 		
 	return op;
 }

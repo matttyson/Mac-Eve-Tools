@@ -58,6 +58,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 				strForAttrCode([attrQueue primaryAttributeForIndex:rowIndex]),
 				strForAttrCode([attrQueue secondaryAttributeForIndex:rowIndex])];
 	}
+	return @"";
 }
 
 @end

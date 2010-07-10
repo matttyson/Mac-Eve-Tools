@@ -302,7 +302,7 @@
 
 -(NSInteger) typeCount:(NSInteger)groupID
 {
-	const char query[] = "SELECT COUNT(*) FROM invTypes WHERE typeID = ?;";
+	//const char query[] = "SELECT COUNT(*) FROM invTypes WHERE typeID = ?;";
 	NSLog(@"Insert code here");
 	return 0;
 }
@@ -547,11 +547,13 @@
 	return attributes;
 }
 
+/*
 -(METShip*) shipForTypeID:(NSInteger)typeID
 {
 	CCPType *shipType = [self type:typeID];
 	NSDictionary *typeAttr = [self typeAttributesForTypeID:typeID];
 }
+*/
 
 -(NSArray*) attributeForType:(NSInteger)typeID groupBy:(enum AttributeTypeGroups)group
 {
@@ -931,7 +933,7 @@
 	sqlite3_stmt *skillattr_stmt;
 	sqlite3_stmt *attr_stmt;
 	
-	NSMutableArray *array;
+	//NSMutableArray *array;
 	int rc;
 	
 	rc = sqlite3_prepare_v2(db,skill_query,(int)sizeof(skill_query),&skill_stmt,NULL);

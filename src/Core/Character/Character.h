@@ -19,7 +19,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "Account.h"
+	//#import "Account.h"
 #import "Character.h"
 #import "SkillTree.h"
 #import "CharacterDatabase.h"

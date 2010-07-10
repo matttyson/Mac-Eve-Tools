@@ -135,9 +135,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		return stringTrainingTime(trainingTime);
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_CALSTART]){
 		/*the date and time that this skill will start training*/
-		return [[Config sharedInstance]formatDate:[skillPlan skillTrainingStart:rowIndex]];
+		return [[GlobalData sharedInstance]formatDate:[skillPlan skillTrainingStart:rowIndex]];
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_CALFINISH]){
-		return [[Config sharedInstance]formatDate:[skillPlan skillTrainingFinish:rowIndex]];
+		return [[GlobalData sharedInstance]formatDate:[skillPlan skillTrainingFinish:rowIndex]];
 	}else if([[aTableColumn identifier] isEqualToString:COL_PLAN_PERCENT]){
 		
 		/*push this into the skill plan class?*/
@@ -427,7 +427,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 		}else if(mode == SPMode_overview){
 			if(operation == NSTableViewDropOn){
 				/*find the plan we are dropping on, append skills to this plan*/
-				SkillPlan *dropPlan = [character skillPlanAtIndex:row];
+				//SkillPlan *dropPlan = [character skillPlanAtIndex:row];
 				[plan addSkillArrayToPlan:array];
 				[plan savePlan];
 				[aTableView setNeedsDisplayInRect:[aTableView frameOfCellAtColumn:1 row:row]];

@@ -253,8 +253,8 @@
  */
 -(void) checkForUpdate
 {
-	Config *cfg = [Config sharedInstance];
-	NSString *url = [NSString stringWithString:[cfg dbUpdateUrl]];
+	//Config *cfg = [Config sharedInstance];
+	NSString *url = [NSString stringWithString:[[NSUserDefaults standardUserDefaults] stringForKey:UD_DB_UPDATE_URL]];
 	
 	XmlFetcher *fetcher = [[XmlFetcher alloc]initWithDelegate:self];
 	NSString *path = [Config buildPathSingle:DBUPDATE_DEFN];
@@ -264,8 +264,8 @@
 
 -(void) downloadUpdate
 {
-	Config *cfg = [Config sharedInstance];
-	NSString *url = [NSString stringWithString:[cfg dbSQLUrl]];
+	//Config *cfg = [Config sharedInstance];
+	NSString *url = [NSString stringWithString:[[NSUserDefaults standardUserDefaults] stringForKey:UD_DB_SQL_URL]];
 	
 	XmlFetcher *fetcher = [[XmlFetcher alloc]initWithDelegate:self];
 	NSString *path = [Config buildPathSingle:DATABASE_SQL_BZ2];
@@ -381,9 +381,9 @@
 	NSString *str;
 	unsigned char *buffer;
 	int bytes_read;
-	int rc;
-	sqlite3 *db;
-	char *error = NULL;
+	//int rc;
+	//sqlite3 *db;
+	//char *error = NULL;
 	FILE *fin;
 	FILE *fout;
 	SHA_CTX digest_ctx;
@@ -626,7 +626,7 @@ _finish_cleanup:
 
 -(void) downloadDatabase
 {
-	NSString *savePath = [[Config sharedInstance]rootPath];
+	NSString *savePath = [[NSUserDefaults standardUserDefaults] stringForKey:UD_ROOT_PATH];
 	if(![[NSFileManager defaultManager] fileExistsAtPath:savePath]){
 		
 		/*Directory does not exist. create it.*/
@@ -640,7 +640,7 @@ _finish_cleanup:
 	
 	[self checkForUpdate];
 	
-	NSURL *url = [NSURL URLWithString:[[Config sharedInstance]dbSQLUrl]];
+	NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:UD_DB_SQL_URL]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	NSURLDownload *download = [[NSURLDownload alloc]initWithRequest:request delegate:self];
 	
@@ -672,7 +672,7 @@ _finish_cleanup:
 
 -(BOOL) dbVersionCheck:(NSInteger)minVersion
 {
-	NSString *path = [[Config sharedInstance]itemDBPath];
+	NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:UD_ITEM_DB_PATH];
 	
 	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
 		NSLog(@"Database does not exist!");

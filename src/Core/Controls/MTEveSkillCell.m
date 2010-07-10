@@ -501,7 +501,7 @@
 -(void) drawGroupInterior:(NSRect)bounds inView:(NSView*)controlView
 {
 	NSString *str = 
-	[NSString stringWithFormat:@"  %@  -  skills: %lu,  points: %@",
+	[NSString stringWithFormat:NSLocalizedString(@"  %@  -  skills: %lu,  points: %@", nil),
 		[group groupName],[group skillCount],
 		[formatter stringFromNumber:[NSNumber numberWithInteger:[group groupSPTotal]]]];
 	

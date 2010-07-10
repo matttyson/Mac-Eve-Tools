@@ -15,6 +15,8 @@
 
 - (id)init {
 	[self doesNotRecognizeSelector:_cmd];
+	
+	return self;
 }
 
 -(id) initWithSkill:(Skill*)s

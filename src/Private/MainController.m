@@ -34,6 +34,11 @@
 #import "METPluggableView.h"
 #import "CharacterManager.h"
 
+	//#import "MBPreferencesController.h"
+#import "GeneralPrefViewController.h"
+#import "AccountPrefViewController.h"
+#import "DatabasePrefViewController.h"
+#import "SkillPlannerPrefViewController.h"
 
 #import "DBManager.h"
 
@@ -158,6 +163,9 @@
 		case ServerUnknown:
 			[serverStatus setImage:[NSImage imageNamed:@"lightgray.tiff"]];
 			break;
+		case ServerStarting:
+			[serverStatus setImage:[NSImage imageNamed:@"yellow.png"]];
+			break;
 	}
 }
 
@@ -193,7 +201,7 @@
 
 -(void) appWillTerminate:(NSNotification*)notification
 {
-	NSLog(@"Shutting down");
+	NSLog(@"Shutting down");	
 	
 	[monitor stopMonitoring];
 	[[self window]saveFrameUsingName:WINDOW_SAVE_NAME];
@@ -214,7 +222,7 @@
 		
 		NSMenu *menu;
 		menu = [[NSMenu alloc] initWithTitle:@""];
-		NSMenuItem *defaultItem = nil;
+		//NSMenuItem *defaultItem = nil;
 		
 		for(Character *c in charArray){
 			
@@ -261,7 +269,7 @@
 {
 	DBManager *manager = [[[DBManager alloc]init]autorelease];
 	
-	if(![manager dbVersionCheck:[[Config sharedInstance] databaseMinimumVersion]]){
+	if(![manager dbVersionCheck:[[NSUserDefaults standardUserDefaults] integerForKey:UD_DATABASE_MIN_VERSION]]){
 		[manager checkForUpdate2];
 		[[NSNotificationCenter defaultCenter]addObserver:self 
 												selector:@selector(databaseReadyToBuild:)
@@ -327,6 +335,7 @@
 	[[GlobalData sharedInstance]skillTree];
 	[[GlobalData sharedInstance]certTree];
 	////////////// ---- BLOCK END ---- \\\\\\\\\\\\\\\\
+
 	
 	/*init the views that will be used by this window*/
 	
@@ -367,8 +376,8 @@
 #ifdef HAVE_SPARKLE
 	SUUpdater *updater = [SUUpdater sharedUpdater];
 	[updater setAutomaticallyChecksForUpdates:NO];
-	[updater setFeedURL:[NSURL URLWithString:[cfg updateFeedUrl]]];
-	[updater setSendsSystemProfile:[cfg submitSystemInformation]];	
+	[updater setFeedURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:UD_UPDATE_FEED_URL]]];
+	[updater setSendsSystemProfile:[[NSUserDefaults standardUserDefaults] boolForKey:UD_SUBMIT_STATS]];	
 #endif
 	
 	if([[cfg accounts] count] == 0){
@@ -380,7 +389,7 @@
 	}
 #ifdef HAVE_SPARKLE
 	else{
-		if([cfg autoUpdate]){
+		if([[NSUserDefaults standardUserDefaults] boolForKey:UD_CHECK_FOR_UPDATES]){
 			[[SUUpdater sharedUpdater]checkForUpdatesInBackground];
 		}
 	}
@@ -389,6 +398,7 @@
 	//Set the character sheet as the active view.
 	mvc = [viewControllers objectAtIndex:VIEW_CHARSHEET];
 	[self setAsActiveView:mvc];
+	[toolbar setSelectedItemIdentifier:[charSheetButton itemIdentifier]];
 	
 	// init the character manager object.
 	characterManager = [[CharacterManager alloc]init];
@@ -406,6 +416,24 @@
 	/*check to see if the server is up*/
 	[self serverStatus:ServerUnknown];
 	[monitor startMonitoring];
+		//[self fetchCharButtonClick:nil];
+	
+	/* update labels in the gui */
+	/*[fetchCharButton setLabel:NSLocalizedString(@"reload", @"Label for reload button")];
+	[fetchCharButton setPaletteLabel:NSLocalizedString(@"reload", @"Label for reload button")];
+	
+	[charOverviewButton setLabel:NSLocalizedString(@"Characters", nil)];
+	[charOverviewButton setPaletteLabel:NSLocalizedString(@"Characters", nil)];
+	
+	[charSheetButton setLabel:NSLocalizedString(@"Character Sheet", nil)];
+	[charSheetButton setPaletteLabel:NSLocalizedString(@"Character Sheet", nil)];
+	
+	[skillPlannerButton setLabel:NSLocalizedString(@"Skill Planner", nil)];
+	[skillPlannerButton setPaletteLabel:NSLocalizedString(@"Skill Planner", nil)];
+	
+	[charToolbarButton setLabel:NSLocalizedString(@"Char List", nil)];
+	[charToolbarButton setPaletteLabel:NSLocalizedString(@"Char List", nil)];
+	 */
 }
 
 -(void) setAsActiveView:(id<METPluggableView>)mvc
@@ -434,6 +462,12 @@
 #endif
 	[self reloadAllCharacters];
 	[overviewTableView reloadData];
+	
+	[self fetchCharButtonClick:nil];
+	[self performSelector:@selector(setCurrentCharacter:) 
+			   withObject:[characterManager defaultCharacter]];
+	
+	[self updatePopupButton];
 }
 
 @end
@@ -480,6 +514,34 @@
 {
 	NSLog(@"Awoken from nib");
 	
+	[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+	
+	/* setting default preferences values */
+		
+	NSMutableDictionary *prefDefaults = [[NSMutableDictionary alloc] init];
+	
+		//NSData *data = ;
+	[prefDefaults setObject:[NSNumber numberWithBool:YES] forKey:UD_SUBMIT_STATS];
+	[prefDefaults setObject:[NSNumber numberWithBool:YES] forKey:UD_CHECK_FOR_UPDATES];
+	[prefDefaults setObject:[NSNumber numberWithInt:l_EN] forKey:UD_DATABASE_LANG];
+	
+	[prefDefaults setObject:[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath] forKey:UD_ROOT_PATH];
+	[prefDefaults setObject:[[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath] stringByAppendingFormat:@"/database.sqlite"] forKey:UD_ITEM_DB_PATH];
+	[prefDefaults setObject:@"http://api.eve-online.com" forKey:UD_API_URL];
+	[prefDefaults setObject:@"http://img.eve.is/serv.asp?s=256" forKey:UD_PICTURE_URL];
+	
+	[prefDefaults setObject:@"http://mtyson.id.au/MacEveApi-appcast.xml" forKey:UD_UPDATE_FEED_URL];
+	[prefDefaults setObject:@"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml" forKey:UD_DB_UPDATE_URL];
+	[prefDefaults setObject:@"http://www.mtyson.id.au/MacEveApi/database.sql.bz2" forKey:UD_DB_SQL_URL];
+	[prefDefaults setObject:@"http://www.mtyson.id.au/MacEveApi/images" forKey:UD_IMAGE_URL];
+	[prefDefaults setObject:[NSNumber numberWithInt:6] forKey:UD_DATABASE_MIN_VERSION];
+	 	
+	[[NSUserDefaults standardUserDefaults] registerDefaults:prefDefaults];
+	[prefDefaults release];
+	
+
+	/* Init window */
+	
 	NSWindow *window = [self window];
 	[window setRepresentedFilename:WINDOW_SAVE_NAME];
 	[window setFrameAutosaveName:WINDOW_SAVE_NAME];
@@ -499,6 +561,23 @@
 			//[[NSApp mainMenu]addItem:menuItem];
 		}
 	}*/
+	
+	
+	/* initialization of the new preferences window */
+	
+	AccountPrefViewController *accounts = [[AccountPrefViewController alloc] initWithNibName:@"AccountPrefView" bundle:nil];
+	GeneralPrefViewController *general = [[GeneralPrefViewController alloc] initWithNibName:@"GeneralPrefView" bundle:nil];
+	DatabasePrefViewController *database = [[DatabasePrefViewController alloc] initWithNibName:@"DatabasePrefView" bundle:nil];
+	SkillPlannerPrefViewController *skillPlanner = [[SkillPlannerPrefViewController alloc] initWithNibName:@"SkillPlannerPrefView" bundle:nil];
+	
+	[[MBPreferencesController sharedController] setWindowModules:[NSArray arrayWithObjects:general, accounts, skillPlanner, database, nil]];
+	[accounts release];
+	[general release];
+	[skillPlanner release];
+	[database release];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prefWindowWillClose:) name:NSWindowWillCloseNotification object:[[MBPreferencesController sharedController] window]];
+
 		
 	/*
 		notify when the selection of the overview tableview has changed.
@@ -510,6 +589,8 @@
 	 object:overviewTableView];
 	
 	statusMessageTimer = nil;
+	[loadingCycle setHidden:YES];
+	[loadingCycle stopAnimation:nil];
 }
 
 -(void) setCurrentCharacter:(Character*)character
@@ -567,6 +648,8 @@
 	[statusString setHidden:YES];
 	[fetchCharButton setEnabled:YES];
 	[charButton setEnabled:YES];
+	[loadingCycle stopAnimation:nil];
+	[loadingCycle setHidden:YES];
 	
 	/*
 	 replace this with a new message that says update completed
@@ -580,9 +663,9 @@
 	[self statusMessage:nil];
 	
 	if(errors != nil){
-		[self setStatusMessage:@"Error updating characters" imageState:StatusRed time:5];
+		[self setStatusMessage:NSLocalizedString(@"Error updating characters", nil) imageState:StatusRed time:5];
 	}else{
-		[self setStatusMessage:@"Update Completed" imageState:StatusGreen time:5];
+		[self setStatusMessage:NSLocalizedString(@"Update Completed", nil) imageState:StatusGreen time:5];
 	}
 	
 	//reload the datasource for the character overview.
@@ -595,10 +678,12 @@
 
 -(void) updateAllCharacters
 {
-	[self statusMessage:@"Updating Characters"];
+	[self statusMessage:NSLocalizedString(@"Updating Characters", nil)];
 	[characterManager updateAllCharacters:self];
 	[fetchCharButton setEnabled:NO];
 	[charButton setEnabled:NO];
+	[loadingCycle setHidden:NO];
+	[loadingCycle startAnimation:nil];
 }
 
 -(IBAction) fetchCharButtonClick:(id)sender
@@ -612,20 +697,22 @@
 
 -(IBAction) showPrefPanel:(id)sender;
 {
-	if(prefPanel == nil){
+	/*if(prefPanel == nil){
 		prefPanel = [[PreferenceController alloc]init];
 		[[NSNotificationCenter defaultCenter]
 		 addObserver:self 
 			selector:@selector(prefWindowWillClose:)
 				name:NSWindowWillCloseNotification 
 		 object:[prefPanel window]];
-	}
+	}*/
 	
 	//NSLog(@"Opening pref pane %@",[self window]);
 #ifdef MACEVEAPI_DEBUG
-	[prefPanel showWindow:self]; //if it crashes in a modal window it's impossible to debug
+		//[prefPanel showWindow:self]; //if it crashes in a modal window it's impossible to debug
+	[[MBPreferencesController sharedController] showWindow:self];
 #else
-	[NSApp runModalForWindow:[prefPanel window]];
+		//[NSApp runModalForWindow:[prefPanel window]];
+	[NSApp runModalForWindow:[[MBPreferencesController sharedController] window]];
 #endif
 }
 

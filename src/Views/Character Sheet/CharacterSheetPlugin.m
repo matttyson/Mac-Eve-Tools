@@ -22,4 +22,49 @@
 
 @implementation CharacterSheetPlugin
 
+-(Character*) character
+{
+	return nil;
+}
+
+-(void) setCharacter:(Character*)c;
+{
+	
+}
+
+-(void) viewIsInactive
+{
+
+}
+
+-(void) viewIsActive
+{
+
+}
+
+-(void) viewWillBeDeactivated
+{
+	
+}
+
+-(void) viewWillBeActivated
+{
+	
+}
+
+-(NSView*) view {
+	return nil;
+}
+
+/*not implemeted*/
+-(NSMenuItem*) menuItems
+{
+	return nil;
+}
+
+-(void) setInstance:(id<METInstance>)instance
+{
+	
+}
+
 @end

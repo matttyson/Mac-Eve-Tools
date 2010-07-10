@@ -29,7 +29,7 @@
 	attributes = [[NSMutableArray alloc]initWithCapacity:8];
 	NSInteger typeID = [ship typeID];
 	NSArray *attrType;
-	NSDictionary *dict;
+	//NSDictionary *dict;
 	
 	attrType = [db attributeForType:typeID groupBy:Fitting];
 	[self addAttribute:attrType groupName:@"Fitting"];

@@ -20,7 +20,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "METPluggableView.h"
-#import "PreferenceController.h"
+	//#import "PreferenceController.h"
 #import "Character.h"
 #import "DBManager.h"
 #import "macros.h"
@@ -39,11 +39,16 @@
 	IBOutlet NSPanel *noCharsPanel;
 	IBOutlet NSButton *noCharsButton;
 	
-	PreferenceController *prefPanel;
+		//PreferenceController *prefPanel;
 	
 	/*Character sheet on the toolbar*/
 	IBOutlet NSPopUpButton *charButton;
-	IBOutlet NSButton *fetchCharButton;
+	IBOutlet NSToolbarItem *charToolbarButton;
+	IBOutlet NSToolbarItem *fetchCharButton;
+	IBOutlet NSToolbarItem *charOverviewButton;
+	IBOutlet NSToolbarItem *charSheetButton;
+	IBOutlet NSToolbarItem *skillPlannerButton;
+	IBOutlet NSProgressIndicator *loadingCycle;
 	
 	NSMutableArray *viewControllers; /*all the controllers we can display*/
 	

@@ -29,11 +29,13 @@
 	return allCerts;
 }
 
+/*
 -(CertTree*) initWithXml:(NSString*)xmlPath
 {
 	NSLog(@"Certs from XML has been removed. use the database");
 	[self doesNotRecognizeSelector:_cmd];
 }
+ */
 
 -(void)dealloc
 {

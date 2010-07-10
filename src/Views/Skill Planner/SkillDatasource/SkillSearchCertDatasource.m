@@ -117,7 +117,7 @@
 	}
 	
 	assert(0);
-	return nil;
+	return 0;
 }
 
 

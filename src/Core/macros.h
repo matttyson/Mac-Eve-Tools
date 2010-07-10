@@ -214,6 +214,20 @@ enum AttributeType {
 #define SKILL_PLAN_CONFIG @"skill_plan_config"
 #define UD_DATABASE_LANG @"ud_db_lang"
 
+#define UD_API_URL @"apiUrl"
+#define UD_ROOT_PATH @"rootPath"
+#define UD_ITEM_DB_PATH @"itemDbPath"
+#define UD_SUBMIT_STATS @"submitAnonymousStatistics"
+#define UD_CHECK_FOR_UPDATES @"checkForAutomaticUpdates"
+#define UD_PICTURE_URL @"picUrl"
+#define UD_UPDATE_FEED_URL @"updateFeedUrl"
+#define UD_DB_UPDATE_URL @"dbUpdateUrl"
+#define UD_DB_SQL_URL @"dbSQLUrl"
+#define UD_IMAGE_URL @"imageUrl"
+#define UD_DATABASE_MIN_VERSION @"databaseMinimumVersion"
+
+#define UD_ACCOUNTS @"accounts"
+
 enum CCPRace
 {
 	NullRace = 0,

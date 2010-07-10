@@ -113,6 +113,7 @@
 	[search setAction:@selector(skillSearchFilter:)];
 	[search setTarget:self];
 	[[search cell]setSendsSearchStringImmediately:YES];
+	
 }
 
 -(id<SkillSearchDelegate>) delegate
@@ -202,17 +203,14 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 		 */
 		[SkillDetailsWindowController displayWindowForTypeID:[item typeID] 
 												forCharacter:[delegate character]];
+
 	}else if([item isKindOfClass:[CCPType class]]){
 		[ShipDetailsWindowController displayShip:item forCharacter:[delegate character]];
 	}else if([item isKindOfClass:[Cert class]]){
 		[CertDetailsWindowController displayWindowForCert:item character:[delegate character]];
+
 	}
 
-}
-
--(void) displayShipWindow:(id)sender
-{
-	[ShipDetailsWindowController displayShip:[sender representedObject] forCharacter:[delegate character]];
 }
 
 -(void) displaySkillWindow:(id)sender
@@ -225,6 +223,11 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	}
 	
 	[self displayItemAtRow:row];
+}
+
+-(void) displayShipWindow:(id)sender
+{
+	[ShipDetailsWindowController displayShip:[sender representedObject] forCharacter:[delegate character]];
 }
 
 -(void) displayCertWindow:(id)sender

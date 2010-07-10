@@ -145,7 +145,7 @@
 	[charSP setObjectValue:[NSNumber numberWithInteger:charPoints]];
 	[charSP sizeToFit];
 	
-	NSString *knownSkills = [NSString stringWithFormat:@"%ld (%ld at V)",[character skillsKnown],[character skillsAtV]];
+	NSString *knownSkills = [NSString stringWithFormat:NSLocalizedString(@"%ld (%ld at V)", nil),[character skillsKnown],[character skillsAtV]];
 	[charKnownSkills setStringValue:knownSkills];
 	[charKnownSkills sizeToFit];
 	

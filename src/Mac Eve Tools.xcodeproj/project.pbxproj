@@ -36,6 +36,18 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9EF3338C11E79B1A002A3B7D /* AccountPrefDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337111E79B19002A3B7D /* AccountPrefDetailController.m */; };
+		9EF3338D11E79B1A002A3B7D /* AccountPrefTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337311E79B19002A3B7D /* AccountPrefTableController.m */; };
+		9EF3338E11E79B1A002A3B7D /* AccountPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337511E79B19002A3B7D /* AccountPrefViewController.m */; };
+		9EF3338F11E79B1A002A3B7D /* DatabasePrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337711E79B19002A3B7D /* DatabasePrefViewController.m */; };
+		9EF3339011E79B1A002A3B7D /* AccountPrefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF3337811E79B19002A3B7D /* AccountPrefView.xib */; };
+		9EF3339111E79B1A002A3B7D /* DatabasePrefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF3337A11E79B19002A3B7D /* DatabasePrefView.xib */; };
+		9EF3339211E79B1A002A3B7D /* GeneralPrefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF3337C11E79B19002A3B7D /* GeneralPrefView.xib */; };
+		9EF3339311E79B1A002A3B7D /* SkillPlannerPrefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF3337E11E79B19002A3B7D /* SkillPlannerPrefView.xib */; };
+		9EF3339411E79B1A002A3B7D /* GeneralPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338111E79B19002A3B7D /* GeneralPrefViewController.m */; };
+		9EF3339511E79B1A002A3B7D /* MBPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338711E79B19002A3B7D /* MBPreferencesController.m */; };
+		9EF3339611E79B1A002A3B7D /* NSTableViewCellExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338911E79B19002A3B7D /* NSTableViewCellExtended.m */; };
+		9EF3339711E79B1A002A3B7D /* SkillPlannerPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3338B11E79B19002A3B7D /* SkillPlannerPrefViewController.m */; };
 		C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */ = {isa = PBXBuildFile; fileRef = C911FED610782C50000D88E2 /* CharacterParseError.m */; };
 		C92067901161D837001BBE14 /* SkillAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C920678F1161D837001BBE14 /* SkillAttribute.m */; };
 		C92067B11162C792001BBE14 /* SkillPointAttributeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C92067B01162C792001BBE14 /* SkillPointAttributeQueue.m */; };
@@ -49,7 +61,6 @@
 		C94FAA4911E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C94FAA4811E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m */; };
 		C94FAA5E11E04C4B00BDB8A6 /* METDependSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = C94FAA5D11E04C4B00BDB8A6 /* METDependSkill.m */; };
 		C950667D111799D60082D727 /* MTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C950667C111799D60082D727 /* MTImageView.m */; };
-		C95067AB111954CE0082D727 /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95067AA111954CE0082D727 /* DatabaseViewController.m */; };
 		C964CB2210F42C8D00F735E9 /* CCPTypeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */; };
 		C9661A6F110D12F400FA9B72 /* Cert.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A6E110D12F400FA9B72 /* Cert.m */; };
 		C9661A72110D16C100FA9B72 /* CertClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661A71110D16C100FA9B72 /* CertClass.m */; };
@@ -59,7 +70,6 @@
 		C9661CC5110D6F7800FA9B72 /* SkillSearchCertDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661CC4110D6F7800FA9B72 /* SkillSearchCertDatasource.m */; };
 		C9661E39110FC07200FA9B72 /* CertDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9661E38110FC07200FA9B72 /* CertDetailsWindowController.m */; };
 		C9721EEA1121291D00035782 /* CharacterSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9721EE91121291D00035782 /* CharacterSheet.xib */; };
-		C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E0031069AA0E00457530 /* SkillPlanConfig.m */; };
 		C979E00D1069C42700457530 /* PlannerColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = C979E00C1069C42700457530 /* PlannerColumn.m */; };
 		C9824497113E180900D410A0 /* CertPrerequisiteDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9824496113E180900D410A0 /* CertPrerequisiteDatasource.m */; };
 		C985427C11C466F9000E3B43 /* MET-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C985427B11C466F9000E3B43 /* MET-logo.png */; };
@@ -74,15 +84,8 @@
 		C9D902D31121194A0047B2C2 /* CertDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902D21121194A0047B2C2 /* CertDetails.xib */; };
 		C9D902D8112119650047B2C2 /* ShipDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902D7112119650047B2C2 /* ShipDetails.xib */; };
 		C9D902E011211A720047B2C2 /* SkillPlan.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902DF11211A720047B2C2 /* SkillPlan.xib */; };
-		C9D902E511211AAA0047B2C2 /* SkillPlannerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902E411211AAA0047B2C2 /* SkillPlannerConfig.xib */; };
-		C9D902E811211AC70047B2C2 /* PreferenceAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902E711211AC70047B2C2 /* PreferenceAccount.xib */; };
-		C9D902EB11211ADD0047B2C2 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902EA11211ADD0047B2C2 /* Preferences.xib */; };
-		C9D902EE11211AE80047B2C2 /* PreferencesGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902ED11211AE80047B2C2 /* PreferencesGeneral.xib */; };
-		C9D902F111211AF30047B2C2 /* PreferenceDatabase.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902F011211AF30047B2C2 /* PreferenceDatabase.xib */; };
-		C9D902FF11211BF40047B2C2 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D902FE11211BF40047B2C2 /* Loading.xib */; };
 		C9D9030211211C020047B2C2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D9030111211C020047B2C2 /* MainMenu.xib */; };
 		C9D9031F11211E9C0047B2C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9D9031E11211E9C0047B2C2 /* Localizable.strings */; };
-		C9D90334112121BC0047B2C2 /* PreferencesAccountMaster.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */; };
 		C9DEA72011608033007CB2C8 /* SkillPointAttributeTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEA71F11608033007CB2C8 /* SkillPointAttributeTotal.m */; };
 		C9DEA7E511608C37007CB2C8 /* AttributeModifierDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEA7E411608C37007CB2C8 /* AttributeModifierDatasource.m */; };
 		C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB4EC8105A0883009192BC /* CharacterTemplate.m */; };
@@ -147,10 +150,6 @@
 		C9FF47AE10550BA60044BBAC /* SqliteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474B10550BA60044BBAC /* SqliteDatabase.m */; };
 		C9FF47AF10550BA60044BBAC /* XmlFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474D10550BA60044BBAC /* XmlFetcher.m */; };
 		C9FF47B010550BA60044BBAC /* XmlHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF474F10550BA60044BBAC /* XmlHelpers.m */; };
-		C9FF47B110550BA60044BBAC /* AccountOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475210550BA60044BBAC /* AccountOverviewController.m */; };
-		C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475410550BA60044BBAC /* AccountViewController.m */; };
-		C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475610550BA60044BBAC /* GeneralSettingsController.m */; };
-		C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF475910550BA60044BBAC /* PreferenceController.m */; };
 		C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF476910550BA60044BBAC /* CharacterSheetController.m */; };
 		C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477010550BA60044BBAC /* PlanView2.m */; };
 		C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477310550BA60044BBAC /* PlanView2Datasource.m */; };
@@ -160,7 +159,6 @@
 		C9FF47C710550BA60044BBAC /* SkillSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477C10550BA60044BBAC /* SkillSearchView.m */; };
 		C9FF47C810550BA60044BBAC /* ShipDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF477F10550BA60044BBAC /* ShipDetailsWindowController.m */; };
 		C9FF47CA10550BA60044BBAC /* SkillDetailsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */; };
-		C9FF47CF10550BE90044BBAC /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */; };
 		C9FF48D91055151F0044BBAC /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF48D81055151F0044BBAC /* GlobalData.m */; };
 		C9FF4A3A10552A180044BBAC /* ReleaseNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4A3910552A180044BBAC /* ReleaseNotes.txt */; };
 		C9FF4A7A105532B60044BBAC /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = C9FF4A79105532B60044BBAC /* Credits.html */; };
@@ -201,6 +199,30 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF3337011E79B19002A3B7D /* AccountPrefDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefDetailController.h; sourceTree = "<group>"; };
+		9EF3337111E79B19002A3B7D /* AccountPrefDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefDetailController.m; sourceTree = "<group>"; };
+		9EF3337211E79B19002A3B7D /* AccountPrefTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefTableController.h; sourceTree = "<group>"; };
+		9EF3337311E79B19002A3B7D /* AccountPrefTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefTableController.m; sourceTree = "<group>"; };
+		9EF3337411E79B19002A3B7D /* AccountPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefViewController.h; sourceTree = "<group>"; };
+		9EF3337511E79B19002A3B7D /* AccountPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefViewController.m; sourceTree = "<group>"; };
+		9EF3337611E79B19002A3B7D /* DatabasePrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabasePrefViewController.h; sourceTree = "<group>"; };
+		9EF3337711E79B19002A3B7D /* DatabasePrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabasePrefViewController.m; sourceTree = "<group>"; };
+		9EF3337911E79B19002A3B7D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AccountPrefView.xib; sourceTree = "<group>"; };
+		9EF3337B11E79B19002A3B7D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DatabasePrefView.xib; sourceTree = "<group>"; };
+		9EF3337D11E79B19002A3B7D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GeneralPrefView.xib; sourceTree = "<group>"; };
+		9EF3337F11E79B19002A3B7D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SkillPlannerPrefView.xib; sourceTree = "<group>"; };
+		9EF3338011E79B19002A3B7D /* GeneralPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPrefViewController.h; sourceTree = "<group>"; };
+		9EF3338111E79B19002A3B7D /* GeneralPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPrefViewController.m; sourceTree = "<group>"; };
+		9EF3338211E79B19002A3B7D /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/AccountPrefView.xib; sourceTree = "<group>"; };
+		9EF3338311E79B19002A3B7D /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/DatabasePrefView.xib; sourceTree = "<group>"; };
+		9EF3338411E79B19002A3B7D /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/GeneralPrefView.xib; sourceTree = "<group>"; };
+		9EF3338511E79B19002A3B7D /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/SkillPlannerPrefView.xib; sourceTree = "<group>"; };
+		9EF3338611E79B19002A3B7D /* MBPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesController.h; sourceTree = "<group>"; };
+		9EF3338711E79B19002A3B7D /* MBPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesController.m; sourceTree = "<group>"; };
+		9EF3338811E79B19002A3B7D /* NSTableViewCellExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTableViewCellExtended.h; sourceTree = "<group>"; };
+		9EF3338911E79B19002A3B7D /* NSTableViewCellExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTableViewCellExtended.m; sourceTree = "<group>"; };
+		9EF3338A11E79B19002A3B7D /* SkillPlannerPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlannerPrefViewController.h; sourceTree = "<group>"; };
+		9EF3338B11E79B19002A3B7D /* SkillPlannerPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlannerPrefViewController.m; sourceTree = "<group>"; };
 		C90FB55A10644F8600292067 /* METInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METInstance.h; sourceTree = "<group>"; };
 		C911FED510782C50000D88E2 /* CharacterParseError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterParseError.h; sourceTree = "<group>"; };
 		C911FED610782C50000D88E2 /* CharacterParseError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterParseError.m; sourceTree = "<group>"; };
@@ -228,9 +250,6 @@
 		C94FAA5D11E04C4B00BDB8A6 /* METDependSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDependSkill.m; sourceTree = "<group>"; };
 		C950667B111799D60082D727 /* MTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageView.h; sourceTree = "<group>"; };
 		C950667C111799D60082D727 /* MTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageView.m; sourceTree = "<group>"; };
-		C95067A9111954CE0082D727 /* DatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseViewController.h; sourceTree = "<group>"; };
-		C95067AA111954CE0082D727 /* DatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseViewController.m; sourceTree = "<group>"; };
-		C95067AC111955860082D727 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferenceDatabase.xib; sourceTree = "<group>"; };
 		C964CB2010F42C8D00F735E9 /* CCPTypeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPTypeAttribute.h; sourceTree = "<group>"; };
 		C964CB2110F42C8D00F735E9 /* CCPTypeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPTypeAttribute.m; sourceTree = "<group>"; };
 		C964CB6D10F43D2E00F735E9 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ShipDetails.xib; sourceTree = "<group>"; };
@@ -250,9 +269,6 @@
 		C9661E37110FC07200FA9B72 /* CertDetailsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertDetailsWindowController.h; sourceTree = "<group>"; };
 		C9661E38110FC07200FA9B72 /* CertDetailsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertDetailsWindowController.m; sourceTree = "<group>"; };
 		C9721EEB1121292300035782 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/CharacterSheet.xib; sourceTree = "<group>"; };
-		C979E0021069AA0E00457530 /* SkillPlanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPlanConfig.h; sourceTree = "<group>"; };
-		C979E0031069AA0E00457530 /* SkillPlanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPlanConfig.m; sourceTree = "<group>"; };
-		C979E0071069B05400457530 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SkillPlannerConfig.xib; sourceTree = "<group>"; };
 		C979E00B1069C42700457530 /* PlannerColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerColumn.h; sourceTree = "<group>"; };
 		C979E00C1069C42700457530 /* PlannerColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerColumn.m; sourceTree = "<group>"; };
 		C9824495113E180900D410A0 /* CertPrerequisiteDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertPrerequisiteDatasource.h; sourceTree = "<group>"; };
@@ -268,7 +284,6 @@
 		C98D005611CDCEF100EE050F /* FittingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FittingObject.h; sourceTree = "<group>"; };
 		C98D005711CDCEF100EE050F /* FittingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FittingObject.m; sourceTree = "<group>"; };
 		C993CEC61123FA250084BFFD /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/DatabaseUpdate.xib; sourceTree = "<group>"; };
-		C9AC24271056886F0031D591 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Core/English.lproj/Loading.xib; sourceTree = SOURCE_ROOT; };
 		C9BCF757116FEC0C009E269C /* SkillQueueDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillQueueDatasource.h; sourceTree = "<group>"; };
 		C9BCF758116FEC0C009E269C /* SkillQueueDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillQueueDatasource.m; sourceTree = "<group>"; };
 		C9D901FE112113B10047B2C2 /* CertDetails.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = CertDetails.strings; sourceTree = "<group>"; };
@@ -300,16 +315,9 @@
 		C9D902D4112119510047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/CertDetails.xib; sourceTree = "<group>"; };
 		C9D902D91121196D0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/ShipDetails.xib; sourceTree = "<group>"; };
 		C9D902E111211A790047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/SkillPlan.xib; sourceTree = "<group>"; };
-		C9D902E611211AB00047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/SkillPlannerConfig.xib; sourceTree = "<group>"; };
-		C9D902E911211ACE0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferenceAccount.xib; sourceTree = "<group>"; };
-		C9D902EC11211AE20047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/Preferences.xib; sourceTree = "<group>"; };
-		C9D902EF11211AED0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferencesGeneral.xib; sourceTree = "<group>"; };
-		C9D902F211211AFC0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferenceDatabase.xib; sourceTree = "<group>"; };
-		C9D9030011211BFA0047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = Core/German.lproj/Loading.xib; sourceTree = SOURCE_ROOT; };
 		C9D9030311211C080047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C9D9031C11211E950047B2C2 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C9D9032011211EA30047B2C2 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C9D90335112121C20047B2C2 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/PreferencesAccountMaster.xib; sourceTree = "<group>"; };
 		C9DEA71E11608033007CB2C8 /* SkillPointAttributeTotal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillPointAttributeTotal.h; sourceTree = "<group>"; };
 		C9DEA71F11608033007CB2C8 /* SkillPointAttributeTotal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillPointAttributeTotal.m; sourceTree = "<group>"; };
 		C9DEA7E311608C37007CB2C8 /* AttributeModifierDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeModifierDatasource.h; sourceTree = "<group>"; };
@@ -425,18 +433,6 @@
 		C9FF474D10550BA60044BBAC /* XmlFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlFetcher.m; sourceTree = "<group>"; };
 		C9FF474E10550BA60044BBAC /* XmlHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlHelpers.h; sourceTree = "<group>"; };
 		C9FF474F10550BA60044BBAC /* XmlHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlHelpers.m; sourceTree = "<group>"; };
-		C9FF475110550BA60044BBAC /* AccountOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountOverviewController.h; sourceTree = "<group>"; };
-		C9FF475210550BA60044BBAC /* AccountOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountOverviewController.m; sourceTree = "<group>"; };
-		C9FF475310550BA60044BBAC /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
-		C9FF475410550BA60044BBAC /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
-		C9FF475510550BA60044BBAC /* GeneralSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettingsController.h; sourceTree = "<group>"; };
-		C9FF475610550BA60044BBAC /* GeneralSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralSettingsController.m; sourceTree = "<group>"; };
-		C9FF475710550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferenceAccount.xib; sourceTree = "<group>"; };
-		C9FF475810550BA60044BBAC /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
-		C9FF475910550BA60044BBAC /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
-		C9FF475A10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
-		C9FF475B10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesAccountMaster.xib; sourceTree = "<group>"; };
-		C9FF475C10550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesGeneral.xib; sourceTree = "<group>"; };
 		C9FF476710550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/CharacterSheet.xib; sourceTree = "<group>"; };
 		C9FF476810550BA60044BBAC /* CharacterSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSheetController.h; sourceTree = "<group>"; };
 		C9FF476910550BA60044BBAC /* CharacterSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSheetController.m; sourceTree = "<group>"; };
@@ -459,8 +455,6 @@
 		C9FF478010550BA60044BBAC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SkillDetails.xib; sourceTree = "<group>"; };
 		C9FF478110550BA60044BBAC /* SkillDetailsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillDetailsWindowController.h; sourceTree = "<group>"; };
 		C9FF478210550BA60044BBAC /* SkillDetailsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillDetailsWindowController.m; sourceTree = "<group>"; };
-		C9FF47CD10550BE90044BBAC /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
-		C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		C9FF48D71055151F0044BBAC /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		C9FF48D81055151F0044BBAC /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
 		C9FF4A3910552A180044BBAC /* ReleaseNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReleaseNotes.txt; sourceTree = "<group>"; };
@@ -484,8 +478,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9EF3336F11E79B19002A3B7D /* Preferences */,
 				C9F5147F1056719D00654F6D /* Private */,
-				C9FF475010550BA60044BBAC /* Preference Views */,
 				C9FF46EC10550BA50044BBAC /* Core */,
 				C9FF475F10550BA60044BBAC /* Views */,
 				C9FF477D10550BA60044BBAC /* Windows */,
@@ -566,6 +560,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9EF3336F11E79B19002A3B7D /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				9EF3337011E79B19002A3B7D /* AccountPrefDetailController.h */,
+				9EF3337111E79B19002A3B7D /* AccountPrefDetailController.m */,
+				9EF3337211E79B19002A3B7D /* AccountPrefTableController.h */,
+				9EF3337311E79B19002A3B7D /* AccountPrefTableController.m */,
+				9EF3337411E79B19002A3B7D /* AccountPrefViewController.h */,
+				9EF3337511E79B19002A3B7D /* AccountPrefViewController.m */,
+				9EF3337611E79B19002A3B7D /* DatabasePrefViewController.h */,
+				9EF3337711E79B19002A3B7D /* DatabasePrefViewController.m */,
+				9EF3337811E79B19002A3B7D /* AccountPrefView.xib */,
+				9EF3337A11E79B19002A3B7D /* DatabasePrefView.xib */,
+				9EF3337C11E79B19002A3B7D /* GeneralPrefView.xib */,
+				9EF3337E11E79B19002A3B7D /* SkillPlannerPrefView.xib */,
+				9EF3338011E79B19002A3B7D /* GeneralPrefViewController.h */,
+				9EF3338111E79B19002A3B7D /* GeneralPrefViewController.m */,
+				9EF3338611E79B19002A3B7D /* MBPreferencesController.h */,
+				9EF3338711E79B19002A3B7D /* MBPreferencesController.m */,
+				9EF3338811E79B19002A3B7D /* NSTableViewCellExtended.h */,
+				9EF3338911E79B19002A3B7D /* NSTableViewCellExtended.m */,
+				9EF3338A11E79B19002A3B7D /* SkillPlannerPrefViewController.h */,
+				9EF3338B11E79B19002A3B7D /* SkillPlannerPrefViewController.m */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		C9661A6B110D12EB00FA9B72 /* Certs */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,9 +607,6 @@
 		C979E0011069AA0300457530 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				C979E0021069AA0E00457530 /* SkillPlanConfig.h */,
-				C979E0031069AA0E00457530 /* SkillPlanConfig.m */,
-				C9D902E411211AAA0047B2C2 /* SkillPlannerConfig.xib */,
 				C979E00B1069C42700457530 /* PlannerColumn.h */,
 				C979E00C1069C42700457530 /* PlannerColumn.m */,
 				C92EA236106DC26D00B57823 /* ColumnConfigManager.h */,
@@ -700,7 +718,6 @@
 				C9F514931056721300654F6D /* MTTableViewCategory.m */,
 				C9F5149F1056725600654F6D /* CharacterManager.h */,
 				C9F514A01056725600654F6D /* CharacterManager.m */,
-				C9D902FE11211BF40047B2C2 /* Loading.xib */,
 				C9D9030111211C020047B2C2 /* MainMenu.xib */,
 				C993CEC41123FA200084BFFD /* DatabaseUpdate.xib */,
 				C9FF471510550BA50044BBAC /* DBManager.h */,
@@ -888,30 +905,6 @@
 			path = "Character Database";
 			sourceTree = "<group>";
 		};
-		C9FF475010550BA60044BBAC /* Preference Views */ = {
-			isa = PBXGroup;
-			children = (
-				C9FF47CD10550BE90044BBAC /* PreferenceViewController.h */,
-				C9FF47CE10550BE90044BBAC /* PreferenceViewController.m */,
-				C9FF475110550BA60044BBAC /* AccountOverviewController.h */,
-				C9FF475210550BA60044BBAC /* AccountOverviewController.m */,
-				C9FF475310550BA60044BBAC /* AccountViewController.h */,
-				C9FF475410550BA60044BBAC /* AccountViewController.m */,
-				C9FF475510550BA60044BBAC /* GeneralSettingsController.h */,
-				C9FF475610550BA60044BBAC /* GeneralSettingsController.m */,
-				C9D902E711211AC70047B2C2 /* PreferenceAccount.xib */,
-				C9FF475810550BA60044BBAC /* PreferenceController.h */,
-				C9FF475910550BA60044BBAC /* PreferenceController.m */,
-				C9D902EA11211ADD0047B2C2 /* Preferences.xib */,
-				C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */,
-				C9D902ED11211AE80047B2C2 /* PreferencesGeneral.xib */,
-				C95067A9111954CE0082D727 /* DatabaseViewController.h */,
-				C95067AA111954CE0082D727 /* DatabaseViewController.m */,
-				C9D902F011211AF30047B2C2 /* PreferenceDatabase.xib */,
-			);
-			path = "Preference Views";
-			sourceTree = "<group>";
-		};
 		C9FF475F10550BA60044BBAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,10 +1039,6 @@
 				C9FF456E105508950044BBAC /* skill.png in Resources */,
 				C9FF456F105508950044BBAC /* skillv.png in Resources */,
 				C9FF4570105508950044BBAC /* yellow.tiff in Resources */,
-				C9D902E811211AC70047B2C2 /* PreferenceAccount.xib in Resources */,
-				C9D902EB11211ADD0047B2C2 /* Preferences.xib in Resources */,
-				C9D90334112121BC0047B2C2 /* PreferencesAccountMaster.xib in Resources */,
-				C9D902EE11211AE80047B2C2 /* PreferencesGeneral.xib in Resources */,
 				C9721EEA1121291D00035782 /* CharacterSheet.xib in Resources */,
 				C9D902E011211A720047B2C2 /* SkillPlan.xib in Resources */,
 				C9D9028A112116270047B2C2 /* SkillDetails.xib in Resources */,
@@ -1057,16 +1046,17 @@
 				C9FF4A7A105532B60044BBAC /* Credits.html in Resources */,
 				C9FF4A80105536C00044BBAC /* dsa_pub.pem in Resources */,
 				C9D9030211211C020047B2C2 /* MainMenu.xib in Resources */,
-				C9D902FF11211BF40047B2C2 /* Loading.xib in Resources */,
-				C9D902E511211AAA0047B2C2 /* SkillPlannerConfig.xib in Resources */,
 				C9D902D8112119650047B2C2 /* ShipDetails.xib in Resources */,
 				C9D902D31121194A0047B2C2 /* CertDetails.xib in Resources */,
-				C9D902F111211AF30047B2C2 /* PreferenceDatabase.xib in Resources */,
 				C9D9031F11211E9C0047B2C2 /* Localizable.strings in Resources */,
 				C993CEC51123FA200084BFFD /* DatabaseUpdate.xib in Resources */,
 				C985427C11C466F9000E3B43 /* MET-logo.png in Resources */,
 				C985429E11C46898000E3B43 /* MET-icon.icns in Resources */,
 				C985432A11C4A6E5000E3B43 /* Notes in Resources */,
+				9EF3339011E79B1A002A3B7D /* AccountPrefView.xib in Resources */,
+				9EF3339111E79B1A002A3B7D /* DatabasePrefView.xib in Resources */,
+				9EF3339211E79B1A002A3B7D /* GeneralPrefView.xib in Resources */,
+				9EF3339311E79B1A002A3B7D /* SkillPlannerPrefView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,10 +1137,6 @@
 				C9FF47AE10550BA60044BBAC /* SqliteDatabase.m in Sources */,
 				C9FF47AF10550BA60044BBAC /* XmlFetcher.m in Sources */,
 				C9FF47B010550BA60044BBAC /* XmlHelpers.m in Sources */,
-				C9FF47B110550BA60044BBAC /* AccountOverviewController.m in Sources */,
-				C9FF47B210550BA60044BBAC /* AccountViewController.m in Sources */,
-				C9FF47B310550BA60044BBAC /* GeneralSettingsController.m in Sources */,
-				C9FF47B510550BA60044BBAC /* PreferenceController.m in Sources */,
 				C9FF47BE10550BA60044BBAC /* CharacterSheetController.m in Sources */,
 				C9FF47C110550BA60044BBAC /* PlanView2.m in Sources */,
 				C9FF47C210550BA60044BBAC /* PlanView2Datasource.m in Sources */,
@@ -1160,7 +1146,6 @@
 				C9FF47C710550BA60044BBAC /* SkillSearchView.m in Sources */,
 				C9FF47C810550BA60044BBAC /* ShipDetailsWindowController.m in Sources */,
 				C9FF47CA10550BA60044BBAC /* SkillDetailsWindowController.m in Sources */,
-				C9FF47CF10550BE90044BBAC /* PreferenceViewController.m in Sources */,
 				C9FF48D91055151F0044BBAC /* GlobalData.m in Sources */,
 				C9F5143E10566CA200654F6D /* CharacterSheetPlugin.m in Sources */,
 				C9F514951056721300654F6D /* MainController.m in Sources */,
@@ -1169,7 +1154,6 @@
 				C9F514A11056725600654F6D /* CharacterManager.m in Sources */,
 				C9EB4EC9105A0883009192BC /* CharacterTemplate.m in Sources */,
 				C9EB4F50105A16BD009192BC /* GenericDownloadOperation.m in Sources */,
-				C979E0041069AA0E00457530 /* SkillPlanConfig.m in Sources */,
 				C979E00D1069C42700457530 /* PlannerColumn.m in Sources */,
 				C92EA238106DC26D00B57823 /* ColumnConfigManager.m in Sources */,
 				C911FED710782C50000D88E2 /* CharacterParseError.m in Sources */,
@@ -1184,7 +1168,6 @@
 				C9661CC5110D6F7800FA9B72 /* SkillSearchCertDatasource.m in Sources */,
 				C9661E39110FC07200FA9B72 /* CertDetailsWindowController.m in Sources */,
 				C950667D111799D60082D727 /* MTImageView.m in Sources */,
-				C95067AB111954CE0082D727 /* DatabaseViewController.m in Sources */,
 				C94A94E51124F94600352F49 /* SkillDetailsPointsDatasource.m in Sources */,
 				C94A94F01124FC6600352F49 /* SkillDetailsTrainingTimeDatasource.m in Sources */,
 				C94A951F1124FF9100352F49 /* SkillPrerequisiteDatasource.m in Sources */,
@@ -1201,6 +1184,14 @@
 				C926A9C511E0268200D16ECF /* CCPAttributeData.m in Sources */,
 				C94FAA4911E0496E00BDB8A6 /* SkillEnablesTypeDatasource.m in Sources */,
 				C94FAA5E11E04C4B00BDB8A6 /* METDependSkill.m in Sources */,
+				9EF3338C11E79B1A002A3B7D /* AccountPrefDetailController.m in Sources */,
+				9EF3338D11E79B1A002A3B7D /* AccountPrefTableController.m in Sources */,
+				9EF3338E11E79B1A002A3B7D /* AccountPrefViewController.m in Sources */,
+				9EF3338F11E79B1A002A3B7D /* DatabasePrefViewController.m in Sources */,
+				9EF3339411E79B1A002A3B7D /* GeneralPrefViewController.m in Sources */,
+				9EF3339511E79B1A002A3B7D /* MBPreferencesController.m in Sources */,
+				9EF3339611E79B1A002A3B7D /* NSTableViewCellExtended.m in Sources */,
+				9EF3339711E79B1A002A3B7D /* SkillPlannerPrefViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,6 +1212,42 @@
 				089C165DFE840E0CC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9EF3337811E79B19002A3B7D /* AccountPrefView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF3337911E79B19002A3B7D /* English */,
+				9EF3338211E79B19002A3B7D /* German */,
+			);
+			name = AccountPrefView.xib;
+			sourceTree = "<group>";
+		};
+		9EF3337A11E79B19002A3B7D /* DatabasePrefView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF3337B11E79B19002A3B7D /* English */,
+				9EF3338311E79B19002A3B7D /* German */,
+			);
+			name = DatabasePrefView.xib;
+			sourceTree = "<group>";
+		};
+		9EF3337C11E79B19002A3B7D /* GeneralPrefView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF3337D11E79B19002A3B7D /* English */,
+				9EF3338411E79B19002A3B7D /* German */,
+			);
+			name = GeneralPrefView.xib;
+			sourceTree = "<group>";
+		};
+		9EF3337E11E79B19002A3B7D /* SkillPlannerPrefView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF3337F11E79B19002A3B7D /* English */,
+				9EF3338511E79B19002A3B7D /* German */,
+			);
+			name = SkillPlannerPrefView.xib;
 			sourceTree = "<group>";
 		};
 		C9721EE91121291D00035782 /* CharacterSheet.xib */ = {
@@ -1277,60 +1304,6 @@
 			name = SkillPlan.xib;
 			sourceTree = "<group>";
 		};
-		C9D902E411211AAA0047B2C2 /* SkillPlannerConfig.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C979E0071069B05400457530 /* English */,
-				C9D902E611211AB00047B2C2 /* German */,
-			);
-			name = SkillPlannerConfig.xib;
-			sourceTree = "<group>";
-		};
-		C9D902E711211AC70047B2C2 /* PreferenceAccount.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9FF475710550BA60044BBAC /* English */,
-				C9D902E911211ACE0047B2C2 /* German */,
-			);
-			name = PreferenceAccount.xib;
-			sourceTree = "<group>";
-		};
-		C9D902EA11211ADD0047B2C2 /* Preferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9FF475A10550BA60044BBAC /* English */,
-				C9D902EC11211AE20047B2C2 /* German */,
-			);
-			name = Preferences.xib;
-			sourceTree = "<group>";
-		};
-		C9D902ED11211AE80047B2C2 /* PreferencesGeneral.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9FF475C10550BA60044BBAC /* English */,
-				C9D902EF11211AED0047B2C2 /* German */,
-			);
-			name = PreferencesGeneral.xib;
-			sourceTree = "<group>";
-		};
-		C9D902F011211AF30047B2C2 /* PreferenceDatabase.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C95067AC111955860082D727 /* English */,
-				C9D902F211211AFC0047B2C2 /* German */,
-			);
-			name = PreferenceDatabase.xib;
-			sourceTree = "<group>";
-		};
-		C9D902FE11211BF40047B2C2 /* Loading.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9AC24271056886F0031D591 /* English */,
-				C9D9030011211BFA0047B2C2 /* German */,
-			);
-			name = Loading.xib;
-			sourceTree = "<group>";
-		};
 		C9D9030111211C020047B2C2 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1347,15 +1320,6 @@
 				C9D9032011211EA30047B2C2 /* German */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		C9D90333112121BC0047B2C2 /* PreferencesAccountMaster.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9FF475B10550BA60044BBAC /* English */,
-				C9D90335112121C20047B2C2 /* German */,
-			);
-			name = PreferencesAccountMaster.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

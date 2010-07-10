@@ -34,7 +34,7 @@
 @synthesize certTree;
 @synthesize database;
 
-static GlobalData *_privateData = nil;
+static GlobalData *_privateDataSingleton = nil;
 
 /*not that this will ever be called*/
 -(void)dealloc
@@ -42,67 +42,117 @@ static GlobalData *_privateData = nil;
 	[skillTree release];
 	[certTree release];
 	[dateFormatter release];
+	[database release];
 	[super dealloc];
 }
 
--(GlobalData*) privateInit
-{
-	return [super init];
-}
-
-/*
- don't call this.
- Prevent anyone from calling init without thinking.
- */
 -(id) init
 {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
+	self = [super init];
+    _privateDataSingleton = self;
+	 
+	self.database = [[CCPDatabase alloc] initWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:UD_ITEM_DB_PATH]];
+	
+    SkillTree *st = [database buildSkillTree];
+	CertTree *ct = [database buildCertTree];
+	
+	if(st == nil){
+		NSLog(@"Error: Failed to construct skill tree");
+		return nil;
+	}
+	
+	if(ct == nil){
+		NSLog(@"Error: Failed to construct cert tree");
+		return nil;
+	}
+		
+	[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+	
+	self.dateFormatter = [[NSDateFormatter alloc]init];
+	[self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+	[self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	
+	self.skillTree = st;	
+	self.certTree = ct;
+		
+    return self;
+}
+
++(id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (_privateDataSingleton == nil) {
+            _privateDataSingleton = [super allocWithZone:zone];
+            return _privateDataSingleton;  // assignment and return on first allocation
+        }
+    }
+    return nil; //on subsequent allocation attempts return nil
+}
+
+-(id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
+-(id)retain {
+    return self;
+}
+
+
+-(unsigned long)retainCount {
+    return UINT_MAX;  //denotes an object that cannot be release
+}
+
+
+-(void)release {
+    //do nothing    
+}
+
+
+-(id)autorelease {
+    return self;    
 }
 
 +(GlobalData*) sharedInstance
 {
-	if(_privateData == nil)
-	{	
-		CCPDatabase *db = [[CCPDatabase alloc]initWithPath:[[Config sharedInstance]itemDBPath]];
-		[db autorelease];
-		
-		if(db == nil){
-			NSLog(@"Error: Failed to init database");
-			return nil;
-		}
-		
-		SkillTree *st = [db buildSkillTree];
-		CertTree *ct = [db buildCertTree];
-		
-		if(st == nil){
-			NSLog(@"Error: Failed to construct skill tree");
-			return nil;
-		}
-		
-		if(ct == nil){
-			NSLog(@"Error: Failed to construct cert tree");
-			return nil;
-		}
-		
-		_privateData = [[GlobalData alloc]privateInit];
-		
-		_privateData->database = [db retain];
-		
-		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-		
-		_privateData->dateFormatter = [[NSDateFormatter alloc]init];
-		[_privateData->dateFormatter setDateStyle:NSDateFormatterShortStyle];
-		[_privateData->dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-		
-		_privateData->skillTree = [st retain];
-		_privateData->certTree = [ct retain];
-		
+	@synchronized(self) {
+        if (_privateDataSingleton == nil) {
+            [[self alloc] init]; // assignment not done here
+        }
+    }
+    return _privateDataSingleton;	
+}
+
+-(NSString*) formatDate:(NSDate*)date
+{
+	return [dateFormatter stringFromDate:date];
+}
+
+-(NSInteger) databaseVersion
+{
+	NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:UD_ITEM_DB_PATH];
+	
+	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
+		return 0;
 	}
 	
-	//Not a leak.
-	return _privateData;
+	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:path];
 	
+	NSInteger version = [db dbVersion];
+	
+	[db release];
+	
+	return version;
+	
+}
+
+-(BOOL) databaseUpToDate
+{
+	NSInteger version = [self databaseVersion];
+	
+	if(version >= [[NSUserDefaults standardUserDefaults] integerForKey:UD_DATABASE_MIN_VERSION]){
+		return YES;
+	}
+	
+	return NO;
 }
 
 @end

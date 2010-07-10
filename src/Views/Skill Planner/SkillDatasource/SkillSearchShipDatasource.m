@@ -53,7 +53,7 @@
 -(id)initWithCategory:(NSInteger)cat
 {
 	if(self = [self init]){
-		NSString *path = [[Config sharedInstance]itemDBPath];
+		NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:UD_ITEM_DB_PATH];
 		
 		if(![[NSFileManager defaultManager]
 			 fileExistsAtPath:path])

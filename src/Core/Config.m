@@ -35,82 +35,63 @@
 
 @implementation Config
 
-@synthesize autoUpdate;
-@synthesize batchUpdateCharacters;
-@synthesize startupRefresh;
-@synthesize submitSystemInformation;
-@synthesize updateFeedUrl;
-@synthesize dbUpdateUrl;
-@synthesize dbSQLUrl;
-@synthesize rootPath;
-@synthesize picurl;
-@synthesize itemDBPath;
 @synthesize accounts;
-@synthesize imageUrl;
-@synthesize databaseMinimumVersion;
 
-static Config *cfg = nil;
-
--(Config*)privateInit
-{
-	return [super init];
-}
+static Config *sharedSingletonCfg = nil;
 
 -(id) init
 {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
+	self = [super init];
+    sharedSingletonCfg = self;
+	
+    self.accounts = [[NSMutableArray alloc]init]; /*array of Account objects */
+	[self readConfig];
+	
+    return self;
 }
+
++(id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedSingletonCfg == nil) {
+            sharedSingletonCfg = [super allocWithZone:zone];
+            return sharedSingletonCfg;  // assignment and return on first allocation
+        }
+    }
+    return nil; //on subsequent allocation attempts return nil
+}
+
+-(id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
+-(id)retain {
+    return self;
+}
+
+
+-(unsigned long)retainCount {
+    return UINT_MAX;  //denotes an object that cannot be release
+}
+
+
+-(void)release {
+    //do nothing    
+}
+
+
+-(id)autorelease {
+    return self;    
+}
+
 
 +(Config*) sharedInstance
 {
-	if(cfg == nil)
-	{
-		cfg = [[Config alloc]privateInit];
-		cfg->apiurl = @"http://api.eve-online.com";
-		cfg->picurl = @"http://img.eve.is/serv.asp?s=256"; //append &c=charID to get the avatar picture
-		cfg->rootPath = [[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath]retain];
-		cfg->itemDBPath = [[cfg->rootPath stringByAppendingFormat:@"/database.sqlite"] retain];
-		
-		cfg->accounts = [[NSMutableArray alloc]init]; /*array of Account objects */
-		
-		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-		cfg->dateFormatter = [[NSDateFormatter alloc]init];
-		
-		[cfg->dateFormatter setDateStyle:NSDateFormatterShortStyle];
-		[cfg->dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-		
-		cfg->autoUpdate = NO;
-		cfg->submitSystemInformation = NO;
-		cfg->batchUpdateCharacters = NO;
-		
-		cfg->updateFeedUrl = @"http://mtyson.id.au/MacEveApi-appcast.xml";
-		
-		cfg->dbUpdateUrl = @"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml";
-		cfg->dbSQLUrl = @"http://www.mtyson.id.au/MacEveApi/database.sql.bz2";
-		cfg->imageUrl = @"http://www.mtyson.id.au/MacEveApi/images";//images for icons etc.
-		
-		cfg->databaseMinimumVersion = 6;
-		
-		[cfg readConfig];
-	}
-	//not a leak.
-	return cfg;
-}
-
-/*
--(NSString*) itemDBFallbackPath
-{
-	return [NSString stringWithFormat:@"%@/database.sqlite",cfg->rootPath];
-}
- */
-
--(void) setSubmitSystemInformation:(BOOL)status
-{
-	submitSystemInformation = status;
-#ifdef HAVE_SPARKLE
-	[[SUUpdater sharedUpdater]setSendsSystemProfile:status];
-#endif
+	@synchronized(self) {
+        if (sharedSingletonCfg == nil) {
+            [[self alloc] init]; // assignment not done here
+        }
+    }
+    return sharedSingletonCfg;
 }
 
 +(NSString*) getApiUrl:(NSString*)xmlPage 
@@ -118,9 +99,10 @@ static Config *cfg = nil;
 				apiKey:(NSString*)apiKey 
 				charId:(NSString*)characterId
 {
-	NSMutableString *str = [[[NSMutableString alloc]init]autorelease];
+	NSMutableString *str = [[[NSMutableString alloc]init] autorelease];
 	
-	[str appendFormat:@"%@%@",cfg->apiurl,xmlPage];
+	
+	[str appendFormat:@"%@%@",[[NSUserDefaults standardUserDefaults] stringForKey:UD_API_URL],xmlPage];
 	if(accountId && apiKey){
 		[str appendFormat:@"?userID=%@&apiKey=%@",accountId,apiKey];
 		if(characterId){
@@ -135,14 +117,9 @@ static Config *cfg = nil;
 }
 
 
--(NSString*) getSavePath
-{
-	return rootPath;
-}
-
 +(NSString*) charDirectoryPath:(NSString*)accountId character:(NSString*)characterId
 {
-	return [NSString stringWithFormat:@"%@/%@/%@",cfg->rootPath,accountId,characterId];
+	return [NSString stringWithFormat:@"%@/%@/%@",[[NSUserDefaults standardUserDefaults] stringForKey:UD_ROOT_PATH],accountId,characterId];
 }
 
 /*
@@ -152,7 +129,7 @@ static Config *cfg = nil;
 {
 	NSString *str;
 	va_list argList;
-	NSMutableString *result = [[[NSMutableString alloc]initWithString:cfg->rootPath]autorelease];
+	NSMutableString *result = [[[NSMutableString alloc]initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:UD_ROOT_PATH]]autorelease];
 	
 	va_start(argList, xmlApiFile);
 	
@@ -171,8 +148,8 @@ static Config *cfg = nil;
 
 +(NSString*) buildPathSingle:(NSString*)file
 {
-	Config *cfg = [Config sharedInstance];
-	return [NSString stringWithFormat:@"%@/%@",[cfg rootPath],file];
+	//Config *cfg = [Config sharedInstance];
+	return [NSString stringWithFormat:@"%@/%@",[[NSUserDefaults standardUserDefaults] stringForKey:UD_ROOT_PATH],file];
 }
 
 
@@ -193,13 +170,7 @@ static Config *cfg = nil;
 	return NO;
 }
 
-/*
- read the program config file off disk.
- note that the error checking in here is not very agressive. an XML file with junk in it will
- probably cause a crash.
- */
--(BOOL) readConfig
-{
+- (BOOL) readOldConfigFile {
 	xmlDoc *doc;
 	xmlNode *root;
 	
@@ -215,8 +186,7 @@ static Config *cfg = nil;
 	root = xmlDocGetRootElement(doc);
 	
 	if(accounts && [accounts count] > 0){
-		[accounts release];
-		accounts = [[NSMutableArray alloc]init];
+		[accounts removeAllObjects];
 	}
 	
 	/*root node should be <cfg->progra>*/
@@ -251,9 +221,9 @@ static Config *cfg = nil;
 		NSString *apiKey = findAttribute(accountNode,(xmlChar*)"apiKey");
 		NSString *acctName = findAttribute(accountNode,(xmlChar*)"name");
 		
-		[acct setApiKey:apiKey];
-		[acct setAccountID:accountId];
-		[acct setAccountName:acctName];
+		acct.apiKey = apiKey;
+		acct.accountID = accountId;
+		acct.accountName = acctName;
 		
 		/*parse the XML document for this account.*/
 		[acct performSelector:@selector(loadXmlDocument)];
@@ -280,7 +250,7 @@ static Config *cfg = nil;
 				continue;
 			}
 			
-			NSString *charId = findAttribute(charNode,(xmlChar*)"characterID");
+			//NSString *charId = findAttribute(charNode,(xmlChar*)"characterID");
 			NSString *charName = findAttribute(charNode,(xmlChar*)"characterName");
 			NSString *charPrimary = findAttribute(charNode,(xmlChar*)"primary");
 			NSString *charActive = findAttribute(charNode,(xmlChar*)"active");
@@ -301,110 +271,62 @@ static Config *cfg = nil;
 	xmlNode *element;
 	element = findChildNode(root,(xmlChar*)"autoupdate");
 	if(element != NULL){
-		cfg->autoUpdate = [self readBoolElement:element];
+		[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self readBoolElement:element]] forKey:UD_CHECK_FOR_UPDATES];
 	}
 	
 	/*submit usage information*/
 	element = findChildNode(root,(xmlChar*)"submitStatistics");
 	if(element != NULL){
-		[cfg setSubmitSystemInformation:[self readBoolElement:element]];
-	}
-	
-	element = findChildNode(root,(xmlChar*)"batchUpdateCharacters");
-	if(element != NULL){
-		[cfg setBatchUpdateCharacters:[self readBoolElement:element]];
+		[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[self readBoolElement:element]] forKey:UD_SUBMIT_STATS];
 	}
 	
 	xmlFreeDoc(doc);
 	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSData *archive = [NSKeyedArchiver archivedDataWithRootObject:self.accounts];
+	[defaults setObject:archive forKey:UD_ACCOUNTS];
+	[defaults synchronize];
+	
+	[[NSFileManager defaultManager] removeItemAtPath:[self savePath] error:nil];
+	
+	return YES;
+}
+
+/*
+ read the program config file off disk.
+ note that the error checking in here is not very agressive. an XML file with junk in it will
+ probably cause a crash.
+ */
+-(BOOL) readConfig
+{	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:[self savePath]]) {
+		[self readOldConfigFile];
+	}
+	else {
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		NSData *archive = [defaults objectForKey:UD_ACCOUNTS];
+		NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:archive];
+	
+	/* clearing mutable array and add new array via add method.. 
+	 Init a new Array with the array causes a memory leak
+	 releasing the previous list to fix the leak causes 
+	 EXC_BAD_ACCESS because somewhere is an access to the old released list*/
+		if (self.accounts != NULL) {
+			[self.accounts removeAllObjects];
+		}
+		else {
+			self.accounts = [[NSMutableArray alloc] init];
+		}
+	
+		[self.accounts addObjectsFromArray:array];
+			
+	}
 	return YES;
 }
 
 -(BOOL) saveConfig
-{
-	xmlDoc *doc;
-	xmlNode *node;
-	xmlNode *root;
-	
-	doc = xmlNewDoc((xmlChar*)"1.0");
-	
-	root = xmlNewNode(NULL,(xmlChar*)"MacEveApi");
-	xmlNewProp(root,(xmlChar*)"version",(xmlChar*)"1.0");
-	xmlDocSetRootElement(doc, root);
-	
-	/*rowset of accounts*/
-	node = xmlNewChild(root,NULL,(xmlChar*)"rowset",NULL);
-	xmlNewProp(node,(xmlChar*)"name",(xmlChar*)"accounts");
-	xmlNewProp(node,(xmlChar*)"key",(xmlChar*)"accountID");
-	xmlNewProp(node,(xmlChar*)"columns",(xmlChar*)"accountID,apiKey,name");
-	
-	/*write out each account as a child of the accounts rowset*/
-	for(Account *acct in accounts){
-		xmlNode *acctNode = xmlNewChild(node,NULL,(xmlChar*)"row",NULL);
-		xmlNewPropString(acctNode,(xmlChar*)"accountID",[acct accountID]);
-		xmlNewPropString(acctNode,(xmlChar*)"apiKey",[acct apiKey]);
-		xmlNewPropString(acctNode,(xmlChar*)"name",[acct accountName]);
-		
-		/*Write out the character rowset*/
-		xmlNode *charRowset = xmlNewChild(acctNode,NULL,(xmlChar*)"rowset",NULL);
-		xmlNewProp(charRowset,(xmlChar*)"name",(xmlChar*)"characters");
-		xmlNewProp(charRowset,(xmlChar*)"key",(xmlChar*)"characterID");
-		xmlNewProp(charRowset,(xmlChar*)"columns",(xmlChar*)"characterID,characterName,primary,active");
-		
-		/*write out all the characters for this account*/
-		for(CharacterTemplate *template in [acct characters]){
-			xmlNode *charNode = xmlNewChild(charRowset,NULL,(xmlChar*)"row",NULL);
-			
-			xmlNewProp(charNode,(xmlChar*)"characterID",(xmlChar*)[[template characterId]UTF8String]);
-			xmlNewProp(charNode,(xmlChar*)"characterName",(xmlChar*)[[template characterName]UTF8String]);
-			
-			xmlNewProp(charNode,(xmlChar*)"primary",[template primary] ? (xmlChar*)"yes" : (xmlChar*)"no");
-			xmlNewProp(charNode,(xmlChar*)"active",[template active] ? (xmlChar*)"yes" :(xmlChar*)"no");
-		}
-	}
-	
-	xmlNewChild(root,NULL, (xmlChar*)"autoupdate",cfg->autoUpdate ? (xmlChar*)"yes" : (xmlChar*)"no");
-	xmlNewChild(root,NULL, (xmlChar*)"submitStatistics",cfg->submitSystemInformation ? (xmlChar*)"yes" : (xmlChar*)"no");
-	xmlNewChild(root,NULL, (xmlChar*)"batchUpdateCharacters",cfg->batchUpdateCharacters ? (xmlChar*)"yes" : (xmlChar*)"no");
-	
-	NSString *path = [Config filePath:@"EveApiConfig.xml",nil];
-	
-	if(!xmlSaveFormatFileEnc([path fileSystemRepresentation], doc, "UTF-8", XML_CHAR_ENCODING_UTF8)){
-		NSLog(@"Failed to write config to (%@)",path);
-	}
-	
-	xmlFreeDoc(doc);
-	
+{	
 	return YES;
-}
-
--(NSInteger) databaseVersion
-{
-	NSString *path = [self itemDBPath];
-	
-	if(![[NSFileManager defaultManager]fileExistsAtPath:path]){
-		return 0;
-	}
-	
-	CCPDatabase *db = [[CCPDatabase alloc]initWithPath:path];
-	
-	NSInteger version = [db dbVersion];
-	
-	[db release];
-	
-	return version;
-
-}
-
--(BOOL) databaseUpToDate
-{
-	NSInteger version = [self databaseVersion];
-	
-	if(version >= [self databaseMinimumVersion]){
-		return YES;
-	}
-	
-	return NO;
 }
 
 -(BOOL) requisiteFilesExist
@@ -428,42 +350,43 @@ static Config *cfg = nil;
 {
 	/*check to see if the Account object already exists in the array.*/
 	NSString *acctName = [acct accountName];
-	for(Account *a in accounts){
+	for(Account *a in self.accounts){
 		if([[a accountName]isEqualToString:acctName]){
 			return -1;
 		}
 	}
 	
-	[accounts addObject:acct];
-	return [accounts count]-1;
+	[self.accounts addObject:acct];
+	return [self.accounts count]-1;
 }
 
 -(BOOL) removeAccount:(Account*)acct
 {
 	NSString *acctName = [acct accountName];
 	/*iterate through the list of accounts and find one with that name and remove it.*/
-	for(Account *acct in cfg->accounts){
+	for(Account *acct in self.accounts){
 		if([[acct accountName]isEqualToString:acctName]){
 			/*found the account. remove it*/
-			[cfg->accounts removeObject:acct];
+			[self.accounts removeObject:acct];
 			return YES;
 		}
 	}
 	return NO;
 }
 
--(NSString*) formatDate:(NSDate*)date
-{
-	return [dateFormatter stringFromDate:date];
+-(BOOL) clearAccounts {
+	[self.accounts removeAllObjects];
+	
+	return TRUE;
 }
 
 -(NSArray*) activeCharacters
 {
 	NSMutableArray *ary = [[[NSMutableArray alloc]init]autorelease];
 	
-	for(Account *acct in [self accounts]){
-		for(CharacterTemplate *template in [acct characters]){
-			if([template active]){
+	for(Account *acct in self.accounts){
+		for(CharacterTemplate *template in acct.characters){
+			if(template.active){
 				[ary addObject:template];
 			}
 		}
@@ -474,24 +397,26 @@ static Config *cfg = nil;
 
 -(NSString*) pathForImageType:(NSInteger)typeID
 {
-	NSMutableString *url = [NSString stringWithFormat:@"%@/images/types/256_256/%ld.png",rootPath,typeID];
+	NSMutableString *url = [NSString stringWithFormat:@"%@/images/types/256_256/%ld.png", [[NSUserDefaults standardUserDefaults] stringForKey:UD_ROOT_PATH],typeID];
 	
 	return url;
 }
 
 -(NSString*) urlForImageType:(NSInteger)typeID
 {
-	NSMutableString *url = [NSMutableString stringWithString:imageUrl];
+	NSMutableString *url = [NSMutableString string];
 	
+	[url appendFormat:@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:UD_IMAGE_URL]];
 	[url appendFormat:@"/types/256_256/%ld.png",typeID];
 	
 	return url;
 }
 
 -(NSString*) urlForIcon:(NSString*)icon size:(enum ImageSize)size
-{
-	NSMutableString *url = [NSString stringWithString:imageUrl];
+{	
+	NSMutableString *url = [NSMutableString string];
 	
+	[url appendFormat:@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:UD_IMAGE_URL]];
 	[url appendFormat:@"/icons/%d_%d/%s.png",(int)size,(int)size,icon];
 	
 	return url;
@@ -500,7 +425,7 @@ static Config *cfg = nil;
 -(enum DatabaseLanguage) dbLanguage
 {
 	/*if no key is set, zero is the default, which is english.*/
-	return [[NSUserDefaults standardUserDefaults]integerForKey:UD_DATABASE_LANG];
+	return [[NSUserDefaults standardUserDefaults] integerForKey:UD_DATABASE_LANG];
 
 }
 -(void) setDbLanguage:(enum DatabaseLanguage)lang

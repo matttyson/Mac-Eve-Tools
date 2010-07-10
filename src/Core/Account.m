@@ -67,7 +67,7 @@
 		return NO;
 	}
 	
-	[characters removeAllObjects];
+	[self.characters removeAllObjects];
 	
 	for(xmlNode *cur_node = rowset->children;
 		cur_node != NULL;
@@ -83,8 +83,8 @@
 		CharacterTemplate *template;
 		template = [[CharacterTemplate alloc]
 					initWithDetails:name 
-					accountId:[self accountID] 
-					apiKey:[self apiKey] 
+					accountId:self.accountID
+					apiKey:self.apiKey 
 					charId:characterID 
 					active:NO 
 					primary:NO];
@@ -102,8 +102,8 @@
 	XmlFetcher *f = [[XmlFetcher alloc]initWithDelegate:self];
 	
 	NSString *apiUrl = [Config getApiUrl:XMLAPI_CHAR_LIST 
-							   accountID:accountID 
-								  apiKey:apiKey
+							   accountID:self.accountID 
+								  apiKey:self.apiKey
 								  charId:nil];
 	
 	if(modalDelegate){
@@ -165,7 +165,7 @@
 	xmlNode *result = findChildNode(root_node,(xmlChar*)"error");
 	
 	if(result != NULL){
-		NSLog(@"%s",getNodeText(result));
+		NSLog(@"%@",getNodeText(result));
 		rc = NO;
 	}
 	
@@ -189,11 +189,12 @@
 @synthesize accountID;
 @synthesize apiKey;
 @synthesize accountName;
+@synthesize characters;
 
 
 -(void) addCharacter:(CharacterTemplate*)template
 {
-	[characters addObject:template];
+	[self.characters addObject:template];
 }
 
 
@@ -220,8 +221,8 @@
 
 -(NSInteger)characterCount
 {
-	if(characters != nil){
-		return [characters count];
+	if(self.characters != nil){
+		return [self.characters count];
 	}
 	return 0;
 }
@@ -234,17 +235,17 @@
 
 -(void) dealloc
 {
-	[accountID release];
-	[apiKey release];
-	[characters release];
-	[accountName release];
+	[self.accountID release];
+	[self.apiKey release];
+	[self.characters release];
+	[self.accountName release];
 	[super dealloc];
 }
 
 -(Account*) init
 {
 	if(self = [super init]){
-		characters = [[NSMutableArray alloc]init];
+		self.characters = [[[NSMutableArray alloc] init] autorelease];
 	}
 	return self;
 }
@@ -252,8 +253,8 @@
 -(Account*) initWithDetails:(NSString*)acctID acctKey:(NSString*)key
 {
 	if([self init]){
-		accountID = [acctID retain];
-		apiKey = [key retain];
+		self.accountID = [acctID retain];
+		self.apiKey = [key retain];
 	}
 	
 	return self;
@@ -262,15 +263,12 @@
 -(Account*) initWithName:(NSString*)name
 {
 	if([self init]){
-		self->accountName = name;
+		self.accountName = name;
 	}
 	return self;
 }
 
--(NSArray*) characters
-{
-	return characters;
-}
+/*
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
@@ -296,6 +294,27 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		}
 	}
 	return nil;
+}
+*/
+
+#pragma mark -
+#pragma mark NSCoding protocol
+- (id) initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	if (self != nil) {
+		self.accountName = [aDecoder decodeObjectForKey:@"accountName"];
+		self.accountID = [aDecoder decodeObjectForKey:@"accountID"];
+		self.apiKey = [aDecoder decodeObjectForKey:@"apiKey"];
+		self.characters = [aDecoder decodeObjectForKey:@"characters"];
+	}
+	return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:self.accountName forKey:@"accountName"];
+	[aCoder encodeObject:self.accountID forKey:@"accountID"];
+	[aCoder encodeObject:self.apiKey forKey:@"apiKey"];
+	[aCoder encodeObject:self.characters forKey:@"characters"];
 }
 
 @end

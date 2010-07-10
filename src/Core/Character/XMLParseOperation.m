@@ -168,7 +168,7 @@
 	 Now it should notifiy the character manager to say that there were errors
 	 validating the sheets.
 	 */
-	BOOL rc = [boolval boolValue];
+	//BOOL rc = [boolval boolValue];
 	
 	
 }

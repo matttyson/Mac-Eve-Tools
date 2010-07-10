@@ -72,7 +72,7 @@
 	NSString *urlPath = [Config getApiUrl:XMLAPI_SERVER_STATUS accountID:nil apiKey:nil charId:nil];
 	NSURL *url = [NSURL URLWithString:urlPath];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+	[NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 -(BOOL) parseXmlData:(NSData*)data

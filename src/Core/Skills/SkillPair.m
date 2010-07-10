@@ -71,7 +71,11 @@
 }
 - (id)initWithCoder:(NSCoder *)decoder
 {
-	typeID = [[NSNumber numberWithInteger:[decoder decodeIntegerForKey:@"typeID"]]retain];
+	if (typeID != NULL) {
+		[typeID release];
+	}
+	
+	typeID = [NSNumber numberWithInteger:[decoder decodeIntegerForKey:@"typeID"]];
 	skillLevel = [decoder decodeIntegerForKey:@"skillLevel"];
 	return [self initWithSkill:typeID level:skillLevel];
 }

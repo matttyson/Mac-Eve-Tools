@@ -19,7 +19,7 @@
 
 #import "PlanView2.h"
 #import "macros.h"
-#import "PlannerColumn.h"
+//#import "PlannerColumn.h"
 
 #import "GlobalData.h"
 #import "SkillPlan.h"
@@ -67,7 +67,7 @@
 {
 	NSUInteger rowsetCount = [planIndexes count];
 	NSUInteger *ary = malloc(sizeof(NSUInteger) * rowsetCount);
-	NSUInteger actual = [planIndexes getIndexes:ary maxCount:(sizeof(NSUInteger) * rowsetCount) inIndexRange:nil];
+	//NSUInteger actual = [planIndexes getIndexes:ary maxCount:(sizeof(NSUInteger) * rowsetCount) inIndexRange:nil];
 	
 	for(NSUInteger i = 0; i < rowsetCount; i++){
 		SkillPlan *plan = [character skillPlanAtIndex:ary[i]];
@@ -625,7 +625,7 @@
 	
 	if([sp runModal] == NSFileHandlingPanelOKButton){
 		EvemonXmlPlanIO *pio = [[EvemonXmlPlanIO alloc]init];
-		BOOL rc = [pio write:plan toFile:[[sp URL]path]];
+		[pio write:plan toFile:[[sp URL]path]];
 		[pio release];
 	}
 }
@@ -777,8 +777,8 @@ shouldEditTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)tableViewColumnDidMove:(NSNotification *)aNotification
 {
-	NSNumber *oldIndex = [[aNotification userInfo]objectForKey:@"NSOldColumn"];
-	NSNumber *newIndex = [[aNotification userInfo]objectForKey:@"NSNewColumn"];	
+	//NSNumber *oldIndex = [[aNotification userInfo]objectForKey:@"NSOldColumn"];
+	//NSNumber *newIndex = [[aNotification userInfo]objectForKey:@"NSNewColumn"];	
 	
 	//The column at oldIndex got moved to newIndex.
 }

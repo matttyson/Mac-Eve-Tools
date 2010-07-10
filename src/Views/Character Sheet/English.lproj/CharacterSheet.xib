@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">10D573</string>
-		<string key="IBDocument.InterfaceBuilderVersion">740</string>
+		<string key="IBDocument.InterfaceBuilderVersion">762</string>
 		<string key="IBDocument.AppKitVersion">1038.29</string>
 		<string key="IBDocument.HIToolboxVersion">460.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">740</string>
+			<string key="NS.object.0">762</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -624,7 +624,7 @@
 									<object class="NSTextField" id="1049045319">
 										<reference key="NSNextResponder" ref="198618724"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{15, 314}, {93, 17}}</string>
+										<string key="NSFrame">{{15, 311}, {93, 17}}</string>
 										<reference key="NSSuperview" ref="198618724"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="1005843165">
@@ -640,7 +640,7 @@
 									<object class="NSTextField" id="519407295">
 										<reference key="NSNextResponder" ref="198618724"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{137, 314}, {38, 17}}</string>
+										<string key="NSFrame">{{137, 311}, {38, 17}}</string>
 										<reference key="NSSuperview" ref="198618724"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="976652861">
@@ -649,6 +649,7 @@
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="345803786"/>
 											<reference key="NSControlView" ref="519407295"/>
+											<bool key="NSDrawsBackground">YES</bool>
 											<reference key="NSBackgroundColor" ref="524344585"/>
 											<reference key="NSTextColor" ref="194666949"/>
 										</object>
@@ -704,7 +705,7 @@
 									<object class="NSCustomView" id="473681318">
 										<reference key="NSNextResponder" ref="198618724"/>
 										<int key="NSvFlags">274</int>
-										<string key="NSFrame">{{18, 239}, {329, 67}}</string>
+										<string key="NSFrame">{{18, 238}, {329, 65}}</string>
 										<reference key="NSSuperview" ref="198618724"/>
 										<string key="NSClassName">MTEveSkillQueueHeader</string>
 									</object>
@@ -1130,20 +1131,20 @@
 							<reference ref="596106690"/>
 							<reference ref="159523310"/>
 							<reference ref="566561685"/>
-							<reference ref="505324098"/>
-							<reference ref="699990047"/>
 							<reference ref="1063510943"/>
 							<reference ref="520752534"/>
 							<reference ref="216005183"/>
-							<reference ref="1049045319"/>
 							<reference ref="568994033"/>
 							<reference ref="123646683"/>
 							<reference ref="319029344"/>
 							<reference ref="715539491"/>
 							<reference ref="826603526"/>
+							<reference ref="505324098"/>
+							<reference ref="699990047"/>
+							<reference ref="1049045319"/>
+							<reference ref="519407295"/>
 							<reference ref="473681318"/>
 							<reference ref="1069751759"/>
-							<reference ref="519407295"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -1678,7 +1679,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{548, 286}, {780, 579}}</string>
+					<string>{{315, 249}, {780, 579}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
@@ -2390,6 +2391,7 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
+		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1050" key="NS.object.0"/>

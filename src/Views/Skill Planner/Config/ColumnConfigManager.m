@@ -192,7 +192,7 @@
 
 -(BOOL) moveColumn:(NSInteger)from toPosition:(NSInteger)to
 {
-	
+	return TRUE;
 }
 
 @end

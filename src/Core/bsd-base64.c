@@ -130,8 +130,7 @@ static const char Pad64 = '=';
 	   characters followed by one "=" padding character.
    */
 
-int
-b64_ntop(u_char const *src, size_t srclength, char *target, size_t targsize)
+unsigned long b64_ntop(u_char const *src, size_t srclength, char *target, size_t targsize)
 {
 	size_t datalength = 0;
 	u_char input[3];
@@ -197,8 +196,7 @@ b64_ntop(u_char const *src, size_t srclength, char *target, size_t targsize)
    it returns the number of data bytes stored at the target, or -1 on error.
  */
 
-int
-b64_pton(char const *src, u_char *target, size_t targsize)
+int b64_pton(char const *src, u_char *target, size_t targsize)
 {
 	int tarindex, state, ch;
 	char *pos;

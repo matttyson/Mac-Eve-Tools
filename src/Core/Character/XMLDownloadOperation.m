@@ -56,14 +56,14 @@
  */
 -(BOOL) writeXmlDocument:(NSString*)savePath
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
+	//NSFileManager *fm = [NSFileManager defaultManager];
 	
 	BOOL rc = [xmlData writeToFile:savePath atomically:NO];
 	
 	if(!rc){
 		NSLog(@"Failed to write XML document %@",savePath);
 	}else{
-		NSLog(@"Wrote %d bytes to %@",[xmlData length],savePath);
+		NSLog(@"Wrote %u bytes to %@",[xmlData length], savePath);
 	}
 	
 	return rc;

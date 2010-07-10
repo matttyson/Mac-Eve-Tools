@@ -24,50 +24,18 @@
 #import "macros.h"
 
 @interface Config : NSObject {
-	NSString *apiurl;
-	NSString *picurl;
 	NSString *programName;
 	
-	NSString *rootPath; /*Root path to save data to*/
+		//NSString *rootPath; /*Root path to save data to*/
 		
 	NSMutableArray *accounts; /*a list of Account* objects*/
 	
 	//remove this. push into GlobalData structure
-	NSDateFormatter *dateFormatter;
+	//NSDateFormatter *dateFormatter; -> removed
 		
-	NSString *itemDBPath;
-	
-	NSString *updateFeedUrl;
-	NSString *dbUpdateUrl;
-	NSString *dbSQLUrl;
-	NSString *imageUrl;
-	
-	NSInteger databaseMinimumVersion;
-	
-	BOOL batchUpdateCharacters;
-	BOOL autoUpdate;
-	BOOL startupRefresh;
-	BOOL submitSystemInformation;
 }
 
-@property (nonatomic, readwrite, assign) BOOL autoUpdate;
-@property (nonatomic, readwrite, assign) BOOL startupRefresh;
-@property (nonatomic, readwrite, assign) BOOL batchUpdateCharacters;
-
-@property (nonatomic, readonly) BOOL submitSystemInformation;
-
-@property (nonatomic, readonly) NSString* updateFeedUrl;
-@property (nonatomic, readonly) NSString* dbUpdateUrl;
-@property (nonatomic, readonly) NSString* dbSQLUrl;
-@property (nonatomic, readonly) NSString* imageUrl;
-@property (nonatomic, readonly) NSString* picurl;
-@property (nonatomic, readonly) NSString* rootPath;
-
-@property (nonatomic, readonly) NSString* itemDBPath;
-
-@property (nonatomic, readonly) NSArray* accounts;
-
-@property (nonatomic, readonly) NSInteger databaseMinimumVersion;
+@property (retain) NSMutableArray* accounts;
 
 +(Config*) sharedInstance;
 
@@ -105,6 +73,7 @@
 /*returns the array index*/
 -(NSInteger) addAccount:(Account*)acct;
 -(BOOL) removeAccount:(Account*)acct;
+-(BOOL) clearAccounts;
 
 /*YES if all the required files exist*/
 -(BOOL) requisiteFilesExist;
@@ -114,18 +83,13 @@
 /*read it back in*/
 -(BOOL) readConfig;
 
--(NSString*) formatDate:(NSDate*)date;
-
--(void) setSubmitSystemInformation:(BOOL)status;
-
 //-(NSString*) itemDBFallbackPath;
 
 /*return a list of all the active characters  (CharacterTemplate)*/
 -(NSArray*) activeCharacters;
 
 
--(NSInteger) databaseVersion;
--(BOOL) databaseUpToDate;
+
 
 /*functions for ship and icon graphics*/
 

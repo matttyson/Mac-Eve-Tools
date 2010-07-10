@@ -38,22 +38,48 @@
 							  primary:(BOOL)isPrimary
 {
 	if((self = [super init])){
-		characterId = [charId retain];
-		characterName = [name retain];
-		apiKey = [key retain];
-		accountId = [acctId retain];
-		active = isActive;
-		primary = isPrimary;
+		self.characterId = [charId retain];
+		self.characterName = [name retain];
+		self.apiKey = [key retain];
+		self.accountId = [acctId retain];
+		self.active = isActive;
+		self.primary = isPrimary;
 	}
 	return self;
 }
 
 -(void)dealloc
 {
-	[characterId release];
-	[characterName release];
-	[apiKey release];
-	[accountId release];
+	[self.characterId release];
+	[self.characterName release];
+	[self.apiKey release];
+	[self.accountId release];
 	[super dealloc];
 }
+
+#pragma mark -
+#pragma mark NSCoding protocol
+
+- (id) initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	if (self != nil) {
+		self.accountId = [aDecoder decodeObjectForKey:@"accountId"];
+		self.active = [aDecoder decodeBoolForKey:@"active"];
+		self.apiKey = [aDecoder decodeObjectForKey:@"apiKey"];
+		self.characterId = [aDecoder decodeObjectForKey:@"characterId"];
+		self.characterName = [aDecoder decodeObjectForKey:@"characterName"];
+		self.primary = [aDecoder decodeBoolForKey:@"primary"];
+	}
+	return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:self.accountId forKey:@"accountId"];
+	[aCoder encodeBool:self.active forKey:@"active"];
+	[aCoder encodeObject:self.apiKey forKey:@"apiKey"];
+	[aCoder encodeObject:self.characterId forKey:@"characterId"];
+	[aCoder encodeObject:self.characterName forKey:@"characterName"];
+	[aCoder encodeBool:self.primary forKey:@"primary"];
+}
+
 @end

@@ -40,7 +40,7 @@
 	then, you can pick and choose what characters you care about for that account
 */
 
-@interface Account : NSObject <NSTableViewDataSource> {
+@interface Account : NSObject <NSCoding> { //<NSTableViewDataSource, NSCoding> {
 	NSString *accountID;
 	NSString *apiKey;
 	NSString *accountName; /*user supplied name to identify this account*/
@@ -51,9 +51,10 @@
 	id <AccountUpdateDelegate> delegate;
 }
 
-@property (readwrite,retain) NSString* accountID;
-@property (readwrite,retain) NSString* apiKey;
-@property (readwrite,retain) NSString* accountName;
+@property (retain) NSString* accountID;
+@property (retain) NSString* apiKey;
+@property (retain) NSString* accountName;
+@property (retain) NSMutableArray *characters;
 
 /*This sets up the internal variables, it does not populate the characters*/
 -(Account*) initWithDetails:(NSString*)acctID acctKey:(NSString*)key;
@@ -76,8 +77,8 @@
 
 
 /*NSTableView datasource methods for displaying characters*/
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
+	//- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
+	//- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 
 /*find a character in this account with the given name*/
 -(CharacterTemplate*) findCharacter:(NSString*)charName;

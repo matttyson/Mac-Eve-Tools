@@ -70,7 +70,7 @@
 /*don't call init*/
 -(Character*)init
 {
-	[self doesNotRecognizeSelector:_cmd];
+	[self doesNotRecognizeSelector:_cmd];	
 	return nil;
 }
 

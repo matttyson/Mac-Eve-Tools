@@ -128,7 +128,7 @@
 	xmlNode *result = findChildNode(root_node,(xmlChar*)"error");
 	
 	if(result != NULL){
-		NSLog(@"%s",getNodeText(result));
+		NSLog(@"%@",getNodeText(result));
 		rc = NO;
 	}
 	

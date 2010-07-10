@@ -45,13 +45,15 @@
 	NSDateFormatter *dateFormatter;
 }
 
-@property (readonly,nonatomic) SkillTree* skillTree;
-@property (readonly,nonatomic) CertTree* certTree;
-@property (readonly,nonatomic) CCPDatabase* database;
-@property (readonly,nonatomic) NSDateFormatter* dateFormatter;
+@property (nonatomic, retain) SkillTree* skillTree;
+@property (nonatomic, retain) CertTree* certTree;
+@property (nonatomic, retain) CCPDatabase* database;
+@property (nonatomic, retain) NSDateFormatter* dateFormatter;
 
 +(GlobalData*) sharedInstance;
 
-
+-(NSString*) formatDate:(NSDate*)date;
+-(NSInteger) databaseVersion;
+-(BOOL) databaseUpToDate;
 
 @end

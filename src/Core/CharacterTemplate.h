@@ -20,7 +20,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface CharacterTemplate : NSObject {
+@interface CharacterTemplate : NSObject<NSCoding> {
 	NSString *characterName;
 	NSString *characterId;
 	NSString *accountId;
@@ -29,12 +29,12 @@
 	BOOL primary;
 }
 
-@property (readonly,nonatomic) NSString* characterName;
-@property (readonly,nonatomic) NSString* characterId;
-@property (readonly,nonatomic) NSString* accountId;
-@property (readonly,nonatomic) NSString* apiKey;
-@property (readwrite,nonatomic,assign) BOOL active;
-@property (readwrite,nonatomic,assign) BOOL primary;
+@property (retain) NSString* characterName;
+@property (retain) NSString* characterId;
+@property (retain) NSString* accountId;
+@property (retain) NSString* apiKey;
+@property BOOL active;
+@property BOOL primary;
 
 -(CharacterTemplate*) initWithDetails:(NSString*)name 
 							accountId:(NSString*)acctId
