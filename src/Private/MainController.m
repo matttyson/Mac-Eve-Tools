@@ -164,7 +164,7 @@
 			[serverStatus setImage:[NSImage imageNamed:@"lightgray.tiff"]];
 			break;
 		case ServerStarting:
-			[serverStatus setImage:[NSImage imageNamed:@"yellow.png"]];
+			[serverStatus setImage:[NSImage imageNamed:@"yellow.tiff"]];
 			break;
 	}
 }
