@@ -131,8 +131,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300447080;
-			PBXWorkspaceStateSaveDate = 300447080;
+			PBXPerProjectTemplateStateSaveDate = 300447525;
+			PBXWorkspaceStateSaveDate = 300447525;
 		};
 		perUserProjectItems = {
 			9E01FD7611E4FCF300192C1E = 9E01FD7611E4FCF300192C1E /* PBXBookmark */;
@@ -242,7 +242,6 @@
 			9EF334CB11E86FF4002A3B7D = 9EF334CB11E86FF4002A3B7D /* PBXTextBookmark */;
 			9EF3350E11E87487002A3B7D = 9EF3350E11E87487002A3B7D /* PBXTextBookmark */;
 			9EF3350F11E87487002A3B7D = 9EF3350F11E87487002A3B7D /* PBXTextBookmark */;
-			9EF3351011E87487002A3B7D = 9EF3351011E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351111E87487002A3B7D = 9EF3351111E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351211E87487002A3B7D = 9EF3351211E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351311E87487002A3B7D = 9EF3351311E87487002A3B7D /* PBXTextBookmark */;
@@ -254,11 +253,13 @@
 			9EF3351911E87487002A3B7D = 9EF3351911E87487002A3B7D /* PBXTextBookmark */;
 			9EF3351A11E87487002A3B7D = 9EF3351A11E87487002A3B7D /* PBXTextBookmark */;
 			9EF3352811E874D9002A3B7D = 9EF3352811E874D9002A3B7D /* PBXTextBookmark */;
-			9EF3352911E874D9002A3B7D = 9EF3352911E874D9002A3B7D /* PBXBookmark */;
-			9EF3353911E87506002A3B7D = 9EF3353911E87506002A3B7D /* PBXTextBookmark */;
-			9EF3354A11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354A11E8759A002A3B7D /* PBXTextBookmark */;
-			9EF3354C11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354C11E8759A002A3B7D /* PBXTextBookmark */;
-			9EF3354D11E8759A002A3B7D /* PBXTextBookmark */ = 9EF3354D11E8759A002A3B7D /* PBXTextBookmark */;
+			9EF3354A11E8759A002A3B7D = 9EF3354A11E8759A002A3B7D /* PBXTextBookmark */;
+			9EF3355911E87631002A3B7D = 9EF3355911E87631002A3B7D /* PBXTextBookmark */;
+			9EF3355A11E87631002A3B7D = 9EF3355A11E87631002A3B7D /* PBXBookmark */;
+			9EF3355B11E87631002A3B7D = 9EF3355B11E87631002A3B7D /* PBXBookmark */;
+			9EF3355C11E87631002A3B7D = 9EF3355C11E87631002A3B7D /* PBXTextBookmark */;
+			9EF3355D11E87631002A3B7D = 9EF3355D11E87631002A3B7D /* PBXTextBookmark */;
+			9EF335AF11E87742002A3B7D /* PBXTextBookmark */ = 9EF335AF11E87742002A3B7D /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9E41952111C4B63B003D2093 /* Source Control */;
 		userBuildSettings = {
@@ -1507,16 +1508,6 @@
 		vrLen = 577;
 		vrLoc = 0;
 	};
-	9EF3351011E87487002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C9F5148E1056721300654F6D /* MainController.m */;
-		name = "MainController.m: 798";
-		rLen = 0;
-		rLoc = 22303;
-		rType = 0;
-		vrLen = 811;
-		vrLoc = 22192;
-	};
 	9EF3351111E87487002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C9FF471710550BA50044BBAC /* Helpers.h */;
@@ -1627,38 +1618,12 @@
 		vrLen = 210;
 		vrLoc = 2001;
 	};
-	9EF3352911E874D9002A3B7D /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 9EF3352F11E874D9002A3B7D /* sebastian.pbxuser */;
-	};
-	9EF3352F11E874D9002A3B7D /* sebastian.pbxuser */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text;
-		name = sebastian.pbxuser;
-		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
-		sourceTree = "<absolute>";
-	};
-	9EF3353911E87506002A3B7D /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
-		name = "sebastian.pbxuser: 2877";
-		rLen = 0;
-		rLoc = 84362;
-		rType = 0;
-		vrLen = 254;
-		vrLoc = 0;
-	};
 	9EF3353A11E87506002A3B7D /* sebastian.pbxuser */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = text;
 		name = sebastian.pbxuser;
 		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/sebastian.pbxuser";
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {925, 33189}}";
-			sepNavSelRange = "{76400, 0}";
-			sepNavVisRange = "{0, 189}";
-		};
 	};
 	9EF3354A11E8759A002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1672,11 +1637,12 @@
 	};
 	9EF3354B11E8759A002A3B7D /* project.pbxproj */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = text.pbxproject;
 		name = project.pbxproj;
 		path = "/Users/sebastian/Documents/Dev/Mac Eve/Mac Eve Tools/src/Mac Eve Tools.xcodeproj/project.pbxproj";
 		sourceTree = "<absolute>";
 	};
-	9EF3354C11E8759A002A3B7D /* PBXTextBookmark */ = {
+	9EF3355911E87631002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
 		name = "sebastian.pbxuser: 2558";
@@ -1686,15 +1652,43 @@
 		vrLen = 189;
 		vrLoc = 0;
 	};
-	9EF3354D11E8759A002A3B7D /* PBXTextBookmark */ = {
+	9EF3355A11E87631002A3B7D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = C9FF455C105508950044BBAC /* darkgray.tiff */;
+	};
+	9EF3355B11E87631002A3B7D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = C9FF4565105508950044BBAC /* yellow.tiff */;
+	};
+	9EF3355C11E87631002A3B7D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 9EF3353A11E87506002A3B7D /* sebastian.pbxuser */;
-		name = "sebastian.pbxuser: 2558";
-		rLen = 0;
-		rLoc = 76400;
+		fRef = C9F5148E1056721300654F6D /* MainController.m */;
+		name = "MainController.m: 167";
+		rLen = 4;
+		rLoc = 4109;
 		rType = 0;
-		vrLen = 189;
-		vrLoc = 0;
+		vrLen = 905;
+		vrLoc = 3682;
+	};
+	9EF3355D11E87631002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C9F5148E1056721300654F6D /* MainController.m */;
+		name = "MainController.m: 167";
+		rLen = 4;
+		rLoc = 4109;
+		rType = 0;
+		vrLen = 792;
+		vrLoc = 3682;
+	};
+	9EF335AF11E87742002A3B7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C9F5148E1056721300654F6D /* MainController.m */;
+		name = "MainController.m: 167";
+		rLen = 4;
+		rLoc = 4109;
+		rType = 0;
+		vrLen = 792;
+		vrLoc = 3682;
 	};
 	C90FB55A10644F8600292067 /* METInstance.h */ = {
 		uiCtxt = {
@@ -2024,9 +2018,9 @@
 	};
 	C9F5148E1056721300654F6D /* MainController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {925, 11180}}";
-			sepNavSelRange = "{4113, 0}";
-			sepNavVisRange = "{3682, 906}";
+			sepNavIntBoundsRect = "{{0, 0}, {925, 11102}}";
+			sepNavSelRange = "{4109, 4}";
+			sepNavVisRange = "{3682, 792}";
 			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
 		};
 	};
