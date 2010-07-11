@@ -102,9 +102,7 @@
 	[op setCharacterDirectory:characterDir];
 	
 	[op setXmlDoc:docPath];
-	
-	[apiUrl release];
-		
+			
 	return op;
 }
 
