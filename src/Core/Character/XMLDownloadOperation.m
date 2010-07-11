@@ -95,6 +95,7 @@
 	}
 	
 	[xmlDoc release];
+	[xmlDocUrl release];
 	
 	[super dealloc];
 }
