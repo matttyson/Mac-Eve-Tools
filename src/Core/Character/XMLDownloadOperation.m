@@ -63,7 +63,7 @@
 	if(!rc){
 		NSLog(@"Failed to write XML document %@",savePath);
 	}else{
-		NSLog(@"Wrote %u bytes to %@",[xmlData length], savePath);
+		NSLog(@"Wrote %lu bytes to %@",[xmlData length], savePath);
 	}
 	
 	return rc;
