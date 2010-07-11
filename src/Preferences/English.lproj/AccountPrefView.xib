@@ -127,7 +127,7 @@
 														<string key="NSColorName">controlBackgroundColor</string>
 														<object class="NSColor" key="NSColor" id="80487130">
 															<int key="NSColorSpace">3</int>
-															<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
+															<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 														</object>
 													</object>
 													<object class="NSColor" key="NSTextColor" id="599613124">
@@ -406,7 +406,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="806782734">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">User name</string>
+							<string key="NSContents">User ID</string>
 							<reference key="NSSupport" ref="1053899692"/>
 							<reference key="NSControlView" ref="997624951"/>
 							<reference key="NSBackgroundColor" ref="739632500"/>
@@ -1232,7 +1232,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{467, 395}, {592, 373}}</string>
+					<string>{{32, 221}, {592, 373}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
