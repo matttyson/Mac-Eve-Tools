@@ -39,7 +39,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">4111</int>
+				<int key="NSWindowStyleMask">4107</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{386, 128}, {492, 516}}</string>
 				<int key="NSWTFlags">-529006592</int>
