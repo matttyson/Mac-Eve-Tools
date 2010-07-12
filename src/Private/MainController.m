@@ -460,13 +460,15 @@
 #ifndef MACEVEAPI_DEBUG
 	[NSApp stopModal];
 #endif
+	[[[MBPreferencesController sharedController] moduleForIdentifier:@"AccountPrefView"] willBeClosed];
+	//[[Config sharedInstance] clearAccounts];
 	[self reloadAllCharacters];
 	[overviewTableView reloadData];
 	
-	[self fetchCharButtonClick:nil];
 	[self performSelector:@selector(setCurrentCharacter:) 
 			   withObject:[characterManager defaultCharacter]];
 	
+	[self fetchCharButtonClick:nil];
 	[self updatePopupButton];
 }
 

@@ -240,6 +240,10 @@ static MBPreferencesController *sharedPreferencesController = nil;
 
 - (void)_changeToModule:(id<MBPreferencesModule>)module
 {
+	if ([(NSObject *)module respondsToSelector:@selector(willBeClosed)]) {
+		[module willBeClosed];
+	}
+	
 	[[_currentModule view] removeFromSuperview];
 	
 	NSView *newView = [module view];

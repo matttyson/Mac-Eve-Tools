@@ -69,7 +69,9 @@
  *              active to avoid slowdowns in cases where the user never activates the
  *              module in question.
  */
-- (void)willBeDisplayed;
+- (void) willBeDisplayed;
+
+- (void) willBeClosed;
 @end
 
 /**
