@@ -66,12 +66,12 @@
 -(void) deleteSkillPlan:(NSIndexSet*)planIndexes
 {
 	NSUInteger rowsetCount = [planIndexes count];
-///What does the ary do? fixed bug here: because ary the index get out of bounds while deleting skill plan  
-	//NSUInteger *ary = malloc(sizeof(NSUInteger) * rowsetCount);
-	//NSUInteger actual = [planIndexes getIndexes:ary maxCount:(sizeof(NSUInteger) * rowsetCount) inIndexRange:nil];
+	NSUInteger *ary = malloc(sizeof(NSUInteger) * rowsetCount);
+	NSUInteger actual = [planIndexes getIndexes:ary maxCount:(sizeof(NSUInteger) * rowsetCount) inIndexRange:nil];
 	
-	for(NSUInteger i = 0; i < rowsetCount; i++){
-		SkillPlan *plan = [character skillPlanAtIndex:i];
+	for(NSUInteger i = 0; i < actual; i++){
+		SkillPlan *plan = [character skillPlanAtIndex:ary[i]];
+		
 		if(plan == nil){
 			continue;
 		}
@@ -81,7 +81,7 @@
 		[self refreshPlanView];
 		[self repositionButton];
 	}
-	//free(ary);
+	free(ary);
 }
 
 // The tag is the plan id.  There's no way to call this from the datasource after the rename
