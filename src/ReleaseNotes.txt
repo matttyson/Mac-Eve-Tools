@@ -1,3 +1,8 @@
+Release 16.14 (14/07/2010)
+	Fixed a bug that caused the wrong skill plan to be deleted
+Release 16.13 (13/07/2010)
+	Now with 10% more workage!
+
 Release 16.12 (12/07/2010)
 	Fixed incorrect training time display for currently training skill.
 	Add a display to the skill window that shows what is enabled
