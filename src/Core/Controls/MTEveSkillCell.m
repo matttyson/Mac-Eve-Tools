@@ -244,9 +244,9 @@
 
 
 // Level 4 etc (text string) bounding box
--(NSRect) skillTimeLeftRect:(const NSRect* restrict)bounds 
-			   skillBoxRect:(const NSRect* restrict)skillBoxRect
-				  topString:(NSAttributedString* restrict)topStr
+-(NSRect) skillTimeLeftRect:(const NSRect*)bounds 
+			   skillBoxRect:(const NSRect*)skillBoxRect
+				  topString:(NSAttributedString*)topStr
 {
 	NSSize size = [topStr size];
 	NSRect result = NSMakeRect(skillBoxRect->origin.x - TEXT_RIGHT_PADDING - size.width,
@@ -257,9 +257,9 @@
 
 
 //2d 20h 38m 15s etc (text string) bounding box
--(NSRect) skillTimeLeftRect:(const NSRect* restrict)bounds 
-			   skillBoxRect:(const NSRect* restrict)skillBoxRect
-			   bottomString:(NSAttributedString* restrict)topStr
+-(NSRect) skillTimeLeftRect:(const NSRect*)bounds 
+			   skillBoxRect:(const NSRect*)skillBoxRect
+			   bottomString:(NSAttributedString*)topStr
 {
 	NSSize size = [topStr size];
 	NSRect result = NSMakeRect(skillBoxRect->origin.x - TEXT_RIGHT_PADDING - size.width,
@@ -328,8 +328,8 @@
 	Give the location of the rect for drawing the skill
 	box rectangle
  */
--(NSRect) skillBoxRect:(const NSRect* restrict)bounds 
-			  infoRect:(const NSRect* restrict)infoRect
+-(NSRect) skillBoxRect:(const NSRect*)bounds 
+			  infoRect:(const NSRect*)infoRect
 			   yOffset:(CGFloat)yOffset
 {
 	NSRect result;
@@ -345,8 +345,8 @@
 }
 
 /*draw the rectangle that surrounds the skill progress bar*/
--(NSRect) skillProgressRect:(const NSRect* restrict)bounds
-				   infoRect:(const NSRect* restrict)infoRect
+-(NSRect) skillProgressRect:(const NSRect*)bounds
+				   infoRect:(const NSRect*)infoRect
 					yOffset:(CGFloat)yOffset
 {
 	NSRect result;
@@ -428,8 +428,8 @@
 	return result;
 }
 
-- (NSRect)upperRectForBounds:(const NSRect* restrict)bounds 
-				   andString:(NSAttributedString* restrict)title 
+- (NSRect)upperRectForBounds:(const NSRect*)bounds 
+				   andString:(NSAttributedString*)title 
 {
     NSRect result = *bounds;
     // The x origin is easy
