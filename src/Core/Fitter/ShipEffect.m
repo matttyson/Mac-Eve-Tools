@@ -18,9 +18,9 @@
  */
 
 
-#import "ShipFitter.h"
+#import "ShipEffect.h"
 
 
-@implementation ShipFitter
+@implementation ShipEffect
 
 @end

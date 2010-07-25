@@ -82,9 +82,9 @@
 -(SkillTree*) buildSkillTree;
 
 // Simplified attribute type array for ship fitting
--(NSArray*) attributesForType:(NSInteger)typeID;
+-(NSDictionary*) attributesForType:(NSInteger)typeID;
 
 // Returns all the invTypes that require the given skillID
--(NSMutableDictionary*) dependenciesForSkillByCategory:(NSInteger)typeID;
+-(NSDictionary*) dependenciesForSkillByCategory:(NSInteger)typeID;
 
 @end

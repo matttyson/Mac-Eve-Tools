@@ -17,11 +17,28 @@
  Copyright Matt Tyson, 2009.
  */
 
+
 #import <Cocoa/Cocoa.h>
 
+#import "FitterMacros.h"
 
-@interface ShipFitter : NSObject {
+@interface ShipEffect : NSObject {
+	NSInteger shipTypeID;	// TypeID of the ship.
+	enum EffectType affectingType; //
 	
+	NSInteger affectingID; // The TypeID of the skill that is causing this effect
+	NSInteger affectingAttributeID; // the attributeID that this effect is applied to
+
+	enum EffectType affectedType; // ???
+	NSMutableArray *affectedTypeID;  //A list of typeIDs that are affected by this
+	
+	enum EffectStackType stackingNerf; // Something to do with how the stacking nerf is calculated.
+	BOOL isPerLevel; //  Not entierly sure yet. maybe it means this attribute is applied once per level.
+	
+	enum EffectCalcType calcType; // How is this attribute calculated?
+	
+	NSInteger status; // ??
+	CGFloat value;
 }
 
 @end

@@ -1162,7 +1162,7 @@
 	return dict;
 }
 
--(NSArray*) attributesForType:(NSInteger)typeID
+-(NSDictionary*) attributesForType:(NSInteger)typeID
 {
 	const char query[] = 
 		"SELECT attributeID, attributeName, COALESCE(valueFloat,valueInt) "
@@ -1179,7 +1179,7 @@
 		return nil;
 	}
 	
-	NSMutableArray *attrArray = [[[NSMutableArray alloc]init]autorelease];
+	NSMutableDictionary *attrDict = [[[NSMutableDictionary alloc]init]autorelease];
 	
 	sqlite3_bind_nsint(read_stmt,0,typeID);
 	
@@ -1191,14 +1191,14 @@
 		
 		CCPAttributeData *attr = [[CCPAttributeData alloc]initWithValues:attrID value:value name:attrName];
 		
-		[attrArray addObject:attr];
+		[attrDict setObject:attr forKey:[NSNumber numberWithInteger:attrID]];
 		
 		[attr release];
 	}
 	
 	sqlite3_finalize(read_stmt);
 	
-	return attrArray;
+	return attrDict;
 }
 
 @end
