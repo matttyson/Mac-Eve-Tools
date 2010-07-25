@@ -305,19 +305,7 @@ enum AttributeTypeGroups
 typedef enum AttributeTypeGroups AttributeTypeGroups;
 
 
-/*Slot type values for the ship fitter*/
-enum SlotType
-{
-	Slot_high,
-	Slot_med,
-	Slow_low,
-	Slot_rig_s,
-	Slot_rig_m,
-	Slot_rig_l,
-	Slot_rig_total, //Total number of rig slots (of all types)
-	Slot_subsystem
-};
-typedef enum SlotType SlotType;
+
 
 /*Don't fuck with these values unless you're special*/
 enum DatabaseLanguage
