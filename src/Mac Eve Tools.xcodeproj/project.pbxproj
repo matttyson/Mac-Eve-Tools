@@ -36,6 +36,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9ED23164120217C20035D71B /* ModuleCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2315F120217C20035D71B /* ModuleCharge.m */; };
+		9ED23165120217C20035D71B /* ShipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED23161120217C20035D71B /* ShipEffect.m */; };
+		9ED23166120217C20035D71B /* ShipSlots.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED23163120217C20035D71B /* ShipSlots.m */; };
 		9EF3338C11E79B1A002A3B7D /* AccountPrefDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337111E79B19002A3B7D /* AccountPrefDetailController.m */; };
 		9EF3338D11E79B1A002A3B7D /* AccountPrefTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337311E79B19002A3B7D /* AccountPrefTableController.m */; };
 		9EF3338E11E79B1A002A3B7D /* AccountPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3337511E79B19002A3B7D /* AccountPrefViewController.m */; };
@@ -200,6 +203,13 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Mac_Eve_Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac_Eve_Tools-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Mac Eve Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Eve Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ED2315D120217C20035D71B /* FitterMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitterMacros.h; sourceTree = "<group>"; };
+		9ED2315E120217C20035D71B /* ModuleCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleCharge.h; sourceTree = "<group>"; };
+		9ED2315F120217C20035D71B /* ModuleCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleCharge.m; sourceTree = "<group>"; };
+		9ED23160120217C20035D71B /* ShipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipEffect.h; sourceTree = "<group>"; };
+		9ED23161120217C20035D71B /* ShipEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipEffect.m; sourceTree = "<group>"; };
+		9ED23162120217C20035D71B /* ShipSlots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSlots.h; sourceTree = "<group>"; };
+		9ED23163120217C20035D71B /* ShipSlots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipSlots.m; sourceTree = "<group>"; };
 		9EF3337011E79B19002A3B7D /* AccountPrefDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefDetailController.h; sourceTree = "<group>"; };
 		9EF3337111E79B19002A3B7D /* AccountPrefDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefDetailController.m; sourceTree = "<group>"; };
 		9EF3337211E79B19002A3B7D /* AccountPrefTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefTableController.h; sourceTree = "<group>"; };
@@ -620,6 +630,13 @@
 		C988786F118D161B00F87C2A /* Fitter */ = {
 			isa = PBXGroup;
 			children = (
+				9ED2315D120217C20035D71B /* FitterMacros.h */,
+				9ED2315E120217C20035D71B /* ModuleCharge.h */,
+				9ED2315F120217C20035D71B /* ModuleCharge.m */,
+				9ED23160120217C20035D71B /* ShipEffect.h */,
+				9ED23161120217C20035D71B /* ShipEffect.m */,
+				9ED23162120217C20035D71B /* ShipSlots.h */,
+				9ED23163120217C20035D71B /* ShipSlots.m */,
 				C9887870118D163600F87C2A /* ShipFitter.h */,
 				C9887871118D163600F87C2A /* ShipFitter.m */,
 				C985432911C4A6E5000E3B43 /* Notes */,
@@ -1199,6 +1216,9 @@
 				9EF3339511E79B1A002A3B7D /* MBPreferencesController.m in Sources */,
 				9EF3339611E79B1A002A3B7D /* NSTableViewCellExtended.m in Sources */,
 				9EF3339711E79B1A002A3B7D /* SkillPlannerPrefViewController.m in Sources */,
+				9ED23164120217C20035D71B /* ModuleCharge.m in Sources */,
+				9ED23165120217C20035D71B /* ShipEffect.m in Sources */,
+				9ED23166120217C20035D71B /* ShipSlots.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -418,22 +418,9 @@
 	[monitor startMonitoring];
 		//[self fetchCharButtonClick:nil];
 	
-	/* update labels in the gui */
-	/*[fetchCharButton setLabel:NSLocalizedString(@"reload", @"Label for reload button")];
-	[fetchCharButton setPaletteLabel:NSLocalizedString(@"reload", @"Label for reload button")];
-	
-	[charOverviewButton setLabel:NSLocalizedString(@"Characters", nil)];
-	[charOverviewButton setPaletteLabel:NSLocalizedString(@"Characters", nil)];
-	
-	[charSheetButton setLabel:NSLocalizedString(@"Character Sheet", nil)];
-	[charSheetButton setPaletteLabel:NSLocalizedString(@"Character Sheet", nil)];
-	
-	[skillPlannerButton setLabel:NSLocalizedString(@"Skill Planner", nil)];
-	[skillPlannerButton setPaletteLabel:NSLocalizedString(@"Skill Planner", nil)];
-	
-	[charToolbarButton setLabel:NSLocalizedString(@"Char List", nil)];
-	[charToolbarButton setPaletteLabel:NSLocalizedString(@"Char List", nil)];
-	 */
+	if ([characterManager defaultCharacter] != NULL) {
+		[self fetchCharButtonClick:nil];
+	}
 }
 
 -(void) setAsActiveView:(id<METPluggableView>)mvc
