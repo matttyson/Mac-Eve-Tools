@@ -1,20 +1,38 @@
 (Incomplete) readme for Mac Eve Tools
 
+This project is licenced under the GNU GPL v3.
+
 Building:
 
 Requires Snow Leopard and Xcode 3.2
+It can be made to work on Leopard 10.5 with a little effort.
 
 Mac Eve Tools can use Sparkle to manage updates and can be found here:
 http://sparkle.andymatuschak.org/
 
+Quasi design document:
 
-Design docs etc to follow.
+The Private/MainController.m file is where the execution starts.
+first in init, then awakeFromNib will be called, then appIsActive.
+After that the program is up and running and ready for use.
 
-I can be contacted at mtyson@mtyson.id.au with questions
-
-Websites to follow.
-
-http://macevetools.battleclinic.com:8005/trac/wiki
-http://macevetools.battleclinic.com/ 
-http://forum.battleclinic.com/index.php/board,293.0/General-Discussion.html
-
+Core:
+	Core functionality, the user interface calls these classes to do stuff.
+  	Heavy lifting such as calculating skill plans, managing character updates,
+	database access and skill tree and stuff is all in here.
+Core/Controls
+	User interface elements
+Core/Character
+	The character object and related support classes.
+Core/SQLite Database
+	SQLite database implementation used for storing skill plans
+Core/Skills
+	Skill tree and Skill plan related data.
+Views:
+	The user interface is implemented in here, it will use the Core classes
+	to perform its operations.
+Windows:
+	Pop up windows that display info about a skill, ship, certificate etc.
+Private:
+	Top level stuff that handles app startup / shutdown and manages the main
+	window. 
