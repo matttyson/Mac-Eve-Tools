@@ -517,7 +517,7 @@
 	[prefDefaults setObject:[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath] forKey:UD_ROOT_PATH];
 	[prefDefaults setObject:[[@"~/Library/Application Support/MacEveApi" stringByExpandingTildeInPath] stringByAppendingFormat:@"/database.sqlite"] forKey:UD_ITEM_DB_PATH];
 	[prefDefaults setObject:@"http://api.eve-online.com" forKey:UD_API_URL];
-	[prefDefaults setObject:@"http://oldportraits.eveonline.com/Character/%@_256.jpg" forKey:UD_PICTURE_URL];
+	[prefDefaults setObject:@"http://image.eveonline.com/Character/%@_256.jpg" forKey:UD_PICTURE_URL];
 	
 	[prefDefaults setObject:@"http://mtyson.id.au/MacEveApi-appcast.xml" forKey:UD_UPDATE_FEED_URL];
 	[prefDefaults setObject:@"http://www.mtyson.id.au/MacEveApi/MacEveApi-database.xml" forKey:UD_DB_UPDATE_URL];
