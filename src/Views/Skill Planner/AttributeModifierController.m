@@ -65,17 +65,12 @@
 	willpower = [character attributeValue:ATTR_WILLPOWER];
 	memory = [character attributeValue:ATTR_MEMORY];
 	
-	Skill *s = [[character skillSet]objectForKey:[NSNumber numberWithInteger:SKILL_LEARNING]];
-	learning = [s skillLevel];
-	
-	[lrnField setIntegerValue:learning];
 	[intField setIntegerValue:intelligence];
 	[perField setIntegerValue:perception];
 	[chrField setIntegerValue:charisma];
 	[wilField setIntegerValue:willpower];
 	[memField setIntegerValue:memory];
 	
-	[lrnStepper setIntegerValue:learning];
 	[intStepper setIntegerValue:intelligence];
 	[perStepper setIntegerValue:perception];
 	[chrStepper setIntegerValue:charisma];
@@ -172,28 +167,6 @@
 	plan = nil;
 	
 	[NSApp endSheet:sheet];
-}
-
--(IBAction) learningUpdate:(id)sender
-{
-	NSInteger newValue = [sender integerValue];
-	
-	if(newValue > 5){
-		newValue = 5;
-	}
-	if(newValue < 0){
-		newValue = 0;
-	}
-	
-	NSInteger modValue = newValue - learning;
-	
-	[lrnStepper setIntegerValue:newValue];
-	[lrnField setIntegerValue:newValue];
-	
-	[character setLearning:modValue];
-	[character processAttributeSkills];
-	
-	[self updateStringValues];
 }
 
 -(void) updateTotalAttributePoints

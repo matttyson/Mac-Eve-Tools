@@ -25,7 +25,7 @@
 
 -(SqliteDatabase*) initWithPath:(NSString*)dbPath
 {
-	if(self = [super init]){
+	if((self = [super init])){
 		
 		databasePath = [dbPath retain];
 		path = strdup([dbPath fileSystemRepresentation]);

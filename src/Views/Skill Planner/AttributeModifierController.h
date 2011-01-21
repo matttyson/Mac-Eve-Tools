@@ -43,7 +43,6 @@
 	
 	IBOutlet NSTextField *totalAttributePoints;
 	
-	NSInteger learning;
 	NSInteger intelligence;
 	NSInteger perception;
 	NSInteger charisma;
@@ -69,8 +68,6 @@
 
 -(IBAction) closeButtonClick:(id)sender;
 -(IBAction) resetButtonClick:(id)sender;
-
--(IBAction) learningUpdate:(id)sender;
 
 -(IBAction) willpowerUpdate:(id)sender;
 -(IBAction) intelligenceUpdate:(id)sender;
