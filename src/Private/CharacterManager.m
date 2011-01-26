@@ -60,7 +60,7 @@
 //Download the character portrait.
 -(NSOperation*) buildPortraitOperation:(CharacterTemplate*)template
 {
-	NSString *pictureUrl = [NSString stringWithFormat:@"%@&c=%@",
+	NSString *pictureUrl = [NSString stringWithFormat:@"%@%@_256.jpg",
 							[[NSUserDefaults standardUserDefaults] stringForKey:UD_PICTURE_URL],
 							[template characterId]];
 	
