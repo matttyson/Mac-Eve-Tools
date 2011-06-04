@@ -36,3 +36,9 @@ Windows:
 Private:
 	Top level stuff that handles app startup / shutdown and manages the main
 	window. 
+
+In the dbscripts subdirectory there is a series of scripts that's used to
+build the database that MET uses.  It's a modified and heavily cut down
+version of the CCP database export, and is built by connecting to
+a MySQL server that hosts the CCP DB export and fetching and processing
+the required data.  See the dbscripts/README file for more info.
