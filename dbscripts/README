@@ -1,0 +1,53 @@
+Mac Eve Tools DB Build scripts
+
+This is a series of scripts that will take the CCP db export 
+(hosted on a MySQL server) and build an sqlite database that
+MET can use.
+
+You need:
+The CCP DB export, hosted on a MySQL server. It can be found here:
+http://www.eveonline.com/ingameboard.asp?a=channel&channelID=3525
+
+Edit the various .py and .pl files and edit the connection
+info to point to your database.
+
+Compile the SHA1 hash program by running make.
+
+Edit build_dbexport.sh.
+
+Edit the DB version number ($DBVERSION) to match what is in the 
+config object in MET.
+Edit the DB name ($DBEXPANSION) to match the name of the expansion
+that the database belongs to.
+
+Important:
+If the version number of the database is less than what is hardcoded in 
+the MET config object, MET will insist on downloading a new database
+each time it loads.  If it can't find the new version then it will
+get stuck in a loop.  The only way to fix this is to manually
+update the version number in the DB to be >= to the hardcoded value
+in MET
+
+To build the database run build_dbexport.sh
+
+If it ran with no errors, you will have two new files
+
+* database.sql.bz2
+* MacEveApi-database.xml
+
+The sql.bz2 file is a compressed SQL dump containing all the
+SQL statements needed to build a new sqlite database.
+
+The xml file contains MD5 encoded SHA-1 checksums of the database in
+compressed and uncompressed forms.
+
+If you wish to use the resulting database in MET directly you
+can build an sqlite database from the bz2 like so
+
+bunzip2 -kc database.sql.bz2 | sqlite3 database.sqlite
+copy database.sqlite to ~/Library/Application Support/MacEveApi/
+
+When MET starts up it should be using the new database.
+You can verfy this by looking at the database name in the database
+tab in the preference menu.
+
