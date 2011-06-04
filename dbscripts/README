@@ -38,7 +38,7 @@ If it ran with no errors, you will have two new files
 The sql.bz2 file is a compressed SQL dump containing all the
 SQL statements needed to build a new sqlite database.
 
-The xml file contains MD5 encoded SHA-1 checksums of the database in
+The xml file contains Base64 encoded SHA-1 checksums of the database in
 compressed and uncompressed forms.
 
 If you wish to use the resulting database in MET directly you
