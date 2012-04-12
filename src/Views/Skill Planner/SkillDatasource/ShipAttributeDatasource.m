@@ -41,7 +41,7 @@
 	[self addAttribute:attrType groupName:@"Structure"];
 	
 	attrType = [db attributeForType:typeID groupBy:Armour];
-	[self addAttribute:attrType groupName:@"Armour"];
+	[self addAttribute:attrType groupName:@"Armor"];
 	
 	attrType = [db attributeForType:typeID groupBy:Shield];
 	[self addAttribute:attrType groupName:@"Shield"];
